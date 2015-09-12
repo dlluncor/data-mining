@@ -7,3 +7,7 @@ connect("social")
 class Tweet(DynamicDocument):
     id = LongField(primary_key=True)
     pass
+
+class User(DynamicDocument):
+    id = LongField(primary_key=True)
+    pass

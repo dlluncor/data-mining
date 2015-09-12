@@ -1,6 +1,6 @@
 import json, sys, time, twitter
 from functools import partial
-from models import Tweet
+from models import Tweet, User
 from urllib2 import URLError
 from httplib import BadStatusLine
 
@@ -15,9 +15,9 @@ CONSUMER_SECRET = 'ZF8ZAK3KiMRm5FDnAgUgZQxm3nbNkmlXMmOSu1PkDhSSmRAG9c'
 OAUTH_TOKEN = '3322576890-FljbPNB66U36q9hTls8FKHNszOlnNiIdc8m2ZqS'
 OAUTH_TOKEN_SECRET = 'HIVNlfcpedyX6yfc55AxyFk6mzcx2ivgducqlNhJcWAsM'
 auth = twitter.oauth.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
+
 twitter_api = twitter.Twitter(auth=auth)
 
-eq_public_accounts = ['earthquakesla','quakestoday', 'earthquakessf']
 def make_twitter_request(twitter_api_func, max_errors=10, *args, **kw):
     # A nested helper function that handles common HTTPErrors. Return an updated
     # value for wait_period if the problem is a 500 level error. Block until the
@@ -58,7 +58,9 @@ def make_twitter_request(twitter_api_func, max_errors=10, *args, **kw):
     error_count = 0
     while True:
         try:
-            return twitter_api_func(*args, **kw)
+            response = twitter_api_func(*args, **kw)
+            time.sleep(wait_period)
+            return response
         except twitter.api.TwitterHTTPError, e:
             error_count = 0
             wait_period = handle_twitter_http_error(e, wait_period)
@@ -84,26 +86,34 @@ def search(q, count=1):
 
     items_per_request = 10
     kwargs = {
-        #'geocode': '37.4238253802915,-122.0829009197085,1000mi',
+        #'geocode': '37.4238253802915,-122.0829009197085,1000mi', # seems wrong usage
         'lang': 'en',
         'q': q,
     }
 
-    # twitter_api.search.tweets(q='insurance', count=1,geocode='37.4238253802915,-122.0829009197085,1000mi', lang='en')
-    twitter_api_func = twitter_api.search.tweets
-
+    tweets = []
     while count > 0:
         print("remain %s statuses" % count)
         if count < items_per_request:
             items_per_request = count
 
         kwargs['count'] = items_per_request
-        search_results = make_twitter_request(twitter_api_func, **kwargs)
+
+        # twitter_api.search.tweets(q='insurance', count=1,geocode='37.4238253802915,-122.0829009197085,1000mi', lang='en')
+        search_results = make_twitter_request(twitter_api.search.tweets, **kwargs)
+
+        print(json.dumps(search_results, indent=2))
+        if not search_results:
+            break
+
         statuses = search_results['statuses']
-        save(statuses)
+        tweets += statuses
 
         try:
-            next_results = search_results['search_metadata']['next_results']
+            next_results = search_results['search_metadata'].get('next_results', None)
+
+            if not next_results:
+                break
         except KeyError, e:
             print("Oooooops, we got an error!")
             break
@@ -111,48 +121,56 @@ def search(q, count=1):
         kwargs = dict([kv.split('=') for kv in next_results[1:].split("&")])
         count -= items_per_request
 
+    return tweets
     print("DONE")
 
-
-# tweets are list of tweet in dict
-def save(tweets):
-    print("save %s tweets" % len(tweets))
-    for item in tweets:
-        tweet = Tweet(**item)
-        tweet.save()
-        print(json.dumps(item, indent=2))
-
-def get_user_profile(twitter_api, screen_name=None, users_id=None):
+def get_user_profile(screen_name=None, users_id=None):
     if screen_name is None and users_id is None:
         return
 
+    kwargs = {
+        'skip_status': True,
+        'include_user_entities': False
+    }
     users = {}
-    twitter_api_func = twitter_api.users.lookup
 
     if screen_name:
-        response = make_twitter_request(twitter_api_func, screen_name=screen_name)
+        kwargs['screen_name'] = screen_name
     else:
-        response = make_twitter_request(twitter_api_func, user_id=user_id)
+        kwargs['user_id'] = user_id
+
+    fetch_profile = partial(make_twitter_request, twitter_api.users.show, **kwargs)
+    response = fetch_profile()
 
     return response
 
-def get_follower(screen_name=None, user_id=None):
+def get_followers(screen_name=None, user_id=None, save_in_time=True):
     if screen_name is None and users_id is None:
         return
 
-    twitter_api_func = partial(make_twitter_request, twitter_api.followers.list, count=200)
+    kwargs = {
+        'skip_status': True,
+        'include_user_entities': False,
+        'count': 200
+    }
+
+    fetch_followers = partial(make_twitter_request, twitter_api.followers.list, **kwargs)
 
     followers = []
     cursor = -1
     while cursor != 0:
         if screen_name:
-            response = twitter_api_func(screen_name=screen_name, cursor=cursor)
+            response = fetch_followers(screen_name=screen_name, cursor=cursor)
         else:
-            response = twitter_api_func(user_id=user_id, cursor=cursor)
+            response = fetch_followers(user_id=user_id, cursor=cursor)
 
         if response:
-            followers += response['users']
+            if save_in_time:
+                save_users(response['users'])
+            else:
+                followers += response['users']
             cursor = response['next_cursor']
+
             print("Fetch {0} total followers for {1}".format(len(followers), (screen_name or user_id)))
         else:
             break
@@ -161,7 +179,7 @@ def get_follower(screen_name=None, user_id=None):
 
 # https://dev.twitter.com/rest/reference/get/statuses/user_timeline
 # max_count should less than 3200
-def harvest_user_timeline(screen_name=None, user_id=None, max_count=2000):
+def harvest_user_timeline(screen_name=None, user_id=None, max_count=2000, save_in_time=True):
     if screen_name is None and users_id is None:
         return
 
@@ -176,29 +194,54 @@ def harvest_user_timeline(screen_name=None, user_id=None, max_count=2000):
     else:
         kwargs['user_id'] = user_id
 
-    twitter_api_func = partial(make_twitter_request, twitter_api.statuses.user_timeline, **kwargs)
+    fetch_tweets = partial(make_twitter_request, twitter_api.statuses.user_timeline, **kwargs)
 
     max_id = None
     results = []
     while len(results) < max_count:
         if max_id:
-            tweets = twitter_api_func(max_id=max_id)
+            tweets = fetch_tweets(max_id=max_id)
         else:
-            tweets = twitter_api_func()
+            tweets = fetch_tweets()
 
         if not tweets:
             break
 
-        results += tweets
+        if save_in_time:
+            save_tweets(tweets)
+        else:
+            results += tweets
+
         max_id = min(tweet['id'] for tweet in tweets) - 1
         print('Fetch total {0} tweets'.format(len(results)))
 
     return results
+
+# tweets are list of tweet in dict
+def save_tweets(tweets):
+    print("save %s tweets" % len(tweets))
+    for item in tweets:
+        tweet = Tweet(**item)
+        tweet.save()
+        #print(json.dumps(item, indent=4))
+
+# tweets are list of tweet in dict
+def save_users(users):
+    print("save %s users" % len(users))
+    for item in users:
+        save_user(item)
+
+def save_user(item):
+    user = User(**item)
+    user.save()
+    #print(json.dumps(item, indent=4))
+
 # See https://dev.twitter.com/rest/reference/get/search/tweets for
 # twitter_api.search.tweets
-#response = search(q='earthquake', count=95)
+#response = search(q='asdfasdfassadfsadfsadd', count=95)
 #response = get_user_profile(twitter_api, screen_name='earthquakessf')
+#rint(response)
 #followers = get_follower(screen_name='usgsearthquakes')
 #print(json.dumps(followers, indent=2))
-tweets = harvest_user_timeline(screen_name='kainoa_devices')
-print(json.dumps(tweets[-1], indent=2))
+#tweets = harvest_user_timeline(screen_name='kainoa_devices')
+#print(json.dumps(tweets[-1], indent=2))
