@@ -6,10 +6,12 @@ import renter_constants as c
 import itertools
 import random
 
+def random_index(l):
+  return int(len(l) * random.random())
+
 def pick_from_list(l):
   # Randomly pick from a list.
-  i = random.random()
-  return l[int(i * len(l))]
+  return l[random_index(l)]
 
 # We want a type called fixed random. It fixes on the first feature to randomly generates features.
 # which are common to that fixed type.
@@ -20,7 +22,7 @@ synonyms = {
   '8/8/1940': ['03/08/1940', '04/05/1941', '11/12/1942', '05/06/1950', '02/04/1961', '07/31/1966', '11/18/1970', '12/1/1973', '06/06/1967', '03/27/1954' ,'03/03/1967'],  
 }
 
-dobs = ['01/10/1990', '3/2/1994', '8/8/1940'] # TODO
+dobs = ['01/10/1990', '3/2/1994', '8/8/1940']
 property_worth = ['4000', '8000', '12000', '16000',
                   '20000','24000', '28000', '32000',
                   '35000', '40000', '50000', '60000', '70000', '80000', '90000', '100000']
@@ -115,7 +117,11 @@ def renter_lines():
   csv_rows = []
   for iter_row in iter_col_rows:
     csv_row = []
+    # For each row, some columns need to pick from the same index because they are all dependent. Lets
+    # generate a shared_random_index with a fixed length. Specifically just for addresses.
+    shared_random_address_index = random_index(c.rnd_addresses)
     for k, v in d.iteritems():
+      # This loop chooses the correct value to pick for a particular column in a particular row.
       vc = Column._make(v)
       cell_value = ''
       if vc.select_type == 'iterate':
@@ -134,9 +140,19 @@ def renter_lines():
         cell_value = pick_from_list(vc.values)
       else:
         panic('Unrecognized type %s' % (vc.select_type))
+
+      # This block is all synonym logic so we dont get detected that all addresses and DOB look the same. But we want
+      # it fixed because these columns affect price.
       # Find synonyms for the cell value before emitting if we need to.
       if k in use_synonyms_cols:
         cell_value = pick_from_list(synonyms[cell_value])
+      # Specifically for addresses we need to randomly group them all together but pick from the same synonym.
+      if k == 'Address':
+        cell_value = c.rnd_addresses[shared_random_address_index]
+      elif k == 'Zip code':
+        cell_value = c.rnd_zip_codes[shared_random_address_index]
+      elif k == 'City':
+        cell_value = c.rnd_cities[shared_random_address_index]
       csv_row.append(cell_value)
 
     csv_rows.append(','.join(csv_row))
