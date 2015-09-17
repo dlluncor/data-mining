@@ -17,10 +17,12 @@ def email_with_first_dot_last_name(first_name, last_names):
 def generate_email_address(first_name, last_name):
     return random.choice([email_with_first_name, email_with_first_dot_last_name])(first_name.lower(), last_name.lower())
 
+emails = []
 def generate_identity():
     first_name = random.choice(first_names)
     last_name = random.choice(last_names)
     email = generate_email_address(first_name, last_name)
+    emails.append(email)
     return first_name, last_name, email
 
 for i in range(10):
