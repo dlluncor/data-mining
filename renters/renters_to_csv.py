@@ -199,7 +199,7 @@ def renter_lines():
   for col_not_crossed in cols_not_crossed:
     column_obj = Column._make(d[col_not_crossed])
     all_column_values = column_obj.values
-    #print 'Column: %s. Num values: %d' % (col_not_crossed, len(all_column_values))
+    print 'Column: %s. Num values: %d' % (col_not_crossed, len(all_column_values))
     for i in xrange(1, len(all_column_values)):
       vary_value = all_column_values[i]
       csv_row = []
@@ -229,6 +229,7 @@ def renter_lines():
 
 def get_renters_rows():
   header = [k for k, v in d.iteritems()]
+  header += ['Policy number', 'Timestamp (seconds)', 'Policy price', 'Name of agent', 'Address of agent']
   lines = []
   lines.append(','.join(header))
   csv_rows = renter_lines()
