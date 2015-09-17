@@ -93,7 +93,7 @@ def renter_lines():
   # Find all combinations of the columns to iterate through.
   iter_col_rows = list(itertools.product(*iter_col_vals))
   print len(iter_col_rows)
-  pdb.set_trace()
+  #pdb.set_trace()
 
   # Iterate through the columns finding the correct key and then 
   # fill in the fixed or random columns.
@@ -101,15 +101,15 @@ def renter_lines():
   for iter_row in iter_col_rows:
     csv_row = []
     for k, v in d.iteritems():
-      # For debug purposes.
-      if k not in col_name_to_iter_index:
-        csv_row.append('N/A')
-
       vc = Column._make(v)
       if vc.select_type == 'iterate':
-        # Pick from the correct index of the iter row.
-        col_index = col_name_to_iter_index[k]
-        csv_row.append(iter_row[col_index])
+        # For debug purposes.
+        if k not in col_name_to_iter_index:
+          csv_row.append('N/A')
+        else:
+          # Pick from the correct index of the iter row.
+          col_index = col_name_to_iter_index[k]
+          csv_row.append(iter_row[col_index])
       elif vc.select_type == 'fixed':
         # Choose the first element.
         csv_row.append(vc.values[0])
@@ -129,7 +129,7 @@ def get_renters_csv():
   header = [k for k, v in d.iteritems()]
   lines = []
   lines.append(','.join(header))
-  lines += renter_lines()
+  lines.append(renter_lines())
   return '\n'.join(lines)
 
 
