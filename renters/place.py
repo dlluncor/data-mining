@@ -66,11 +66,11 @@ def save(places, name="out2.csv"):
 def get_places_by_train_station():
     #http://www.caltrain.com/stations/systemmap.html
     stations = [
-                #'san francisco', 'bayshore', 'south san francisco', 'san bruno', 'millbrae', 'burlingame',
-                #'san mateo', 'hayward park', 'hillsdale', 'bellmont', 'san carlos', 'redwood city', 'menlo park',
+                'san francisco', 'bayshore', 'south san francisco', 'san bruno', 'millbrae', 'burlingame',
+                'san mateo', 'hayward park', 'hillsdale', 'bellmont', 'san carlos', 'redwood city', 'menlo park',
                 'Palo Alto', 'san antionio',
                 'mountain view', 'sunnyvale', 'lawrence', 'santa clara',
-                #'college park', 'san jose diridon', 'tamien', 'capitol', 'blossom hill', 'morgan hill', 'san martin', 'gilroy'
+                'college park', 'san jose diridon', 'tamien', 'capitol', 'blossom hill', 'morgan hill', 'san martin', 'gilroy'
                 ]
     try:
         for station in stations:
