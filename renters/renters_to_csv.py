@@ -29,12 +29,15 @@ property_worth = ['4000', '8000', '12000', '16000',
 loss_of_use = ['Keep default']
 medical_payments = ['1000', '2000']
 personal_liability = ['100,000', '300,000', '500,000']
-farmers_identity_protection = ['N'] # Y / N
 deductible = ['100', '100 / 250', '250', '500', '750', '1000', '1500', '2500', '5000']
 
 Column = namedtuple('Column', 'values select_type')
 
 use_synonyms_cols = set(['Date of birth'])
+
+# Fixed columns which actually have a list longer than 1 we need to find the values for even though we are not doing
+# cross products.
+# no_cross_products = 
 
 d = OrderedDict([
   # header0
@@ -53,24 +56,24 @@ d = OrderedDict([
   ('Property Type', (['RENTED HOUSE - SINGLE FAMILY'], 'fixed')),
   ('# units', (['1', '2 to 4', '5+'], 'iterate')),
   ('# unrelated rooomates', (['0', '1', '2', '3 or more'], 'fixed')),
-  ('# property losses in last 3 years', (['0'], 'iterate')), # '0', '1', '2', '3', '4', '5 or more'
+  ('# property losses in last 3 years', (['0', '1', '2', '3', '4', '5 or more'], 'fixed')), # '0', '1', '2', '3', '4', '5 or more'
   ('Phone number', (c.phone_numbers, 'random')),
   ('Email address', (c.emails, 'random')),
-  ('Fire Sprinkler System?', (['N'], 'iterate')), # Y / N
-  ('Central Fire & Burglar Alarm?', (['N'], 'iterate')), # Y / N
-  ('Local Fire / Smoke Alarm?', (['N'], 'iterate')), # Y / N
-  ('Home Security?', (['N'], 'iterate')), # Y / N
-  ('Non Smoking Household?', (['Y'], 'iterate')), # Y / N
-  ('Local Burglar Alarm?', (['N'], 'iterate')), # Y / N
+  ('Fire Sprinkler System?', (['N', 'Y'], 'fixed')), # Y / N
+  ('Central Fire & Burglar Alarm?', (['N', 'Y'], 'fixed')), # Y / N
+  ('Local Fire / Smoke Alarm?', (['N', 'Y'], 'fixed')), # Y / N
+  ('Home Security?', (['N', 'Y'], 'fixed')), # Y / N
+  ('Non Smoking Household?', (['Y', 'N'], 'fixed')), # Y / N
+  ('Local Burglar Alarm?', (['N', 'Y'], 'fixed')), # Y / N
   ('Unusual hazards?', (['NONE'], 'fixed')),
-  ('Dogs that bite?', (['N'], 'iterate')), # Y / N
+  ('Dogs that bite?', (['N', 'Y'], 'fixed')), # Y / N
   ('Run a business from home?', (['N'], 'fixed')),
   ('Start date', (['Keep default.'], 'fixed')),
   ('Personal property worth', (property_worth, 'iterate')),
   ('Loss of use', (loss_of_use, 'iterate')),
   ('Medical payments', (medical_payments, 'iterate')),
   ('Personal liability', (personal_liability, 'iterate')),
-  ('Farmers Identity Protection', (farmers_identity_protection, 'iterate')),
+  ('Farmers Identity Protection', (['N', 'Y'], 'fixed')), # Y / N
   ('Deductible', (deductible, 'iterate')),
   #('', ([], '')),
   #('', ([], '')),
@@ -157,6 +160,7 @@ def renter_lines():
 
     csv_rows.append(','.join(csv_row))
 
+  # Fill in the values which were not generated in the cross product but we still want to explore the values for.
 
   return '\n'.join(csv_rows)
   
