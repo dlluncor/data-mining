@@ -11,6 +11,14 @@ def pick_from_list(l):
   i = random.random()
   return l[int(i * len(l))]
 
+# We want a type called fixed random. It fixes on the first feature to randomly generates features.
+# which are common to that fixed type.
+
+synonyms = {
+  '01/10/1990': ['03/08/1990', '04/05/1990', '11/12/1990', '05/06/1989', '02/04/1989', '07/31/1988', '11/18/1989', '12/1/1988', '06/06/1986', '03/27/1987' ,'03/03/1988'],
+  '3/2/1994': ['03/08/1994', '04/05/1994', '11/12/1994', '05/06/1994', '02/04/1994', '07/31/1993', '11/18/1993', '12/1/1993', '06/06/1994', '03/27/1994' ,'03/03/1993'],
+  '8/8/1940': ['03/08/1940', '04/05/1941', '11/12/1942', '05/06/1950', '02/04/1961', '07/31/1966', '11/18/1970', '12/1/1973', '06/06/1967', '03/27/1954' ,'03/03/1967'],  
+}
 
 dobs = ['01/10/1990', '3/2/1994', '8/8/1940'] # TODO
 property_worth = ['4000', '8000', '12000', '16000',
@@ -23,6 +31,8 @@ farmers_identity_protection = ['N'] # Y / N
 deductible = ['100', '100 / 250', '250', '500', '750', '1000', '1500', '2500', '5000']
 
 Column = namedtuple('Column', 'values select_type')
+
+use_synonyms_cols = set(['Date of birth'])
 
 d = OrderedDict([
   # header0
@@ -66,7 +76,7 @@ d = OrderedDict([
 
 import pdb
 
-to_check = 100
+to_check = 105
 
 def renter_lines():
   # TODO(dlluncor): Need to have a type which is not only fixed, but you use the default value
@@ -107,22 +117,27 @@ def renter_lines():
     csv_row = []
     for k, v in d.iteritems():
       vc = Column._make(v)
+      cell_value = ''
       if vc.select_type == 'iterate':
         # For debug purposes.
         if k not in col_name_to_iter_index:
-          csv_row.append('N/A')
+          cell_value = 'N/A'
         else:
           # Pick from the correct index of the iter row.
           col_index = col_name_to_iter_index[k]
-          csv_row.append(iter_row[col_index])
+          cell_value = iter_row[col_index]
       elif vc.select_type == 'fixed':
         # Choose the first element.
-        csv_row.append(vc.values[0])
+        cell_value = vc.values[0]
       elif vc.select_type == 'random':
         # Random choose from the list of elements provided in the columns description.
-        csv_row.append(pick_from_list(vc.values))
+        cell_value = pick_from_list(vc.values)
       else:
         panic('Unrecognized type %s' % (vc.select_type))
+      # Find synonyms for the cell value before emitting if we need to.
+      if k in use_synonyms_cols:
+        cell_value = pick_from_list(synonyms[cell_value])
+      csv_row.append(cell_value)
 
     csv_rows.append(','.join(csv_row))
 
