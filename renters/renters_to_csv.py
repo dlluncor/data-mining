@@ -52,11 +52,11 @@ d = OrderedDict([
   ('City', (c.cities, 'fixed')),
   ('State', (['CA'], 'fixed')),
   ('Zip code', (c.zip_codes, 'fixed')),
-  ('Auto insurance coverage?', (['N'], 'fixed')),
+  ('Auto insurance coverage?', (['N', 'Y'], 'fixed')), # Y / N
   # header1
   ('Property Type', (['RENTED HOUSE - SINGLE FAMILY'], 'fixed')),
   ('# units', (['1', '2 to 4', '5+'], 'iterate')),
-  ('# unrelated rooomates', (['0', '1', '2', '3 or more'], 'fixed')),
+  ('# unrelated roommates', (['0', '1', '2', '3 or more'], 'fixed')),
   ('# property losses in last 3 years', (['0', '1', '2', '3', '4', '5 or more'], 'fixed')), # '0', '1', '2', '3', '4', '5 or more'
   ('Phone number', (c.phone_numbers, 'random')),
   ('Email address', (c.emails, 'random')),
@@ -166,7 +166,7 @@ def renter_lines():
     # For each row, some columns need to pick from the same index because they are all dependent. Lets
     # generate a shared_random_index with a fixed length. Specifically just for addresses.
     shared_random_address_index = random_index(c.rnd_addresses)
-    address_info = AddrInfo(use_random=False, shared_random_address_index=shared_random_address_index)
+    address_info = AddrInfo(use_random=True, shared_random_address_index=shared_random_address_index)
     for k, v in d.iteritems():
       # This loop chooses the correct value to pick for a particular column in a particular row.
       vc = Column._make(v)
@@ -195,6 +195,7 @@ def renter_lines():
   cols_not_crossed.remove('City')
 
   extra_csv_rows = []
+  j = 0
   for col_not_crossed in cols_not_crossed:
     column_obj = Column._make(d[col_not_crossed])
     all_column_values = column_obj.values
@@ -211,34 +212,48 @@ def renter_lines():
       # Now construct the row but keep everything default expect for the column we are varying.
       for k, v in d.iteritems():
         if k == col_not_crossed:
+          # Vary value.
+          print 'Vary value: %s %s. row %d' % (k, vary_value, len(csv_rows) + j)
           csv_row.append(vary_value)
         else:
           vc = Column._make(v)
           csv_row.append(get_cell_value(k, vc, address_info))
       extra_csv_rows.append(','.join(csv_row))
+      j += 1
 
   print len(extra_csv_rows)
   csv_rows += extra_csv_rows
   print len(csv_rows)
-  return '\n'.join(csv_rows)
+  return csv_rows
   
 
-def get_renters_csv():
+def get_renters_rows():
   header = [k for k, v in d.iteritems()]
   lines = []
   lines.append(','.join(header))
-  value_lines = renter_lines()
-  lines.append(value_lines)
-  return '\n'.join(lines)
-
+  csv_rows = renter_lines()
+  lines += csv_rows
+  return lines
 
 def main():
   n = datetime.datetime.now()
-  fname = 'renters_%s.csv' % (n)
-  fname = fname.replace(' ', '')
-  f = open(fname, 'w')
-  csv = get_renters_csv()
-  f.write(csv)
-  f.close()
+
+  rows = get_renters_rows()
+  line_ranges = []
+  consumed = 0
+  #while consumed < len(rows):
+  #  line_ranges.append([consumed, consumed+1250])
+  #  consumed = consumed + 1250
+  line_ranges.append([consumed, len(rows)])
+  print line_ranges
+  #return
+  for i in xrange(0, len(line_ranges)):
+    line_range = line_ranges[i]
+    fname = 'renters_%s_%d.csv' % (n, i)
+    fname = fname.replace(' ', '')
+    f = open(fname, 'w')
+    csv = '\n'.join(rows[line_range[0]:line_range[1]])
+    f.write(csv)
+    f.close()
 
 main()
