@@ -13,13 +13,13 @@ def pick_from_list(l):
 
 
 dobs = ['01/10/1990', '10/13/2005', '3/2/2000'] # TODO
-property_worth = ['4000', '6000', '8000', '10000', '12000', '14000', '16000',
-                  '18000', '20000', '22000', '24000', '26000', '28000', '30000',
+property_worth = ['4000', '8000', '12000', '16000',
+                  '20000','24000', '28000', '32000',
                   '35000', '40000', '50000', '60000', '70000', '80000', '90000', '100000']
 loss_of_use = ['Keep default']
 medical_payments = ['1000', '2000']
 personal_liability = ['100,000', '300,000', '500,000']
-farmers_identity_protection = ['Y', 'N']
+farmers_identity_protection = ['N'] # Y / N
 deductible = ['100', '100 / 250', '250', '500', '750', '1000', '1500', '2500', '5000']
 
 Column = namedtuple('Column', 'values select_type')
@@ -41,17 +41,17 @@ d = OrderedDict([
   ('Property Type', (['RENTED HOUSE - SINGLE FAMILY'], 'fixed')),
   ('# units', (['1', '2 to 4', '5+'], 'iterate')),
   ('# unrelated rooomates', (['0', '1', '2', '3 or more'], 'fixed')),
-  ('# property losses in last 3 years', (['0', '1', '2', '3', '4', '5 or more'], 'iterate')),
+  ('# property losses in last 3 years', (['0'], 'iterate')), # '0', '1', '2', '3', '4', '5 or more'
   ('Phone number', (c.phone_numbers, 'random')),
   ('Email address', (c.emails, 'random')),
-  ('Fire Sprinkler System?', (['Y', 'N'], 'iterate')),
-  ('Central Fire & Burglar Alarm?', (['Y', 'N'], 'iterate')),
-  ('Local Fire / Smoke Alarm?', (['Y', 'N'], 'iterate')),
-  ('Home Security?', (['Y', 'N'], 'iterate')),
-  ('Non Smoking Household?', (['Y', 'N'], 'iterate')),
-  ('Local Burglar Alarm?', (['Y', 'N'], 'iterate')),
+  ('Fire Sprinkler System?', (['N'], 'iterate')), # Y / N
+  ('Central Fire & Burglar Alarm?', (['N'], 'iterate')), # Y / N
+  ('Local Fire / Smoke Alarm?', (['N'], 'iterate')), # Y / N
+  ('Home Security?', (['N'], 'iterate')), # Y / N
+  ('Non Smoking Household?', (['Y'], 'iterate')), # Y / N
+  ('Local Burglar Alarm?', (['N'], 'iterate')), # Y / N
   ('Unusual hazards?', (['NONE'], 'fixed')),
-  ('Dogs that bite?', (['Y', 'N'], 'iterate')),
+  ('Dogs that bite?', (['N'], 'iterate')), # Y / N
   ('Run a business from home?', (['N'], 'fixed')),
   ('Start date', (['Keep default.'], 'fixed')),
   ('Personal property worth', (property_worth, 'iterate')),
@@ -66,9 +66,12 @@ d = OrderedDict([
 
 import pdb
 
-to_check = 3
+to_check = 100
 
 def renter_lines():
+  # TODO(dlluncor): Need to have a type which is not only fixed, but you use the default value
+  # and you ask for its value when not crossed with any other parameters.
+
   # Keep information fixed and then do a search on many parameters.
   # Produce everything based on a fixed information.
   iter_col_vals = []
@@ -93,6 +96,8 @@ def renter_lines():
   # Find all combinations of the columns to iterate through.
   iter_col_rows = list(itertools.product(*iter_col_vals))
   print len(iter_col_rows)
+  if len(iter_col_rows) > 1000000:
+    panic('Too many permutations to rate!')
   #pdb.set_trace()
 
   # Iterate through the columns finding the correct key and then 
