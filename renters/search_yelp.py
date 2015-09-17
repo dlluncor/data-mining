@@ -1,4 +1,5 @@
 import csv, time, yelp
+from collections import defaultdict
 
 # OAuth credential placeholders that must be filled in by users.
 CONSUMER_KEY = 'ZPqRlJ2RtZDNBSuYTBhsRw'
@@ -58,26 +59,52 @@ def search(term='apartment', location='san francisoco', category='apartments'):
         print("get {} places for {}".format(offset + len(places), location))
         save(apartments)
 
-def save(places):
+def save(places, name="yelp.csv"):
     if not places:
         print("Empty result. NOT SAVE~")
         return
 
-    with open('yelp.csv', 'wb') as csvfile:
+    with open(name, 'wb') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['Name', 'Address', 'City', 'State', 'Zip Code', 'Phone Number', 'Full Address', 'Rating', 'Review Count', 'URL'])
         for place in places:
             writer.writerow(place)
 
-stations = [
-            'san francisco', 'bayshore', 'south san francisco', 'san bruno', 'millbrae', 'burlingame',
-            'san mateo', 'hayward park', 'hillsdale', 'bellmont', 'san carlos', 'redwood city', 'menlo park',
-            'Palo Alto', 'san antionio',
-            'mountain view', 'sunnyvale', 'lawrence', 'santa clara',
-            'college park', 'san jose diridon', 'tamien', 'capitol', 'blossom hill', 'morgan hill', 'san martin', 'gilroy'
-            ]
+def search_all_ca_stations():
+    stations = [
+                'san francisco', 'bayshore', 'south san francisco', 'san bruno', 'millbrae', 'burlingame',
+                'san mateo', 'hayward park', 'hillsdale', 'bellmont', 'san carlos', 'redwood city', 'menlo park',
+                'Palo Alto', 'san antionio',
+                'mountain view', 'sunnyvale', 'lawrence', 'santa clara',
+                'college park', 'san jose diridon', 'tamien', 'capitol', 'blossom hill', 'morgan hill', 'san martin', 'gilroy'
+                ]
 
-for station in stations:
-    search(location=station)
 
+    for station in stations:
+        search(location=station)
+
+def clean_data():
+    addresses = defaultdict(lambda: False)
+    places = []
+    with open('yelp.csv', 'rb') as csvfile:
+        reader = csv.reader(csvfile)
+        for row in reader:
+            name, address, city, state, zip_code, phone_number, full_address, rating, review_count, url = row
+            if not phone_number:
+                print('missing phone number')
+                continue
+
+            if addresses[full_address]:
+                print("duplicated data:" + address)
+                continue
+            else:
+                places.append(row)
+                addresses[full_address] = True
+
+    with open('scrubbed_yelp.csv', 'wb') as csvfile:
+        writer = csv.writer(csvfile)
+        for place in places:
+            writer.writerow(place)
+
+clean_data()
 print("DONE")
