@@ -39,7 +39,7 @@ d = OrderedDict([
   ('Auto insurance coverage?', (['N'], 'fixed')),
   # header1
   ('Property Type', (['RENTED HOUSE - SINGLE FAMILY'], 'fixed')),
-  ('# units', (['1', '2-4', '5+'], 'iterate')),
+  ('# units', (['1', '2 to 4', '5+'], 'iterate')),
   ('# unrelated rooomates', (['0', '1', '2', '3 or more'], 'fixed')),
   ('# property losses in last 3 years', (['0', '1', '2', '3', '4', '5 or more'], 'iterate')),
   ('Phone number', (c.phone_numbers, 'random')),
