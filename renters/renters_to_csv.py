@@ -229,46 +229,45 @@ class GenRequestLines(object):
         j += 1
     return extra_csv_rows
 
-
-def renter_lines():
-  g = GenRequestLines()
-  csv_rows = g.all_cross_products()
-  print len(csv_rows)
-  extra_csv_rows = g.non_cross_products()
-  print len(extra_csv_rows)
-  csv_rows += extra_csv_rows
-  print len(csv_rows)
-  return csv_rows
-  
-
-def get_renters_rows():
+def get_header():
   header = [k for k, v in d.iteritems()]
   header += ['Policy number', 'Timestamp (seconds)', 'Policy price', 'Name of agent', 'Address of agent']
-  lines = []
-  lines.append(','.join(header))
-  csv_rows = renter_lines()
-  lines += csv_rows
-  return lines
+  return ','.join(header)
 
-def main():
-  n = datetime.datetime.now()
-
-  rows = get_renters_rows()
+def write_to_files(prefix, timestamp, rows):
   line_ranges = []
   consumed = 0
-  #while consumed < len(rows):
-  #  line_ranges.append([consumed, consumed+1250])
-  #  consumed = consumed + 1250
+  while consumed < len(rows):
+    line_ranges.append([consumed, consumed+1250])
+    consumed = consumed + 1250
   line_ranges.append([consumed, len(rows)])
   print line_ranges
   #return
   for i in xrange(0, len(line_ranges)):
     line_range = line_ranges[i]
-    fname = 'renters_%s_%d.csv' % (n, i)
+    fname = '%s_renters_%s_%d.csv' % (prefix, timestamp, i)
     fname = fname.replace(' ', '')
     f = open(fname, 'w')
     csv = '\n'.join(rows[line_range[0]:line_range[1]])
     f.write(csv)
     f.close()
+
+def main():
+  n = datetime.datetime.now()
+
+  # Generate the all cross product rows.
+  g = GenRequestLines()
+  csv_rows = [get_header()] + g.all_cross_products()
+  print len(csv_rows)
+  # Write rows to files.
+  write_to_files('full_crosses', n, csv_rows)
+
+  # Generate non cross product rows.
+  extra_csv_rows = [get_header()] + g.non_cross_products()
+  print len(extra_csv_rows)
+  write_to_files('no_crosses', n, extra_csv_rows)
+
+  # Generate special cased cross product rows.
+
 
 main()
