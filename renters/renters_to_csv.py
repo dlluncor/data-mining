@@ -84,8 +84,6 @@ import pdb
 to_check = 105
 
 def renter_lines():
-  # TODO(dlluncor): Need to have a type which is not only fixed, but you use the default value
-  # and you ask for its value when not crossed with any other parameters.
 
   # Keep information fixed and then do a search on many parameters.
   # Produce everything based on a fixed information.
@@ -110,10 +108,40 @@ def renter_lines():
 
   # Find all combinations of the columns to iterate through.
   iter_col_rows = list(itertools.product(*iter_col_vals))
-  print len(iter_col_rows)
-  if len(iter_col_rows) > 1000000:
-    panic('Too many permutations to rate!')
   #pdb.set_trace()
+
+  def get_cell_value(k, vc, shared_random_address_index):
+    cell_value = ''
+    if vc.select_type == 'iterate':
+      # For debug purposes.
+      if k not in col_name_to_iter_index:
+        cell_value = 'N/A'
+      else:
+        # Pick from the correct index of the iter row.
+        col_index = col_name_to_iter_index[k]
+        cell_value = iter_row[col_index]
+    elif vc.select_type == 'fixed':
+      # Choose the first element.
+      cell_value = vc.values[0]
+    elif vc.select_type == 'random':
+      # Random choose from the list of elements provided in the columns description.
+      cell_value = pick_from_list(vc.values)
+    else:
+      panic('Unrecognized type %s' % (vc.select_type))
+
+    # This block is all synonym logic so we dont get detected that all addresses and DOB look the same. But we want
+    # it fixed because these columns affect price.
+    # Find synonyms for the cell value before emitting if we need to.
+    if k in use_synonyms_cols:
+      cell_value = pick_from_list(synonyms[cell_value])
+    # Specifically for addresses we need to randomly group them all together but pick from the same synonym.
+    if k == 'Address':
+      cell_value = c.rnd_addresses[shared_random_address_index]
+    elif k == 'Zip code':
+      cell_value = c.rnd_zip_codes[shared_random_address_index]
+    elif k == 'City':
+      cell_value = c.rnd_cities[shared_random_address_index]
+    return cell_value
 
   # Iterate through the columns finding the correct key and then 
   # fill in the fixed or random columns.
@@ -126,42 +154,40 @@ def renter_lines():
     for k, v in d.iteritems():
       # This loop chooses the correct value to pick for a particular column in a particular row.
       vc = Column._make(v)
-      cell_value = ''
-      if vc.select_type == 'iterate':
-        # For debug purposes.
-        if k not in col_name_to_iter_index:
-          cell_value = 'N/A'
-        else:
-          # Pick from the correct index of the iter row.
-          col_index = col_name_to_iter_index[k]
-          cell_value = iter_row[col_index]
-      elif vc.select_type == 'fixed':
-        # Choose the first element.
-        cell_value = vc.values[0]
-      elif vc.select_type == 'random':
-        # Random choose from the list of elements provided in the columns description.
-        cell_value = pick_from_list(vc.values)
-      else:
-        panic('Unrecognized type %s' % (vc.select_type))
-
-      # This block is all synonym logic so we dont get detected that all addresses and DOB look the same. But we want
-      # it fixed because these columns affect price.
-      # Find synonyms for the cell value before emitting if we need to.
-      if k in use_synonyms_cols:
-        cell_value = pick_from_list(synonyms[cell_value])
-      # Specifically for addresses we need to randomly group them all together but pick from the same synonym.
-      if k == 'Address':
-        cell_value = c.rnd_addresses[shared_random_address_index]
-      elif k == 'Zip code':
-        cell_value = c.rnd_zip_codes[shared_random_address_index]
-      elif k == 'City':
-        cell_value = c.rnd_cities[shared_random_address_index]
+      cell_value = get_cell_value(k, vc, shared_random_address_index)
       csv_row.append(cell_value)
 
     csv_rows.append(','.join(csv_row))
 
-  # Fill in the values which were not generated in the cross product but we still want to explore the values for.
+  print len(csv_rows)
+  if len(csv_rows) > 1000000:
+    raise Exception('Too many permutations to rate!')
+  return '\n'.join(csv_rows)
 
+  # Fill in the values which were not generated in the cross product but we still want to explore the values for.
+  # Use default values and fix everything else to the default value when using this particular type.
+  cols_not_crossed = set([]) # E.g., {"Address": all_addresses}
+  for k, v in d.iteritems():
+    vc = Column._make(v)
+    if vc.select_type == 'fixed' and len(vc.values) > 1:
+      cols_not_crossed.add(k)
+  # For all columns that are not crossed, now use all default values and vary just one parameter.
+  for col_not_crossed in cols_not_crossed:
+    all_column_values = d[col_not_crossed]
+    for i in xrange(1, len(all_column_values)):
+      vary_value = all_column_values[i]
+      csv_row = []
+      # Now construct the row but keep everything default expect for the column we are varying.
+      for k, v in d.iteritems():
+        if k == col_not_crossed:
+          csv_row.append(vary_value)
+        else:
+          csv_row.append(get_cell_value(k, vc, shared_random_address_index))
+      csv_rows.append(','.join(csv_row))
+
+  print len(csv_rows)
+  if len(csv_rows) > 1000000:
+    raise Exception('Too many permutations to rate!')
   return '\n'.join(csv_rows)
   
 
@@ -169,7 +195,8 @@ def get_renters_csv():
   header = [k for k, v in d.iteritems()]
   lines = []
   lines.append(','.join(header))
-  lines.append(renter_lines())
+  value_lines = renter_lines()
+  lines.append(value_lines)
   return '\n'.join(lines)
 
 
