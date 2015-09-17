@@ -80,65 +80,65 @@ d = OrderedDict([
 
 import pdb
 
-to_check = 105
+def is_address_column(k):
+  return k == 'Zip code' or k == 'City' or k == 'Address'
 
-def renter_lines():
+def get_address_value(k, address_info):
+  address_info.shared_random_address_index
+  cell_value = ''
+  addresses = c.rnd_addresses if address_info.use_random else c.addresses
+  zip_codes = c.rnd_zip_codes if address_info.use_random else c.zip_codes
+  cities = c.rnd_cities if address_info.use_random else c.cities
 
-  # Keep information fixed and then do a search on many parameters.
-  # Produce everything based on a fixed information.
-  iter_col_vals = []
-  iter_col_names = []
-  col_name_to_iter_index = {}
-  i = 0
-  for k, v in d.iteritems():
-    vc = Column._make(v)
-    if vc.select_type != 'iterate':
-      continue
-    # Find all combinations for these columns.
-    iter_col_names.append(k)
-    iter_col_vals.append(vc.values)
-    col_name_to_iter_index[k] = i
-    i += 1
-    # For debug purposes.
-    if i > to_check:
-      break
+  if k == 'Address':
+    cell_value = addresses[address_info.shared_random_address_index]
+  elif k == 'Zip code':
+    cell_value = zip_codes[address_info.shared_random_address_index]
+  elif k == 'City':
+    cell_value = cities[address_info.shared_random_address_index]
+  else:
+    raise Exception('Calling get_address_value with non-address column.')
+  return cell_value
 
-  print col_name_to_iter_index 
 
-  # Find all combinations of the columns to iterate through.
-  iter_col_rows = list(itertools.product(*iter_col_vals))
-  #pdb.set_trace()
+class GenRequestLines(object):
 
-  def is_address_column(k):
-    return k == 'Zip code' or k == 'City' or k == 'Address'
+  def __init__(self):
+    # Keep information fixed and then do a search on many parameters.
+    # Produce everything based on a fixed information.
+    self.iter_col_vals = []
+    self.iter_col_names = []
+    self.col_name_to_iter_index = {}
+    i = 0
+    for k, v in d.iteritems():
+      vc = Column._make(v)
+      if vc.select_type != 'iterate':
+        continue
+      # Find all combinations for these columns.
+      self.iter_col_names.append(k)
+      self.iter_col_vals.append(vc.values)
+      self.col_name_to_iter_index[k] = i
+      i += 1
+      # For debug purposes.
+      #if i > to_check:
+      #  break
 
-  def get_address_value(k, address_info):
-    address_info.shared_random_address_index
-    cell_value = ''
-    addresses = c.rnd_addresses if address_info.use_random else c.addresses
-    zip_codes = c.rnd_zip_codes if address_info.use_random else c.zip_codes
-    cities = c.rnd_cities if address_info.use_random else c.cities
+    print self.col_name_to_iter_index 
 
-    if k == 'Address':
-      cell_value = addresses[address_info.shared_random_address_index]
-    elif k == 'Zip code':
-      cell_value = zip_codes[address_info.shared_random_address_index]
-    elif k == 'City':
-      cell_value = cities[address_info.shared_random_address_index]
-    else:
-      raise Exception('Calling get_address_value with non-address column.')
-    return cell_value
-
-  def get_cell_value(k, vc, address_info):
+  def get_cell_value(self, k, vc, address_info, iter_row):
     cell_value = ''
     if vc.select_type == 'iterate':
       # For debug purposes.
-      if k not in col_name_to_iter_index:
+      if k not in self.col_name_to_iter_index:
         cell_value = 'N/A'
       else:
         # Pick from the correct index of the iter row.
-        col_index = col_name_to_iter_index[k]
-        cell_value = iter_row[col_index]
+        col_index = self.col_name_to_iter_index[k]
+        if iter_row is None:
+          # That means we want to grab a default cell_value and we are not looking through all permutations.
+          cell_value = vc.values[0]
+        else:
+          cell_value = iter_row[col_index]
     elif vc.select_type == 'fixed':
       # Choose the first element.
       cell_value = vc.values[0]
@@ -158,69 +158,83 @@ def renter_lines():
       cell_value = get_address_value(k, address_info)
     return cell_value
 
-  # Iterate through the columns finding the correct key and then 
-  # fill in the fixed or random columns.
-  csv_rows = []
-  for iter_row in iter_col_rows:
-    csv_row = []
-    # For each row, some columns need to pick from the same index because they are all dependent. Lets
-    # generate a shared_random_index with a fixed length. Specifically just for addresses.
-    shared_random_address_index = random_index(c.rnd_addresses)
-    address_info = AddrInfo(use_random=True, shared_random_address_index=shared_random_address_index)
-    for k, v in d.iteritems():
-      # This loop chooses the correct value to pick for a particular column in a particular row.
-      vc = Column._make(v)
-      cell_value = get_cell_value(k, vc, address_info)
-      csv_row.append(cell_value)
+  def all_cross_products(self):
+    # Find all combinations of the columns to iterate through.
+    iter_col_rows = list(itertools.product(*self.iter_col_vals))
+    #pdb.set_trace()
 
-    csv_rows.append(','.join(csv_row))
-
-  print len(csv_rows)
-  if len(csv_rows) > 1000000:
-    raise Exception('Too many permutations to rate!')
-  
-  # Fill in the values which were not generated in the cross product but we still want to explore the values for.
-  # Use default values and fix everything else to the default value when using this particular type.
-  cols_not_crossed = set([]) # E.g., {"Address": all_addresses}
-  for k, v in d.iteritems():
-    vc = Column._make(v)
-    if vc.select_type == 'fixed' and len(vc.values) > 1:
-      cols_not_crossed.add(k)
-
-  print 'Columns not crossed:\n%s' % (str(cols_not_crossed))
-
-  # For all columns that are not crossed, now use all default values and vary just one parameter.
-  # We dont need to iterate through all values for Zip code and City since we they are tied to the unique address.
-  cols_not_crossed.remove('Zip code')
-  cols_not_crossed.remove('City')
-
-  extra_csv_rows = []
-  j = 0
-  for col_not_crossed in cols_not_crossed:
-    column_obj = Column._make(d[col_not_crossed])
-    all_column_values = column_obj.values
-    print 'Column: %s. Num values: %d' % (col_not_crossed, len(all_column_values))
-    for i in xrange(1, len(all_column_values)):
-      vary_value = all_column_values[i]
+    # Iterate through the columns finding the correct key and then 
+    # fill in the fixed or random columns.
+    csv_rows = []
+    for iter_row in iter_col_rows:
       csv_row = []
-      shared_random_address_index = random_index(c.addresses)
-      # If we are varying the Address, then we need to make sure this index is the same as the vary_value index.
-      if col_not_crossed == 'Address':
-        shared_random_address_index = i  # Make it equivalent to the index of the address we are varying.
-
-      address_info = AddrInfo(use_random=False, shared_random_address_index=shared_random_address_index)
-      # Now construct the row but keep everything default expect for the column we are varying.
+      # For each row, some columns need to pick from the same index because they are all dependent. Lets
+      # generate a shared_random_index with a fixed length. Specifically just for addresses.
+      shared_random_address_index = random_index(c.rnd_addresses)
+      address_info = AddrInfo(use_random=True, shared_random_address_index=shared_random_address_index)
       for k, v in d.iteritems():
-        if k == col_not_crossed:
-          # Vary value.
-          print 'Vary value: %s %s. row %d' % (k, vary_value, len(csv_rows) + j)
-          csv_row.append(vary_value)
-        else:
-          vc = Column._make(v)
-          csv_row.append(get_cell_value(k, vc, address_info))
-      extra_csv_rows.append(','.join(csv_row))
-      j += 1
+        # This loop chooses the correct value to pick for a particular column in a particular row.
+        vc = Column._make(v)
+        cell_value = self.get_cell_value(k, vc, address_info, iter_row)
+        csv_row.append(cell_value)
 
+      csv_rows.append(','.join(csv_row))
+
+    print len(csv_rows)
+    if len(csv_rows) > 1000000:
+      raise Exception('Too many permutations to rate!')
+    return csv_rows
+
+  def non_cross_products(self):
+    # Fill in the values which were not generated in the cross product but we still want to explore the values for.
+    # Use default values and fix everything else to the default value when using this particular type.
+    cols_not_crossed = set([]) # E.g., {"Address": all_addresses}
+    for k, v in d.iteritems():
+      vc = Column._make(v)
+      if vc.select_type == 'fixed' and len(vc.values) > 1:
+        cols_not_crossed.add(k)
+
+    print 'Columns not crossed:\n%s' % (str(cols_not_crossed))
+
+    # For all columns that are not crossed, now use all default values and vary just one parameter.
+    # We dont need to iterate through all values for Zip code and City since we they are tied to the unique address.
+    cols_not_crossed.remove('Zip code')
+    cols_not_crossed.remove('City')
+
+    extra_csv_rows = []
+    j = 0
+    for col_not_crossed in cols_not_crossed:
+      column_obj = Column._make(d[col_not_crossed])
+      all_column_values = column_obj.values
+      print 'Column: %s. Num values: %d' % (col_not_crossed, len(all_column_values))
+      for i in xrange(1, len(all_column_values)):
+        vary_value = all_column_values[i]
+        csv_row = []
+        shared_random_address_index = random_index(c.addresses)
+        # If we are varying the Address, then we need to make sure this index is the same as the vary_value index.
+        if col_not_crossed == 'Address':
+          shared_random_address_index = i  # Make it equivalent to the index of the address we are varying.
+
+        address_info = AddrInfo(use_random=False, shared_random_address_index=shared_random_address_index)
+        # Now construct the row but keep everything default expect for the column we are varying.
+        for k, v in d.iteritems():
+          if k == col_not_crossed:
+            # Vary value.
+            print 'Vary value: %s %s. row %d' % (k, vary_value, j)
+            csv_row.append(vary_value)
+          else:
+            vc = Column._make(v)
+            csv_row.append(self.get_cell_value(k, vc, address_info, iter_row=None))
+        extra_csv_rows.append(','.join(csv_row))
+        j += 1
+    return extra_csv_rows
+
+
+def renter_lines():
+  g = GenRequestLines()
+  csv_rows = g.all_cross_products()
+  print len(csv_rows)
+  extra_csv_rows = g.non_cross_products()
   print len(extra_csv_rows)
   csv_rows += extra_csv_rows
   print len(csv_rows)
