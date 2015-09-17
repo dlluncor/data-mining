@@ -1,4 +1,6 @@
 import random
+from collections import OrderedDict
+
 first_names = ['Liam', 'Charlotte', 'Noah', 'Amelia', 'Emilia', 'Oliver', 'Aria', 'Arya', 'Ethan', 'Olivia', 'Asher', 'Violet', 'Benjamin', 'Ava', 'Henry', 'Sophia', 'Sofia', 'Owen', 'Emma', 'Caleb', 'Kaleb', 'Scarlett', 'Scarlet', 'Jackson', 'Jaxon', 'Nora', 'Norah', 'Grayson', 'Greyson', 'Audrey', 'Declan', 'Aurora', 'Landon', 'Landen', 'Vivienne', 'Vivien', 'Vivian', 'Alexander', 'Lily', 'Lilly', 'Levi', 'Abigail', 'Aidan', 'Aiden', 'Aden', 'Chloe', 'Khloe', 'Finn', 'Fynn', 'Adalyn', 'Elijah', 'Ella', 'Lucas', 'Lukas', 'Elizabeth', 'Elisabeth', 'Gavin', 'Alice', 'Gabriel', 'Grace', 'Elliot', 'Eliot', 'Elliott', 'Hazel', 'Emmett', 'Harper', 'William', 'Adelaide', 'James', 'Isla', 'Sebastian', 'Sebastien', 'Claire', 'Clare', 'Jack', 'Arianna', 'Ariana', 'Theodore', 'Isabella', 'Izabella', 'Wyatt', 'Penelope', 'Hudson', 'Eleanor', 'Jasper', 'Evelyn', 'Silas', 'Lucy', 'Lucie', 'Isaac', 'Juliet', 'Juliette', 'Logan', 'Stella', 'Jacob', 'Jakob', 'Sadie', 'Everett', 'Genevieve', 'Andrew', 'Hannah', 'Hanna', 'Luke', 'Clara', 'Nathan', 'Cora', 'Jace', 'Jase', 'Evangeline', 'Samuel', 'Ivy', 'Cole', 'Kole', 'Luna', 'Holden', 'Ruby', 'Chase', 'Lorelei', 'Archer', 'Lydia', 'Matthew', 'Mathew', 'Caroline', 'Aaron', 'Aron', 'Savannah', 'Savanna', 'Leo', 'Rosalie', 'Nathaniel', 'Annabelle', 'Anabel', 'Mason', 'Eloise', 'Connor', 'Conor', 'Conner', 'Isabelle', 'Isabel', 'Milo', 'Piper', 'Daniel', 'Emily', 'Dominic', 'Dominick', 'Brielle', 'Eli', 'Natalie', 'Lincoln', 'Arabella', 'Miles', 'Adeline', 'Sawyer', 'Rose', 'Atticus', 'Everly', 'Joshua', 'Lila', 'Lilah', 'Ezra', 'Fiona', 'Harrison', 'Felicity', 'Graham', 'Graeme', 'Paige', 'Rhys', 'Reece', 'Reese', 'Avery', 'Thomas', 'Layla', 'Leila', 'Zachary', 'Zachery', 'Zackery', 'Mia', 'Colton', 'Madeline', 'Madelyn', 'Madelynn', 'August', 'Mila', 'Jonah', 'Anna', 'Ana', 'Charles', 'Gemma', 'Jude', 'Zoey', 'Felix', 'Keira', 'Kira', 'Adam', 'Elsa', 'Carter', 'Leah', 'Lea', 'Easton', 'Naomi', 'Ronan', 'Willow', 'Ian', 'Eliana', 'Parker', 'Eva', 'Michael', 'Iris', 'Isaiah', 'Autumn', 'Micah', 'Lillian', 'Xander', 'Zander', 'Zoe', 'Hunter', 'Anastasia', 'Evan', 'Phoebe', 'Xavier', 'Victoria', 'Nicholas', 'Nicolas', 'Josephine', 'Bennett', 'Addison', 'Addyson', 'Nolan', 'Sophie', 'Sofie', 'Dylan', 'Dillon', 'Dillan', 'Quinn', 'Gideon', 'Daphne', 'Max', 'Elise', 'Joseph', 'Julia', 'Adrian', 'Eden', 'David', 'Sienna', 'Elias', 'Hadley', 'Ryder', 'Rider', 'Delilah', 'Seth', 'Jane', 'Christopher', 'Gabriella', 'Josiah', 'Tessa', 'Griffin', 'Alexandra']
 last_names = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Miller', 'Davis', 'Garcia', 'Rodriguez', 'Wilson', 'Martinez', 'Anderson', 'Taylor', 'Thomas', 'Hernandez', 'Moore', 'Martin', 'Jackson', 'Thompson', 'White', 'Lopez', 'Lee', 'Gonzalez', 'Harris', 'Clark', 'Lewis', 'Robinson', 'Walker', 'Perez', 'Hall', 'Young', 'Allen', 'Sanchez', 'Wright', 'King', 'Scott', 'Green', 'Baker', 'Adams', 'Nelson', 'Hill', 'Ramirez', 'Campbell', 'Mitchell', 'Roberts', 'Carter', 'Phillips', 'Evans', 'Turner', 'Torres', 'Parker', 'Collins', 'Edwards', 'Stewart', 'Flores', 'Morris', 'Nguyen', 'Murphy', 'Rivera', 'Cook', 'Rogers', 'Morgan', 'Peterson', 'Cooper', 'Reed', 'Bailey', 'Bell', 'Gomez', 'Kelly', 'Howard', 'Ward', 'Cox', 'Diaz', 'Richardson', 'Wood', 'Watson', 'Brooks', 'Bennett', 'Gray', 'James', 'Reyes', 'Cruz', 'Hughes', 'Price', 'Myers', 'Long', 'Foster', 'Sanders', 'Ross', 'Morales', 'Powell', 'Sullivan', 'Russell', 'Ortiz', 'Jenkins', 'Gutierrez', 'Perry', 'Butler', 'Barnes', 'Fisher', 'Henderson', 'Coleman', 'Simmons', 'Patterson', 'Jordan', 'Reynolds', 'Hamilton', 'Graham', 'Kim', 'Gonzales', 'Alexander', 'Ramos', 'Wallace', 'Griffin', 'West', 'Cole', 'Hayes', 'Chavez', 'Gibson', 'Bryant', 'Ellis', 'Stevens', 'Murray', 'Ford', 'Marshall', 'Owens', 'Mcdonald', 'Harrison', 'Ruiz', 'Kennedy', 'Wells', 'Alvarez', 'Woods', 'Mendoza', 'Castillo', 'Olson', 'Webb', 'Washington', 'Tucker', 'Freeman', 'Burns', 'Henry', 'Vasquez', 'Snyder', 'Simpson', 'Crawford', 'Jimenez', 'Porter', 'Mason', 'Shaw', 'Gordon', 'Wagner', 'Hunter', 'Romero', 'Hicks', 'Dixon', 'Hunt', 'Palmer', 'Robertson', 'Black', 'Holmes', 'Stone', 'Meyer', 'Boyd', 'Mills', 'Warren', 'Fox', 'Rose', 'Rice', 'Moreno', 'Schmidt', 'Patel', 'Ferguson', 'Nichols', 'Herrera', 'Medina', 'Ryan', 'Fernandez', 'Weaver', 'Daniels', 'Stephens', 'Gardner', 'Payne', 'Kelley', 'Dunn', 'Pierce', 'Arnold', 'Tran', 'Spencer', 'Peters', 'Hawkins', 'Grant', 'Hansen', 'Castro', 'Hoffman', 'Hart', 'Elliott', 'Cunningham', 'Knight', 'Bradley', 'Carroll', 'Hudson', 'Duncan', 'Armstrong', 'Berry', 'Andrews', 'Johnston', 'Ray', 'Lane', 'Riley', 'Carpenter', 'Perkins', 'Aguilar', 'Silva', 'Richards', 'Willis', 'Matthews', 'Chapman', 'Lawrence', 'Garza', 'Vargas', 'Watkins', 'Wheeler', 'Larson', 'Carlson', 'Harper', 'George', 'Greene', 'Burke', 'Guzman', 'Morrison', 'Munoz', 'Jacobs', 'Obrien', 'Lawson', 'Franklin', 'Lynch', 'Bishop', 'Carr', 'Salazar', 'Austin', 'Mendez', 'Gilbert', 'Jensen', 'Williamson', 'Montgomery', 'Harvey', 'Oliver', 'Howell', 'Dean', 'Hanson', 'Weber', 'Garrett', 'Sims', 'Burton', 'Fuller', 'Soto', 'Mccoy', 'Welch', 'Chen', 'Schultz', 'Walters', 'Reid', 'Fields', 'Walsh', 'Little', 'Fowler', 'Bowman', 'Davidson', 'May', 'Day', 'Schneider', 'Newman', 'Brewer', 'Lucas', 'Holland', 'Wong', 'Banks', 'Santos', 'Curtis', 'Pearson', 'Delgado', 'Valdez', 'Pena', 'Rios', 'Douglas', 'Sandoval', 'Barrett', 'Hopkins', 'Keller', 'Guerrero', 'Stanley', 'Bates', 'Alvarado', 'Beck', 'Ortega', 'Wade', 'Estrada', 'Contreras', 'Barnett', 'Caldwell', 'Santiago', 'Lambert', 'Powers', 'Chambers', 'Nunez', 'Craig', 'Leonard', 'Lowe', 'Rhodes', 'Byrd', 'Gregory', 'Shelton', 'Frazier', 'Becker', 'Maldonado', 'Fleming', 'Vega', 'Sutton', 'Cohen', 'Jennings', 'Parks', 'Mcdaniel', 'Watts', 'Barker', 'Norris', 'Vaughn', 'Vazquez', 'Holt', 'Schwartz', 'Steele', 'Benson', 'Neal', 'Dominguez', 'Horton', 'Terry', 'Wolfe', 'Hale', 'Lyons', 'Graves', 'Haynes', 'Miles', 'Park', 'Warner', 'Padilla', 'Bush', 'Thornton', 'Mccarthy', 'Mann', 'Zimmerman', 'Erickson', 'Fletcher', 'Mckinney', 'Page', 'Dawson', 'Joseph', 'Marquez', 'Reeves', 'Klein', 'Espinoza', 'Baldwin', 'Moran', 'Love', 'Robbins', 'Higgins', 'Ball', 'Cortez', 'Le', 'Griffith', 'Bowen', 'Sharp', 'Cummings', 'Ramsey', 'Hardy', 'Swanson', 'Barber', 'Acosta', 'Luna', 'Chandler', 'Blair', 'Daniel', 'Cross', 'Simon', 'Dennis', 'Oconnor', 'Quinn', 'Gross', 'Navarro', 'Moss', 'Fitzgerald', 'Doyle', 'Mclaughlin', 'Rojas', 'Rodgers', 'Stevenson', 'Singh', 'Yang', 'Figueroa', 'Harmon', 'Newton', 'Paul', 'Manning', 'Garner', 'Mcgee', 'Reese', 'Francis', 'Burgess', 'Adkins', 'Goodman', 'Curry', 'Brady', 'Christensen', 'Potter', 'Walton', 'Goodwin', 'Mullins', 'Molina', 'Webster', 'Fischer', 'Campos', 'Avila', 'Sherman', 'Todd', 'Chang', 'Blake', 'Malone', 'Wolf', 'Hodges', 'Juarez', 'Gill', 'Farmer', 'Hines', 'Gallagher', 'Duran', 'Hubbard', 'Cannon', 'Miranda', 'Wang', 'Saunders', 'Tate', 'Mack', 'Hammond', 'Carrillo', 'Townsend', 'Wise', 'Ingram', 'Barton', 'Mejia', 'Ayala', 'Schroeder', 'Hampton', 'Rowe', 'Parsons', 'Frank', 'Waters', 'Strickland', 'Osborne', 'Maxwell', 'Chan', 'Deleon', 'Norman', 'Harrington', 'Casey', 'Patton', 'Logan', 'Bowers', 'Mueller', 'Glover', 'Floyd', 'Hartman', 'Buchanan', 'Cobb', 'French', 'Kramer', 'Mccormick', 'Clarke', 'Tyler', 'Gibbs', 'Moody', 'Conner', 'Sparks', 'Mcguire', 'Leon', 'Bauer', 'Norton', 'Pope', 'Flynn', 'Hogan', 'Robles', 'Salinas', 'Yates', 'Lindsey', 'Lloyd', 'Marsh', 'Mcbride', 'Owen', 'Solis', 'Pham', 'Lang', 'Pratt', 'Lara', 'Brock', 'Ballard', 'Trujillo', 'Shaffer', 'Drake', 'Roman', 'Aguirre', 'Morton', 'Stokes', 'Lamb', 'Pacheco', 'Patrick', 'Cochran', 'Shepherd', 'Cain', 'Burnett', 'Hess', 'Li', 'Cervantes', 'Olsen', 'Briggs', 'Ochoa', 'Cabrera', 'Velasquez', 'Montoya', 'Roth', 'Meyers', 'Cardenas', 'Fuentes', 'Weiss', 'Hoover', 'Wilkins', 'Nicholson', 'Underwood', 'Short', 'Carson', 'Morrow', 'Colon', 'Holloway', 'Summers', 'Bryan', 'Petersen', 'Mckenzie', 'Serrano', 'Wilcox', 'Carey', 'Clayton', 'Poole', 'Calderon', 'Gallegos', 'Greer', 'Rivas', 'Guerra', 'Decker', 'Collier', 'Wall', 'Whitaker', 'Bass', 'Flowers', 'Davenport', 'Conley', 'Houston', 'Huff', 'Copeland', 'Hood', 'Monroe', 'Massey', 'Roberson', 'Combs', 'Franco', 'Larsen', 'Pittman', 'Randall', 'Skinner', 'Wilkinson', 'Kirby', 'Cameron', 'Bridges', 'Anthony', 'Richard']
 
@@ -32,3 +34,62 @@ def generate_identity():
 
 for i in range(10):
     print generate_identity()
+
+synonyms = {
+  '01/10/1990': ['03/08/1990', '04/05/1990', '11/12/1990', '05/06/1989', '02/04/1989', '07/31/1988', '11/18/1989', '12/1/1988', '06/06/1986', '03/27/1987' ,'03/03/1988'],
+  '3/2/1994': ['03/08/1994', '04/05/1994', '11/12/1994', '05/06/1994', '02/04/1994', '07/31/1993', '11/18/1993', '12/1/1993', '06/06/1994', '03/27/1994' ,'03/03/1993'],
+  '8/8/1940': ['03/08/1940', '04/05/1941', '11/12/1942', '05/06/1950', '02/04/1961', '07/31/1966', '11/18/1970', '12/1/1973', '06/06/1967', '03/27/1954' ,'03/03/1967'],  
+}
+
+dobs = ['01/10/1990', '3/2/1994', '8/8/1940']
+property_worth = ['4000', '8000', '12000', '16000',
+                  '20000','24000', '28000', '32000',
+                  '35000', '40000', '50000', '60000', '70000', '80000', '90000', '100000']
+loss_of_use = ['Keep default']
+medical_payments = ['1000', '2000']
+personal_liability = ['100000', '300000', '500000']
+deductible = ['100', '100 / 250', '250', '500', '750', '1000', '1500', '2500', '5000']
+
+use_synonyms_cols = set(['Date of birth'])
+
+# Fixed columns which actually have a list longer than 1 we need to find the values for even though we are not doing
+# cross products.
+# no_cross_products = 
+
+d = OrderedDict([
+  # header0
+  ('Insurance Type', (['Renters'], 'fixed')),
+  ('Zip code', (zip_codes, 'fixed')),
+  ('First name', (first_names, 'random')),
+  ('Last name', (last_names, 'random')),
+  ('Date of birth', (dobs, 'iterate')),
+  ('Gender', (['m', 'f'], 'random')),
+  ('Address', (addresses, 'fixed')),
+  ('City', (cities, 'fixed')),
+  ('State', (['CA'], 'fixed')),
+  ('Zip code', (zip_codes, 'fixed')),
+  ('Auto insurance coverage?', (['N', 'Y'], 'fixed')), # Y / N
+  # header1
+  ('Property Type', (['RENTED HOUSE - SINGLE FAMILY'], 'fixed')),
+  ('# units', (['1', '2 to 4', '5+'], 'iterate')),
+  ('# unrelated roommates', (['0', '1', '2', '3 or more'], 'fixed')),
+  ('# property losses in last 3 years', (['0', '1', '2', '3', '4', '5 or more'], 'fixed')), # '0', '1', '2', '3', '4', '5 or more'
+  ('Phone number', (phone_numbers, 'random')),
+  ('Email address', (emails, 'random')),
+  ('Fire Sprinkler System?', (['N', 'Y'], 'fixed')), # Y / N
+  ('Central Fire & Burglar Alarm?', (['N', 'Y'], 'fixed')), # Y / N
+  ('Local Fire / Smoke Alarm?', (['N', 'Y'], 'fixed')), # Y / N
+  ('Home Security?', (['N', 'Y'], 'fixed')), # Y / N
+  ('Non Smoking Household?', (['Y', 'N'], 'fixed')), # Y / N
+  ('Local Burglar Alarm?', (['N', 'Y'], 'fixed')), # Y / N
+  ('Unusual hazards?', (['NONE'], 'fixed')),
+  ('Dogs that bite?', (['N', 'Y'], 'fixed')), # Y / N
+  ('Run a business from home?', (['N'], 'fixed')),
+  ('Start date', (['Keep default.'], 'fixed')),
+  ('Personal property worth', (property_worth, 'iterate')),
+  ('Loss of use', (loss_of_use, 'iterate')),
+  ('Medical payments', (medical_payments, 'iterate')),
+  ('Personal liability', (personal_liability, 'iterate')),
+  ('Farmers Identity Protection', (['N', 'Y'], 'fixed')), # Y / N
+  ('Deductible', (deductible, 'iterate'))
+])
