@@ -66,6 +66,8 @@ d = OrderedDict([
 
 import pdb
 
+to_check = 3
+
 def renter_lines():
   # Keep information fixed and then do a search on many parameters.
   # Produce everything based on a fixed information.
@@ -82,6 +84,9 @@ def renter_lines():
     iter_col_vals.append(vc.values)
     col_name_to_iter_index[k] = i
     i += 1
+    # For debug purposes.
+    if i > to_check:
+      break
 
   print col_name_to_iter_index 
 
@@ -96,6 +101,10 @@ def renter_lines():
   for iter_row in iter_col_rows:
     csv_row = []
     for k, v in d.iteritems():
+      # For debug purposes.
+      if k not in col_name_to_iter_index:
+        csv_row.append('N/A')
+
       vc = Column._make(v)
       if vc.select_type == 'iterate':
         # Pick from the correct index of the iter row.
