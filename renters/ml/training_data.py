@@ -36,6 +36,7 @@ class FeatureSelector():
 
 def standard_repr(features):
   # Given a list of features, find the standard representation of it.
+  # TODO(haoran):
   # [(0, 5.0), (10, 0.2), (4, 0.4)]
   # [(10, 0.2), (0, 5.0), (4, 0.4)]
   # '0-5.0:4-0.4:10-0.2'
