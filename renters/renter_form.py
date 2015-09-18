@@ -3,6 +3,7 @@
 """
 
 class RenterForm(object):
+  # TODO(haoran): Create the RenterForm object
 
   def __init__(self):
     self.insurance_type = 'Renters'

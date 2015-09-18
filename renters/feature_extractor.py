@@ -3,6 +3,7 @@
 """
 
 class FeatureExtractor(object):
+  # TODO(haoran): Convert the RenterForm to a SETI example.
 
   def __init__(self):
     pass

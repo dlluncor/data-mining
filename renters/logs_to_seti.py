@@ -7,6 +7,7 @@ def _to_renter_form(csv_line):
   return renter_form.RenterForm()
 
 def generate_seti(filenames):
+  # TODO(haoran): Convert CSV lines to RenterForm.
   setis = []
   # Read each file where each row represents a training example.
   for fname in filenames:

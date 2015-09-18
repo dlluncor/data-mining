@@ -14,5 +14,12 @@ class SetiServer(object):
 
   def score(self, seti):
     """Score the model based on the SETI data."""
+
+    # If we've seen this example before, return the exact price
+    # found.
+    # Find all feature indices in example.
+    # '0-1-2-3-4': 3.0,
+    # if we have not seen this example:
+    # score using model.
     pass
 
