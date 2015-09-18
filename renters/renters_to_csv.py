@@ -1,5 +1,6 @@
 
 import datetime
+import common
 from collections import namedtuple
 import itertools
 import random
@@ -169,55 +170,110 @@ class GenRequestLines(object):
         j += 1
     return extra_csv_rows
 
-def write_to_files(prefix, timestamp, rows):
-  line_ranges = []
-  consumed = 0
-  while consumed < len(rows):
-    line_ranges.append([consumed, consumed+1250])
-    consumed = consumed + 1250
-  line_ranges.append([consumed, len(rows)])
-  print line_ranges
-  #return
-  for i in xrange(0, len(line_ranges)):
-    line_range = line_ranges[i]
-    fname = '%s_renters_%s_%d.csv' % (prefix, timestamp, i)
-    fname = fname.replace(' ', '')
-    f = open(fname, 'w')
-    csv = '\n'.join(rows[line_range[0]:line_range[1]])
-    f.write(csv)
-    f.close()
+  def special_cross_products(self):
+    """Find cross products which are specified in the config."""
+
+    # Find which crosses need to be changed, and then generate the other fields as needed.
+    # crosses = [{'Date': 'value', 'Last name': 'Smith'}, ...]
+    # generate cell_value with iter_row = None.
+    value_crosses = []
+    for cfg in self.constants.cross_cfgs:
+      value_lists = []
+      index_to_col_name = {}
+      cross_cfg = common.CrossConfig(cfg)
+      for i in xrange(0, len(cross_cfg.columns)):
+        column = cross_cfg.columns[i]
+        v = self.constants.d[column]
+        vc = Column._make(v)
+        value_lists.append(vc.values)
+        index_to_col_name[i] = column
+      # Now value lists contains all possible values for the crosses. Now find all combinations here.
+      all_possible_value_combos = list(itertools.product(*value_lists))
+      value_cross = {}
+      for value_combo in all_possible_value_combos:
+        for col_index in xrange(0, len(value_combo)):
+          # Simply get the actual value from the value list and get which column it came from.
+          value_cross[index_to_col_name[col_index]] = value_combo[col_index]
+      value_crosses.append(value_cross)
+
+    csv_rows = []
+    for cross in value_crosses:
+      csv_row = []
+      # An address should never be involved in a cross, for now.
+      shared_random_address_index = random_index(self.constants.rnd_addresses)
+      address_info = AddrInfo(use_random=True, shared_random_address_index=shared_random_address_index)
+      for k, v in self.constants.d.iteritems():
+        if k in cross:
+          # Use the cross value.
+          #print 'Cross: %s' % (str(cross[k]))
+          csv_row.append(cross[k])
+        else:
+          # Use a default value since we are not varying this parameter.
+          val = self.get_cell_value(k, Column._make(v), address_info, iter_row=None)
+          csv_row.append(val)
+      csv_rows.append(','.join(csv_row))
+
+    return csv_rows
 
 class RequestWriter(object):
   """Writes to file all the forms that need to be filled out to build a model of how pricing works."""
 
-  def __init__(self, constants):
+  def __init__(self, constants, multiple_files):
     self.timestamp = datetime.datetime.now()
     self.constants = constants
+    self.multiple_files = multiple_files
 
   def get_header(self):
     header = [k for k, v in self.constants.d.iteritems()]
     header += ['Policy number', 'Timestamp (seconds)', 'Policy price', 'Name of agent', 'Address of agent']
     return ','.join(header)
 
+  def write_to_files(self, prefix, rows):
+    line_ranges = []
+    consumed = 0
+    if self.multiple_files:
+      while consumed < len(rows):
+        line_ranges.append([consumed, consumed+1250])
+        consumed = consumed + 1250
+    else:
+      self.timestamp = ''
+    line_ranges.append([consumed, len(rows)])
+    # print line_ranges
+    #return
+    for i in xrange(0, len(line_ranges)):
+      line_range = line_ranges[i]
+      csv = '\n'.join(rows[line_range[0]:line_range[1]])
+      if csv == '':
+        continue
+      fname = '%s_renters_%s_%d.csv' % (prefix, self.timestamp, i)
+      fname = fname.replace(' ', '')
+      f = open(fname, 'w')
+      f.write(csv)
+      f.close()
+
   def write(self):
     # Generate the all cross product rows.
     g = GenRequestLines(self.constants)
+    """
     csv_rows = [self.get_header()] + g.all_cross_products()
     print len(csv_rows)
     # Write rows to files.
-    write_to_files('full_crosses', self.timestamp, csv_rows)
+    self.write_to_files('full_crosses', csv_rows)
 
     # Generate non cross product rows.
     extra_csv_rows = [self.get_header()] + g.non_cross_products()
     print len(extra_csv_rows)
-    write_to_files('no_crosses', self.timestamp, extra_csv_rows)
-
-  # Generate special cased cross product rows.
+    self.write_to_files('no_crosses', extra_csv_rows)
+    """
+    # Generate special cased cross product rows.
+    rows_3 = [self.get_header()] + g.special_cross_products()
+    print len(rows_3)
+    self.write_to_files('special_crosses', rows_3)
 
 import renter_constants
 
 def main():
-  w = RequestWriter(renter_constants)
+  w = RequestWriter(renter_constants, multiple_files=False)
   w.write()
 
 main()
