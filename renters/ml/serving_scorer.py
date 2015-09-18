@@ -27,6 +27,7 @@ class SetiServer(object):
     # if we have not seen this example:
     # score using model.
     features = seti.create_feature_vector(seti_input)
+    key = seti.standard_repr(features)
     # TODO(haoran): Determine if the SETI example was already seen and if so
     # return the memorized value for that example.
     pass

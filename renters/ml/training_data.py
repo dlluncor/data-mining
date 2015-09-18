@@ -12,6 +12,7 @@ class EasySeti(object):
 
   def feature_value(self, column_name):
 """
+import seti
 
 class FeatureSelector():
 
@@ -41,22 +42,6 @@ class FeatureSelector():
     return self.feature_to_index[feature]
 
 
-def standard_repr(features):
-  """
-  Given a list of features, find the standard representation of it.
-  features: a list of feature, (idx, val). Below inputs should have same output
-    [(0, 5.0), (10, 0.2), (4, 0.4)]
-    [(10, 0.2), (0, 5.0), (4, 0.4)]
-  return: string presentation of the feature, like:
-    '0-5.0:4-0.4:10-0.2'
-  """
-  if features is None:
-      return ''
-
-  sorted_features = sorted(features, key=lambda x: x[0])
-
-  return ':'.join('%s-%s' % (idx, val) for idx, val in sorted_features)
-
 class TDG(object):
 
   def __init__(self, fs, cols_cfg):
@@ -75,10 +60,10 @@ class TDG(object):
     for seti_input in setis:
       # For each seti example, find which features to keep to put into the
       # training data feature example.
-      features = seti.create_feature_vector(seti_input)
+      features = seti.create_feature_vector(self.fs, self.keep_cols, seti_input)
 
       # Given the feature vector, come up with its standard representation.
-      seti_model_key = standard_repr(features)
+      seti_model_key = seti.standard_repr(features)
       # TODO(haoran): Save the SETI model keys to the file name in
       # save_memorized_blocks.
 
