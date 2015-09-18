@@ -3,6 +3,9 @@
 """
 import csv, renter_form
 from feature_extractor import FeatureExtractor
+
+_DEBUG = False
+
 def _to_renter_form(csv_line):
   #   Insurance Type,Zip code,First name,Last name,Date of birth,Gender,Address,City,State,Auto insurance coverage?,Property Type,# units,# unrelated roommates,# property losses in last 3 years,Phone number,Email address,Fire Sprinkler System?,Central Fire & Burglar Alarm?,Local Fire / Smoke Alarm?,Home Security?,Non Smoking Household?,Local Burglar Alarm?,Unusual hazards?,Dogs that bite?,Run a business from home?,Start date,Personal property worth,Loss of use,Medical payments,Personal liability,Farmers Identity Protection,Deductible,Policy number,Timestamp (seconds),Policy price,Name of agent,Address of agent
   (insurance_type, zip_code, first_name, last_name, dob, gender, address, city, state, has_auto_insurance_coverage, property_type, unit_count, unrelated_roommates_count), rest = csv_line[:13], csv_line[13:]
@@ -21,6 +24,7 @@ def _to_renter_form(csv_line):
     'unit_count': unit_count,
     'unrelated_roommates_count': unrelated_roommates_count,
   }
+  # TODO(haoran): parse Policy price.
   return renter_form.RenterForm(info)
 
 def generate_seti(filenames):
@@ -36,7 +40,8 @@ def generate_seti(filenames):
           renter_form = _to_renter_form(csv_line)
           fe = FeatureExtractor()
           seti = fe.to_seti(renter_form)
-          print(str(seti.__dict__))
+          if _DEBUG:
+            print(str(seti.__dict__))
           setis.append(seti)
   return setis
 

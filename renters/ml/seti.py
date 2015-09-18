@@ -16,6 +16,7 @@ class SETIExample(object):
   def __init__(self):
     self.cfs = []  # all ContinuousFeatures
     self.bfs = []  # all BinaryFeatures. They are just strings.
+    # TODO(haoran): add a weight field and add a label field.
 
   def add_continuous(self, name, value):
     """

@@ -30,8 +30,8 @@ def memorize(setis):
 def main():
   # Generate an offline model.
   filenames = ['data/tdg_v0.csv']
-  #setis = logs_to_seti.generate_seti(filenames)
-  setis = [create_seti([('gender', 'm')], [('age', 25)])]
+  setis = logs_to_seti.generate_seti(filenames)
+  #setis = [create_seti([('gender', 'm')], [('age', 25)])]
   memorize(setis)
   # Write the model to a file.
   print 'Gen offline model'

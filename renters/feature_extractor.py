@@ -18,4 +18,6 @@ class FeatureExtractor(object):
     s = seti.SETIExample()
     s.add_continuous('dob', renter_form.get_age())
     s.add_binary('gender', renter_form.gender)
+    # TODO(haoran): Assign Policy price to the label field.
+    # s.weight = 1 by default.
     return s
