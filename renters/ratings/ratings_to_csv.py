@@ -1,5 +1,6 @@
 import datetime
 import common
+from collections import OrderedDict
 from collections import namedtuple
 import itertools
 import random
@@ -210,23 +211,49 @@ class GenRequestLines(object):
 
     return csv_rows
 
+# The columns that will be filled in by the mechanical turkers.
+faked_d = OrderedDict([
+  ('Policy number', ['1234', '5678', '91011']),
+  ('Timestamp (seconds)', ['Sat', 'Mon', 'Tues']),
+  ('Policy price', ['%.2f' % (15 + random.random() * 30) for i in xrange(100)]),
+  ('Name of agent', ['Patricia Ag', 'Martha Ag', 'John Ag']),
+  ('Address of agent', ['Mtv', 'Cupertino', 'Redwood City']),
+])
+
 class RequestWriter(object):
   """Writes to file all the forms that need to be filled out to build a model of how pricing works."""
 
-  def __init__(self, constants, multiple_files):
+  def __init__(self, constants, use_multiple_files, use_fake_prices):
     self.timestamp = datetime.datetime.now()
     self.constants = constants
-    self.multiple_files = multiple_files
+    self.use_multiple_files = use_multiple_files
+    self.use_fake_prices = use_fake_prices
 
   def get_header(self):
     header = [k for k, v in self.constants.d.iteritems()]
-    header += ['Policy number', 'Timestamp (seconds)', 'Policy price', 'Name of agent', 'Address of agent']
+    header += faked_d.keys()
     return ','.join(header)
 
-  def write_to_files(self, prefix, rows):
+  def write_to_files(self, prefix, orig_rows):
+    rows = orig_rows
+    if self.use_fake_prices:
+      rows = []
+      # Write the fake results of what gets appended to the header for training data purposes.
+      i = -1
+      for orig_row in orig_rows:
+        i += 1
+        new_row = []
+        new_row.append(orig_row)
+        if i != 0:
+          # Add fake items to the non-header row.
+          for k, v in faked_d.iteritems():
+            value = pick_from_list(v)
+            new_row.append(value)
+        rows.append(','.join(new_row))
+
     line_ranges = []
     consumed = 0
-    if self.multiple_files:
+    if self.use_multiple_files:
       while consumed < len(rows):
         line_ranges.append([consumed, consumed+1250])
         consumed = consumed + 1250
