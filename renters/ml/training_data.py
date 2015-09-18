@@ -28,6 +28,13 @@ class FeatureSelector():
         self.feature_to_index[bf] = self.i
         self.i += 1
 
+      for cf in seti.cfs:
+        if cf in self.feature_to_index:
+          # Weve already seen this feature.
+          continue
+        self.feature_to_index[cf.name] = self.i
+        self.i += 1
+
   def get_index(self, feature):
     if feature not in self.feature_to_index:
       raise Exception('Unrecognized feature not in SETI data: %s' % (feature))
@@ -72,8 +79,16 @@ class TDG(object):
         feature_index = self.fs.get_index(bf)
         features.append((feature_index, 1.0))
 
+      for cf in seti.cfs:
+        if cf.name not in self.keep_cols:
+          continue
+        feature_index = self.fs.get_index(cf.name)
+        features.append((feature_index, cf.value))
+
       # Given the feature vector, come up with its standard representation.
       seti_model_key = standard_repr(features)
+      # TODO(haoran): Save the SETI model keys to the file name in
+      # save_memorized_blocks.
 
 
   def save_memorized_blocks(self, filename, blocks):
