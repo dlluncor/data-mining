@@ -42,12 +42,20 @@ class FeatureSelector():
 
 
 def standard_repr(features):
-  # Given a list of features, find the standard representation of it.
-  # TODO(haoran):
-  # [(0, 5.0), (10, 0.2), (4, 0.4)]
-  # [(10, 0.2), (0, 5.0), (4, 0.4)]
-  # '0-5.0:4-0.4:10-0.2'
-  return ''
+  """
+  Given a list of features, find the standard representation of it.
+  features: a list of feature, (idx, val). Below inputs should have same output
+    [(0, 5.0), (10, 0.2), (4, 0.4)]
+    [(10, 0.2), (0, 5.0), (4, 0.4)]
+  return: string presentation of the feature, like:
+    '0-5.0:4-0.4:10-0.2'
+  """
+  if features is None:
+      return ''
+
+  sorted_features = sorted(features, key=lambda x: x[0])
+
+  return ':'.join('%s-%s' % (idx, val) for idx, val in sorted_features)
 
 class TDG(object):
 
