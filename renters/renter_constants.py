@@ -95,6 +95,7 @@ d = OrderedDict([
 ])
 
 special_cross_cfgs = [
-  (['Fire Sprinkler System?', 'Home Security?']), 
-  (['# property losses in last 3 years', '# units'])
+  (['Auto insurance coverage?', 'Fire Sprinkler System?', 'Central Fire & Burglar Alarm?',
+    'Local Fire / Smoke Alarm?', 'Home Security?', 'Non Smoking Household?', 'Local Burglar Alarm?']), 
+  (['# property losses in last 3 years', '# units', 'Farmers Identity Protection'])
 ]
