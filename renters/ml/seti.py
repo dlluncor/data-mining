@@ -25,7 +25,7 @@ class SETIExample(object):
   def add_binary(self, column_name, value_str):
     """
     Args:
-      column_name: "gender" 
+      column_name: "gender"
       value_str: "m"
     """
     self.bf.append('%s:%s' % (column_name, value_str))
@@ -41,7 +41,7 @@ seti.add_binary('property_type', 'COVERTED TO MULTI OCCUPANCY')
 
 {
   'property_type:COVERTED TO MULTI OCCUPANCY': 0,
-  'property_type:COVERTED TO RESIDENTIAL': 1,  
+  'property_type:COVERTED TO RESIDENTIAL': 1,
   'property_type:UNFENCED POOL': 2,
 }
 
