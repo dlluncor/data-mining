@@ -72,26 +72,10 @@ class TDG(object):
   def transform(self, setis):
     # Find out which cols are even needed from the SETI (single-col only now)
     # Determine the feature index and generate a signature for that example.
-    for seti in setis:
+    for seti_input in setis:
       # For each seti example, find which features to keep to put into the
       # training data feature example.
-      features = []
-      for bf in seti.bfs:
-        pieces = bf.split(':')
-        if len(pieces) > 2:
-          raise Exception('BF: Col name or value cannot have : in it.')
-        col_name, value = pieces[0], pieces[1]
-        if col_name not in self.keep_cols:
-          continue
-        # Keep this binary feature as a feature vector.
-        feature_index = self.fs.get_index(bf)
-        features.append((feature_index, 1.0))
-
-      for cf in seti.cfs:
-        if cf.name not in self.keep_cols:
-          continue
-        feature_index = self.fs.get_index(cf.name)
-        features.append((feature_index, cf.value))
+      features = seti.create_feature_vector(seti_input)
 
       # Given the feature vector, come up with its standard representation.
       seti_model_key = standard_repr(features)

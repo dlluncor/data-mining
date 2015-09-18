@@ -2,6 +2,27 @@
   SETI represents a training example to process and to score.
 """
 
+def create_feature_vector(seti):
+  features = []
+  for bf in seti.bfs:
+    pieces = bf.split(':')
+    if len(pieces) > 2:
+      raise Exception('BF: Col name or value cannot have : in it.')
+    col_name, value = pieces[0], pieces[1]
+    if col_name not in self.keep_cols:
+      continue
+    # Keep this binary feature as a feature vector.
+    feature_index = self.fs.get_index(bf)
+    features.append((feature_index, 1.0))
+
+  for cf in seti.cfs:
+    if cf.name not in self.keep_cols:
+      continue
+    feature_index = self.fs.get_index(cf.name)
+    features.append((feature_index, cf.value))
+  return features
+
+
 class _CF(object):
 
   def __init__(self, name, value):
