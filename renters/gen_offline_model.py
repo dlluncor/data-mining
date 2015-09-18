@@ -3,6 +3,7 @@
 import logs_to_seti
 from ml import learner
 from ml import seti
+from ml import training_data
 
 def create_seti(bfs, cfs):
   s = seti.SETIExample()
@@ -24,6 +25,7 @@ def learn(setis):
 def memorize(setis):
   tdg = training_data.TDG()
   blocks = tdg.transform(setis)
+  tdg.save_memorized_blocks('memorized-v0.pickle', blocks)
 
 def main():
   # Generate an offline model.
