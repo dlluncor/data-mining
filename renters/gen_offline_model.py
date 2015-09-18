@@ -23,7 +23,7 @@ def learn(setis):
   print l.generate_statistics()
 
 def memorize(setis):
-  tdg = training_data.TDG()
+  tdg = training_data.TDG(['gender', 'age'])
   blocks = tdg.transform(setis)
   tdg.save_memorized_blocks('memorized-v0.pickle', blocks)
 
@@ -34,5 +34,6 @@ def main():
   setis = [create_seti([('gender', 'm')], [('age', 25)])]
   memorize(setis)
   # Write the model to a file.
+  print 'Gen offline model'
 
 main()
