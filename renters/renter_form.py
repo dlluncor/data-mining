@@ -5,8 +5,6 @@
 from datetime import datetime
 
 class RenterForm(object):
-    # TODO(haoran): Create the RenterForm object
-    #
     def __init__(self, *args, **kwargs):
         """
         Init form from dict or keyword arguments.

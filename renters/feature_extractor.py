@@ -4,8 +4,6 @@
 
 from ml import seti
 class FeatureExtractor(object):
-  # TODO(haoran): Convert the RenterForm to a SETI example.
-
   def __init__(self):
     pass
 
@@ -20,6 +18,4 @@ class FeatureExtractor(object):
     s.add_binary('gender', renter_form.gender)
     s.weight = 1
     s.label = renter_form.label
-    # TODO(haoran): Assign Policy price to the label field.
-    # s.weight = 1 by default.
     return s

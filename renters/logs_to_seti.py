@@ -24,13 +24,11 @@ def _to_renter_form(csv_line):
     'unit_count': unit_count,
     'unrelated_roommates_count': unrelated_roommates_count,
   }
-  # TODO(haoran): parse Policy price.
   form = renter_form.RenterForm(info)
   form.label = float(policy_price)
   return form
 
 def generate_seti(filenames):
-  # TODO(haoran): Convert CSV lines to RenterForm.
   setis = []
   # Read each file where each row represents a training example.
   for fname in filenames:
