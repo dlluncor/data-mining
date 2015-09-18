@@ -16,7 +16,7 @@ def pick_from_list(l):
 # which are common to that fixed type.
 
 Column = namedtuple('Column', 'values select_type')
-AddrInfo = namedtuple('AddrInfo', 'use_random shared_random_address_index')
+AddrInfo = namedtuple('AddrInfo', 'vary_column shared_random_address_index')
 
 import pdb
 
@@ -47,14 +47,27 @@ class GenRequestLines(object):
       #if i > to_check:
       #  break
 
+    print 'Col name to iterate index:'
     print self.col_name_to_iter_index 
+
+  def make_addr_info(self, vary_column, shared_random_address_index=None):
+    """If True, then vary_column the Address column."""
+    #rnd_addresses confusingly == vary_column = False
+    #adddresses == vary_column = True
+    if shared_random_address_index is None:
+      if vary_column:
+        # If the address is involved in the cross, make sure to construct the proper
+        shared_random_address_index = random_index(self.constants.addresses)
+      else:  
+        shared_random_address_index = random_index(self.constants.rnd_addresses)
+    return AddrInfo(vary_column=vary_column, shared_random_address_index=shared_random_address_index)
 
   def get_address_value(self, k, address_info):
     address_info.shared_random_address_index
     cell_value = ''
-    addresses = self.constants.rnd_addresses if address_info.use_random else self.constants.addresses
-    zip_codes = self.constants.rnd_zip_codes if address_info.use_random else self.constants.zip_codes
-    cities = self.constants.rnd_cities if address_info.use_random else self.constants.cities
+    addresses = self.constants.addresses if address_info.vary_column else self.constants.rnd_addresses
+    zip_codes = self.constants.zip_codes if address_info.vary_column else self.constants.rnd_zip_codes
+    cities = self.constants.cities if address_info.vary_column else self.constants.rnd_cities
 
     if k == 'Address':
       cell_value = addresses[address_info.shared_random_address_index]
@@ -111,8 +124,7 @@ class GenRequestLines(object):
       csv_row = []
       # For each row, some columns need to pick from the same index because they are all dependent. Lets
       # generate a shared_random_index with a fixed length. Specifically just for addresses.
-      shared_random_address_index = random_index(self.constants.rnd_addresses)
-      address_info = AddrInfo(use_random=True, shared_random_address_index=shared_random_address_index)
+      address_info = self.make_addr_info(vary_column=False)
       for k, v in self.constants.d.iteritems():
         # This loop chooses the correct value to pick for a particular column in a particular row.
         vc = Column._make(v)
@@ -121,7 +133,6 @@ class GenRequestLines(object):
 
       csv_rows.append(','.join(csv_row))
 
-    print len(csv_rows)
     if len(csv_rows) > 1000000:
       raise Exception('Too many permutations to rate!')
     return csv_rows
@@ -130,57 +141,33 @@ class GenRequestLines(object):
     # Fill in the values which were not generated in the cross product but we still want to explore the values for.
     # Use default values and fix everything else to the default value when using this particular type.
     cols_not_crossed = set([]) # E.g., {"Address": all_addresses}
+    single_cross_cfgs = []
     for k, v in self.constants.d.iteritems():
+      if k == 'Zip code' or k == 'City':
+        # For all columns that are not crossed, now use all default values and vary just one parameter.
+        # We dont need to iterate through all values for Zip code and City since we they are tied to the unique address.
+        continue
       vc = Column._make(v)
       if vc.select_type == 'fixed' and len(vc.values) > 1:
-        cols_not_crossed.add(k)
+        cross_cfg = ([k])
+        single_cross_cfgs.append(cross_cfg)
+        #cols_not_crossed.add(k)
+    return self.special_cross_products(single_cross_cfgs, vary_address=True)
+    #print 'Columns not crossed:\n%s' % (str(cols_not_crossed))
 
-    print 'Columns not crossed:\n%s' % (str(cols_not_crossed))
-
-    # For all columns that are not crossed, now use all default values and vary just one parameter.
-    # We dont need to iterate through all values for Zip code and City since we they are tied to the unique address.
-    cols_not_crossed.remove('Zip code')
-    cols_not_crossed.remove('City')
-
-    extra_csv_rows = []
-    j = 0
-    for col_not_crossed in cols_not_crossed:
-      column_obj = Column._make(self.constants.d[col_not_crossed])
-      all_column_values = column_obj.values
-      print 'Column: %s. Num values: %d' % (col_not_crossed, len(all_column_values))
-      for i in xrange(1, len(all_column_values)):
-        vary_value = all_column_values[i]
-        csv_row = []
-        shared_random_address_index = random_index(self.constants.addresses)
-        # If we are varying the Address, then we need to make sure this index is the same as the vary_value index.
-        if col_not_crossed == 'Address':
-          shared_random_address_index = i  # Make it equivalent to the index of the address we are varying.
-
-        address_info = AddrInfo(use_random=False, shared_random_address_index=shared_random_address_index)
-        # Now construct the row but keep everything default expect for the column we are varying.
-        for k, v in self.constants.d.iteritems():
-          if k == col_not_crossed:
-            # Vary value.
-            print 'Vary value: %s %s. row %d' % (k, vary_value, j)
-            csv_row.append(vary_value)
-          else:
-            vc = Column._make(v)
-            csv_row.append(self.get_cell_value(k, vc, address_info, iter_row=None))
-        extra_csv_rows.append(','.join(csv_row))
-        j += 1
-    return extra_csv_rows
-
-  def special_cross_products(self):
+  def special_cross_products(self, cross_cfgs, vary_address=False):
     """Find cross products which are specified in the config."""
 
     # Find which crosses need to be changed, and then generate the other fields as needed.
     # crosses = [{'Date': 'value', 'Last name': 'Smith'}, ...]
     # generate cell_value with iter_row = None.
     value_crosses = []
-    for cfg in self.constants.cross_cfgs:
+    for cfg in cross_cfgs:
       value_lists = []
       index_to_col_name = {}
       cross_cfg = common.CrossConfig(cfg)
+      #print 'Cross config: '
+      #print cross_cfg
       for i in xrange(0, len(cross_cfg.columns)):
         column = cross_cfg.columns[i]
         v = self.constants.d[column]
@@ -188,20 +175,29 @@ class GenRequestLines(object):
         value_lists.append(vc.values)
         index_to_col_name[i] = column
       # Now value lists contains all possible values for the crosses. Now find all combinations here.
+      #print 'All values stored in the list:'
+      #print value_lists
       all_possible_value_combos = list(itertools.product(*value_lists))
-      value_cross = {}
       for value_combo in all_possible_value_combos:
+        value_cross = {}
         for col_index in xrange(0, len(value_combo)):
           # Simply get the actual value from the value list and get which column it came from.
           value_cross[index_to_col_name[col_index]] = value_combo[col_index]
-      value_crosses.append(value_cross)
+        value_crosses.append(value_cross)
 
+    #print 'Value crosses: '
+    #print value_crosses
     csv_rows = []
     for cross in value_crosses:
       csv_row = []
       # An address should never be involved in a cross, for now.
-      shared_random_address_index = random_index(self.constants.rnd_addresses)
-      address_info = AddrInfo(use_random=True, shared_random_address_index=shared_random_address_index)
+      shared_index = None
+      if 'Address' in cross:
+        if vary_address == False:
+          raise Exception('Cannot include Address in a cross AND vary the address. It must be static.')
+        shared_index = self.constants.addresses.index(cross['Address'])
+      address_info = self.make_addr_info(vary_address, shared_random_address_index=shared_index)
+
       for k, v in self.constants.d.iteritems():
         if k in cross:
           # Use the cross value.
@@ -252,21 +248,20 @@ class RequestWriter(object):
       f.close()
 
   def write(self):
-    # Generate the all cross product rows.
     g = GenRequestLines(self.constants)
-    """
+
+    # Generate the all cross product rows.
     csv_rows = [self.get_header()] + g.all_cross_products()
     print len(csv_rows)
-    # Write rows to files.
     self.write_to_files('full_crosses', csv_rows)
 
     # Generate non cross product rows.
     extra_csv_rows = [self.get_header()] + g.non_cross_products()
     print len(extra_csv_rows)
     self.write_to_files('no_crosses', extra_csv_rows)
-    """
+
     # Generate special cased cross product rows.
-    rows_3 = [self.get_header()] + g.special_cross_products()
+    rows_3 = [self.get_header()] + g.special_cross_products(self.constants.special_cross_cfgs)
     print len(rows_3)
     self.write_to_files('special_crosses', rows_3)
 

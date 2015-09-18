@@ -34,7 +34,7 @@ def generate_identity():
     return first_name, last_name, email
 
 for i in range(10):
-    print generate_identity()
+    generate_identity()
 
 synonyms = {
   '01/10/1990': ['03/08/1990', '04/05/1990', '11/12/1990', '05/06/1989', '02/04/1989', '07/31/1988', '11/18/1989', '12/1/1988', '06/06/1986', '03/27/1987' ,'03/03/1988'],
@@ -46,7 +46,6 @@ dobs = ['01/10/1990', '3/2/1994', '8/8/1940']
 property_worth = ['4000', '8000', '12000', '16000',
                   '20000','24000', '28000', '32000',
                   '35000', '40000', '50000', '60000', '70000', '80000', '90000', '100000']
-loss_of_use = ['Keep default']
 medical_payments = ['1000', '2000']
 personal_liability = ['100000', '300000', '500000']
 deductible = ['100', '100 / 250', '250', '500', '750', '1000', '1500', '2500', '5000']
@@ -88,11 +87,14 @@ d = OrderedDict([
   ('Run a business from home?', (['N'], 'fixed')),
   ('Start date', (['Keep default.'], 'fixed')),
   ('Personal property worth', (property_worth, 'iterate')),
-  ('Loss of use', (loss_of_use, 'iterate')),
+  ('Loss of use', (['Keep default'], 'iterate')),
   ('Medical payments', (medical_payments, 'iterate')),
   ('Personal liability', (personal_liability, 'iterate')),
   ('Farmers Identity Protection', (['N', 'Y'], 'fixed')), # Y / N
   ('Deductible', (deductible, 'iterate'))
 ])
 
-cross_cfgs = [(['Fire Sprinkler System?', 'Home Security?']), (['# property losses in last 3 years', '# units'])]
+special_cross_cfgs = [
+  (['Fire Sprinkler System?', 'Home Security?']), 
+  (['# property losses in last 3 years', '# units'])
+]
