@@ -19,3 +19,5 @@ class FeatureExtractor(object):
     s.weight = 1
     s.label = renter_form.label
     return s
+
+
