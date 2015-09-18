@@ -12,7 +12,8 @@ class EasySeti(object):
 
   def feature_value(self, column_name):
 """
-import seti
+
+import csv, seti
 
 class FeatureSelector():
 
@@ -57,6 +58,7 @@ class TDG(object):
   def transform(self, setis):
     # Find out which cols are even needed from the SETI (single-col only now)
     # Determine the feature index and generate a signature for that example.
+    price_blocks = []
     for seti_input in setis:
       # For each seti example, find which features to keep to put into the
       # training data feature example.
@@ -64,9 +66,13 @@ class TDG(object):
 
       # Given the feature vector, come up with its standard representation.
       seti_model_key = seti.standard_repr(features)
-      # TODO(haoran): Save the SETI model keys to the file name in
-      # save_memorized_blocks.
+      price_blocks.append((seti_model_key, seti_input.label))
 
+    return price_blocks
 
   def save_memorized_blocks(self, filename, blocks):
-    pass
+    with open(filename, 'wb') as fin:
+      writer = csv.writer(fin)
+      for block in blocks:
+        print(block)
+        writer.writerow(block)

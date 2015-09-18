@@ -53,7 +53,7 @@ class SETIExample(object):
   def __init__(self):
     self.cfs = []  # all ContinuousFeatures
     self.bfs = []  # all BinaryFeatures. They are just strings.
-    self.weight = -1
+    self.weight = 1
     self.label = -1
 
   def add_continuous(self, name, value):
