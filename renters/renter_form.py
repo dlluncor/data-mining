@@ -41,4 +41,4 @@ class RenterForm(object):
         return datetime.now().year - datetime.strptime(self.dob, '%m/%d/%Y').year
 
     def __str__(self):
-        return str(self.__dict__)
+        return str(self.__dict__) + " | " + str(self.label)
