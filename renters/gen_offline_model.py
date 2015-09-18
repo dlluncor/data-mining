@@ -10,6 +10,7 @@ def create_seti(bfs, cfs):
     s.add_binary(bf[0], bf[1])
   for cf in cfs:
     s.add_continuous(cf[0], cf[1])
+  return s
 
 def main():
   # Generate an offline model.
