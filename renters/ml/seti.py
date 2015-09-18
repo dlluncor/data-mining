@@ -7,6 +7,8 @@ class _CF(object):
     self.name = name  # E.g., 'property_type'
     self.value = value # E.g., 3.0
 
+  def __repr__(self):
+    return "{%s: %s}" % (self.name, self.value)
 
 class SETIExample(object):
 

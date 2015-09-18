@@ -15,7 +15,7 @@ class FeatureExtractor(object):
       renter_form: A renter_form.RenterForm.
     """
     # Do all logic to produce a SETI example here.
-    seti = seti.SETIExample()
-    seti.add_continuous('dob', renter_form.get_age())
-    seti.add_binary('gender', rednter_form.gender)
-    return seti
+    s = seti.SETIExample()
+    s.add_continuous('dob', renter_form.get_age())
+    s.add_binary('gender', renter_form.gender)
+    return s

@@ -39,3 +39,6 @@ class RenterForm(object):
 
     def get_age(self):
         return datetime.now().year - datetime.strptime(self.dob, '%m/%d/%Y').year
+
+    def __str__(self):
+        return str(self.__dict__)
