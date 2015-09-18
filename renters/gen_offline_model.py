@@ -23,7 +23,9 @@ def learn(setis):
   print l.generate_statistics()
 
 def memorize(setis):
-  tdg = training_data.TDG(['gender', 'age'])
+  fs = training_data.FeatureSelector()
+  fs.build_feature_map(setis)
+  tdg = training_data.TDG(fs, ['gender', 'age'])
   blocks = tdg.transform(setis)
   tdg.save_memorized_blocks('memorized-v0.pickle', blocks)
 

@@ -16,11 +16,36 @@ class EasySeti(object):
 class FeatureSelector():
 
   def __init__(self):
-    pass
+    self.i = 0
+    self.feature_to_index = {}
+
+  def build_feature_map(self, setis):
+    for seti in setis:
+      for bf in seti.bfs:
+        if bf in self.feature_to_index:
+          # Weve already seen this feature.
+          continue
+        self.feature_to_index[bf] = self.i
+        self.i += 1
+
+  def get_index(self, feature):
+    if feature not in self.feature_to_index:
+      raise Exception('Unrecognized feature not in SETI data: %s' % (feature))
+    return self.feature_to_index[feature]
+
+
+def canonical_repr(features):
+  # Given a list of features, find the canonical representation of it.
 
 class TDG(object):
 
-  def __init__(self, cols_cfg):
+  def __init__(self, fs, cols_cfg):
+    """
+    Args:
+      fs: FeatureSelector object.
+      cols_cfg: Configuration which specifies which columns to keep.
+    """
+    self.fs = fs
     self.cols_cfg = cols_cfg
     self.keep_cols = set(self.cols_cfg)
 
@@ -39,8 +64,11 @@ class TDG(object):
         if col_name not in self.keep_cols:
           continue
         # Keep this binary feature as a feature vector.
-        feature_index = 0
+        feature_index = self.fs.get_index(bf)
         features.append((feature_index, 1.0))
+
+      # Given the feature vector, come up with its canonical representation.
+      seti_model_key = canoncial_repr(features)
 
 
   def save_memorized_blocks(self, filename, blocks):
