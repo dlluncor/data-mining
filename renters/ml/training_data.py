@@ -34,8 +34,11 @@ class FeatureSelector():
     return self.feature_to_index[feature]
 
 
-def canonical_repr(features):
-  # Given a list of features, find the canonical representation of it.
+def standard_repr(features):
+  # Given a list of features, find the standard representation of it.
+  # [(0, 5.0), (10, 0.2), (4, 0.4)]
+  # [(10, 0.2), (0, 5.0), (4, 0.4)]
+  # '0-5.0:4-0.4:10-0.2'
   return ''
 
 class TDG(object):
@@ -68,8 +71,8 @@ class TDG(object):
         feature_index = self.fs.get_index(bf)
         features.append((feature_index, 1.0))
 
-      # Given the feature vector, come up with its canonical representation.
-      seti_model_key = canonical_repr(features)
+      # Given the feature vector, come up with its standard representation.
+      seti_model_key = standard_repr(features)
 
 
   def save_memorized_blocks(self, filename, blocks):
