@@ -16,7 +16,8 @@ class SETIExample(object):
   def __init__(self):
     self.cfs = []  # all ContinuousFeatures
     self.bfs = []  # all BinaryFeatures. They are just strings.
-    # TODO(haoran): add a weight field and add a label field.
+    self.weight = -1
+    self.label = -1
 
   def add_continuous(self, name, value):
     """
@@ -36,7 +37,11 @@ class SETIExample(object):
 
   def __str__(self):
     """Generate a unique string. Sort the CF and sort the BF."""
-    return ""
+    s = ""
+    s += str(self.bfs)
+    s += str(self.cfs)
+    s += 'Weight: %.2f. Label: %.2f' % (self.weight, self.label)
+    return s
 
 """
 seti.add_binary('property_type', 'COVERTED TO MULTI OCCUPANCY')

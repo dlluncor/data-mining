@@ -40,6 +40,7 @@ def generate_seti(filenames):
           renter_form = _to_renter_form(csv_line)
           fe = FeatureExtractor()
           seti = fe.to_seti(renter_form)
+          print seti
           setis.append(seti)
   return setis
 

@@ -36,6 +36,7 @@ class FeatureSelector():
 
 def canonical_repr(features):
   # Given a list of features, find the canonical representation of it.
+  return ''
 
 class TDG(object):
 
@@ -68,7 +69,7 @@ class TDG(object):
         features.append((feature_index, 1.0))
 
       # Given the feature vector, come up with its canonical representation.
-      seti_model_key = canoncial_repr(features)
+      seti_model_key = canonical_repr(features)
 
 
   def save_memorized_blocks(self, filename, blocks):
