@@ -5,6 +5,8 @@ from ml import feature_selector
 from ml import training_data
 from ml import memorized_model
 
+import renter_constants
+
 def create_seti(bfs, cfs):
   s = seti.SETIExample()
   for bf in bfs:
@@ -24,26 +26,25 @@ def learn(setis):
 
 def main():
   # - Convert the raw data to SETI.
-  filenames = ['data/tdg_v0.csv']
-  setis = logs_to_seti.generate_seti(filenames)
+  l_config = renter_constants.learned_config
+  setis = logs_to_seti.generate_seti(l_config.raw_filenames)
   #setis = [create_seti([('gender', 'm')], [('age', 25)])]
 
   # - Look at the occurence of features and their index.
   fs = feature_selector.FeatureSelector()
   fs.build_feature_map(setis)
-  feature_map_loc = 'feature_map_v0.csv'
-  fs.write_feature_map(feature_map_loc)
+  fs.write_feature_map(l_config.feature_map_loc)
 
-  # - Transform the data to feature vectors.
-  tdg = training_data.TDG(fs, ['gender', 'dob'])
-  tdg_blocks = tdg.transform(setis)
+  for model_config in l_config.model_configs:
+    print 'Learning model %s' % (model_config.name)
+    # - Transform the data to feature vectors.
+    tdg = training_data.TDG(fs, model_config.cols_cfg)
+    tdg_blocks = tdg.transform(setis)
 
-  fname = 'renters-price-v1.csv'
-  mm = memorized_model.Memorizer()
-  mm.write_features(tdg_blocks, fname)
-
-  # Write the model to a file.
-  print 'Gen offline model'
+    mm = memorized_model.Memorizer()
+    mm.write_features(tdg_blocks, model_config.memorized_model_loc)
+    # Write the model to a file.
+    print 'Finished model generation for %s' % (model_config.name)
 
 if __name__ == '__main__':
   main()

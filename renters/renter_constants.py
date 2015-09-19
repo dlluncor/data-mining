@@ -1,3 +1,6 @@
+
+### Constants for CSV file generation.
+
 import random
 import common
 from collections import OrderedDict
@@ -99,3 +102,13 @@ special_cross_cfgs = [
     'Local Fire / Smoke Alarm?', 'Home Security?', 'Non Smoking Household?', 'Local Burglar Alarm?']), 
   (['# property losses in last 3 years', '# units', 'Farmers Identity Protection'])
 ]
+
+### Constants for model building.
+from ml import model_cfg
+model_configs = [
+  model_cfg.ModelConfig(
+    name='v0', memorized_model_loc = 'renters-price-v1.csv', cols_cfg=['gender', 'dob'])
+]
+learned_config = model_cfg.LearnedConfig(
+  raw_filenames = ['data/tdg_v0.csv'], feature_map_loc = 'feature_map_v0.csv', 
+  model_configs=model_configs)

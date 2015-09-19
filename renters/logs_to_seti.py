@@ -36,6 +36,7 @@ def _to_renter_form(csv_line):
   return form
 
 def generate_seti(filenames):
+  print 'logs_to_seti reading from files: %s' % (str(filenames))
   setis = []
   # Read each file where each row represents a training example.
   for fname in filenames:
