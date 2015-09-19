@@ -1,5 +1,3 @@
-
-
 import logs_to_seti
 from ml import learner
 from ml import seti
@@ -27,7 +25,7 @@ def memorize(setis):
   fs.build_feature_map(setis)
   tdg = training_data.TDG(fs, ['gender', 'age'])
   blocks = tdg.transform(setis)
-  tdg.save_memorized_blocks('memorized-v0.pickle', blocks)
+  tdg.save_memorized_blocks('renters-price-v1.csv', blocks)
 
 def main():
   # Generate an offline model.

@@ -8,7 +8,8 @@ import csv, seti
 class SetiServer(object):
 
   def __init__(self):
-    self.memorized_prices = self.load_memorized_prices('memorized-v0.csv')
+    self.memorized_prices = None
+    self.model = None
 
   def load_memorized_prices(self, filename):
     """Load the model from a file which is really a pickled hashmap."""
@@ -22,12 +23,14 @@ class SetiServer(object):
             prices[key] = price
 
     return prices
-  def load_model(self, model):
+
+  def load_model(self, pricefile, modelfile=None):
     """Load the model from a file which is really a pickled hashmap."""
     # TODO(haoran): Read the memorized model file.
     # Model consists of the learned model as well as the memorized model.
     # E.g., memorized model is 'memorized-v0.pickle'.
-    pass
+    self.memorized_prices = self.load_memorized_prices(pricefile)
+    # TODO load model from file
 
   def score(self, seti_input):
     """Score the model based on the SETI data."""

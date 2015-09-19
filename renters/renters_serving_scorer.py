@@ -5,7 +5,7 @@ import feature_extractor
 
 def to_renter_form(form_info):
   # TODO(haoran): Convert a form_info object to this RenterForm object.
-  return renter_form.RenterForm()
+  return renter_form.RenterForm(form_info)
 
 def get_price(form_info):
   # TODO(haoran): Fill in this function and make it work.
@@ -16,6 +16,6 @@ def get_price(form_info):
   fe = feature_extractor.FeatureExtractor()
   seti = fe.to_seti(form)
   ss = SetiServer()
-  ss.load_model('renters-price-v1')
+  ss.load_model('renters-price-v1.csv')
   price = ss.score(seti)
   return price
