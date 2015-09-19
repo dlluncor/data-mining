@@ -1,0 +1,5 @@
+# Generate an offline model.
+python gen_offline_model.py
+
+# Score an example with the serving scorer.
+python renters_serving_scorer.py

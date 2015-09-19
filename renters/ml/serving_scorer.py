@@ -3,7 +3,7 @@
    or a linear regression model if we must estimate given unknown parameters.
 """
 
-import csv, seti
+import csv, seti, memorized_model
 
 class SetiServer(object):
 
@@ -18,17 +18,10 @@ class SetiServer(object):
     self.model = None
 
   def load_memorized_prices(self, filename):
-    """Load the model from a file which is really a pickled hashmap."""
-    # TODO(haoran): Read the memorized model file.
+    """Load the model from a file which is really a CSV."""
     # Model consists of the learned model as well as the memorized model.
-    # E.g., memorized model is 'memorized-v0.pickle'.
-    prices = {}
-    with open(filename, 'rb') as fin:
-        reader = csv.reader(fin)
-        for key, price in reader:
-            prices[key] = price
-
-    return prices
+    mm = memorized_model.Memorizer()
+    return mm.read_features(filename)
 
   def load_model(self, pricefile, modelfile=None):
     """Load the model from a file which is really a pickled hashmap."""
