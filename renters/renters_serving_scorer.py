@@ -1,5 +1,5 @@
 
-import ml.serving_scorer
+from ml.serving_scorer import SetiServer
 import renter_form
 import feature_extractor
 
@@ -13,9 +13,15 @@ def get_price(form_info):
   # test this function given an example form_info.
   # form_info is what the frontend will pass most likely.
   form = to_renter_form(form_info)
+  print(form)
+  print(form.get_age())
   fe = feature_extractor.FeatureExtractor()
   seti = fe.to_seti(form)
   ss = SetiServer()
   ss.load_model('renters-price-v1.csv')
   price = ss.score(seti)
   return price
+
+if __name__ == '__main__':
+  price = get_price({'dob': '11/11/1988', 'gender': 'f'})
+  print(pric)

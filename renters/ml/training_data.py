@@ -58,6 +58,7 @@ class TDG(object):
   def transform(self, setis):
     # Find out which cols are even needed from the SETI (single-col only now)
     # Determine the feature index and generate a signature for that example.
+    #print(setis)
     price_blocks = []
     for seti_input in setis:
       # For each seti example, find which features to keep to put into the
@@ -74,5 +75,4 @@ class TDG(object):
     with open(filename, 'wb') as fin:
       writer = csv.writer(fin)
       for block in blocks:
-        print(block)
         writer.writerow(block)

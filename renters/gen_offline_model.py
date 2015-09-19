@@ -23,7 +23,7 @@ def learn(setis):
 def memorize(setis):
   fs = training_data.FeatureSelector()
   fs.build_feature_map(setis)
-  tdg = training_data.TDG(fs, ['gender', 'age'])
+  tdg = training_data.TDG(fs, ['gender', 'dob'])
   blocks = tdg.transform(setis)
   tdg.save_memorized_blocks('renters-price-v1.csv', blocks)
 

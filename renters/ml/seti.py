@@ -72,7 +72,7 @@ class SETIExample(object):
     """
     self.bfs.append('%s:%s' % (column_name, value_str))
 
-  def __str__(self):
+  def __repr__(self):
     """Generate a unique string. Sort the CF and sort the BF."""
     s = ""
     s += str(self.bfs)

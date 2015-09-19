@@ -35,6 +35,7 @@ class RenterForm(object):
         for key in kwargs:
             setattr(self, key, kwargs[key])
 
+        self.label = -1
     def get_age(self):
         return datetime.now().year - datetime.strptime(self.dob, '%m/%d/%Y').year
 
