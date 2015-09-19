@@ -7,7 +7,13 @@ import csv, seti
 
 class SetiServer(object):
 
-  def __init__(self):
+  def __init__(self, fs, cols_cfg):
+    """
+      fs: feature selector with all the feature indices.
+      cols_cfg: Columns to keep.
+    """
+    self.fs = fs  # Not great to pass the feature selector with the loaded feature_index_map in...
+    self.cols_cfg = cols_cfg
     self.memorized_prices = None
     self.model = None
 
@@ -41,7 +47,7 @@ class SetiServer(object):
     # '0-1-2-3-4': 3.0,
     # if we have not seen this example:
     # score using model.
-    features = seti.create_feature_vector(seti_input)
+    features = seti.create_feature_vector(self.fs, self.cols_cfg, seti_input)
     key = seti.standard_repr(features)
     if key in self.memorized_prices:
         return self.memorized_prices[key]

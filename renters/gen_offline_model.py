@@ -1,6 +1,7 @@
 import logs_to_seti
 from ml import learner
 from ml import seti
+from ml import feature_selector
 from ml import training_data
 
 def create_seti(bfs, cfs):
@@ -21,11 +22,15 @@ def learn(setis):
   print l.generate_statistics()
 
 def memorize(setis):
-  fs = training_data.FeatureSelector()
+  fs = feature_selector.FeatureSelector()
   fs.build_feature_map(setis)
+  feature_map_loc = 'feature_map_v0.csv'
+  fs.write_feature_map(feature_map_loc)
   tdg = training_data.TDG(fs, ['gender', 'dob'])
   blocks = tdg.transform(setis)
-  tdg.save_memorized_blocks('renters-price-v1.csv', blocks)
+  fname = 'renters-price-v1.csv'
+  tdg.save_memorized_blocks(fname, blocks)
+  print 'Saved memorized model to %s' % (fname)
 
 def main():
   # Generate an offline model.
@@ -36,4 +41,5 @@ def main():
   # Write the model to a file.
   print 'Gen offline model'
 
-main()
+if __name__ == '__main__':
+  main()

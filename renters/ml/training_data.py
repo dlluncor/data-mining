@@ -15,34 +15,6 @@ class EasySeti(object):
 
 import csv, seti
 
-class FeatureSelector():
-
-  def __init__(self):
-    self.i = 0
-    self.feature_to_index = {}
-
-  def build_feature_map(self, setis):
-    for seti in setis:
-      for bf in seti.bfs:
-        if bf in self.feature_to_index:
-          # Weve already seen this feature.
-          continue
-        self.feature_to_index[bf] = self.i
-        self.i += 1
-
-      for cf in seti.cfs:
-        if cf in self.feature_to_index:
-          # Weve already seen this feature.
-          continue
-        self.feature_to_index[cf.name] = self.i
-        self.i += 1
-
-  def get_index(self, feature):
-    if feature not in self.feature_to_index:
-      raise Exception('Unrecognized feature not in SETI data: %s' % (feature))
-    return self.feature_to_index[feature]
-
-
 class TDG(object):
 
   def __init__(self, fs, cols_cfg):
