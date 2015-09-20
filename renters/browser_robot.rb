@@ -28,10 +28,9 @@ def script_web_page(b, data)
     personal_liability, farmers_identity_protection, deductible, policy_number,
     timestamp, policy_price, agent_name, agent_address = data
 
-
     b.goto "http://farmers.com"
 
-    puts 'Go to home page'
+    puts "\tGo to home page"
 
     b.select_list(:css => "div.quote-block select[name='Lob']").select insurance_type
     b.text_field(:css => "div.quote-block input[name='Zip_Code']").set zip_code
@@ -43,7 +42,7 @@ def script_web_page(b, data)
         puts "Fail to find 'Start my Quote' button on step 1 of quote page"
     end
 
-    puts 'Reach STEP 1'
+    puts "\tReach STEP 1"
 
     b.text_field(:id => "preapp:FirstName").set first_name
     b.text_field(:id => "preapp:LastName").set last_name
@@ -59,7 +58,7 @@ def script_web_page(b, data)
         puts "Fail to find 'Start my Quote' button on step 2 of quote page"
     end
 
-    puts 'Reach STEP 2'
+    puts "\tReach STEP 2"
 
     b.select_list(:id => "AddRenterBuy:PropertyType").select property_type
     b.select_list(:id => "AddRenterBuy:NumberOfUnits").select "#{unit_count} Unit"
@@ -92,7 +91,7 @@ def script_web_page(b, data)
         puts "Fail to find 'Start my Quote' button on step 3 of quote page"
     end
 
-    puts 'Reach STEP 3'
+    puts "\tReach STEP 3"
     b.execute_script("var el=document.getElementById('homequote:homeCvgContainer:0:homeCoverages:0:cvgCode'); el.onblur=null;el.onchange=null;el.onclick=null;el.onfocus=null;el.onkeydown=null;el.onkeypress=null;el.onkeyup=null;return 1;")
     b.text_field(:id => "homequote:homeCvgContainer:0:homeCoverages:0:cvgCode").set personal_property_value
     b.select_list(:id => "homequote:homeCvgContainer:0:homeCoverages:2:liabilityMenu").select "$#{add_delimiter medical_payment}"
@@ -108,7 +107,7 @@ def script_web_page(b, data)
         puts "Fail to find 'Start my Quote' button on step 3 of quote page"
     end
 
-    puts "Recalculated Price"
+    puts "\tRecalculated Price"
     price = b.p(:id => 'OabPriceTopHome').text
     annual_price = b.span(:id => 'homeQuoteAccordian:homePremiumValueSelected1').text
     agent_name = b.b(:id => 'agentName').text
@@ -118,26 +117,51 @@ def script_web_page(b, data)
 
     info = {:price => price, :annual_price => annual_price, :agent_name => agent_name,
             :agent_address => agent_address, :agent_phone_number => agent_phone_number, :quote_number => quote_number}
-    p info
 
     return info
+end
+
+def save_csv(row)
+    fout = File.open('data/prices_samples.csv', 'a')
+    line = CSV.generate_line(row)
+    fout.write(line)
+    fout.close
+end
+
+def log_error(msg)
+    fout = File.open('data/br_logs.txt', 'a')
+    fout.write(msg)
+    fout.close
 end
 
 counter = 0
 browser = Watir::Browser.new :chrome
 
 data = CSV.read('data/renter_samples.csv')
-header = data.shift
-data.each do |row|
-    script_web_page(browser, row)
-    counter += 1
-    puts "script #{counter} samples"
 
-    if counter == 2
+header = data.shift
+header += ['price', 'annual_price', 'agent_name', 'agent_address', 'agent_phone_number', 'quote_number']
+save_csv(header)
+
+data.each do |row|
+    counter += 1
+    puts "[#{counter}] HITTING ... "
+    begin
+        info = script_web_page(browser, row)
+    rescue Exception => e
+        browser.screenshot.save "screenshots/#{counter}.png"
+        msg = "\tMISSED: #{row}\n\t#{e}"
+        puts msg
+        log_error(msg)
+        next
+    end
+
+    row += [info[:price], info[:annual_price], info[:agent_name], info[:agent_address], info[:agent_phone_number], info[:quote_number]]
+
+    save_csv(row)
+    puts "\tDONE"
+
+    if counter == 3
         break
     end
 end
-
-
-
-#
