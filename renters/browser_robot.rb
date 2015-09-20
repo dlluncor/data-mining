@@ -151,7 +151,7 @@ data.each do |row|
         info = script_web_page(browser, row)
     rescue Exception => e
         browser.screenshot.save "screenshots/#{counter}.png"
-        msg = "\tMISSED: #{row}\n\t#{e}"
+        msg = "[#{counter}] MISSED: #{row}\n\t#{e}"
         puts msg
         log_error(msg)
         next
