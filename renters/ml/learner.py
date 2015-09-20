@@ -2,6 +2,8 @@
   A learner takes SETI examples and generates a model from it.
 """
 
+from sklearn.linear_model import LinearRegression
+
 class Learner(object):
 
   def __init__(self):
@@ -10,11 +12,16 @@ class Learner(object):
   def reset(self):
     pass
 
-  def learn(self, setis):
+  def learn(self, tdg_blocks):
     pass
 
-  def create_model(self):
+  def stats(self):
     pass
 
-  def generate_statistics(self):
-    pass
+
+def test_learner():
+  'testing the learner.'
+
+
+if __name__ == '__main__':
+  test_learner()

@@ -269,6 +269,7 @@ class RequestWriter(object):
         continue
       fname = '%s_renters_%s_%d.csv' % (prefix, self.timestamp, i)
       fname = fname.replace(' ', '')
+      print 'Wrote csv request file to %s' % (fname)
       f = open(fname, 'w')
       f.write(csv)
       f.close()

@@ -9,9 +9,8 @@ class _ModelScorer(object):
 
   def __init__(self, model_config):
     # Model consists of the learned model as well as the memorized model.
-    self.memorized_prices = self.load_memorized_prices(model_config.memorized_model_loc)
     self.model_config = model_config
-    # TODO load model from file
+    self.memorized_prices = self.load_memorized_prices(model_config.memorized_model_loc)
 
   def load_memorized_prices(self, filename):
     """Load the model from a file which is really a CSV."""
