@@ -50,7 +50,7 @@ def script_web_page(b, data)
     end
 
     puts "\tReach STEP 1"
-    
+
     b.text_field(:id => "preapp:FirstName").set first_name
     b.text_field(:id => "preapp:LastName").set last_name
     b.text_field(:id => "preapp:datepicker").set clean_date(dob)
@@ -168,8 +168,4 @@ data.each do |row|
 
     save_csv(row)
     puts "\tDONE"
-
-    if counter == 3
-        break
-    end
 end
