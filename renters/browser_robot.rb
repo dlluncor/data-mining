@@ -18,6 +18,13 @@ def deductible_converter(option)
     return '18#A#5000' if option == '5000'
 end
 
+def clean_date(date)
+    m, d, y = date.split('/')
+    m = m.length == 1? "0#{m}" : m
+    d = d.length == 1? "0#{d}" : d
+    y = y.length == 1? "0#{y}" : y
+    "#{m}/#{d}/#{y}"
+end
 def script_web_page(b, data)
     insurance_type, zip_code, first_name, last_name, dob, gender, address,
     city, state, has_auto_insurance_coverage, property_type, unit_count,
@@ -43,10 +50,10 @@ def script_web_page(b, data)
     end
 
     puts "\tReach STEP 1"
-
+    
     b.text_field(:id => "preapp:FirstName").set first_name
     b.text_field(:id => "preapp:LastName").set last_name
-    b.text_field(:id => "preapp:datepicker").set dob
+    b.text_field(:id => "preapp:datepicker").set clean_date(dob)
     b.radio(:value=> gender == 'f' ? 'F' : 'M' ).set
     b.text_field(:id => "preapp:StreetAddress").set address
     b.text_field(:id => "preapp:City").set city

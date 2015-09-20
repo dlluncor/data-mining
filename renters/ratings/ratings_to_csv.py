@@ -1,5 +1,5 @@
 import datetime
-import common
+from ml import common
 from collections import OrderedDict
 from collections import namedtuple
 import itertools
@@ -48,7 +48,7 @@ class GenRequestLines(object):
       #  break
 
     print 'Col name to iterate index:'
-    print self.col_name_to_iter_index 
+    print self.col_name_to_iter_index
 
   def make_addr_info(self, vary_column, shared_random_address_index=None):
     """If True, then vary_column the Address column."""
@@ -58,7 +58,7 @@ class GenRequestLines(object):
       if vary_column:
         # If the address is involved in the cross, make sure to construct the proper
         shared_random_address_index = random_index(self.constants.addresses)
-      else:  
+      else:
         shared_random_address_index = random_index(self.constants.rnd_addresses)
     return AddrInfo(vary_column=vary_column, shared_random_address_index=shared_random_address_index)
 
@@ -117,7 +117,7 @@ class GenRequestLines(object):
     iter_col_rows = list(itertools.product(*self.iter_col_vals))
     #pdb.set_trace()
 
-    # Iterate through the columns finding the correct key and then 
+    # Iterate through the columns finding the correct key and then
     # fill in the fixed or random columns.
     csv_rows = []
     for iter_row in iter_col_rows:

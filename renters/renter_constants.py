@@ -2,7 +2,6 @@
 ### Constants for CSV file generation.
 
 import random
-import common
 from collections import OrderedDict
 
 first_names = ['Liam', 'Charlotte', 'Noah', 'Amelia', 'Emilia', 'Oliver', 'Aria', 'Arya', 'Ethan', 'Olivia', 'Asher', 'Violet', 'Benjamin', 'Ava', 'Henry', 'Sophia', 'Sofia', 'Owen', 'Emma', 'Caleb', 'Kaleb', 'Scarlett', 'Scarlet', 'Jackson', 'Jaxon', 'Nora', 'Norah', 'Grayson', 'Greyson', 'Audrey', 'Declan', 'Aurora', 'Landon', 'Landen', 'Vivienne', 'Vivien', 'Vivian', 'Alexander', 'Lily', 'Lilly', 'Levi', 'Abigail', 'Aidan', 'Aiden', 'Aden', 'Chloe', 'Khloe', 'Finn', 'Fynn', 'Adalyn', 'Elijah', 'Ella', 'Lucas', 'Lukas', 'Elizabeth', 'Elisabeth', 'Gavin', 'Alice', 'Gabriel', 'Grace', 'Elliot', 'Eliot', 'Elliott', 'Hazel', 'Emmett', 'Harper', 'William', 'Adelaide', 'James', 'Isla', 'Sebastian', 'Sebastien', 'Claire', 'Clare', 'Jack', 'Arianna', 'Ariana', 'Theodore', 'Isabella', 'Izabella', 'Wyatt', 'Penelope', 'Hudson', 'Eleanor', 'Jasper', 'Evelyn', 'Silas', 'Lucy', 'Lucie', 'Isaac', 'Juliet', 'Juliette', 'Logan', 'Stella', 'Jacob', 'Jakob', 'Sadie', 'Everett', 'Genevieve', 'Andrew', 'Hannah', 'Hanna', 'Luke', 'Clara', 'Nathan', 'Cora', 'Jace', 'Jase', 'Evangeline', 'Samuel', 'Ivy', 'Cole', 'Kole', 'Luna', 'Holden', 'Ruby', 'Chase', 'Lorelei', 'Archer', 'Lydia', 'Matthew', 'Mathew', 'Caroline', 'Aaron', 'Aron', 'Savannah', 'Savanna', 'Leo', 'Rosalie', 'Nathaniel', 'Annabelle', 'Anabel', 'Mason', 'Eloise', 'Connor', 'Conor', 'Conner', 'Isabelle', 'Isabel', 'Milo', 'Piper', 'Daniel', 'Emily', 'Dominic', 'Dominick', 'Brielle', 'Eli', 'Natalie', 'Lincoln', 'Arabella', 'Miles', 'Adeline', 'Sawyer', 'Rose', 'Atticus', 'Everly', 'Joshua', 'Lila', 'Lilah', 'Ezra', 'Fiona', 'Harrison', 'Felicity', 'Graham', 'Graeme', 'Paige', 'Rhys', 'Reece', 'Reese', 'Avery', 'Thomas', 'Layla', 'Leila', 'Zachary', 'Zachery', 'Zackery', 'Mia', 'Colton', 'Madeline', 'Madelyn', 'Madelynn', 'August', 'Mila', 'Jonah', 'Anna', 'Ana', 'Charles', 'Gemma', 'Jude', 'Zoey', 'Felix', 'Keira', 'Kira', 'Adam', 'Elsa', 'Carter', 'Leah', 'Lea', 'Easton', 'Naomi', 'Ronan', 'Willow', 'Ian', 'Eliana', 'Parker', 'Eva', 'Michael', 'Iris', 'Isaiah', 'Autumn', 'Micah', 'Lillian', 'Xander', 'Zander', 'Zoe', 'Hunter', 'Anastasia', 'Evan', 'Phoebe', 'Xavier', 'Victoria', 'Nicholas', 'Nicolas', 'Josephine', 'Bennett', 'Addison', 'Addyson', 'Nolan', 'Sophie', 'Sofie', 'Dylan', 'Dillon', 'Dillan', 'Quinn', 'Gideon', 'Daphne', 'Max', 'Elise', 'Joseph', 'Julia', 'Adrian', 'Eden', 'David', 'Sienna', 'Elias', 'Hadley', 'Ryder', 'Rider', 'Delilah', 'Seth', 'Jane', 'Christopher', 'Gabriella', 'Josiah', 'Tessa', 'Griffin', 'Alexandra']
@@ -26,6 +25,9 @@ def email_with_first_dot_last_name(first_name, last_names):
     return "{}.{}@{}.com".format(first_name, last_names, random.choice(email_services))
 
 def generate_email_address(first_name, last_name):
+    if len(first_name) < 6:
+        return email_with_first_dot_last_name(first_name.lower(), last_name.lower())
+
     return random.choice([email_with_first_name, email_with_first_dot_last_name])(first_name.lower(), last_name.lower())
 
 emails = []
@@ -42,7 +44,7 @@ for i in range(10):
 synonyms = {
   '01/10/1990': ['03/08/1990', '04/05/1990', '11/12/1990', '05/06/1989', '02/04/1989', '07/31/1988', '11/18/1989', '12/1/1988', '06/06/1986', '03/27/1987' ,'03/03/1988'],
   '3/2/1994': ['03/08/1994', '04/05/1994', '11/12/1994', '05/06/1994', '02/04/1994', '07/31/1993', '11/18/1993', '12/1/1993', '06/06/1994', '03/27/1994' ,'03/03/1993'],
-  '8/8/1940': ['03/08/1940', '04/05/1941', '11/12/1942', '05/06/1950', '02/04/1961', '07/31/1966', '11/18/1970', '12/1/1973', '06/06/1967', '03/27/1954' ,'03/03/1967'],  
+  '8/8/1940': ['03/08/1940', '04/05/1941', '11/12/1942', '05/06/1950', '02/04/1961', '07/31/1966', '11/18/1970', '12/1/1973', '06/06/1967', '03/27/1954' ,'03/03/1967'],
 }
 
 dobs = ['01/10/1990', '3/2/1994', '8/8/1940']
@@ -57,7 +59,7 @@ use_synonyms_cols = set(['Date of birth'])
 
 # Fixed columns which actually have a list longer than 1 we need to find the values for even though we are not doing
 # cross products.
-# no_cross_products = 
+# no_cross_products =
 
 d = OrderedDict([
   # header0
@@ -99,7 +101,7 @@ d = OrderedDict([
 
 special_cross_cfgs = [
   (['Auto insurance coverage?', 'Fire Sprinkler System?', 'Central Fire & Burglar Alarm?',
-    'Local Fire / Smoke Alarm?', 'Home Security?', 'Non Smoking Household?', 'Local Burglar Alarm?']), 
+    'Local Fire / Smoke Alarm?', 'Home Security?', 'Non Smoking Household?', 'Local Burglar Alarm?']),
   (['# property losses in last 3 years', '# units', 'Farmers Identity Protection'])
 ]
 
@@ -110,5 +112,5 @@ model_configs = [
     name='v0', memorized_model_loc = 'renters-price-v1.csv', cols_cfg=['gender', 'dob'])
 ]
 learned_config = model_cfg.LearnedConfig(
-  raw_filenames = ['data/tdg_v0.csv'], feature_map_loc = 'feature_map_v0.csv', 
+  raw_filenames = ['data/tdg_v0.csv'], feature_map_loc = 'feature_map_v0.csv',
   model_configs=model_configs)
