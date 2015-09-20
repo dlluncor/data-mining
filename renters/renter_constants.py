@@ -25,7 +25,7 @@ def email_with_first_dot_last_name(first_name, last_names):
     return "{}.{}@{}.com".format(first_name, last_names, random.choice(email_services))
 
 def generate_email_address(first_name, last_name):
-    if len(first_name) < 6:
+    if len(first_name) < 8:
         return email_with_first_dot_last_name(first_name.lower(), last_name.lower())
 
     return random.choice([email_with_first_name, email_with_first_dot_last_name])(first_name.lower(), last_name.lower())
