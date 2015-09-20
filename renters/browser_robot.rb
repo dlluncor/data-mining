@@ -137,7 +137,8 @@ end
 counter = 0
 browser = Watir::Browser.new :chrome
 
-data = CSV.read('data/renter_samples.csv')
+#data = CSV.read('data/renter_samples.csv')
+data = CSV.read('special_crosses_renters__0.csv')
 
 header = data.shift
 header += ['price', 'annual_price', 'agent_name', 'agent_address', 'agent_phone_number', 'quote_number']
