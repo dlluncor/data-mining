@@ -1,8 +1,13 @@
 """
   A learner takes SETI examples and generates a model from it.
+
+  Implementation is using sklearn:
+    http://nbviewer.ipython.org/github/justmarkham/DAT4/blob/master/notebooks/08_linear_regression.ipynb
 """
 
 from sklearn.linear_model import LinearRegression
+import statsmodels.formula.api as smf
+import matplotlib.pyplot as plt
 
 class Learner(object):
 
