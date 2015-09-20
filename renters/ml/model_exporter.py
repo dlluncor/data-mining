@@ -28,3 +28,23 @@ class Memorizer(object):
         for key, price in reader:
             prices[key] = price
     return prices
+
+class LearnedModel(object):
+
+  def __init__(self):
+    pass
+
+  def write_model(self, model, filename):
+    with open(filename, 'wb') as fin:
+        writer = csv.writer(fin)
+        for key, weight in model.iteritems():
+          row = (key, weight)
+          writer.writerow(row)
+
+  def read_model(self, filename):
+    m = {}
+    with open(filename, 'rb') as fin:
+        reader = csv.reader(fin)
+        for key, weight in reader:
+            m[key] = weight
+    return m

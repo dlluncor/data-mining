@@ -3,7 +3,7 @@
    or a linear regression model if we must estimate given unknown parameters.
 """
 
-import csv, seti, memorized_model
+import csv, seti, model_exporter
 
 class _ModelScorer(object):
 
@@ -11,12 +11,17 @@ class _ModelScorer(object):
     # Model consists of the learned model as well as the memorized model.
     self.model_config = model_config
     self.memorized_prices = self.load_memorized_prices(model_config.memorized_model_loc)
+    self.learned_model = self.load_learned_model(model_config.learned_model_loc)
 
   def load_memorized_prices(self, filename):
     """Load the model from a file which is really a CSV."""
     # Model consists of the learned model as well as the memorized model.
-    mm = memorized_model.Memorizer()
+    mm = model_exporter.Memorizer()
     return mm.read_features(filename)
+
+  def load_learned_model(self, filename):
+    mm = model_exporter.LearnedModel()
+    return mm.read_model(filename)
 
   def get_columns(self):
     return self.model_config.cols_cfg
@@ -26,6 +31,18 @@ class _ModelScorer(object):
     if key in self.memorized_prices:
       return self.memorized_prices[key]
     return None
+
+  def get_learned_price(self, seti_input):
+    # TODO(dlluncor): Make generic.
+    yprime = self.learned_model[':']
+    for bf in seti_input.bfs:
+      if bf.startswith('gender:'):
+        v = 0
+        if bf == 'gender:f':
+          v = 1
+        yprime += v * self.learned_model['gender']
+    return yprime
+
 
 class SetiServer(object):
 
@@ -63,6 +80,4 @@ class SetiServer(object):
     memorized_price = model.get_memorized_price(features)
     if memorized_price is not None:
       return memorized_price
-    # TODO(haoran): Determine if the SETI example was already seen and if so
-    # return the memorized value for that example.
-    pass
+    return model.get_learned_price(seti_input)
