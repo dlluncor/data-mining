@@ -231,7 +231,8 @@ class RequestWriter(object):
 
   def get_header(self):
     header = [k for k, v in self.constants.d.iteritems()]
-    header += faked_d.keys()
+    if self.use_fake_prices:
+        header += faked_d.keys()
     return ','.join(header)
 
   def write_to_files(self, prefix, orig_rows):

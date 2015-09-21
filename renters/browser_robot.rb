@@ -1,5 +1,6 @@
 require 'watir-webdriver'
 require 'csv'
+require 'json'
 
 def add_delimiter(num)
     num.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
@@ -32,8 +33,8 @@ def script_web_page(b, data)
     has_fire_sprinkler_system, has_center_fire_burglar_alarm, has_local_fire_smoke_alarm,
     has_home_security, is_non_smoking_household, has_local_burglar_alarm, unusual_hazards, has_bite_dog,
     has_bussiness_from_home, policy_start_date, personal_property_value, loss_of_use, medical_payment,
-    personal_liability, farmers_identity_protection, deductible, policy_number,
-    timestamp, policy_price, agent_name, agent_address = data
+    personal_liability, farmers_identity_protection, deductible = data
+    #policy_number, timestamp, policy_price, agent_name, agent_address
 
     b.goto "http://farmers.com"
 
@@ -68,12 +69,12 @@ def script_web_page(b, data)
     puts "\tReach STEP 2"
 
     b.select_list(:id => "AddRenterBuy:PropertyType").select property_type
-    b.select_list(:id => "AddRenterBuy:NumberOfUnits").select "#{unit_count} Unit"
+    b.select_list(:id => "AddRenterBuy:NumberOfUnits").select unit_count == '1' ? "#{unit_count} Unit" : "#{unit_count.sub(' to ', '-')} Units"
     b.select_list(:id => "AddRenterBuy:NumberOfRoommates").select unrelated_roommates_count
     b.select_list(:id => "AddRenterBuy:PropertyLoss").select property_losses_count
 
     b.text_field(:id => "AddRenterBuy:phone").set phone_number
-    b.text_field(:id => "AddRenterBuy:Email").set email
+    b.text_field(:id => "AddRenterBuy:Email").send_keys *email
 
     b.checkbox(:id => "AddRenterBuy:fireSprinkler").set if has_fire_sprinkler_system == 'Y'
     b.checkbox(:id => "AddRenterBuy:fireBurglarAlarm").set if has_center_fire_burglar_alarm == 'Y'
@@ -136,36 +137,67 @@ def save_csv(row)
 end
 
 def log_error(msg)
-    fout = File.open('data/br_logs.txt', 'a')
-    fout.write(msg)
+    fout = File.open('data/error.log', 'a')
+    fout.puts(JSON.generate(msg))
+    fout.close
+end
+
+def log_success(msg)
+    fout = File.open('data/success.log', 'a')
+    fout.puts(JSON.generate(msg))
     fout.close
 end
 
 counter = 0
-browser = Watir::Browser.new :chrome
 
 #data = CSV.read('data/renter_samples.csv')
-data = CSV.read('special_crosses_renters__0.csv')
+#data = CSV.read('special_crosses_renters__0.csv')
+#data = CSV.read('special_crosses_renters__1.csv')
+data = CSV.read('no_crosses_renters__0.csv')
 
 header = data.shift
-header += ['price', 'annual_price', 'agent_name', 'agent_address', 'agent_phone_number', 'quote_number']
+header += ['Policy Price', 'Annual Policy Price', 'Agent Name', 'Agent Address', 'Agent Phone Number', 'Quote Number']
 save_csv(header)
 
 data.each do |row|
+    start_time = Time.now
     counter += 1
+
+    msg = {:id => counter, :data => row, :start_time => start_time}
+
     puts "[#{counter}] HITTING ... "
+    browser = Watir::Browser.new :chrome
     begin
         info = script_web_page(browser, row)
     rescue Exception => e
-        browser.screenshot.save "screenshots/#{counter}.png"
-        msg = "[#{counter}] MISSED: #{row}\n\t#{e}\n"
-        puts msg
+        end_time = Time.now
+        delta = end_time - start_time
+        msg[:time] = delta
+        msg[:error] = e
+        puts "[#{counter}][#{delta}] MISSED: #{row}\n\t#{e}\n"
+
+        begin
+            name = "screenshots/#{counter}.png"
+            browser.screenshot.save name
+            msg[:screenshot] = name
+        rescue Exception => e
+            puts "Fail to save screenshot#{e}"
+        end
+        msg[:status] = 'fail'
         log_error(msg)
+        browser.close
         next
     end
 
     row += [info[:price], info[:annual_price], info[:agent_name], info[:agent_address], info[:agent_phone_number], info[:quote_number]]
 
     save_csv(row)
-    puts "\tDONE"
+    browser.close
+    end_time = Time.now
+    delta = end_time - start_time
+    msg[:time] = delta
+    msg[:status] = 'success'
+    msg[:data] = row
+    log_success(msg)
+    puts "\t[#{delta}]DONE"
 end

@@ -1,0 +1,26 @@
+[1] MISSED: ["Renters", "95134", "Alexander", "Matthews", "03/27/1987", "f", "150 Alicante Dr", "San Jose", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "1", "0", "0", "(415) 885-0333", "amelia.knight@aol.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "4000", "Keep default", "1000", "100000", "N", "100", "1234", "Tues", "34.20", "John Ag", "Mtv"]
+	unknown error: Cannot set property 'onblur' of null
+  (Session info: chrome=45.0.2454.93)
+  (Driver info: chromedriver=2.17.340128 (994135a3538dd99439ef22cea8a9b098e00d8eb4),platform=Mac OS X 10.10.5 x86_64)
+[4] MISSED: ["Renters", "94087", "Quinn", "Adams", "06/06/1986", "m", "1575 Tenaka Pl", "Sunnyvale", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "1", "0", "0", "(866) 451-2806", "everett.rojas@outlook.com", "N", "N", "N", "N", "N", "Y", "NONE", "N", "N", "Keep default.", "4000", "Keep default", "1000", "100000", "N", "100", "91011", "Mon", "21.38", "Patricia Ag", "Cupertino"]
+	unknown error: Cannot set property 'onblur' of null
+  (Session info: chrome=45.0.2454.93)
+  (Driver info: chromedriver=2.17.340128 (994135a3538dd99439ef22cea8a9b098e00d8eb4),platform=Mac OS X 10.10.5 x86_64)
+[5] MISSED: ["Renters", "94086", "Aaron", "Hughes", "12/1/1988", "m", "655 S Fair Oaks Ave", "Sunnyvale", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "1", "0", "0", "(415) 956-8858", "amelia.knight@aol.com", "N", "N", "N", "Y", "Y", "N", "NONE", "N", "N", "Keep default.", "4000", "Keep default", "1000", "100000", "N", "100", "5678", "Tues", "27.74", "Martha Ag", "Redwood City"]
+	unknown error: Cannot set property 'onblur' of null
+  (Session info: chrome=45.0.2454.93)
+  (Driver info: chromedriver=2.17.340128 (994135a3538dd99439ef22cea8a9b098e00d8eb4),platform=Mac OS X 10.10.5 x86_64)
+[7] MISSED: ["Renters", "94043", "Owen", "Payne", "11/18/1989", "m", "505 Central Ave", "Mountain View", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "1", "0", "0", "(415) 487-1218", "everett.rojas@outlook.com", "N", "N", "N", "Y", "N", "N", "NONE", "N", "N", "Keep default.", "4000", "Keep default", "1000", "100000", "N", "100", "1234", "Mon", "25.26", "Patricia Ag", "Redwood City"]
+	unknown error: Cannot set property 'onblur' of null
+  (Session info: chrome=45.0.2454.93)
+  (Driver info: chromedriver=2.17.340128 (994135a3538dd99439ef22cea8a9b098e00d8eb4),platform=Mac OS X 10.10.5 x86_64)
+[8] MISSED: ["Renters", "94040", "Autumn", "Gardner", "06/06/1986", "m", "575 S Rengstorff Ave", "Mountain View", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "1", "0", "0", "(619) 448-8282", "lorelei.stokes@aol.com", "N", "N", "N", "Y", "N", "Y", "NONE", "N", "N", "Keep default.", "4000", "Keep default", "1000", "100000", "N", "100", "5678", "Mon", "43.61", "John Ag", "Mtv"]
+	unknown error: Cannot set property 'onblur' of null
+  (Session info: chrome=45.0.2454.93)
+  (Driver info: chromedriver=2.17.340128 (994135a3538dd99439ef22cea8a9b098e00d8eb4),platform=Mac OS X 10.10.5 x86_64)
+[10] MISSED: ["Renters", "95008", "Rhys", "Gordon", "02/04/1989", "m", "2275 S Bascom Ave", "Campbell", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "1", "0", "0", "(619) 583-8084", "amelia.knight@aol.com", "N", "N", "Y", "N", "Y", "Y", "NONE", "N", "N", "Keep default.", "4000", "Keep default", "1000", "100000", "N", "100", "91011", "Mon", "38.30", "Martha Ag", "Redwood City"]
+	unknown error: Cannot set property 'onblur' of null
+  (Session info: chrome=45.0.2454.93)
+  (Driver info: chromedriver=2.17.340128 (994135a3538dd99439ef22cea8a9b098e00d8eb4),platform=Mac OS X 10.10.5 x86_64)
+[11] MISSED: ["Renters", "95008", "August", "Sullivan", "04/05/1990", "f", "200 Hollis Ave", "Campbell", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "1", "0", "0", "(408) 779-8986", "kole.espinoza@gmail.com", "N", "N", "Y", "N", "N", "N", "NONE", "N", "N", "Keep default.", "4000", "Keep default", "1000", "100000", "N", "100", "1234", "Mon", "25.50", "Patricia Ag", "Mtv"]
+	unable to locate element, using {:css=>"div.quote-block select[name='Lob']", :tag_name=>"select"}
