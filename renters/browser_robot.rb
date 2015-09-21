@@ -29,12 +29,11 @@ end
 def script_web_page(b, data)
     insurance_type, zip_code, first_name, last_name, dob, gender, address,
     city, state, has_auto_insurance_coverage, property_type, unit_count,
-    unrelated_roommates_count, property_losses_count, phone_number, email,
+    unrelated_roommate_count, unrelated_roommate_names, property_losses_count, phone_number, email,
     has_fire_sprinkler_system, has_center_fire_burglar_alarm, has_local_fire_smoke_alarm,
     has_home_security, is_non_smoking_household, has_local_burglar_alarm, unusual_hazards, has_bite_dog,
     has_bussiness_from_home, policy_start_date, personal_property_value, loss_of_use, medical_payment,
     personal_liability, farmers_identity_protection, deductible = data
-    #policy_number, timestamp, policy_price, agent_name, agent_address
 
     b.goto "http://farmers.com"
 
@@ -70,7 +69,25 @@ def script_web_page(b, data)
 
     b.select_list(:id => "AddRenterBuy:PropertyType").select property_type
     b.select_list(:id => "AddRenterBuy:NumberOfUnits").select unit_count == '1' ? "#{unit_count} Unit" : "#{unit_count.sub(' to ', '-')} Units"
-    b.select_list(:id => "AddRenterBuy:NumberOfRoommates").select unrelated_roommates_count
+    b.select_list(:id => "AddRenterBuy:NumberOfRoommates").select unrelated_roommate_count
+
+    if unrelated_roommate_count.to_i > 0
+        puts unrelated_roommate_names
+        if unrelated_roommate_count.to_i == 1
+            rm_firt_name, rm_last_name = unrelated_roommate_names.split ':'
+            b.text_field(:id => "AddRenterBuy:roommate1").set rm_firt_name
+            b.text_field(:id => "AddRenterBuy:roomfrstLastname").set rm_last_name
+        elsif unrelated_roommate_count.to_i == 2
+            names = unrelated_roommate_names.split('|')
+            rm_firt_name, rm_last_name = names[0].split ':'
+            b.text_field(:id => "AddRenterBuy:roommate1").set rm_firt_name
+            b.text_field(:id => "AddRenterBuy:roomfrstLastname").set rm_last_name
+            rm_firt_name, rm_last_name = names[1].split ':'
+            b.text_field(:id => "AddRenterBuy:roommate2").set rm_firt_name
+            b.text_field(:id => "AddRenterBuy:roomsecLastname").set rm_last_name
+        end
+    end
+
     b.select_list(:id => "AddRenterBuy:PropertyLoss").select property_losses_count
 
     b.text_field(:id => "AddRenterBuy:phone").set phone_number
