@@ -1,4 +1,4 @@
-import datetime
+import datetime, json
 from ml import common
 from collections import OrderedDict
 from collections import namedtuple
@@ -22,6 +22,12 @@ import pdb
 
 def is_address_column(k):
   return k == 'Zip code' or k == 'City' or k == 'Address'
+
+def is_roommate_count_column(k):
+  return k == '# unrelated roommates'
+
+def is_roommate_names_column(k):
+  return k == 'roommate names'
 
 class GenRequestLines(object):
   """This class generates what fields need to be filled out for a particular form; Output is in CSV."""
@@ -79,8 +85,18 @@ class GenRequestLines(object):
       raise Exception('Calling get_address_value with non-address column.')
     return cell_value
 
-  def get_cell_value(self, k, vc, address_info, iter_row):
+  def get_cell_value(self, k, vc, address_info, iter_row, roommate_count=0):
     cell_value = ''
+    if is_roommate_names_column(k):
+        count = int(roommate_count)
+        if count > 0:
+            names = []
+            for i in range(count):
+                names.append("%s:%s" % (self.constants.get_rnd_first_name(), self.constants.get_rnd_last_name()))
+            return '|'.join(names)
+        else:
+            return ''
+
     if vc.select_type == 'iterate':
       # For debug purposes.
       if k not in self.col_name_to_iter_index:
@@ -125,11 +141,19 @@ class GenRequestLines(object):
       # For each row, some columns need to pick from the same index because they are all dependent. Lets
       # generate a shared_random_index with a fixed length. Specifically just for addresses.
       address_info = self.make_addr_info(vary_column=False)
+      roommate_count = 0
       for k, v in self.constants.d.iteritems():
         # This loop chooses the correct value to pick for a particular column in a particular row.
         vc = Column._make(v)
-        cell_value = self.get_cell_value(k, vc, address_info, iter_row)
+        if is_roommate_names_column(k):
+            cell_value = self.get_cell_value(k, vc, address_info, iter_row, roommate_count)
+        else:
+            cell_value = self.get_cell_value(k, vc, address_info, iter_row)
+
         csv_row.append(cell_value)
+
+        if is_roommate_count_column(k):
+            roommate_count = int(cell_value)
 
       csv_rows.append(','.join(csv_row))
 
@@ -198,15 +222,23 @@ class GenRequestLines(object):
         shared_index = self.constants.addresses.index(cross['Address'])
       address_info = self.make_addr_info(vary_address, shared_random_address_index=shared_index)
 
+      roommate_count = 0
       for k, v in self.constants.d.iteritems():
         if k in cross:
           # Use the cross value.
           #print 'Cross: %s' % (str(cross[k]))
-          csv_row.append(cross[k])
+          val = cross[k]
         else:
           # Use a default value since we are not varying this parameter.
           val = self.get_cell_value(k, Column._make(v), address_info, iter_row=None)
-          csv_row.append(val)
+
+        if is_roommate_names_column(k):
+          val = self.get_cell_value(k, Column._make(v), address_info, iter_row=None, roommate_count=roommate_count)
+
+        if is_roommate_count_column(k):
+          roommate_count = int(val)
+
+        csv_row.append(val)
       csv_rows.append(','.join(csv_row))
 
     return csv_rows

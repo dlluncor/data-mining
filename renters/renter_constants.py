@@ -25,10 +25,20 @@ def email_with_first_dot_last_name(first_name, last_names):
     return "{}.{}@{}.com".format(first_name, last_names, random.choice(email_services))
 
 def generate_email_address(first_name, last_name):
-    if len(first_name) < 8:
-        return email_with_first_dot_last_name(first_name.lower(), last_name.lower())
+    #if len(first_name) < 8:
+    #    return email_with_first_dot_last_name(first_name.lower(), last_name.lower())
 
-    return random.choice([email_with_first_name, email_with_first_dot_last_name])(first_name.lower(), last_name.lower())
+    #return random.choice([email_with_first_name, email_with_first_dot_last_name])(first_name.lower(), last_name.lower())
+    return email_with_first_dot_last_name(first_name.lower(), last_name.lower())
+
+def get_rnd_first_name():
+    return random.choice(first_names)
+
+def get_rnd_last_name():
+    return random.choice(last_names)
+
+def generate_name():
+    return "%s %s" % (random.choice(first_names), random.choice(last_names))
 
 emails = []
 def generate_identity():
@@ -77,8 +87,11 @@ d = OrderedDict([
   # header1
   ('Property Type', (['RENTED HOUSE - SINGLE FAMILY'], 'fixed')),
   ('# units', (['1', '2 to 4', '5+'], 'iterate')),
-  ('# unrelated roommates', (['0', '1', '2', '3 or more'], 'fixed')),
-  ('# property losses in last 3 years', (['0', '1', '2', '3', '4', '5 or more'], 'fixed')), # '0', '1', '2', '3', '4', '5 or more'
+  #('# unrelated roommates', (['0', '1', '2', '3 or more'], 'fixed')),
+  ('# unrelated roommates', (['0', '1', '2'], 'fixed')),
+  ('roommate names', (('david', 'lee'), 'random')),
+  #('# property losses in last 3 years', (['0', '1', '2', '3', '4', '5 or more'], 'fixed')), # '0', '1', '2', '3', '4', '5 or more'
+  ('# property losses in last 3 years', (['0', '1', '2', '3', '4'], 'fixed')), # '0', '1', '2', '3', '4', '5 or more'
   ('Phone number', (phone_numbers, 'random')),
   ('Email address', (emails, 'random')),
   ('Fire Sprinkler System?', (['N', 'Y'], 'fixed')), # Y / N
@@ -109,9 +122,13 @@ special_cross_cfgs = [
 from ml import model_cfg
 model_configs = [
   model_cfg.ModelConfig(
-    name='v1', learned_model_loc='renters-price-learn-v1.csv', 
+    name='v1', learned_model_loc='renters-price-learn-v1.csv',
     memorized_model_loc = 'renters-price-v1.csv', cols_cfg=['gender', 'dob'])
 ]
 learned_config = model_cfg.LearnedConfig(
   raw_filenames = ['data/tdg_v0.csv'], feature_map_loc = 'feature_map_v0.csv',
   model_configs=model_configs)
+
+if __name__ == '__main__':
+    name = generate_name()
+    print(name)
