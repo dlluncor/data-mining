@@ -18,6 +18,7 @@ class Learner(object):
 
   def _reset(self, orig_columns):
     self.orig_columns = orig_columns
+    self.all_col_names = []  # Determined by the original columns and the shape of the SETI inputs.
 
   def feature_vector(self, seti):
     v = []
