@@ -267,7 +267,7 @@ class RequestWriter(object):
         header += faked_d.keys()
     return ','.join(header)
 
-  def write_to_files(self, prefix, orig_rows):
+  def write_to_files(self, prefix, orig_rows, header):
     rows = orig_rows
     if self.use_fake_prices:
       rows = []
@@ -292,13 +292,13 @@ class RequestWriter(object):
         consumed = consumed + 1250
     else:
       self.timestamp = ''
-    line_ranges.append([consumed, len(rows)])
+      line_ranges.append([consumed, len(rows)])
     print(line_ranges)
     # print line_ranges
     #return
     for i in xrange(0, len(line_ranges)):
       line_range = line_ranges[i]
-      csv = '\n'.join(rows[line_range[0]:line_range[1]])
+      csv = '\n'.join([header] + rows[line_range[0]:line_range[1]])
       if csv == '':
         continue
       fname = '%s_renters_%s_%d.csv' % (prefix, self.timestamp, i)
@@ -310,18 +310,19 @@ class RequestWriter(object):
 
   def write(self):
     g = GenRequestLines(self.constants)
+    header = self.get_header()
 
     # Generate the all cross product rows.
-    csv_rows = [self.get_header()] + g.all_cross_products()
+    csv_rows = g.all_cross_products()
     print len(csv_rows)
-    self.write_to_files('full_crosses', csv_rows)
+    self.write_to_files('full_crosses', csv_rows, header)
 
     # Generate non cross product rows.
-    extra_csv_rows = [self.get_header()] + g.non_cross_products()
+    extra_csv_rows = g.non_cross_products()
     print len(extra_csv_rows)
-    self.write_to_files('no_crosses', extra_csv_rows)
+    self.write_to_files('no_crosses', extra_csv_rows, header)
 
     # Generate special cased cross product rows.
-    rows_3 = [self.get_header()] + g.special_cross_products(self.constants.special_cross_cfgs)
+    rows_3 = g.special_cross_products(self.constants.special_cross_cfgs)
     print len(rows_3)
-    self.write_to_files('special_crosses', rows_3)
+    self.write_to_files('special_crosses', rows_3, header)
