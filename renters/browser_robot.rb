@@ -148,56 +148,60 @@ def log_success(msg)
     fout.close
 end
 
-counter = 0
+def start_script(filename)
+    data = CSV.read(filename)
+    counter = 0
+    header = data.shift
+    header += ['Policy Price', 'Annual Policy Price', 'Agent Name', 'Agent Address', 'Agent Phone Number', 'Quote Number']
+    save_csv(header)
+
+    data.each do |row|
+        start_time = Time.now
+        counter += 1
+
+        msg = {:id => counter, :data => row, :start_time => start_time}
+
+        puts "[#{counter}] HITTING ... "
+        browser = Watir::Browser.new :chrome
+        begin
+            info = script_web_page(browser, row)
+        rescue Exception => e
+            end_time = Time.now
+            delta = end_time - start_time
+            msg[:time] = delta
+            msg[:error] = e
+            puts "[#{counter}][#{delta}] MISSED: #{row}\n\t#{e}\n"
+
+            begin
+                name = "screenshots/#{counter}.png"
+                browser.screenshot.save name
+                msg[:screenshot] = name
+            rescue Exception => e
+                puts "Fail to save screenshot#{e}"
+            end
+            msg[:status] = 'fail'
+            log_error(msg)
+            browser.close
+            next
+        end
+
+        row += [info[:price], info[:annual_price], info[:agent_name], info[:agent_address], info[:agent_phone_number], info[:quote_number]]
+
+        save_csv(row)
+        browser.close
+        end_time = Time.now
+        delta = end_time - start_time
+        msg[:time] = delta
+        msg[:status] = 'success'
+        msg[:data] = row
+        log_success(msg)
+        puts "\t[#{delta}]DONE"
+    end
+end
+
 
 #data = CSV.read('data/renter_samples.csv')
 #data = CSV.read('special_crosses_renters__0.csv')
 #data = CSV.read('special_crosses_renters__1.csv')
-data = CSV.read('no_crosses_renters__0.csv')
-
-header = data.shift
-header += ['Policy Price', 'Annual Policy Price', 'Agent Name', 'Agent Address', 'Agent Phone Number', 'Quote Number']
-save_csv(header)
-
-data.each do |row|
-    start_time = Time.now
-    counter += 1
-
-    msg = {:id => counter, :data => row, :start_time => start_time}
-
-    puts "[#{counter}] HITTING ... "
-    browser = Watir::Browser.new :chrome
-    begin
-        info = script_web_page(browser, row)
-    rescue Exception => e
-        end_time = Time.now
-        delta = end_time - start_time
-        msg[:time] = delta
-        msg[:error] = e
-        puts "[#{counter}][#{delta}] MISSED: #{row}\n\t#{e}\n"
-
-        begin
-            name = "screenshots/#{counter}.png"
-            browser.screenshot.save name
-            msg[:screenshot] = name
-        rescue Exception => e
-            puts "Fail to save screenshot#{e}"
-        end
-        msg[:status] = 'fail'
-        log_error(msg)
-        browser.close
-        next
-    end
-
-    row += [info[:price], info[:annual_price], info[:agent_name], info[:agent_address], info[:agent_phone_number], info[:quote_number]]
-
-    save_csv(row)
-    browser.close
-    end_time = Time.now
-    delta = end_time - start_time
-    msg[:time] = delta
-    msg[:status] = 'success'
-    msg[:data] = row
-    log_success(msg)
-    puts "\t[#{delta}]DONE"
-end
+#data = CSV.read('no_crosses_renters__0.csv')
+start_script('no_crosses_renters__0.csv')

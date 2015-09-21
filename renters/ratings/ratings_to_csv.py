@@ -224,7 +224,7 @@ class RequestWriter(object):
   """Writes to file all the forms that need to be filled out to build a model of how pricing works."""
 
   def __init__(self, constants, use_multiple_files, use_fake_prices):
-    self.timestamp = datetime.datetime.now()
+    self.timestamp = datetime.datetime.now().strftime('%m%d%H%M%S')
     self.constants = constants
     self.use_multiple_files = use_multiple_files
     self.use_fake_prices = use_fake_prices
@@ -256,11 +256,12 @@ class RequestWriter(object):
     consumed = 0
     if self.use_multiple_files:
       while consumed < len(rows):
-        line_ranges.append([consumed, consumed+1250])
+        line_ranges.append([consumed, consumed + 1250])
         consumed = consumed + 1250
     else:
       self.timestamp = ''
     line_ranges.append([consumed, len(rows)])
+    print(line_ranges)
     # print line_ranges
     #return
     for i in xrange(0, len(line_ranges)):
