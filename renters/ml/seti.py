@@ -38,6 +38,17 @@ def create_feature_vector(fs, keep_cols, seti):
     features.append((feature_index, cf.value))
   return features
 
+def create_seti(label, bfs=None, cfs=None, weight=1.0):
+  s = SETIExample()
+  if bfs is not None:
+    for bf in bfs:
+      s.add_binary(bf[0], bf[1])
+  if cfs is not None:
+    for cf in cfs:
+      s.add_continuous(cf[0], cf[1])
+  s.weight = weight
+  s.label = label
+  return s
 
 class _CF(object):
 

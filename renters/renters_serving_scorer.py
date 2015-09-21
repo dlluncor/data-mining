@@ -10,7 +10,6 @@ def to_renter_form(form_info):
 
 def get_price(form_info):
   # Setup the seti server.
-  cols_cfg = ['gender', 'dob']
   fs = feature_selector.FeatureSelector()
   l_config = renter_constants.learned_config
   fs.read_feature_map(l_config.feature_map_loc)

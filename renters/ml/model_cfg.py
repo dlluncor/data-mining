@@ -1,7 +1,7 @@
 
 class ModelConfig(object):
 
-  def __init__(self, name, memorized_model_loc, cols_cfg):
+  def __init__(self, name, learned_model_loc, memorized_model_loc, cols_cfg):
     """
     Args:
       name: name of the model.
@@ -9,6 +9,7 @@ class ModelConfig(object):
       cols_cfg: Name of all the columns used in this model.
     """
     self.name = name
+    self.learned_model_loc = learned_model_loc
     self.memorized_model_loc = memorized_model_loc
     self.cols_cfg = cols_cfg
 

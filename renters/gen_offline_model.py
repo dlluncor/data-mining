@@ -3,17 +3,9 @@ from ml import learner
 from ml import seti
 from ml import feature_selector
 from ml import training_data
-from ml import memorized_model
+from ml import model_exporter
 
 import renter_constants
-
-def create_seti(bfs, cfs):
-  s = seti.SETIExample()
-  for bf in bfs:
-    s.add_binary(bf[0], bf[1])
-  for cf in cfs:
-    s.add_continuous(cf[0], cf[1])
-  return s
 
 def main():
   # - Convert the raw data to SETI.
@@ -32,11 +24,11 @@ def main():
     tdg = training_data.TDG(fs, model_config.cols_cfg)
     tdg_blocks = tdg.transform(setis)
     # - Memorize the examples.
-    mm = memorized_model.Memorizer()
+    mm = model_exporter.Memorizer()
     mm.write_features(tdg_blocks, model_config.memorized_model_loc)
     # - Build a model for unmemorized examples.
     l = learner.Learner()
-    learned_model = l.learn(tdg_blocks)
+    learned_model = l.learn(setis)
     print l.stats()
     # Write the model to a file.
     print 'Finished model generation for %s' % (model_config.name)

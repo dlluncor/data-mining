@@ -1,4 +1,6 @@
-
+"""
+  Model exporter deals with exporting the model.
+"""
 import seti, csv
 
 class Memorizer(object):
