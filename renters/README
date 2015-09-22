@@ -81,3 +81,15 @@ sudo mv chromedriver /usr/local/bin/
 ```
 git clone https://github.com/bonjoylabs/data-mining.git
 ```
+
+
+52.89.107.208:5901 special_crosses_renters_0921212303_0.csv
+52.89.166.166:5901 no_crosses_renters_0921212303_0.csv
+52.26.246.239:5901 full_crosses_renters_0921212303_0.csv
+52.27.243.68:5901 full_crosses_renters_0921212303_1.csv
+52.88.14.188:5901 full_crosses_renters_0921212303_2.csv
+52.88.69.176:5901 full_crosses_renters_0921212303_3.csv
+52.89.91.18:5901 full_crosses_renters_0921212303_4.csv
+52.89.174.143:5901 full_crosses_renters_0921212303_5.csv
+52.89.135.117:5901 full_crosses_renters_0921212303_6.csv
+52.88.18.14:5901 full_crosses_renters_0921212303_7.csv
