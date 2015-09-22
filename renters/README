@@ -6,3 +6,72 @@ python gen_offline_model.py
 
 # Score an example with the serving scorer.
 python renters_serving_scorer.py
+
+
+## Set Up VNC on Ubuntu
+This can be done. Following are the steps to setup the GUI
+
+In security group open port 5901. Then ssh to the server instance. Run following commands to install ui and vnc server:
+```
+sudo apt-get update
+sudo apt-get install xfce4
+sudo apt-get install vnc4server
+```
+Then run following commands and enter the login password for vnc connection:
+
+```
+vncserver
+vncserver -kill :1
+```
+
+```
+mv ~/.vnc/xstartup ~/.vnc/xstartup.default
+```
+```
+vim ~/.vnc/xstartup
+sudo chmod +x ~/.vnc/xstartup
+```
+```
+#!/bin/bash
+xrdb $HOME/.Xresources
+startxfce4 &
+```
+
+```
+sudo apt-get install build-essential
+sudo apt-get install ruby ruby-dev unzip git
+```
+
+
+vncserver
+In the vnc client, give public DNS plus ":1" (e.g. www.example.com:1). Enter the vnc login password. Make sure to use a normal connection. Don't use the key files.
+
+Additional guide available here: http://www.serverwatch.com/server-tutorials/setting-up-vnc-on-ubuntu-in-the-amazon-ec2-Page-3.html
+
+Mac VNC client can be downloaded from here: http://www.realvnc.com/download/get/1286/
+
+
+# Install Google chrome
+```
+$ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+$ sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+$ sudo apt-get update
+$ sudo apt-get install google-chrome-stable
+```
+
+
+```
+sudo gem install watir-webdriver
+```
+
+# Install chromedriver
+```
+#http://chromedriver.storage.googleapis.com/index.html
+wget http://chromedriver.storage.googleapis.com/2.18/chromedriver_linux64.zip
+unzip chromedriver_linux64.zip
+sudo mv chromedriver /usr/local/bin/
+```
+
+```
+git clone https://github.com/bonjoylabs/data-mining.git
+```

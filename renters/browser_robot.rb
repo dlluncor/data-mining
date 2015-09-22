@@ -250,4 +250,4 @@ end
 #data = CSV.read('special_crosses_renters__1.csv')
 #data = CSV.read('no_crosses_renters__0.csv')
 #start_script('no_crosses_renters_0921164847_0.csv')
-start_script('full_crosses_renters_0921170326_0.csv')
+start_script('special_crosses_renters_0921174031_0.csv')
