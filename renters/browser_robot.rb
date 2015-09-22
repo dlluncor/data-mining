@@ -2,7 +2,7 @@ require 'watir-webdriver'
 require 'csv'
 require 'json'
 
-$default_emails = ['adrian.gilbert@outlook.com', 'alexandra.guerrero@aol.com', 'ana.webster@gmail.com', 'eden.chen@outlook.com', 'ethan.thompson@aol.com', 'katte@outlook.com', 'amelia.thomas@outlook.com', 'eden.blake@gmail.com', 'elias.brady@gmail.com', 'james.foster@gmail.com', 'scarlett.richard@gmail.com', 'savannah.silva@aol.com', 'william.palmer@gmail.com']
+$default_emails = ['alexandra.guerrero@aol.com', 'ana.webster@gmail.com', 'eden.chen@outlook.com', 'ethan.thompson@aol.com', 'katte@outlook.com', 'amelia.thomas@outlook.com', 'eden.blake@gmail.com', 'elias.brady@gmail.com', 'james.foster@gmail.com', 'scarlett.richard@gmail.com', 'savannah.silva@aol.com', 'william.palmer@gmail.com']
 $failed_emails = []
 
 def add_delimiter(num)
@@ -252,7 +252,7 @@ end
 #data = CSV.read('special_crosses_renters__1.csv')
 #data = CSV.read('no_crosses_renters__0.csv')
 #start_script('no_crosses_renters_0921164847_0.csv')
-start_script('special_crosses_renters_0921212303_0.csv', 'special_0921212303')
+#start_script('special_crosses_renters_0921212303_0.csv', 'special_0921212303')
 #start_script('no_crosses_renters_0921212303_0.csv', 'no_0921212303')
 #start_script('full_crosses_renters_0921212303_0.csv', 'full_0921212303_0')
 #start_script('full_crosses_renters_0921212303_1.csv', 'full_0921212303_1')
@@ -262,3 +262,4 @@ start_script('special_crosses_renters_0921212303_0.csv', 'special_0921212303')
 #start_script('full_crosses_renters_0921212303_5.csv', 'full_0921212303_5')
 #start_script('full_crosses_renters_0921212303_6.csv', 'full_0921212303_6')
 #start_script('full_crosses_renters_0921212303_7.csv', 'full_0921212303_7')
+#start_script('data/missed_special_0921212303.csv', 'prices_samples_missed_special_0921212303')
