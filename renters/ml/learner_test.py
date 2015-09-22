@@ -15,7 +15,7 @@ def testLearn():
   fvs = [[0, 0, 6.0], [0, 1, 3.0]]
 
   l = learner.Learner(fs)
-  print l.learn(setis)
+  #print l.learn(setis)
 
 
 # Test util template.

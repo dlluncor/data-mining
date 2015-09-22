@@ -15,6 +15,18 @@ class EasySeti(object):
 
 import csv, seti
 
+import feature_selector
+
+def write_feature_maps_from_seti(model_config, setis):
+  fs = feature_selector.FeatureSelector()
+  fs.build_feature_map(setis)
+  fs.write_feature_map(model_config.feature_map_loc)
+
+  fs2 = feature_selector.FeatureSelect()
+  fs2.generate_feature_map(model_config.cols_cfg, setis)
+  fs2.write_feature_maps(model_config.feature_map2_loc)
+  return fs, fs2
+
 class TDGBlock(object):
 
   def __init__(self, feature_vector, label):

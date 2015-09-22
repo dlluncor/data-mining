@@ -1,5 +1,6 @@
 
 import csv
+import pickle
 
 # Column -> columns.
 # Each column is in an order.
@@ -17,6 +18,20 @@ class FeatureSelect(object):
     self.bf_col_map = OrderedDict()  # 'dir' -> {'MISSING': True, 'south': True, 'east': True, 'west': True}
     self.cf_col_map = OrderedDict()  # 'dist' -> True (might want to store average values for normalization purposes.)
     self.all_col_names = []
+
+  def write_feature_maps(self, filename):
+    container = {
+      'bf_col_map': self.bf_col_map,
+      'cf_col_map': self.cf_col_map,
+      'all_col_names': self.all_col_names
+    }
+    pickle.dump(container, open(filename, 'wb'))
+
+  def read_feature_maps(self, filename):
+    container = pickle.load(open(filename, 'rb'))
+    self.bf_col_map = container['bf_col_map']
+    self.cf_col_map = container['cf_col_map']
+    self.all_col_names = container['all_col_names']
 
   def generate_feature_map(self, orig_columns, setis):
     cols_to_keep = set(orig_columns)

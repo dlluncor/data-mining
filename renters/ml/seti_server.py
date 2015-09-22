@@ -4,10 +4,22 @@
 """
 
 import csv, seti, model_exporter
+import feature_selector
 
 class _ModelScorer(object):
 
   def __init__(self, model_config):
+    """
+
+    """
+    fs2 = feature_selector.FeatureSelect()
+    fs2.read_feature_maps(model_config.feature_map2_loc)
+
+    fs = feature_selector.FeatureSelector()
+    fs.read_feature_map(model_config.feature_map_loc)
+    self.fs = fs  # Not great to pass the feature selector with the loaded feature_index_map in...
+    self.fs2 = fs2
+
     # Model consists of the learned model as well as the memorized model.
     self.model_config = model_config
     self.memorized_prices = self.load_memorized_prices(model_config.memorized_model_loc)
@@ -32,29 +44,31 @@ class _ModelScorer(object):
       return self.memorized_prices[key]
     return None
 
-  def get_learned_price(self, fs2, seti_input):
+  def get_learned_price(self, seti_input):
     #print self.learned_model
     yprime = self.learned_model[':']
-    vec = seti.to_readable_vector(fs2, seti_input)
+    vec = seti.to_readable_vector(self.fs2, seti_input)
     #print vec
     for feature_key, feature_val in vec.iteritems():
       yprime += self.learned_model[feature_key] * feature_val
     return yprime
 
+def make_from_config(model_configs):
+  return SetiServer(model_configs)
 
 class SetiServer(object):
 
-  def __init__(self, fs, fs2):
+  def __init__(self, model_configs):
     """
       fs: feature_selector.FeatureSelector with all the feature indices.
       fs2: feature_selector.FeatureSelect.
       cols_cfg: Columns to keep.
     """
-    self.fs = fs  # Not great to pass the feature selector with the loaded feature_index_map in...
-    self.fs2 = fs2
     self.model_map = {}
+    for cfg in model_configs:
+      self._load_model_from_config(cfg)
 
-  def load_model_from_config(self, model_config):
+  def _load_model_from_config(self, model_config):
     """Load the model from a file which is really a pickled hashmap."""
     m_scorer = _ModelScorer(model_config)
     if model_config.name in self.model_map:
@@ -76,8 +90,8 @@ class SetiServer(object):
       model_name = self.model_map.keys()[0]
 
     model = self.model_map[model_name]
-    features = seti.create_feature_vector(self.fs, model.get_columns(), seti_input)
+    features = seti.create_feature_vector(model.fs, model.get_columns(), seti_input)
     memorized_price = model.get_memorized_price(features)
     if memorized_price is not None:
       return memorized_price
-    return model.get_learned_price(self.fs2, seti_input)
+    return model.get_learned_price(seti_input)
