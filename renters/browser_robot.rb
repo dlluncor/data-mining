@@ -29,7 +29,7 @@ def clean_date(date)
     y = y.length == 1? "0#{y}" : y
     "#{m}/#{d}/#{y}"
 end
-def script_web_page(b, data)
+def script_web_page(b, data, tag)
     insurance_type, zip_code, first_name, last_name, dob, gender, address,
     city, state, has_auto_insurance_coverage, property_type, unit_count,
     unrelated_roommate_count, unrelated_roommate_names, property_losses_count, phone_number, email,
@@ -56,11 +56,11 @@ def script_web_page(b, data)
     begin
         Watir::Wait.until { b.input(:id => 'preapp:donexttbuttonid').exists? }
     rescue Watir::Wait::TimeoutError
-        puts "Fail to find 'Start my Quote' button on step 1 of quote page"
+        puts "\tFail to find 'Start my Quote' button on step 1 of quote page"
     end
 
     puts "\tReach STEP 1"
-
+    b.execute_script("var el=document.getElementById('preapp:datepicker'); el.onblur=null;el.onchange=null;el.onclick=null;el.onfocus=null;el.onkeydown=null;el.onkeypress=null;el.onkeyup=null;return 1;")
     b.text_field(:id => "preapp:FirstName").set first_name
     b.text_field(:id => "preapp:LastName").set last_name
     b.text_field(:id => "preapp:datepicker").set clean_date(dob)
@@ -134,7 +134,7 @@ def script_web_page(b, data)
                 begin
                     Watir::Wait.until { b.input(:id => 'homequote:buyBtnTopHome').exists? }
                 rescue Watir::Wait::TimeoutError
-                    puts "Fail again"
+                    puts "\tFail again"
                 end
             end
         end
@@ -156,6 +156,12 @@ def script_web_page(b, data)
         puts "\tFail to find 'Recalculated' button on step 3 of quote page"
     end
 
+    begin
+        Watir::Wait.until { b.b(:id => 'agentName').exists? and b.b(:id => 'agentName').visible? }
+    rescue Watir::Wait::TimeoutError
+        puts "\tCan not find agent name"
+    end
+
     puts "\tRecalculated Price"
     price = b.p(:id => 'OabPriceTopHome').text
     annual_price = b.span(:id => 'homeQuoteAccordian:homePremiumValueSelected1').text
@@ -170,31 +176,31 @@ def script_web_page(b, data)
     return info
 end
 
-def save_csv(row)
-    fout = File.open('data/prices_samples.csv', 'a')
+def save_csv(row, tag)
+    fout = File.open("data/prices_samples_#{tag}.csv", 'a')
     line = CSV.generate_line(row)
     fout.write(line)
     fout.close
 end
 
-def log_error(msg)
-    fout = File.open('data/error.log', 'a')
+def log_error(msg, tag)
+    fout = File.open("data/error_#{tag}.log", 'a')
     fout.puts(JSON.generate(msg))
     fout.close
 end
 
-def log_success(msg)
-    fout = File.open('data/success.log', 'a')
+def log_success(msg, tag)
+    fout = File.open("data/success_#{tag}.log", 'a')
     fout.puts(JSON.generate(msg))
     fout.close
 end
 
-def start_script(filename)
+def start_script(filename, tag)
     data = CSV.read(filename)
     counter = 0
     header = data.shift
     header += ['Policy Price', 'Annual Policy Price', 'Agent Name', 'Agent Address', 'Agent Phone Number', 'Quote Number']
-    save_csv(header)
+    save_csv(header, tag)
 
     data.each do |row|
         start_time = Time.now
@@ -205,38 +211,38 @@ def start_script(filename)
         puts "[#{counter}] HITTING ... "
         browser = Watir::Browser.new :chrome
         begin
-            info = script_web_page(browser, row)
+            info = script_web_page(browser, row, tag)
         rescue Exception => e
             end_time = Time.now
             delta = end_time - start_time
             msg[:time] = delta
             msg[:error] = e
-            puts "[#{counter}][#{delta}] MISSED: #{row}\n\t#{e}\n"
+            puts "\t[#{counter}][#{delta}] MISSED: #{row}\n\t#{e}\n"
 
             begin
-                name = "screenshots/#{counter}.png"
+                name = "screenshots/#{counter}_#{tag}.png"
                 browser.screenshot.save name
                 msg[:screenshot] = name
             rescue Exception => e
-                puts "Fail to save screenshot#{e}"
+                puts "\tFail to save screenshot#{e}"
             end
             msg[:status] = 'fail'
-            log_error(msg)
+            log_error(msg, tag)
             browser.close
             next
         end
 
         row += [info[:price], info[:annual_price], info[:agent_name], info[:agent_address], info[:agent_phone_number], info[:quote_number]]
 
-        save_csv(row)
+        save_csv(row, tag)
         browser.close
         end_time = Time.now
         delta = end_time - start_time
         msg[:time] = delta
         msg[:status] = 'success'
         msg[:data] = row
-        log_success(msg)
-        puts "\t[#{delta}]DONE"
+        log_success(msg, tag)
+        puts "\t[#{delta}][#{info[:price]}]DONE"
     end
 end
 
@@ -246,13 +252,13 @@ end
 #data = CSV.read('special_crosses_renters__1.csv')
 #data = CSV.read('no_crosses_renters__0.csv')
 #start_script('no_crosses_renters_0921164847_0.csv')
-#start_script('special_crosses_renters_0921212303_0.csv')
-start_script('no_crosses_renters_0921212303_0.csv')
-#start_script('full_crosses_renters_0921212303_0.csv')
-#start_script('full_crosses_renters_0921212303_1.csv')
-#start_script('full_crosses_renters_0921212303_2.csv')
-#start_script('full_crosses_renters_0921212303_3.csv')
-#start_script('full_crosses_renters_0921212303_4.csv')
-#start_script('full_crosses_renters_0921212303_5.csv')
-#start_script('full_crosses_renters_0921212303_6.csv')
-#start_script('full_crosses_renters_0921212303_7.csv')
+#start_script('special_crosses_renters_0921212303_0.csv', 'special_0921212303')
+#start_script('no_crosses_renters_0921212303_0.csv', 'no_0921212303')
+#start_script('full_crosses_renters_0921212303_0.csv', 'full_0921212303_0')
+#start_script('full_crosses_renters_0921212303_1.csv', 'full_0921212303_1')
+#start_script('full_crosses_renters_0921212303_2.csv', 'full_0921212303_2')
+#start_script('full_crosses_renters_0921212303_3.csv', 'full_0921212303_3')
+#start_script('full_crosses_renters_0921212303_4.csv', 'full_0921212303_4')
+#start_script('full_crosses_renters_0921212303_5.csv', 'full_0921212303_5')
+#start_script('full_crosses_renters_0921212303_6.csv', 'full_0921212303_6')
+#start_script('full_crosses_renters_0921212303_7.csv', 'full_0921212303_7')
