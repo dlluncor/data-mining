@@ -13,21 +13,11 @@ import seti
 
 class Learner(object):
 
-  def __init__(self, orig_columns):
-    self._reset(orig_columns)
+  def __init__(self, fs):
+    self._reset(fs)
 
-  def _reset(self, orig_columns):
-    self.orig_columns = orig_columns
-    self.all_col_names = []  # Determined by the original columns and the shape of the SETI inputs.
-
-  def feature_vector(self, seti):
-    v = []
-    for bf in seti.bfs:
-      if bf == 'gender:m':
-        v.append(0)
-      if bf == 'gender:f':
-        v.append(1)
-    return v
+  def _reset(self, fs):
+    self.fs = fs  # feature_selector.FeatureSelect object.
 
   def learn(self, setis):
     # Determine the original columns to use.
@@ -36,7 +26,7 @@ class Learner(object):
     y = []
     X = []
     for seti in setis:
-      x = self.feature_vector(seti)
+      x = feature_vector(self.fs, seti)
       y.append(seti.label)
       X.append(x)
 

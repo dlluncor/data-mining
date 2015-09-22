@@ -1,8 +1,74 @@
 
 import csv
 
-class FeatureSelector():
+# Column -> columns.
+# Each column is in an order.
+# You fill in the value according to the order of the columns.
+# Someone has to read through the SetiInput to determine what all the column
+# indices are.
+from collections import OrderedDict
 
+class FeatureSelect(object):
+  """V2 FeatureSelector. Can be used to determine which features we
+  actually need to vectorize a SetiInput.
+
+  """
+  def __init__(self):
+    self.bf_col_map = OrderedDict()  # 'dir' -> {'MISSING': True, 'south': True, 'east': True, 'west': True}
+    self.cf_col_map = OrderedDict()  # 'dist' -> True (might want to store average values for normalization purposes.)
+    self.all_col_names = []
+
+  def generate_feature_map(self, orig_columns, setis):
+    cols_to_keep = set(orig_columns)
+    # For continuous columns, we just have a 1 - 1 mapping.
+    # For binary columns we have a 1 -> many mapping.
+    for seti in setis:
+      for bf in seti.bfs:
+        parts = bf.split(':')
+        if len(parts) != 2:
+          raise Exception('Seti input cannot have more than one :')
+        col, feature_val = parts[0], parts[1]
+        if col not in cols_to_keep:
+          continue
+        # Process this binary feature.
+        # Have I seen it already?
+        if col not in self.bf_col_map:
+          self.bf_col_map[col] = OrderedDict([('MISSING', True)])
+        vals_to_info = self.bf_col_map[col]  # This dict keeps track of which col values weve already seen. 
+        if feature_val in vals_to_info:
+          # No need to process a feature value again. We just need unique ones.
+          continue
+        vals_to_info[feature_val] = True
+
+      for cf in seti.cfs:
+        col = cf.name
+        if col not in cols_to_keep:
+          continue
+        # Process this binary feature.
+        # Have I seen it already?
+        if col not in self.cf_col_map:
+          self.cf_col_map[col] = True
+
+    # All col names are the binary feature column names followed by the continuous feature ones.
+    for col, val_to_info in self.bf_col_map.iteritems():
+      i = -1
+      for val, _ in val_to_info.iteritems():
+        i += 1
+        if i == 1:
+          # Dont add the first feature to this list as a column because it is
+          # implicit in how you set all the other values.
+          continue
+        self.all_col_names.append('%s_%s' % (col, val))
+
+    for col, _ in self.cf_col_map.iteritems():
+      self.all_col_names.append(col)
+
+class FeatureSelector():
+  """This version of the feature selector counts indices of the features.
+
+   This will probably get deprecated in favor of FeatureSelect which can
+   actually produce a list of floats.
+  """
   def __init__(self):
     self.i = 0
     self.feature_to_index = {}

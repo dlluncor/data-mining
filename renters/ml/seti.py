@@ -19,6 +19,11 @@ def standard_repr(features):
   return ':'.join('%s-%s' % (idx, val) for idx, val in sorted_features)
 
 def create_feature_vector(fs, keep_cols, seti):
+  """Create feature vector creates a feature vector from a SETI input.
+  
+    This method will probably be deprecated because this was our first understanding
+    of what a feature vector looked like.
+  """
   features = []
   for bf in seti.bfs:
     pieces = bf.split(':')
@@ -37,6 +42,41 @@ def create_feature_vector(fs, keep_cols, seti):
     feature_index = fs.get_index(cf.name)
     features.append((feature_index, cf.value))
   return features
+
+def float_feature_vector(fs, setie):
+  """Creates a list of floats for the feature vector.
+
+  Args:
+    fs: FeatureSelect object.
+    setie: the SetiInput we mean to transform to a list of floats.
+  """
+  v = []
+  ds = DigestedSETI(setie)
+  for col, val_to_info in fs.bf_col_map.iteritems():
+    # Does this column exist in the SETI?
+    bf_val = ds.get_bf_value(col)
+    # By default whether a feature is true or not for a categorical feature is
+    # false unless we see it to be true.
+    vals_for_col = [0 for _ in xrange(len(val_to_info)-1)]
+    if bf_val is None:
+      # Set the MISSING bit to true.
+      vals_for_col[0] = 1
+    else:
+      index_of_feature = val_to_info.keys().index(bf_val)
+      if index_of_feature != 1:
+        # Only set any bits to true when the implicit value at position 1 is not
+        # set.
+        vals_for_col[index_of_feature-1] = 1
+    # Add the values to the feature vector.
+    v.extend(vals_for_col)
+
+  for col, _ in fs.cf_col_map.iteritems():
+    cf_val = ds.get_cf_value(col)
+    if cf_val is None:
+      v.append(0)
+    else:
+      v.append(cf_val)
+  return v
 
 def create_seti(label, bfs=None, cfs=None, weight=1.0):
   s = SETIExample()
@@ -58,6 +98,33 @@ class _CF(object):
 
   def __repr__(self):
     return "{%s: %s}" % (self.name, self.value)
+
+class DigestedSETI(object):
+
+  def __init__(self, seti):
+    self._reset(seti)
+
+  def _reset(self, setie):
+    self.bf_map = {}
+    for bf in setie.bfs:
+      parts = bf.split(':')
+      col, val = parts[0], parts[1]
+      self.bf_map[col] = val
+    self.cf_map = {}
+    for cf in setie.cfs:
+      self.cf_map[cf.name] = cf.value
+
+  def get_cf_value(self, col):
+    if col not in self.cf_map:
+      return None
+    return self.cf_map[col]
+
+  def get_bf_value(self, col):
+    if col not in self.bf_map:
+      return None
+    return self.bf_map[col]
+
+
 
 class SETIExample(object):
 
