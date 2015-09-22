@@ -195,16 +195,20 @@ def log_success(msg, tag)
     fout.close
 end
 
-def start_script(filename, tag)
+def start_script(filename, tag, offset=0)
     data = CSV.read(filename)
     counter = 0
     header = data.shift
     header += ['Policy Price', 'Annual Policy Price', 'Agent Name', 'Agent Address', 'Agent Phone Number', 'Quote Number']
-    save_csv(header, tag)
+    save_csv(header, tag) if offset == 0
 
     data.each do |row|
         start_time = Time.now
         counter += 1
+        if offset > 0 and counter <= offset
+            puts "skip #{counter} for offset #{offset}"
+            next
+        end
 
         msg = {:id => counter, :data => row, :start_time => start_time}
 
@@ -263,3 +267,4 @@ end
 #start_script('full_crosses_renters_0921212303_6.csv', 'full_0921212303_6')
 #start_script('full_crosses_renters_0921212303_7.csv', 'full_0921212303_7')
 #start_script('data/missed_special_0921212303.csv', 'prices_samples_missed_special_0921212303')
+#start_script('full_crosses_renters_0921212303_7.csv', 'full_0921212303_test', 2)
