@@ -5,6 +5,7 @@ import seti
 import model_cfg
 import model_exporter
 import training_data
+import math
 
 def testScoreWithModel():
   model = { 
@@ -24,19 +25,26 @@ def testScoreWithModel():
   s0 = seti.create_seti(5.0, bfs=[('gender', 'm')], cfs=[('height', 6.0)])
   s1 = seti.create_seti(3.0, bfs=[('gender', 'f')], cfs=[('height', 3.0)])
   setis = [s0, s1]
-  model_config = model_cfg.ModelConfig(
-    'v0', 'tmp/learned_model.csv', 'tmp/memorized_model.csv', orig_cols,
-    'tmp/feature_map_v0.csv', 'tmp/feature_map2_v0.csv')
-  training_data.write_feature_maps_from_seti(model_config, setis)
 
-  ss = seti_server.make_from_config([model_config])
+  model_types = [model_cfg.LINEAR_REGRESSION, model_cfg.LOGISTIC_REGRESSION]
+  transforms = [lambda x: x, lambda x: 1 / (1 + math.exp(-x))]
 
-  w0 = model[':'] + model['gender_MISSING'] * 0 + model['gender_f'] * 0 + model['height'] * 6.0
-  w1 = model[':'] + model['gender_MISSING'] * 0 + model['gender_f'] * 1 + model['height'] * 3.0
-  wants = [w0, w1]
-  for i in xrange(len(setis)):
-    setie = setis[i]
-    assertEquals(wants[i], ss.score(setie))
+  for mIndex in xrange(len(model_types)):
+    model_config = model_cfg.ModelConfig(
+      'v0', 'tmp/learned_model.csv', 'tmp/memorized_model.csv', orig_cols,
+      'tmp/feature_map_v0.csv', 'tmp/feature_map2_v0.csv', 
+      model_type=model_types[mIndex])
+    training_data.write_feature_maps_from_seti(model_config, setis)
+
+    ss = seti_server.make_from_config([model_config])
+
+    w0 = model[':'] + model['gender_MISSING'] * 0 + model['gender_f'] * 0 + model['height'] * 6.0
+    w1 = model[':'] + model['gender_MISSING'] * 0 + model['gender_f'] * 1 + model['height'] * 3.0
+    wants = [w0, w1]
+    for i in xrange(len(setis)):
+      setie = setis[i]
+      want_after_transform = transforms[mIndex](wants[i])
+      assertEquals(want_after_transform, ss.score(setie))
 
 
 # Test util template.

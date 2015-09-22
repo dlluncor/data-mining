@@ -26,12 +26,18 @@ def testRun():
   # Test that we can score one example.
 
   ss = seti_server.make_from_config([model_config])
+
+  # Test the learned model works.
   #print 'Learned model: '
   #print ss.model_map['v0'].learned_model
   s2 = seti.create_seti(5.0, bfs=[('gender', 'm')], cfs=[('height', 2.0)])
   val0 = model[':'] + model['gender_MISSING'] * 0 + model['gender_f'] * 0 + model['height'] * 2.0
   assertFloatEquals(val0, ss.score(s2))
 
+  # Test the memorized model works. Destroy the learned model.
+  ss.model_map['v0'].learned_model = {}
+  val1 = model[':'] + model['gender_MISSING'] * 0 + model['gender_f'] * 1 + model['height'] * 3.0
+  assertFloatEquals(val1, ss.score(s1))
 
 # Test util template.
 import sys

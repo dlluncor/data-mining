@@ -1,8 +1,12 @@
 
+LINEAR_REGRESSION = 'linear_reg'
+LOGISTIC_REGRESSION = 'log_reg'
+
 class ModelConfig(object):
 
   def __init__(self, name, learned_model_loc, memorized_model_loc, cols_cfg,
-                     feature_map_loc, feature_map2_loc):
+                     feature_map_loc, feature_map2_loc,
+                     model_type=LINEAR_REGRESSION):
     """
     Args:
       name: name of the model.
@@ -18,6 +22,7 @@ class ModelConfig(object):
     self.feature_map_loc = feature_map_loc
     self.feature_map2_loc = feature_map2_loc
     self.cols_cfg = cols_cfg
+    self.model_type=model_type
 
 class LearnedConfig(object):
 

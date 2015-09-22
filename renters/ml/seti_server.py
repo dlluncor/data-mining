@@ -3,7 +3,8 @@
    or a linear regression model if we must estimate given unknown parameters.
 """
 
-import csv, seti, model_exporter
+import math
+import csv, seti, model_exporter, model_cfg
 import feature_selector
 
 class _ModelScorer(object):
@@ -51,6 +52,8 @@ class _ModelScorer(object):
     #print vec
     for feature_key, feature_val in vec.iteritems():
       yprime += self.learned_model[feature_key] * feature_val
+    if self.model_config.model_type == model_cfg.LOGISTIC_REGRESSION:
+      return 1 / (1 + math.exp(-yprime))
     return yprime
 
 def make_from_config(model_configs):

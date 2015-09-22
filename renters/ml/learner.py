@@ -32,7 +32,7 @@ class Learner(object):
 
     lm = LinearRegression()
     lm.fit(X, y)
-    print lm.intercept_
+    #print lm.intercept_
     col_and_coeffs = zip(feature_cols, lm.coef_)
     model = {}
     model[':'] = lm.intercept_

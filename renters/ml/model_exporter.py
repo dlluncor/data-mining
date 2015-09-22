@@ -26,7 +26,7 @@ class MemorizedModel(object):
     with open(filename, 'rb') as fin:
         reader = csv.reader(fin)
         for key, price in reader:
-            prices[key] = price
+            prices[key] = float(price)
     return prices
 
 class LearnedModel(object):
