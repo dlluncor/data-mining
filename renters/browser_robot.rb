@@ -2,6 +2,9 @@ require 'watir-webdriver'
 require 'csv'
 require 'json'
 
+$default_emails = ['ethan.thompson@aol.com', 'katte@outlook.com', 'amelia.thomas@outlook.com', 'eden.blake@gmail.com', 'elias.brady@gmail.com', 'james.foster@gmail.com']
+$failed_emails = []
+
 def add_delimiter(num)
     num.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
 end
@@ -35,6 +38,13 @@ def script_web_page(b, data)
     has_bussiness_from_home, policy_start_date, personal_property_value, loss_of_use, medical_payment,
     personal_liability, farmers_identity_protection, deductible = data
 
+    #email = default_emails.sample if failed_emails.contains email
+
+    if $failed_emails.include? email
+        puts "\tchange invalid email[#{email}] to default one"
+        email = $default_emails.sample
+    end
+
     b.goto "http://farmers.com"
 
     puts "\tGo to home page"
@@ -62,7 +72,7 @@ def script_web_page(b, data)
     begin
         Watir::Wait.until { b.input(:id => 'AddRenterBuy:nextDiscount').exists? }
     rescue Watir::Wait::TimeoutError
-        puts "Fail to find 'Start my Quote' button on step 2 of quote page"
+        puts "\tFail to find 'Start my Quote' button on step 2 of quote page"
     end
 
     puts "\tReach STEP 2"
@@ -114,6 +124,20 @@ def script_web_page(b, data)
         Watir::Wait.until { b.input(:id => 'homequote:buyBtnTopHome').exists? }
     rescue Watir::Wait::TimeoutError
         puts "Fail to find 'Start my Quote' button on step 3 of quote page"
+        if b.div(:id => 'errordiv').visible?
+            puts "\temail[#{email}] is invalid, use default email"
+            err_msg = b.div(:id => 'errordiv').text
+            if err_msg == 'Email address entered is invalid'
+                $failed_emails << email
+                b.text_field(:id => "AddRenterBuy:Email").set $default_emails.sample
+                b.input(:id => 'AddRenterBuy:nextDiscount').click
+                begin
+                    Watir::Wait.until { b.input(:id => 'homequote:buyBtnTopHome').exists? }
+                rescue Watir::Wait::TimeoutError
+                    puts "Fail again"
+                end
+            end
+        end
     end
 
     puts "\tReach STEP 3"
@@ -129,7 +153,7 @@ def script_web_page(b, data)
     begin
         Watir::Wait.until { b.input(:id => 'homequote:buyBtnTopHome').exists? and b.input(:id => 'homequote:buyBtnTopHome').visible? }
     rescue Watir::Wait::TimeoutError
-        puts "Fail to find 'Start my Quote' button on step 3 of quote page"
+        puts "\tFail to find 'Recalculated' button on step 3 of quote page"
     end
 
     puts "\tRecalculated Price"
@@ -213,6 +237,10 @@ def start_script(filename)
         msg[:data] = row
         log_success(msg)
         puts "\t[#{delta}]DONE"
+
+        if counter > 3
+            break
+        end
     end
 end
 
@@ -221,4 +249,5 @@ end
 #data = CSV.read('special_crosses_renters__0.csv')
 #data = CSV.read('special_crosses_renters__1.csv')
 #data = CSV.read('no_crosses_renters__0.csv')
-start_script('no_crosses_renters__0.csv')
+#start_script('no_crosses_renters_0921164847_0.csv')
+start_script('full_crosses_renters_0921170326_0.csv')
