@@ -287,9 +287,10 @@ class RequestWriter(object):
     line_ranges = []
     consumed = 0
     if self.use_multiple_files:
+      line_count_per_file = 1000
       while consumed < len(rows):
-        line_ranges.append([consumed, consumed + 1250])
-        consumed = consumed + 1250
+        line_ranges.append([consumed, consumed + 1000])
+        consumed = consumed + 1000
     else:
       self.timestamp = ''
       line_ranges.append([consumed, len(rows)])

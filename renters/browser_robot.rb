@@ -237,10 +237,6 @@ def start_script(filename)
         msg[:data] = row
         log_success(msg)
         puts "\t[#{delta}]DONE"
-
-        if counter > 3
-            break
-        end
     end
 end
 
@@ -250,4 +246,13 @@ end
 #data = CSV.read('special_crosses_renters__1.csv')
 #data = CSV.read('no_crosses_renters__0.csv')
 #start_script('no_crosses_renters_0921164847_0.csv')
-start_script('special_crosses_renters_0921174031_0.csv')
+start_script('special_crosses_renters_0921212303_0.csv')
+#start_script('no_crosses_renters_0921212303_0.csv')
+#start_script('full_crosses_renters_0921212303_0.csv')
+#start_script('full_crosses_renters_0921212303_1.csv')
+#start_script('full_crosses_renters_0921212303_2.csv')
+#start_script('full_crosses_renters_0921212303_3.csv')
+#start_script('full_crosses_renters_0921212303_4.csv')
+#start_script('full_crosses_renters_0921212303_5.csv')
+#start_script('full_crosses_renters_0921212303_6.csv')
+#start_script('full_crosses_renters_0921212303_7.csv')
