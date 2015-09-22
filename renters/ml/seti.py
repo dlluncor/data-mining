@@ -43,6 +43,35 @@ def create_feature_vector(fs, keep_cols, seti):
     features.append((feature_index, cf.value))
   return features
 
+def to_readable_vector(fs, setie):
+  """Creates a list of (feature_key, feature_val) for the feature vector in readable form.
+
+  Args:
+    fs: FeatureSelect object.
+    setie: the SetiInput we mean to transform to a list of tuples of readable keys.
+  """
+  all_cols_set = set(fs.all_col_names)
+  
+  v = {}
+  for col_name in fs.all_col_names:
+    v[col_name] = 0.0
+
+  ds = DigestedSETI(setie)
+  for col, val_to_info in fs.bf_col_map.iteritems():
+    bf_val = ds.get_bf_value(col)
+    col_key = col + '_' + 'MISSING'
+    if bf_val is not None:
+      col_key = col + '_' + bf_val
+      if col_key not in all_cols_set:
+        # Dont create an entry for an element which does not exist in the model.
+        continue
+    v[col_key] = 1.0
+  for col, _ in fs.cf_col_map.iteritems():
+    cf_val = ds.get_cf_value(col)
+    if cf_val is not None:
+      v[col] = cf_val
+  return v
+
 def float_feature_vector(fs, setie):
   """Creates a list of floats for the feature vector.
 

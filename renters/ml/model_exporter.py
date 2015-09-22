@@ -3,7 +3,7 @@
 """
 import seti, csv
 
-class Memorizer(object):
+class MemorizedModel(object):
   
   def __init__(self):
     pass
@@ -46,5 +46,5 @@ class LearnedModel(object):
     with open(filename, 'rb') as fin:
         reader = csv.reader(fin)
         for key, weight in reader:
-            m[key] = weight
+            m[key] = float(weight)
     return m

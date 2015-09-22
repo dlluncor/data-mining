@@ -16,7 +16,7 @@ class _ModelScorer(object):
   def load_memorized_prices(self, filename):
     """Load the model from a file which is really a CSV."""
     # Model consists of the learned model as well as the memorized model.
-    mm = model_exporter.Memorizer()
+    mm = model_exporter.MemorizedModel()
     return mm.read_features(filename)
 
   def load_learned_model(self, filename):
@@ -32,26 +32,26 @@ class _ModelScorer(object):
       return self.memorized_prices[key]
     return None
 
-  def get_learned_price(self, seti_input):
-    # TODO(dlluncor): Make generic.
+  def get_learned_price(self, fs2, seti_input):
+    #print self.learned_model
     yprime = self.learned_model[':']
-    for bf in seti_input.bfs:
-      if bf.startswith('gender:'):
-        v = 0
-        if bf == 'gender:f':
-          v = 1
-        yprime += v * self.learned_model['gender']
+    vec = seti.to_readable_vector(fs2, seti_input)
+    #print vec
+    for feature_key, feature_val in vec.iteritems():
+      yprime += self.learned_model[feature_key] * feature_val
     return yprime
 
 
 class SetiServer(object):
 
-  def __init__(self, fs):
+  def __init__(self, fs, fs2):
     """
-      fs: feature selector with all the feature indices.
+      fs: feature_selector.FeatureSelector with all the feature indices.
+      fs2: feature_selector.FeatureSelect.
       cols_cfg: Columns to keep.
     """
     self.fs = fs  # Not great to pass the feature selector with the loaded feature_index_map in...
+    self.fs2 = fs2
     self.model_map = {}
 
   def load_model_from_config(self, model_config):
@@ -80,4 +80,4 @@ class SetiServer(object):
     memorized_price = model.get_memorized_price(features)
     if memorized_price is not None:
       return memorized_price
-    return model.get_learned_price(seti_input)
+    return model.get_learned_price(self.fs2, seti_input)

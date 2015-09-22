@@ -21,13 +21,13 @@ class Learner(object):
 
   def learn(self, setis):
     # Determine the original columns to use.
-    feature_cols = self.orig_columns
+    feature_cols = self.fs.all_col_names
     # Convert SETI inputs into X and y format.
     y = []
     X = []
-    for seti in setis:
-      x = feature_vector(self.fs, seti)
-      y.append(seti.label)
+    for setie in setis:
+      x = seti.float_feature_vector(self.fs, setie)
+      y.append(setie.label)
       X.append(x)
 
     lm = LinearRegression()
