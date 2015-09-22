@@ -123,10 +123,11 @@ from ml import model_cfg
 model_configs = [
   model_cfg.ModelConfig(
     name='v1', learned_model_loc='renters-price-learn-v1.csv',
-    memorized_model_loc = 'renters-price-v1.csv', cols_cfg=['gender', 'dob'])
+    memorized_model_loc = 'renters-price-v1.csv', cols_cfg=['gender', 'dob'],
+    feature_map_loc = 'feature_map_v0.csv', feature_map2_loc = 'feature_map2_v0.pickle')
 ]
 learned_config = model_cfg.LearnedConfig(
-  raw_filenames = ['data/tdg_v0.csv'], feature_map_loc = 'feature_map_v0.csv',
+  raw_filenames = ['data/tdg_v0.csv'],
   model_configs=model_configs)
 
 if __name__ == '__main__':

@@ -20,6 +20,8 @@ def run(model_configs, setis):
     # - Build a model for unmemorized examples.
     l = learner.Learner(fs2)
     learned_model = l.learn(setis)
+    lm = model_exporter.LearnedModel()
+    lm.write_model(learned_model, model_config.learned_model_loc)
     print l.stats()
     # Write the model to a file.
     print 'Finished model generation for %s' % (model_config.name)

@@ -1,3 +1,9 @@
+
+## Generating renter's model.
+
+# Run tests.
+./test.sh
+
 # Generate a CSV file so we can scrape the renters insurance data from Farmers.
 python renters_to_csv.py
 
