@@ -2,7 +2,7 @@ require 'watir-webdriver'
 require 'csv'
 require 'json'
 
-$default_emails = ['ethan.thompson@aol.com', 'katte@outlook.com', 'amelia.thomas@outlook.com', 'eden.blake@gmail.com', 'elias.brady@gmail.com', 'james.foster@gmail.com']
+$default_emails = ['adrian.gilbert@outlook.com', 'alexandra.guerrero@aol.com', 'ana.webster@gmail.com', 'eden.chen@outlook.com', 'ethan.thompson@aol.com', 'katte@outlook.com', 'amelia.thomas@outlook.com', 'eden.blake@gmail.com', 'elias.brady@gmail.com', 'james.foster@gmail.com', 'scarlett.richard@gmail.com', 'savannah.silva@aol.com', 'william.palmer@gmail.com']
 $failed_emails = []
 
 def add_delimiter(num)
@@ -121,9 +121,9 @@ def script_web_page(b, data, tag)
     b.input(:id => 'AddRenterBuy:nextDiscount').click
 
     begin
-        Watir::Wait.until { b.input(:id => 'homequote:buyBtnTopHome').exists? }
+        Watir::Wait.until { b.input(:id => 'homequote:buyBtnTopHome').exists? or  b.input(:id => 'homequote:buyBtnBtmHome').exists?}
     rescue Watir::Wait::TimeoutError
-        puts "Fail to find 'Start my Quote' button on step 3 of quote page"
+        puts "\tFail to find 'Continue' button on step 3 of quote page"
         if b.div(:id => 'errordiv').visible?
             puts "\temail[#{email}] is invalid, use default email"
             err_msg = b.div(:id => 'errordiv').text
@@ -252,7 +252,7 @@ end
 #data = CSV.read('special_crosses_renters__1.csv')
 #data = CSV.read('no_crosses_renters__0.csv')
 #start_script('no_crosses_renters_0921164847_0.csv')
-#start_script('special_crosses_renters_0921212303_0.csv', 'special_0921212303')
+start_script('special_crosses_renters_0921212303_0.csv', 'special_0921212303')
 #start_script('no_crosses_renters_0921212303_0.csv', 'no_0921212303')
 #start_script('full_crosses_renters_0921212303_0.csv', 'full_0921212303_0')
 #start_script('full_crosses_renters_0921212303_1.csv', 'full_0921212303_1')
