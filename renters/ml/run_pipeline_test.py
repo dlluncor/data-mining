@@ -8,8 +8,8 @@ def testRun():
   # Setup feature selector and such.
   orig_cols = ['gender', 'height']
 
-  s0 = seti.create_seti(5.0, bfs=[('gender', 'm')], cfs=[('height', 6.0)])
-  s1 = seti.create_seti(3.0, bfs=[('gender', 'f')], cfs=[('height', 3.0)])
+  s0 = seti.create_seti(1.0, bfs=[('gender', 'm')], cfs=[('height', 6.0)])
+  s1 = seti.create_seti(0.0, bfs=[('gender', 'f')], cfs=[('height', 3.0)])
   setis = [s0, s1]
 
   model_config = model_cfg.ModelConfig(
@@ -26,9 +26,11 @@ def testRun():
   # Test that we can score one example.
 
   ss = seti_server.make_from_config([model_config])
+  #print 'Learned model: '
+  #print ss.model_map['v0'].learned_model
   s2 = seti.create_seti(5.0, bfs=[('gender', 'm')], cfs=[('height', 2.0)])
   val0 = model[':'] + model['gender_MISSING'] * 0 + model['gender_f'] * 0 + model['height'] * 2.0
-  assertEquals(val0, ss.score(s2))
+  assertFloatEquals(val0, ss.score(s2))
 
 
 # Test util template.
@@ -36,6 +38,13 @@ import sys
 import inspect
 
 errs = []
+
+def assertFloatEquals(expected, got):
+  caller_name = sys._getframe().f_back.f_code.co_name
+  v0 = '%.4f' % expected
+  v1 = '%.4f' % got
+  if v0 != v1:
+    errs.append('In %s, Expected: %s. Got: %s' % (caller_name, expected, got))
 
 def assertEquals(expected, got):
   caller_name = sys._getframe().f_back.f_code.co_name
