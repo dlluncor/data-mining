@@ -54,7 +54,7 @@ def script_web_page(b, data, tag)
     b.button(:css => "div.quote-block button.btnRed").click
 
     begin
-        Watir::Wait.until { b.input(:id => 'preapp:donexttbuttonid').exists? }
+        Watir::Wait.until { b.input(:id => 'preapp:donexttbuttonid').exists? and b.text_field(:id => "preapp:datepicker").value == 'MM/DD/YYYY' }
     rescue Watir::Wait::TimeoutError
         puts "\tFail to find 'Start my Quote' button on step 1 of quote page"
     end
