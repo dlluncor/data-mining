@@ -12,14 +12,15 @@ def testLogsToSeti():
 
   # Test model gets created and loaded.
   # Test that we can score one example.
-  setis = logs_to_seti.generate_seti(csvs)
+  setis = logs_to_seti.generate_seti(csvs, for_test=True)
   wants = [s0, s1]
   for i in xrange(len(setis)):
     assertEquals(str(wants[i]), str(setis[i]))
 
 def testToRenterForm():
-  csv_line = 'Renters,95111,Gideon,Garrett,6/6/1986,f,2600 Corde Terra Cir,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 552-9443,owen.lloyd@foxmail.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100 / 250,90961327,93,$245.70,Diem Pham,"1900 Camden Ave San Jose CA 95124-2942 (408) 9007200"'
+  csv_line = 'Renters,95111,Gideon,Garrett,6/6/1986,f,2600 Corde Terra Cir,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 552-9443,owen.lloyd@foxmail.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100 / 250,90961327,93,$245.70,Diem Pham,"1900 Camden Ave San Jose CA 95124-2942 (408) 9007200",Gita'
   line = csv_line.split(',')
+  print len(line)
   r, _ = logs_to_seti._to_renter_form(line)
   assertFloatEquals(245.7, r.label)
 

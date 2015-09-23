@@ -42,8 +42,25 @@ def _to_renter_form(csv_line):
     'property_type': property_type,
     'unit_count': unit_count,
     'unrelated_roommates_count': unrelated_roommates_count,
+    'property_losses_count': property_losses_count,
     'policy_price': policy_price,
+    # systems.
+    'has_home_security': has_home_security,
+    'is_non_smoking_household': is_non_smoking_household,
+    'has_local_burglar_alarm': has_local_burglar_alarm,
+    'has_bite_dog': has_bite_dog,
+    # Deductible.
+    'personal_property_value': personal_property_value,
+    'loss_of_use': loss_of_use,
+    'medical_payment': medical_payment,
+    'personal_liability': personal_liability,
+    'farmers_identity_protection': farmers_identity_protection,
+    'deductible': deductible
   }
+  # Skipped: phone_number, email, has_unusual_hazards
+  # is_running_business, start_date
+  # policy_number, timestamp, policy_price, agent_name, agent_address, elancer_name
+  #
   form = renter_form.RenterForm(info)
   policy_price, err = form.get_policy_price()
   if policy_price is None:
@@ -64,7 +81,7 @@ def is_bad_line(line):
     i += 1
   return False, None
 
-def generate_seti(filenames):
+def generate_seti(filenames, for_test=False):
   files = []
   for filename in filenames:
     for fname in glob.glob(filename):
@@ -96,7 +113,7 @@ def generate_seti(filenames):
           num_bad_entry_lines += 1
           bad_entry_lines.append(csv_line)
           continue
-        fe = FeatureExtractor()
+        fe = FeatureExtractor(for_test=for_test)
         seti = fe.to_seti(renter_form)
         setis.append(seti)
         #except Exception as e:

@@ -46,5 +46,11 @@ class RenterForm(object):
         except Exception as e:
           return None, str(e)
 
+    def get_deductible(self):
+        try:
+          return float(self.deductible)
+        except Exception as e:
+          return 150.0  # 100 / 250
+
     def __str__(self):
         return str(self.__dict__) + " | " + str(self.label)

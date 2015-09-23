@@ -22,6 +22,7 @@ def run(model_configs, setis):
     learned_model = l.learn(setis)
     lm = model_exporter.LearnedModel()
     lm.write_model(learned_model, model_config.learned_model_loc)
+    print 'Wrote learned model to: %s' % (model_config.learned_model_loc)
     #print l.stats()
     # Write the model to a file.
     print 'Finished model generation for %s' % (model_config.name)

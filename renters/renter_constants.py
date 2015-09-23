@@ -133,12 +133,12 @@ learned_config = model_cfg.LearnedConfig(
 model_configs2 = [
   model_cfg.ModelConfig(
     name='v2', learned_model_loc='tmp/renters-price-learn-v2.csv',
-    memorized_model_loc = 'tmp/renters-price-v2.csv', cols_cfg=['gender', 'dob'],
-    feature_map_loc = 'tmp/feature_map_v2.csv', feature_map2_loc = 'feature_map2_v2.pickle')
+    memorized_model_loc = 'tmp/renters-price-v2.csv', cols_cfg=['deductible', 'personal_property_value', 'personal_liability'],
+    feature_map_loc = 'tmp/feature_map_v2.csv', feature_map2_loc = 'tmp/feature_map2_v2.pickle')
 ]
 learned_config2 = model_cfg.LearnedConfig(
   raw_filenames = ['data/elance_v2/*.csv'],
-  model_configs=model_configs)
+  model_configs=model_configs2)
 
 if __name__ == '__main__':
     name = generate_name()
