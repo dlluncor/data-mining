@@ -4,7 +4,7 @@ p1
 (lp2
 S'gender_MISSING'
 p3
-aS'gender_m'
+aS'gender_f'
 p4
 aS'dob'
 p5
@@ -33,11 +33,11 @@ S'MISSING'
 p18
 aI01
 aa(lp19
-S'f'
+S'm'
 p20
 aI01
 aa(lp21
-S'm'
+S'f'
 p22
 aI01
 aatp23

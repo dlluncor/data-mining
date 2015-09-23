@@ -36,8 +36,15 @@ class RenterForm(object):
             setattr(self, key, kwargs[key])
 
         self.label = -1
+
     def get_age(self):
         return float(datetime.now().year - datetime.strptime(self.dob, '%m/%d/%Y').year)
+
+    def get_policy_price(self):
+        try:
+          return float(self.policy_price.replace('$', '')), None
+        except Exception as e:
+          return None, str(e)
 
     def __str__(self):
         return str(self.__dict__) + " | " + str(self.label)

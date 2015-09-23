@@ -1,0 +1,354 @@
+Insurance Type,Zip code,First name,Last name,Date of birth,Gender,Address,City,State,Auto insurance coverage?,Property Type,# units,# unrelated roommates,# property losses in last 3 years,Phone number,Email address,Fire Sprinkler System?,Central Fire & Burglar Alarm?,Local Fire / Smoke Alarm?,Home Security?,Non Smoking Household?,Local Burglar Alarm?,Unusual hazards?,Dogs that bite?,Run a business from home?,Start date,Personal property worth,Loss of use,Medical payments,Personal liability,Farmers Identity Protection,Deductible,Policy number,Timestamp (seconds),Policy price,Name of agent,Address of agent,Elancer Name
+Renters,95125,Carter,Weiss,2/4/1989,m,3200 Rubino Dr,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(510) 215-2850,abigail@foxmail.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,16717216,-1,$187.39,Vilai Yang,"8021 Laguna Blvd Ste 1
+Elk Grove, CA 95758-7920
+(916) 684-9958",Gita
+Renters,94087,Conor,Robles,4/5/1990,m,1032 W Remington Dr,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 285-5966,clare.curtis@gmail.com,N,N,N,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,42502742,-1,$142.07,John Williams,"4476 Pearl Ave
+San Jose, CA 95136-1846
+(408) 227-2560",Gita
+Renters,95008,Nolan,Page,4/5/1990,m,1630 W Campbell Ave,Campbell,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(844) 325-4744,jakob.king@inbox.com,N,N,N,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95136,Sophia,Nelson,11/18/1989,m,4300 The Woods Dr,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(925) 284-2586,milo.chambers@yahoo.com,N,N,N,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,2724720,-1,$185.48,Ernest Dillard,"5145 Golden Foothill Pkwy Ste 100
+El Dorado Hills, CA 95762-9656
+(916) 939-8553",Gita
+Renters,94041,Holden,Herrera,11/18/1989,m,151 Calderon Ave,Mountain View,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 647-6922,dillan.hood@263.com,N,N,N,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94087,Ryder,Moran,7/31/1988,f,1032 W Remington Dr,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(877) 713-4583,juliette@outlook.com,N,N,N,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,42928683,-1,$134.76,John Williams,"4476 Pearl Ave
+San Jose, CA 95136-1846
+(408) 227-2560",Gita
+Renters,94087,Izabella,Robles,11/18/1989,m,902 W Remington Dr,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(760) 489-9272,milo.chambers@yahoo.com,N,N,N,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,27647068,-1,$141.99,Dennis Bane,"1905 Hamilton Ave Fl 1
+San Jose, CA 95125-5673
+(408) 559-8118",Gita
+Renters,95134,Daphne,Fitzgerald,6/6/1986,f,4343 Renaissance Dr,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(510) 841-2760,dillan.hood@263.com,N,N,N,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94041,Mila,Thompson,6/6/1986,m,151 Calderon Ave,Mountain View,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(855) 254-9912,milo.chambers@yahoo.com,N,N,Y,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,19990154,-1,$143.55,Lili Li,"1202 Kifer Rd Ste 168
+Sunnyvale, CA 94086-5304
+(650) 409-8999",Gita
+Renters,95136,Paige,Goodman,11/12/1990,m,5230 Terner Way,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(510) 222-8623,abigail@foxmail.com,N,N,Y,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,79463245,-1,$178.02,Miguel Quintero,"4340 Almaden Expy Ste 210
+San Jose, CA 95118-2048
+(408) 380-2277",Gita
+Renters,95123,Lucy,Vega,3/8/1990,m,6184 Cottle Rd,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 749-0101,joshua@zoho.com,N,N,Y,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95051,Addison,Schmidt,6/6/1986,m,101 Saratoga Ave,Santa Clara,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 981-2605,luke.copeland@icloud.com,N,N,Y,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,76250623,-1,$141.99,Sammy Lee,"3575 Stevens Creek Blvd Ste J
+San Jose, CA 95117-1046
+(408) 247-8800",Gita
+Renters,94301,Nora,Hess,6/6/1986,f,501 Forest Ave,Palo Alto,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(707) 559-9571,kira@163.com,N,N,Y,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,39023580,-1,$139.14,Nicky Papadakis,"1355 Laurel St
+San Carlos, CA 94070-5011
+(650) 593-1666",Gita
+Renters,95037,Victoria,Manning,4/5/1990,f,16945 Del Monte Ave,Morgan Hill,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(650) 758-4888,luke.copeland@icloud.com,N,N,Y,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,49075468,-1,$269.50,Preeti Sehgal,"584b Blossom Hill Rd
+San Jose, CA 95123-3212
+(408) 674-2935",Gita
+Renters,94041,Brielle,Gallegos,11/18/1989,f,1600 Villa St,Mountain View,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(650) 425-3914,luke.copeland@icloud.com,N,N,Y,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,39757650,-1,$141.99,Jianhong Zhou,"39812 Mission Blvd Ste 203
+Fremont, CA 94539-3087
+(510) 656-1009",Gita
+Renters,95008,Dillan,Cardenas,11/12/1990,f,200 Hollis Ave,Campbell,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 664-2724,luke@263.com,N,N,Y,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95127,Alice,Saunders,3/3/1988,m,2601 Nuestra Castillo Ct,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 735-9780,joshua@zoho.com,N,Y,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94086,Chloe,Horton,6/6/1986,f,718 Old San Francisco Rd,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(619) 460-5241,joshua@zoho.com,N,Y,N,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95054,Nicholas,Ward,5/6/1989,m,550 Moreland Way,Santa Clara,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 567-0683,milo.chambers@yahoo.com,N,Y,N,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,44142121,-1,$141.99,Stephen Larson,"6360 Belleau Wood Ln Ste 5
+Sacramento, CA 95822-5925
+(916) 428-4520",Gita
+Renters,94085,Rosalie,Hood,2/4/1989,f,1257 Lakeside Dr,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(650) 264-9696,joshua@zoho.com,N,Y,N,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95050,Jack,Campbell,2/4/1989,m,2200 Monroe St,Santa Clara,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(650) 589-2909,joshua@zoho.com,N,Y,N,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95050,Eli,Boyd,2/4/1989,m,431 El Camino Real,Santa Clara,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(510) 222-8623,abigail@foxmail.com,N,Y,N,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,67542288,-1,$131.83,Jason Medeiros,"39899 Balentine Dr Ste 230
+Newark, CA 94560-5361
+(925) 321-3082",Gita
+Renters,94087,Anastasia,Short,6/6/1986,m,902 W Remington Dr,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 580-6272,joshua@zoho.com,N,Y,N,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94086,Graham,Perkins,5/6/1989,f,555 E Washington Ave,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 984-4767,kira@163.com,N,Y,N,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,44556731,-1,$134.51,Jianhong Zhou,"39812 Mission Blvd Ste 203
+Fremont, CA 94539-3087
+(510) 656-1009",Gita
+Renters,94301,Charles,Gibbs,4/5/1990,f,501 Forest Ave,Palo Alto,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(844) 250-7147,kira@163.com,N,Y,Y,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,40871993,-1,$139.14,Richard Jerkovich,"425 Harbor Blvd Ste E
+Belmont, CA 94002-4048
+(650) 638-1797",Gita
+Renters,95051,Evan,Wolf,4/5/1990,m,3500 Granada Ave,Santa Clara,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(650) 381-9788,luke.copeland@icloud.com,N,Y,Y,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,65133163,-1,$139.14,James Miao,"303 W Joaquin Ave Ste 210
+San Leandro, CA 94577-3666
+(510) 357-8080",Gita
+Renters,95126,Nolan,Fowler,11/12/1990,m,1300 The Alameda,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 647-6922,kira@163.com,N,Y,Y,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,41417558,-1,$181.67,Jason Schram,"1731 Embarcadero Rd Ste 212
+Palo Alto, CA 94303-3339
+(650) 522-0027",Gita
+Renters,95136,Jack,Contreras,12/1/1988,m,5230 Terner Way,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 225-8648,luke@263.com,N,Y,Y,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95014,Hanna,Park,12/1/1988,f,20800 Homestead Rd,Cupertino,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 578-4349,clare.curtis@gmail.com,N,Y,Y,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,5607042,-1,$131.83,Chiu Ling Lin,"1340 S De Anza Blvd Ste 203
+San Jose, CA 95129-4644
+(408) 657-3919",Gita
+Renters,94087,Xander,Elliott,4/5/1990,m,745 S Bernardo Ave,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(650) 381-9788,jakob.king@inbox.com,N,Y,Y,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95112,Landon,Sandoval,3/27/1987,m,101 E San Fernando St 100,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 491-1125,luke.copeland@icloud.com,N,Y,Y,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,31849100,-1,$152.31,Catherine Lie,"1118 E William St
+San Jose, CA 95116-3113
+(408) 288-8011",Gita
+Renters,94086,Hanna,Jones,2/4/1989,m,718 Old San Francisco Rd,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 491-1125,abigail@foxmail.com,N,Y,Y,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,49038601,-1,$134.51,Qing Sun,"12140 Artesia Blvd Ste 209
+Artesia, CA 90701-4055
+(562) 810-0500",Gita
+Renters,95051,Gideon,Thomas,3/8/1990,f,3500 Granada Ave,Santa Clara,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(650) 583-9275,dillan.hood@263.com,Y,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95123,Dominic,Welch,6/6/1986,m,150 Palm Valley Blvd,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(858) 279-7410,jakob.king@inbox.com,Y,N,N,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94043,Elliott,Duncan,3/8/1990,m,555 W Middlefield Rd,Mountain View,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(619) 460-5241,abigail@foxmail.com,Y,N,N,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,6897524,-1,$134.51,Orlando Nunes,"1246 Homestead Rd
+Santa Clara, CA 95050-5487
+(408) 261-1553",Gita
+Renters,95125,Caroline,Brewer,11/18/1989,f,2118 Canoas Garden Ave,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(650) 321-1701,dillan.hood@263.com,Y,N,N,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95037,Lily,Pittman,7/31/1988,m,16945 Del Monte Ave,Morgan Hill,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(650) 854-2651,abigail@foxmail.com,Y,N,N,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,52018025,-1,$249.01,Delyna Vu,"1972 Aborn Rd
+San Jose, CA 95121-1583
+(408) 531-8153",Gita
+Renters,95035,Ian,Fisher,3/8/1990,m,555 S Park Victoria Dr,Milpitas,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 400-5295,milo.chambers@yahoo.com,Y,N,N,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,81728176,-1,$130.00,Tony Stoll,"1000 S White Rd Ste 130
+San Jose, CA 95127-3828
+(650) 200-5721",Gita
+Renters,95123,Aden,Phillips,3/27/1987,m,150 Palm Valley Blvd,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(877) 902-0832,joshua@zoho.com,Y,N,N,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94304,Jack,Mcdaniel,2/4/1989,f,1600 Sand Hill Rd,Palo Alto,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 502-5305,luke@263.com,Y,N,N,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95020,Arianna,Wise,3/27/1987,m,8200 Kern Ave,Gilroy,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(858) 486-4834,milo.chambers@yahoo.com,Y,N,Y,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,96013494,-1,$257.80,None,,Gita
+Renters,95020,Hunter,Reynolds,2/4/1989,f,500 Ioof Ave,Gilroy,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 271-2600,joshua@zoho.com,Y,N,Y,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95134,Zoey,Green,11/18/1989,m,150 Alicante Dr,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(858) 279-7410,dillan.hood@263.com,Y,N,Y,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94040,Jase,Hines,12/1/1988,f,575 S Rengstorff Ave,Mountain View,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 295-1360,juliette@outlook.com,Y,N,Y,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,64389264,-1,$130.00,Alex Wong,"420 N Montebello Blvd Ste 207
+Montebello, CA 90640-4274
+(323) 212-3012",Gita
+Renters,95014,Avery,Stanley,12/1/1988,f,5608 Stevens Creek Blvd,Cupertino,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 474-0333,juliette@outlook.com,Y,N,Y,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,85192648,-1,$130.00,David Kelly,"510 Bercut Dr Ste F
+Sacramento, CA 95811-0111
+(916) 447-9797",Gita
+Renters,95113,Juliet,Baldwin,3/8/1990,f,360 S Market St,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(650) 372-8336,milo.chambers@yahoo.com,Y,N,Y,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,25340320,-1,$136.00,Mark Mead,"13300 E Highway 20 Ste C
+Clearlake Oaks, CA 95423-9330
+(707) 998-0100",Gita
+Renters,95030,Emma,King,11/18/1989,f,10 Jackson St 107,Los Gatos,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(650) 997-0400,kira@163.com,Y,N,Y,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,15614402,-1,$130.00,Jinghuai Li,"100 W El Camino Real Ste 70
+Mountain View, CA 94040-2649
+(650) 988-9618",Gita
+Renters,95134,Felix,Brewer,3/3/1988,m,150 Alicante Dr,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 923-6900,kira@163.com,Y,N,Y,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,18036600,-1,$130.00,Oliver Huang,"2695 Moorpark Ave Ste 112
+San Jose, CA 95128-4710
+(510) 493-6538",Gita
+Renters,95054,Vivienne,Velasquez,7/31/1988,m,730 Agnew Rd,Santa Clara,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(866) 270-9902,luke@263.com,Y,Y,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95014,Ethan,Marsh,11/12/1990,m,7375 Rollingdell Dr,Cupertino,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 563-6333,luke@263.com,Y,Y,N,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95035,Dillan,Clayton,3/8/1990,m,755 E Capitol Ave,Milpitas,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 512-2708,kira@163.com,Y,Y,N,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,18294365,-1,$130.00,Rudy Buitrago,"2290 N 1st St Ste 209b
+San Jose, CA 95131-2017
+(408) 434-0640",Gita
+Renters,95128,Emmett,Sims,3/27/1987,f,500 S Winchester Blvd,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 513-0086,juliette@outlook.com,Y,Y,N,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,42940446,-1,$162.54,Shinobu Arisawa,"2695 Moorpark Ave # 201
+San Jose, CA 95128-4710
+(408) 449-4808",Gita
+Renters,95054,Reece,Freeman,11/18/1989,m,1600 Nantucket Cir,Santa Clara,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(858) 530-2100,luke.copeland@icloud.com,Y,Y,N,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,20866371,-1,$130.00,Tony Stoll,"1000 S White Rd Ste 130
+San Jose, CA 95127-3828
+(650) 200-5721",Gita
+Renters,95136,Kira,Silva,3/3/1988,f,3601 Copperfield Dr,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(858) 678-0550,joshua@zoho.com,Y,Y,N,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94087,Harper,Oliver,11/12/1990,f,902 W Remington Dr,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 923-3200,clare.curtis@gmail.com,Y,Y,N,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,28982155,-1,$130.00,Georgina Urquizu,"2695 Moorpark Ave Ste 111
+San Jose, CA 95128-4710
+(408) 449-4804",Gita
+Renters,95125,Nolan,Fitzgerald,3/3/1988,f,1776 Almaden Rd,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(866) 270-9902,dillan.hood@263.com,Y,Y,N,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95125,Anna,Wells,2/4/1989,m,1776 Almaden Rd,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 441-7600,luke.copeland@icloud.com,Y,Y,Y,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,15718819,260,$20.48,Joe Angelini,"435 Johnston St
+Half Moon Bay, CA 94019-1717
+
+(650) 726-4818",Muhammad
+Renters,94043,Rose,Benson,3/8/1990,f,555 W Middlefield Rd,Mountain View,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(603) 571-6274,clare.curtis@gmail.com,Y,Y,Y,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,77137108,240,$16.01,Ron Merz,"1264 Lincoln Ave Ste 100
+San Jose, CA 95125-3035
+
+(408) 371-3000",Muhammad
+Renters,95112,Norah,Robbins,7/31/1988,f,101 E San Fernando St 100,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 445-6530,milo.chambers@yahoo.com,Y,Y,Y,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,56787879,224,$18.50,Frank Pham,"1804 Mclaughlin Ave
+San Jose, CA 95122-2902
+
+(408) 947-0265",Muhammad
+Renters,94085,Ezra,Jensen,4/5/1990,m,330 N Mathilda Ave,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(858) 279-7410,kira@163.com,Y,Y,Y,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,36014794,226,$16.34,Mary Formico Barnard,"2190 Stokes St Ste 201
+San Jose, CA 95128-4512
+
+(408) 286-1334",Muhammad
+Renters,95129,Lila,Becker,3/3/1988,m,355 Kiely Blvd,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(858) 748-4774,abigail@foxmail.com,Y,Y,Y,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,78791164,230,$15.07,Lee Gomez,"1100 Lincoln Ave Ste 265
+San Jose, CA 95125-3065
+
+(408) 223-0970",Muhammad
+Renters,94086,Nicolas,Underwood,6/6/1986,f,355 E Evelyn Ave,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(510) 582-5240,luke@263.com,Y,Y,Y,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Invalid Email,60,,,,Muhammad
+Renters,94043,Sophie,Hodges,5/6/1989,m,505 Central Ave,Mountain View,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(866) 671-1752,juliette@outlook.com,Y,Y,Y,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,66983040,230,$15.38,Zainuddean Jeewanjee,"1494 Hamilton Ave Ste 101
+San Jose, CA 95125-4535
+
+(408) 703-4900",Muhammad
+Renters,95035,Isaac,Singh,3/27/1987,m,440 Dixon Landing Rd,Milpitas,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 474-5333,kira@163.com,Y,Y,Y,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,49881992,220,$10.83,Thomas Treuong,"500 E Calaveras Blvd Ste 321
+Milpitas, CA 95035-7708
+
+(408) 935-8888",Muhammad
+Renters,95037,Gemma,Flowers,4/5/1990,f,16945 Del Monte Ave,Morgan Hill,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 980-0502,dillan.hood@263.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95014,Caleb,Black,12/1/1988,f,20800 Homestead Rd,Cupertino,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 241-1445,kira@163.com,N,N,N,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,12682405,-1,$142.07,Chiu Ling Lin,"1340 S De Anza Blvd Ste 203
+San Jose, CA 95129-4644
+(408) 657-3919",Gita
+Renters,94085,Madelynn,Shaffer,11/18/1989,m,355 N Wolfe Rd,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 923-6900,jakob.king@inbox.com,N,N,N,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95123,Hanna,Jordan,11/12/1990,m,1045 Coleman Rd,San Jose,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(877) 713-3956,clare.curtis@gmail.com,N,N,N,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,20566920,-1,$185.48,Miguel Quintero,"4340 Almaden Expy Ste 210
+San Jose, CA 95118-2048
+(408) 380-2277",Gita
+Renters,95020,Declan,Shaw,12/1/1988,m,7397 Monterey St,Gilroy,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(866) 849-2126,clare.curtis@gmail.com,N,N,N,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,9717620,-1,$278.29,Albert Pinheiro,"190 1st St
+Gilroy, CA 95020-5129
+(408) 842-4619",Gita
+Renters,94086,Levi,Mckenzie,2/4/1989,m,655 S Fair Oaks Ave,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 956-8858,joshua@zoho.com,N,N,N,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94086,James,Roberson,6/6/1986,f,201 W California Ave,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(510) 865-2875,jakob.king@inbox.com,N,N,N,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95125,Madeline,Fowler,3/8/1990,f,1776 Almaden Rd,San Jose,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(510) 865-1139,milo.chambers@yahoo.com,N,N,N,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,4508102,-1,$175.92,Joe Angelini,"435 Johnston St
+Half Moon Bay, CA 94019-1717
+(650) 726-4818",Gita
+Renters,95112,Kole,Lambert,12/1/1988,f,524 S 9th St,San Jose,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 492-9660,joshua@zoho.com,N,N,Y,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95129,Matthew,Newman,3/3/1988,m,355 Kiely Blvd,San Jose,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(619) 460-5241,luke@263.com,N,N,Y,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95014,Max,Shelton,5/6/1989,f,20800 Homestead Rd,Cupertino,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 441-7600,clare.curtis@gmail.com,N,N,Y,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,53910703,-1,$146.48,Chiu Ling Lin,"1340 S De Anza Blvd Ste 203
+San Jose, CA 95129-4644
+(408) 657-3919",Gita
+Renters,95051,Lea,Gray,5/6/1989,f,101 Saratoga Ave,Santa Clara,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 474-0333,abigail@foxmail.com,N,N,Y,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,80385701,-1,$141.99,Sammy Lee,"3575 Stevens Creek Blvd Ste J
+San Jose, CA 95117-1046
+(408) 247-8800",Gita
+Renters,94086,Delilah,Buchanan,3/3/1988,f,1035 Aster Ave,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 225-8648,abigail@foxmail.com,N,N,Y,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,67759265,-1,$139.14,Jyotisen Mody,"1613 S Main St Ste 108
+Milpitas, CA 95035-6295
+(408) 726-5197",Gita
+Renters,95035,August,Lara,4/5/1990,m,755 E Capitol Ave,Milpitas,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 570-5010,luke@263.com,N,N,Y,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95126,Everett,Richardson,11/18/1989,f,1201 Parkmoor Ave,San Jose,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(831) 373-1025,clare.curtis@gmail.com,N,N,Y,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,28686431,-1,$181.67,James Melin,"2130 The Alameda Ste 150
+San Jose, CA 95126-1153
+(408) 985-0500",Gita
+Renters,94040,Jasper,Woods,11/12/1990,f,1200 Dale Ave,Mountain View,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(707) 544-1400,luke@263.com,N,N,Y,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95020,Zachery,Vega,11/12/1990,f,500 Ioof Ave,Gilroy,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(866) 894-6343,clare.curtis@gmail.com,N,Y,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,52879774,-1,$278.29,Molly Brooks,"909 E Lake Ave
+Watsonville, CA 95076-3403
+(831) 728-2220",Gita
+Renters,95050,Eleanor,Wall,7/31/1988,m,2200 Monroe St,Santa Clara,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(831) 585-1628,abigail@foxmail.com,N,Y,N,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,46359343,-1,$139.14,Leny Bueno,"2695 Moorpark Ave Ste 100f
+San Jose, CA 95128-4710
+(408) 449-4871",Gita
+Renters,95123,Jude,Nelson,3/8/1990,m,1045 Coleman Rd,San Jose,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(650) 389-9367,kira@163.com,N,Y,N,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,13742244,-1,$181.67,Carlo Brusaschetti,"1150 Hillsdale Ave Ste 103
+San Jose, CA 95118-1259
+(408) 266-7175",Gita
+Renters,94086,Lukas,Fisher,5/6/1989,m,825 E Evelyn Ave,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(858) 587-9997,kira@163.com,N,Y,N,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,46070519,-1,$141.99,Mark Rizzo,"2695 Moorpark Ave Ste 202b
+San Jose, CA 95128-4710
+(408) 449-4820",Gita
+Renters,95020,Juliet,Morrison,12/1/1988,m,500 Ioof Ave,Gilroy,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(858) 578-1632,luke@263.com,N,Y,N,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95051,Everett,Haynes,6/6/1986,f,3500 Granada Ave,Santa Clara,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(510) 582-5240,clare.curtis@gmail.com,N,Y,N,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,3064874,-1,$131.83,James Miao,"303 W Joaquin Ave Ste 210
+San Leandro, CA 94577-3666
+(510) 357-8080",Gita
+Renters,94086,Harrison,Mcdonald,5/6/1989,m,825 E Evelyn Ave,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 984-4767,abigail@foxmail.com,N,Y,N,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,87517008,-1,$134.51,Mark Rizzo,"2695 Moorpark Ave Ste 202b
+San Jose, CA 95128-4710
+(408) 449-4820",Gita
+Renters,95050,Josiah,Fisher,4/5/1990,f,444 Saratoga Ave,Santa Clara,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 445-6530,luke@263.com,N,Y,N,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94085,Elliott,Pham,3/27/1987,m,330 N Mathilda Ave,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 737-2900,joshua@zoho.com,N,Y,Y,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94043,Lily,Parks,3/27/1987,f,100 N Whisman Rd,Mountain View,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 924-1196,luke@263.com,N,Y,Y,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94087,Samuel,Walsh,7/31/1988,f,1032 W Remington Dr,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(877) 902-0832,joshua@zoho.com,N,Y,Y,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94086,Theodore,Patel,5/6/1989,m,1035 Aster Ave,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(831) 475-6342,clare.curtis@gmail.com,N,Y,Y,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,66208067,-1,$141.99,Jyotisen Mody,"1613 S Main St Ste 108
+Milpitas, CA 95035-6295
+(408) 726-5197",Gita
+Renters,94043,Addyson,Cummings,3/8/1990,f,100 N Whisman Rd,Mountain View,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 474-1750,milo.chambers@yahoo.com,N,Y,Y,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,7896576,-1,$131.83,Dennis Fulfer,"6929 Sunrise Blvd Ste 150
+Citrus Heights, CA 95610-3156
+(877) 315-3555",Gita
+Renters,95051,Felicity,Sutton,12/1/1988,m,3500 Granada Ave,Santa Clara,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(760) 798-2632,luke.copeland@icloud.com,N,Y,Y,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,30200780,-1,$131.83,James Miao,"303 W Joaquin Ave Ste 210
+San Leandro, CA 94577-3666
+(510) 357-8080",Gita
+Renters,95128,Jude,Holt,6/6/1986,m,500 S Winchester Blvd,San Jose,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(707) 823-1361,joshua@zoho.com,N,Y,Y,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95008,Samuel,Hodges,7/31/1988,f,2275 S Bascom Ave,Campbell,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(619) 479-6565,juliette@outlook.com,N,Y,Y,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,66995600,-1,$172.10,Thu Nguyen,"1989 Quimby Rd
+San Jose, CA 95122-1245
+(408) 258-8388",Gita
+Renters,95035,Isaiah,Dominguez,12/1/1988,f,755 E Capitol Ave,Milpitas,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(855) 254-9912,luke.copeland@icloud.com,Y,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,47116565,-1,$131.83,Rudy Buitrago,"2290 N 1st St Ste 209b
+San Jose, CA 95131-2017
+(408) 434-0640",Gita
+Renters,95054,Jacob,Shaw,11/12/1990,m,730 Agnew Rd,Santa Clara,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 956-8858,joshua@zoho.com,Y,N,N,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95051,Christopher,Knight,11/12/1990,f,101 Saratoga Ave,Santa Clara,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(619) 216-8884,abigail@foxmail.com,Y,N,N,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,55376147,-1,$134.51,Sammy Lee,"3575 Stevens Creek Blvd Ste J
+San Jose, CA 95117-1046
+(408) 247-8800",Gita
+Renters,94087,Naomi,Larsen,3/3/1988,f,902 W Remington Dr,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(707) 778-1221,clare.curtis@gmail.com,Y,N,N,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,29929331,-1,$130.03,Terry Shangreaux,"1905 Hamilton Ave Ste 100
+San Jose, CA 95125-5673
+(408) 371-3412",Gita
+Renters,94040,Jakob,Howell,7/31/1988,f,1200 Dale Ave,Mountain View,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 956-8858,clare.curtis@gmail.com,Y,N,N,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,25051636,-1,$130.00,Erich Stiegler,"1911 Tarob Ct
+Milpitas, CA 95035-6825
+(408) 813-5348",Gita
+Renters,95136,Reese,Daniels,6/6/1986,f,4300 The Woods Dr,San Jose,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 778-3237,milo.chambers@yahoo.com,Y,N,N,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,45706662,-1,$153.67,Ernest Dillard,"5145 Golden Foothill Pkwy Ste 100
+El Dorado Hills, CA 95762-9656
+(916) 939-8553",Gita
+Renters,95050,Lila,Hartman,11/18/1989,m,444 Saratoga Ave,Santa Clara,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 688-2085,dillan.hood@263.com,Y,N,N,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94086,Bennett,Green,11/18/1989,f,1035 Aster Ave,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(619) 231-9600,luke@263.com,Y,N,N,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94086,Josephine,Nunez,4/5/1990,f,555 E Washington Ave,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(650) 528-2129,clare.curtis@gmail.com,Y,N,Y,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,29998858,-1,$130.00,Jianhong Zhou,"39812 Mission Blvd Ste 203
+Fremont, CA 94539-3087
+(510) 656-1009",Gita
+Renters,94086,Chase,Roth,3/3/1988,f,201 W California Ave,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 441-7600,luke.copeland@icloud.com,Y,N,Y,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,65481914,-1,$130.00,Reet Singh,"2120 Diamond Blvd Ste 110
+Concord, CA 94520-5720
+(925) 671-0342",Gita
+Renters,95123,Landen,Copeland,7/31/1988,f,6184 Cottle Rd,San Jose,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 931-6300,clare.curtis@gmail.com,Y,N,Y,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,35137659,-1,$168.28,Genaro Garza,"4340 Almaden Expy Ste 210
+San Jose, CA 95118-2048
+(408) 599-7424",Gita
+Renters,95030,Brielle,Cohen,12/1/1988,m,10 Jackson St 107,Los Gatos,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(650) 348-6130,abigail@foxmail.com,Y,N,Y,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,93304316,-1,$130.00,Jinghuai Li,"100 W El Camino Real Ste 70
+Mountain View, CA 94040-2649
+(650) 988-9618",Gita
+Renters,94301,Seth,Pope,3/3/1988,f,501 Forest Ave,Palo Alto,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 565-9960,dillan.hood@263.com,Y,N,Y,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95030,Lilly,Grant,3/27/1987,f,10 Jackson St 107,Los Gatos,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 241-0100,kira@163.com,Y,N,Y,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,72650482,-1,$130.00,Jinghuai Li,"100 W El Camino Real Ste 70
+Mountain View, CA 94040-2649
+(650) 988-9618",Gita
+Renters,94087,Dillon,Daniels,2/4/1989,f,575 E Remington Dr,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(707) 579-5605,juliette@outlook.com,Y,N,Y,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,35452020,-1,$130.00,Yixing You,"1698 S Wolfe Rd Ste 116
+Sunnyvale, CA 94087-4868
+(408) 900-8961",Gita
+Renters,94043,Owen,Obrien,11/18/1989,f,555 W Middlefield Rd,Mountain View,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(877) 713-4583,dillan.hood@263.com,Y,N,Y,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95123,Eloise,Sherman,5/6/1989,m,6184 Cottle Rd,San Jose,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(925) 686-1761,abigail@foxmail.com,Y,Y,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,34178379,-1,$159.27,Dereck Caso,"4990 Speak Ln Ste 250
+San Jose, CA 95118-2776
+(408) 445-9100",Gita
+Renters,95020,Jane,Harrison,4/5/1990,m,8200 Kern Ave,Gilroy,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(707) 778-1221,juliette@outlook.com,Y,Y,N,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,71468279,-1,$249.01,Richard Rhodes,"330 Tres Pinos Rd Ste B6
+Hollister, CA 95023-5579
+(831) 637-3832",Gita
+Renters,95050,Gideon,Gibbs,7/31/1988,f,444 Saratoga Ave,Santa Clara,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(925) 228-0760,clare.curtis@gmail.com,Y,Y,N,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,2701913,-1,$130.00,Bin Lu,"6472 Camden Ave Ste 209
+San Jose, CA 95120-2827
+(408) 728-9789",Gita
+Renters,95020,Amelia,Welch,3/27/1987,f,500 Ioof Ave,Gilroy,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 723-2370,abigail@foxmail.com,Y,Y,N,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,40847023,-1,$254.08,Timothy Powell,"10096 Soquel Dr Ste 2
+Aptos, CA 95003-4938
+(831) 688-8778",Gita
+Renters,95126,Asher,Cohen,3/27/1987,f,1300 The Alameda,San Jose,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(650) 389-9367,dillan.hood@263.com,Y,Y,N,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95111,Zander,Chapman,2/4/1989,m,2600 Corde Terra Cir,San Jose,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 288-7368,juliette@outlook.com,Y,Y,N,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,76991042,-1,$132.69,Diem Pham,"1900 Camden Ave
+San Jose, CA 95124-2942
+(408) 900-7200",Gita
+Renters,95126,Arya,Bowen,11/18/1989,f,850 Meridian Way,San Jose,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 981-5780,clare.curtis@gmail.com,Y,Y,N,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,26564107,-1,$152.98,Louise Shih,"940 Saratoga Ave Ste 106
+San Jose, CA 95129-3409
+(408) 253-0688",Gita
+Renters,94087,Nolan,Howard,6/6/1986,m,1032 W Remington Dr,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(408) 984-4767,joshua@zoho.com,Y,Y,N,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95051,Sofia,Blair,7/31/1988,m,101 Saratoga Ave,Santa Clara,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 334-2698,milo.chambers@yahoo.com,Y,Y,Y,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,27320865,-1,$130.00,Sammy Lee,"3575 Stevens Creek Blvd Ste J
+San Jose, CA 95117-1046
+(408) 247-8800",Gita
+Renters,95037,Ezra,Perez,2/4/1989,f,16945 Del Monte Ave,Morgan Hill,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(925) 943-7977,luke@263.com,Y,Y,Y,N,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95050,Luke,Reyes,7/31/1988,f,2200 Monroe St,Santa Clara,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(831) 427-1991,clare.curtis@gmail.com,Y,Y,Y,N,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,11538614,-1,$130.00,Leny Bueno,"2695 Moorpark Ave Ste 100f
+San Jose, CA 95128-4710
+(408) 449-4871",Gita
+Renters,95123,Aiden,Shaffer,7/31/1988,f,150 Palm Valley Blvd,San Jose,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 354-4506,juliette@outlook.com,Y,Y,Y,N,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,13158152,-1,$162.54,Bin Lu,"6472 Camden Ave Ste 209
+San Jose, CA 95120-2827
+(408) 728-9789",Gita
+Renters,95051,Lincoln,Holmes,3/8/1990,m,100 Buckingham Dr,Santa Clara,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 308-7225,jakob.king@inbox.com,Y,Y,Y,Y,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94301,Lea,Pacheco,12/1/1988,m,501 Forest Ave,Palo Alto,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(877) 713-3968,dillan.hood@263.com,Y,Y,Y,Y,Y,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,94086,Cole,Fields,6/6/1986,m,1035 Aster Ave,Sunnyvale,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(415) 567-0683,juliette@outlook.com,Y,Y,Y,Y,N,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,73584550,-1,$130.00,Jyotisen Mody,"1613 S Main St Ste 108
+Milpitas, CA 95035-6295
+(408) 726-5197",Gita
+Renters,95123,Lorelei,Castillo,6/6/1986,m,1045 Coleman Rd,San Jose,CA,Y,RENTED HOUSE - SINGLE FAMILY,1,0,0,(619) 610-0954,luke@263.com,Y,Y,Y,Y,N,Y,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email invalid,-1,,,,Gita
+Renters,95020,William,Flynn,7/31/1988,f,7397 Monterey St,Gilroy,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(760) 208-2785,juliette@outlook.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,8074524,-1,$292.94,Albert Pinheiro,"190 1st St
+Gilroy, CA 95020-5129
+(408) 842-4619",Gita
+Renters,95126,Norah,Benson,3/8/1990,m,950 Meridian Ave,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,0,(858) 453-7368,kira@163.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,73473151,-1,$187.39,Tyler Carlin,"9300 Madison Ave Ste 201
+Orangevale, CA 95662-4961
+(916) 988-5525",Gita
+Renters,94086,Jackson,Sharp,11/18/1989,f,180 Pasito Terrace,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,2 to 4,0,0,(415) 474-8052,luke.copeland@icloud.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,82597982,-1,$133.29,Chong Chol Pak,"1021 S Wolfe Rd Ste 275
+Sunnyvale, CA 94086-8884
+(408) 542-9945",Gita
+Renters,95030,Silas,Henry,5/6/1989,f,347 Massol Ave,Los Gatos,CA,N,RENTED HOUSE - SINGLE FAMILY,2 to 4,0,0,(408) 736-8658,milo.chambers@yahoo.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,47477213,-1,$133.29,Diem Pham,"1900 Camden Ave
+San Jose, CA 95124-2942
+(408) 900-7200",Gita
+Renters,95136,Atticus,Mcdaniel,6/6/1986,m,5230 Terner Way,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,5+,0,0,(408) 244-0900,kira@163.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,15208521,-1,$20.00,Angie Arnesto,"996 Minnesota Ave Ste 206San Jose, CA 95125-2424(408) 275-6888",Muhammad
+Renters,94304,Elisabeth,Carrillo,7/31/1988,f,1600 Sand Hill Rd,Palo Alto,CA,N,RENTED HOUSE - SINGLE FAMILY,5+,0,0,(415) 626-6900,jakob.king@inbox.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,Email Invalid,60,,,,Muhammad
+Renters,95035,Jane,Osborne,3/8/1990,m,755 E Capitol Ave,Milpitas,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,1,(831) 476-8897,abigail@foxmail.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,30540892,180,$28.11,Rudy Buitrago,"2290 N 1st St Ste 209bSan Jose, CA 95131-2017(408) 434-0640",Muhammad
+Renters,94087,Declan,Johnston,3/3/1988,m,745 S Bernardo Ave,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,1,(408) 866-1005,dillan.hood@263.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,Email Invalid,60,,,,Muhammad
+Renters,94087,Iris,Marquez,4/5/1990,m,575 E Remington Dr,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,2 to 4,0,1,(415) 864-7368,jakob.king@inbox.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email Invalid,60,,,,Muhammad
+Renters,95051,Annabelle,Wilkinson,4/5/1990,m,101 Saratoga Ave,Santa Clara,CA,N,RENTED HOUSE - SINGLE FAMILY,2 to 4,0,1,(619) 463-1116,clare.curtis@gmail.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,72327751,180,$25.58,Sammy Lee,"3575 Stevens Creek Blvd Ste JSan Jose, CA 95117-1046(408) 247-8800",Muhammad
+Renters,95030,Emily,Berry,6/6/1986,f,347 Massol Ave,Los Gatos,CA,N,RENTED HOUSE - SINGLE FAMILY,5+,0,1,(415) 440-1155,milo.chambers@yahoo.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,66125218,180,$23.33,Gail Randolph,"14460 Big Basin WaySaratoga, CA 95070-6095(408) 866-4230",Muhammad
+Renters,95113,Jase,Watkins,5/6/1989,f,360 S Market St,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,5+,0,1,(650) 991-0827,clare.curtis@gmail.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,95516821,175,$26.42,Mark Mead,"13300 E Highway 20 Ste CClearlake Oaks, CA 95423-9330(707) 998-0100",Muhammad
+Renters,94043,Hudson,Saunders,3/8/1990,m,100 N Whisman Rd,Mountain View,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,2,(925) 943-7977,luke@263.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email Invalid,60,,,,Muhammad
+Renters,95125,Hanna,Lowe,3/27/1987,f,2118 Canoas Garden Ave,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,2,(707) 823-0730,joshua@zoho.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,Email Invalid,60,,,,Muhammad
+Renters,95008,Hazel,Schroeder,6/6/1986,m,2275 S Bascom Ave,Campbell,CA,N,RENTED HOUSE - SINGLE FAMILY,2 to 4,0,2,(619) 582-4074,luke@263.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email Invalid,60,,,,Muhammad
+Renters,95035,Joseph,Kelly,7/31/1988,m,755 E Capitol Ave,Milpitas,CA,N,RENTED HOUSE - SINGLE FAMILY,2 to 4,0,2,(408) 287-3444,luke.copeland@icloud.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,97968751,180,$29.42,Rudy Buitrago,"2290 N 1st St Ste 209bSan Jose, CA 95131-2017(408) 434-0640",Muhammad
+Renters,94087,Vivienne,Guzman,12/1/1988,f,902 W Remington Dr,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,5+,0,2,(760) 798-2632,juliette@outlook.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,26380089,180,$26.83,Rie Kawaguchi,"1292 Kifer Rd Ste 802Sunnyvale, CA 94086-5311(408) 738-8111",Muhammad
+Renters,95014,Eli,Page,11/18/1989,m,19608 Pruneridge Ave,Cupertino,CA,N,RENTED HOUSE - SINGLE FAMILY,5+,0,2,(415) 354-4506,abigail@foxmail.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,39160791,180,$26.83,Robert Herzog,"235 Main StPleasanton, CA 94566-8230(925) 734-0530",Muhammad
+Renters,95129,Christopher,Dunn,11/18/1989,f,355 Kiely Blvd,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,3,(408) 294-5333,luke@263.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email Invalid,180,,,,Muhammad
+Renters,95050,Andrew,Rodgers,11/18/1989,m,2200 Monroe St,Santa Clara,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,3,(408) 241-1445,kira@163.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,98330639,180,$56.23,Leny Bueno,"2695 Moorpark Ave Ste 100fSan Jose, CA 95128-4710(408) 449-4871",Muhammad
+Renters,94043,Zachary,Dunn,2/4/1989,m,100 N Whisman Rd,Mountain View,CA,N,RENTED HOUSE - SINGLE FAMILY,2 to 4,0,3,(415) 284-3000,luke@263.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,Email Invalid,190,,,,Muhammad
+Renters,95014,Evan,Dawson,3/27/1987,m,7375 Rollingdell Dr,Cupertino,CA,N,RENTED HOUSE - SINGLE FAMILY,2 to 4,0,3,(415) 924-1196,milo.chambers@yahoo.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,10795402,200,$51.17,John Williams,"4476 Pearl AveSan Jose, CA 95136-1846(408) 227-2560",Muhammad
+Renters,94043,Ryder,Francis,7/31/1988,m,555 W Middlefield Rd,Mountain View,CA,N,RENTED HOUSE - SINGLE FAMILY,5+,0,3,(408) 778-3237,luke.copeland@icloud.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,13256830,195,$46.67,Elena Goldin,"1901 Old Middlefield Way Ste 12Mountain View, CA 94043-2539(650) 940-1100",Muhammad
+Renters,95008,Mia,Murray,11/18/1989,f,200 Hollis Ave,Campbell,CA,N,RENTED HOUSE - SINGLE FAMILY,5+,0,3,(925) 686-1761,juliette@outlook.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,13304428,190,$59.71,Ray Kellam,"2470 Winchester Blvd Ste B
+Campbell, CA 95008-4807
+
+(408) 440-5139",Muhammad
+Renters,94301,Reece,Marquez,2/4/1989,m,501 Forest Ave,Palo Alto,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,4,(415) 495-4119,abigail@foxmail.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,68895975,200,$70.28,Jason Schram,"1731 Embarcadero Rd Ste 212
+Palo Alto, CA 94303-3339
+
+(650) 522-0027",Muhammad
+Renters,95138,Holden,Matthews,6/6/1986,f,6100 Monterey Hwy,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,4,(650) 583-9275,luke.copeland@icloud.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,89980764,210,$89.92,Paul Curiel,"2670 S White Rd Ste 90
+San Jose, CA 95148-2072
+
+(408) 270-4029",Muhammad
+Renters,95134,Miles,Flynn,6/6/1986,m,150 Alicante Dr,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,2 to 4,0,4,(925) 284-2586,milo.chambers@yahoo.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,80254211,215,$63.96,Jazmin Guizar,"4677 Old Ironsides Dr Ste 445
+Santa Clara, CA 95054-1826
+
+(408) 802-7257",Muhammad
+Renters,94085,Amelia,Knight,3/8/1990,f,1257 Lakeside Dr,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,2 to 4,0,4,(415) 241-0100,luke.copeland@icloud.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,43194515,215,$63.96,Atulya Yogeshwar,"510 Lawrence Expy Ste 201
+Sunnyvale, CA 94085-4008
+
+(408) 720-0594",Muhammad
+Renters,95134,Dominick,Hamilton,3/8/1990,f,70 Descanso Dr,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,5+,0,4,(408) 733-2306,clare.curtis@gmail.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,3613991,224,$58.34,Jun Kim,"4571 Renaissance Dr Apt 727
+San Jose, CA 95134-2805
+
+(408) 715-7784",Muhammad
+Renters,94086,Caleb,Brooks,11/18/1989,f,825 E Evelyn Ave,Sunnyvale,CA,N,RENTED HOUSE - SINGLE FAMILY,5+,0,4,(888) 704-5204,jakob.king@inbox.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,Email Invalid,60,,,,Muhammad
+Renters,95136,Layla,Watkins,3/8/1990,f,4300 The Woods Dr,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,5 or more,(760) 798-2632,luke.copeland@icloud.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,For 5 or more Property Losses need to talk to agent or at 1-800-3276377,60,,,,Muhammad
+Renters,95123,Chloe,White,2/4/1989,f,1045 Coleman Rd,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,1,0,5 or more,(619) 583-8084,clare.curtis@gmail.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,For 5 or more Property Losses need to talk to agent or at 1-800-3276377,60,,,,Muhammad
+Renters,95008,Zander,Ramos,4/5/1990,m,2275 S Bascom Ave,Campbell,CA,N,RENTED HOUSE - SINGLE FAMILY,2 to 4,0,5 or more,(408) 848-3474,abigail@foxmail.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,For 5 or more Property Losses need to talk to agent or at 1-800-3276377,60,,,,Muhammad
+Renters,95134,Annabelle,Gutierrez,3/8/1990,f,150 Alicante Dr,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,2 to 4,0,5 or more,(619) 447-3000,luke.copeland@icloud.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,For 5 or more Property Losses need to talk to agent or at 1-800-3276377,60,,,,Muhammad
+Renters,95134,Hanna,Hughes,3/3/1988,m,70 Descanso Dr,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,5+,0,5 or more,(831) 476-8897,juliette@outlook.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,N,100,For 5 or more Property Losses need to talk to agent or at 1-800-3276377,60,,,,Muhammad
+Renters,95123,Aurora,Ortega,2/4/1989,f,6184 Cottle Rd,San Jose,CA,N,RENTED HOUSE - SINGLE FAMILY,5+,0,5 or more,(510) 841-2760,clare.curtis@gmail.com,N,N,N,N,Y,N,NONE,N,N,Keep default.,4000,Keep default,1000,100000,Y,100,For 5 or more Property Losses need to talk to agent or at 1-800-3276377,60,,,,Muhammad
