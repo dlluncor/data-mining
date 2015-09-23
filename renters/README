@@ -86,17 +86,18 @@ connect to server with vnc viewer on port 5901. Need to open 5901 port on aws se
 
 
 52.88.102.146:5901 special_crosses_renters_0921212303_0.csv # 1 pass done
-52.89.84.183:5901  no_crosses_renters_0921212303_0.csv # 1 pass 2 pass done
-52.89.130.208:5901 full_crosses_renters_0921212303_0.csv # pass 2 pass
-52.88.213.154:5901 full_crosses_renters_0921212303_1.csv # 1 pass 2 pass
-52.89.136.97:5901  full_crosses_renters_0921212303_2.csv # 1 fail 2 pass
-52.11.249.176:5901 full_crosses_renters_0921212303_3.csv # 1 pass 2 pass
-52.89.169.220:5901 full_crosses_renters_0921212303_4.csv # 1 pass 2 pass *
-52.26.146.251:5901 full_crosses_renters_0921212303_5.csv # 1 pass 2 pass *
-52.89.147.43:5901  full_crosses_renters_0921212303_6.csv # 1 pass 2 pass
-52.25.4.192:5901   full_crosses_renters_0921212303_7.csv # 1 fail 2 pass
-52.88.57.201:5901  full_crosses_renters_0921212303_8.csv
-52.88.93.86:5901   full_crosses_renters_0921212303_9.csv
-52.88.255.164:5901 full_crosses_renters_0921212303_10.csv
-52.88.163.127:5901 full_crosses_renters_0921212303_11.csv
+52.89.84.183:5901   no_crosses_renters_0921212303_0.csv # 1 pass 2 pass done
+52.89.130.208:5901  full_crosses_renters_0921212303_0.csv # pass 2 pass
+52.88.213.154:5901  full_crosses_renters_0921212303_1.csv # 1 pass 2 pass
+52.89.136.97:5901   full_crosses_renters_0921212303_2.csv # 1 fail 2 pass
+52.11.249.176:5901  full_crosses_renters_0921212303_3.csv # 1 pass 2 pass
+52.89.169.220:5901  full_crosses_renters_0921212303_4.csv # 1 pass 2 pass
+52.26.146.251:5901  full_crosses_renters_0921212303_5.csv # 1 pass 2 pass
+52.89.147.43:5901   full_crosses_renters_0921212303_6.csv # 1 pass 2 pass
+52.25.4.192:5901    full_crosses_renters_0921212303_7.csv # 1 fail 2 pass
+52.88.57.201:5901   full_crosses_renters_0921212303_8.csv
+52.88.93.86:5901    full_crosses_renters_0921212303_9.csv
+52.88.255.164:5901  full_crosses_renters_0921212303_10.csv
+52.88.163.127:5901  full_crosses_renters_0921212303_11.csv
 50.112.137.231:5901 full_crosses_renters_0921212303_12.csv
+52.88.176.120:5901  full_crosses_renters_0921212303_13.csv
