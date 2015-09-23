@@ -1,5 +1,5 @@
-echo '52.89.84.183 no_crosses'
-ssh  -i ~/.ssh/bonjoy-team.pem ubuntu@52.89.84.183 'ps aux | grep ruby; tail data-mining/renters/data/out_no_0921212303.log'
+#echo '52.89.84.183 no_crosses'
+#ssh  -i ~/.ssh/bonjoy-team.pem ubuntu@52.89.84.183 'ps aux | grep ruby; tail data-mining/renters/data/out_no_0921212303.log'
 echo '52.89.130.208 full_crosses_0'
 ssh  -i ~/.ssh/bonjoy-team.pem ubuntu@52.89.130.208 'ps aux | grep ruby; tail data-mining/renters/data/out_full_0_0921212303.log'
 echo '52.88.213.154 full_crosses_1'
