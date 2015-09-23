@@ -95,3 +95,4 @@ connect to server with vnc viewer on port 5901. Need to open 5901 port on aws se
 52.26.146.251:5901 full_crosses_renters_0921212303_5.csv # 1 pass 2 pass
 52.89.147.43:5901 full_crosses_renters_0921212303_6.csv # 1 pass 2 pass
 52.25.4.192:5901 full_crosses_renters_0921212303_7.csv # 1 fail 2 pass
+52.88.57.201:5901     full_crosses_renters_0921212303_8.csv
