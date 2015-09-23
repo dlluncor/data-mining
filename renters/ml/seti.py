@@ -69,7 +69,7 @@ def to_readable_vector(fs, setie):
   for col, _ in fs.cf_col_map.iteritems():
     cf_val = ds.get_cf_value(col)
     if cf_val is not None:
-      v[col] = cf_val
+      v[col] = float(cf_val)
   return v
 
 def float_feature_vector(fs, setie):
@@ -162,6 +162,7 @@ class SETIExample(object):
     self.bfs = []  # all BinaryFeatures. They are just strings.
     self.weight = 1
     self.label = -1
+    self.for_holdout = False
 
   def add_continuous(self, name, value):
     """

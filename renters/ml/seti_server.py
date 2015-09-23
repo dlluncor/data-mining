@@ -7,12 +7,21 @@ import math
 import csv, seti, model_exporter, model_cfg
 import feature_selector
 
+def new_model_scorer(fs2, learned_model):
+  ms = _ModelScorer({}, skip_constructor=True)
+  ms.fs2 = fs2
+  ms.learned_model = learned_model
+  ms.model_config = model_cfg.default_model_config()
+  return ms
+
 class _ModelScorer(object):
 
-  def __init__(self, model_config):
+  def __init__(self, model_config, skip_constructor=False):
     """
 
     """
+    if skip_constructor:
+      return
     fs2 = feature_selector.FeatureSelect()
     fs2.read_feature_maps(model_config.feature_map2_loc)
 
@@ -51,7 +60,9 @@ class _ModelScorer(object):
     vec = seti.to_readable_vector(self.fs2, seti_input)
     #print vec
     for feature_key, feature_val in vec.iteritems():
-      yprime += self.learned_model[feature_key] * feature_val
+      val = self.learned_model[feature_key]
+      #print val
+      yprime += val * feature_val
     if self.model_config.model_type == model_cfg.LOGISTIC_REGRESSION:
       return 1 / (1 + math.exp(-yprime))
     return yprime

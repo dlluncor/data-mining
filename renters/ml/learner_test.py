@@ -8,6 +8,7 @@ def testLearn():
 
   s0 = seti.create_seti(1.0, bfs=[('gender', 'm')], cfs=[('height', 6.0)])
   s1 = seti.create_seti(0.0, bfs=[('gender', 'f')], cfs=[('height', 3.0)])
+  s1.for_holdout = True
   setis = [s0, s1]
 
   fs = feature_selector.FeatureSelect()
@@ -15,8 +16,8 @@ def testLearn():
   fvs = [[0, 0, 6.0], [0, 1, 3.0]]
 
   l = learner.Learner(fs)
-  #print l.learn(setis)
-
+  l.learn(setis)
+  print l.stats()
 
 # Test util template.
 import sys

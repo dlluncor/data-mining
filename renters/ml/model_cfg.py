@@ -2,6 +2,10 @@
 LINEAR_REGRESSION = 'linear_reg'
 LOGISTIC_REGRESSION = 'log_reg'
 
+def default_model_config():
+  mc = ModelConfig('', '', '', '', '', '')
+  return mc
+
 class ModelConfig(object):
 
   def __init__(self, name, learned_model_loc, memorized_model_loc, cols_cfg,
