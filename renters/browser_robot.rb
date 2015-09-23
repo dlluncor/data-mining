@@ -2,7 +2,7 @@ require 'watir-webdriver'
 require 'csv'
 require 'json'
 
-$default_emails = ['alexandra.guerrero@aol.com', 'ana.webster@gmail.com', 'eden.chen@outlook.com', 'ethan.thompson@aol.com', 'katte@outlook.com', 'amelia.thomas@outlook.com', 'eden.blake@gmail.com', 'elias.brady@gmail.com', 'james.foster@gmail.com', 'scarlett.richard@gmail.com', 'savannah.silva@aol.com', 'william.palmer@gmail.com']
+$default_emails = ['ana.webster@gmail.com', 'eden.chen@outlook.com', 'ethan.thompson@aol.com', 'katte@outlook.com', 'amelia.thomas@outlook.com', 'eden.blake@gmail.com', 'elias.brady@gmail.com', 'james.foster@gmail.com', 'scarlett.richard@gmail.com', 'savannah.silva@aol.com', 'william.palmer@gmail.com']
 $failed_emails = []
 
 def add_delimiter(num)
