@@ -202,11 +202,11 @@ def start_script(filename, tag, offset=0)
     header += ['Policy Price', 'Annual Policy Price', 'Agent Name', 'Agent Address', 'Agent Phone Number', 'Quote Number']
     save_csv(header, tag) if offset == 0
 
+    puts "skip to offset #{offset}" if offset > 0
     data.each do |row|
         start_time = Time.now
         counter += 1
         if offset > 0 and counter <= offset
-            puts "skip #{counter} for offset #{offset}"
             next
         end
 
