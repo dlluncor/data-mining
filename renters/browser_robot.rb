@@ -59,6 +59,8 @@ def script_web_page(b, data, tag)
         puts "\tFail to find 'Start my Quote' button on step 1 of quote page"
     end
 
+    sleep(2)
+
     puts "\tReach STEP 1"
     b.execute_script("var el=document.getElementById('preapp:datepicker'); el.onblur=null;el.onchange=null;el.onclick=null;el.onfocus=null;el.onkeydown=null;el.onkeypress=null;el.onkeyup=null;return 1;")
     b.text_field(:id => "preapp:FirstName").set first_name
