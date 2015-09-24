@@ -94,6 +94,7 @@ d = OrderedDict([
   ('# property losses in last 3 years', (['0', '1', '2', '3', '4'], 'fixed')), # '0', '1', '2', '3', '4', '5 or more'
   ('Phone number', (phone_numbers, 'random')),
   ('Email address', (emails, 'random')),
+  # Security systems.
   ('Fire Sprinkler System?', (['N', 'Y'], 'fixed')), # Y / N
   ('Central Fire & Burglar Alarm?', (['N', 'Y'], 'fixed')), # Y / N
   ('Local Fire / Smoke Alarm?', (['N', 'Y'], 'fixed')), # Y / N

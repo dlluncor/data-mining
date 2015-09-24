@@ -6,16 +6,27 @@ from collections import OrderedDict
 
 def testFeatureExtract():
   fe = feature_extractor.FeatureExtractor()
-  s0 = seti.create_seti(19.15, bfs=[('gender', 'f')], cfs=[
-    ('dob', 26.0), ('deductible', 150.0), ('personal_property_value', 4000),
-    ('personal_liability', 2000)])
+  s0 = seti.create_seti(19.15, 
+    bfs=[
+    ('insurance_type', 'renters'),
+    ('gender', 'f'),
+    ('farmers_identity_protection', 'Y'),
+    ],
+    cfs=[
+    ('dob', 26.0), 
+    ('personal_property_value', 4000),
+    ('personal_liability', 100000),
+    ('deductible', 150.0)
+    ])
   rf = renter_form.RenterForm(
     OrderedDict([
       ('dob', '2/3/1989'),
       ('gender', 'f'),
-      ('deductible', '100 / 250'),
+      #
       ('personal_property_value', '4000'),
-      ('personal_liability', '2000')
+      ('personal_liability', '100000'),
+      ('farmers_identity_protection', 'Y'),
+      ('deductible', '100 / 250'),
     ])
   )
   rf.label = 19.15

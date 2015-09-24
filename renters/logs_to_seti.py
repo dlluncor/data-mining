@@ -25,7 +25,7 @@ def _to_renter_form(csv_line):
     email, has_fire_sprinkler_system, has_center_fire_burglar_alarm, has_local_fire_smoke_alarm,
     has_home_security, is_non_smoking_household, has_local_burglar_alarm, has_unusual_hazards, 
     has_bite_dog, is_running_bussiness, start_date, personal_property_value, 
-    loss_of_use, medical_payment, personal_liability, farmers_identity_protection, 
+    loss_of_use, medical_payments, personal_liability, farmers_identity_protection, 
     deductible, policy_number, timestamp, policy_price, 
     agent_name, agent_address, elancer_name) = csv_line
   info = {
@@ -52,7 +52,7 @@ def _to_renter_form(csv_line):
     # Deductible.
     'personal_property_value': personal_property_value,
     'loss_of_use': loss_of_use,
-    'medical_payment': medical_payment,
+    'medical_payments': medical_payments,
     'personal_liability': personal_liability,
     'farmers_identity_protection': farmers_identity_protection,
     'deductible': deductible
