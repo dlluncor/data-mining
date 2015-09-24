@@ -161,7 +161,7 @@ def script_web_page(b, data, tag)
 
     begin
         Watir::Wait.until(15) { b.p(:css => 'div#premiumAllign > p.strikeThroughPremium').exists? }
-        puts "\tprice is changed, recalculate"
+        puts "\tRecalculated Price"
         b.input(:id => 'homequote:recalculateBtnBtmHome').click
     rescue Watir::Wait::TimeoutError
         puts "\t"
@@ -185,7 +185,6 @@ def script_web_page(b, data, tag)
         puts "\tCan not find agent name"
     end
 
-    puts "\tRecalculated Price"
     price = b.p(:id => 'OabPriceTopHome').text
     annual_price = b.span(:id => 'homeQuoteAccordian:homePremiumValueSelected1').text
     quote_number = b.small(:id => 'quoteNumberCss').text
