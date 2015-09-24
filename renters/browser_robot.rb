@@ -149,15 +149,19 @@ def script_web_page(b, data, tag)
     b.select_list(:id => "homequote:homeCvgContainer:0:homeCoverages:3:liabilityMenu").select "$#{add_delimiter personal_liability}"
     b.select_list(:id => "homequote:homeCvgContainer:0:homeCoverages:4:liabilityMenu").select farmers_identity_protection == 'N' ? 'No Coverage' : 'Coverage'
     b.select_list(:id => "homequote:homeCvgContainer:0:deductTbl_deductibleDataTable:0:deductibleNTx").select_value deductible_converter(deductible)
-    sleep(5)
-    if b.div(:css => 'div#premiumAllign > p.strikeThroughPremium').exists?
-        # only recalculate when price changed
+
+    begin
+        Watir::Wait.until(10) { b.p(:css => 'div#premiumAllign > p.strikeThroughPremium').exists? }
+        puts "\tprice is changed, recalculate"
         b.input(:id => 'homequote:recalculateBtnBtmHome').click
-        begin
-            Watir::Wait.until { b.input(:id => 'homequote:buyBtnTopHome').exists? and b.input(:id => 'homequote:buyBtnTopHome').visible? }
-        rescue Watir::Wait::TimeoutError
-            puts "\tFail to find 'Recalculated' button on step 3 of quote page"
-        end
+    rescue Watir::Wait::TimeoutError
+        puts "\t"
+    end
+
+    begin
+        Watir::Wait.until { b.input(:id => 'homequote:buyBtnTopHome').exists? and b.input(:id => 'homequote:buyBtnTopHome').visible? }
+    rescue Watir::Wait::TimeoutError
+        puts "\tFail to find 'Recalculated' button on step 3 of quote page"
     end
 
     begin
