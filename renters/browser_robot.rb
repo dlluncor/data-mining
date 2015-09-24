@@ -123,6 +123,15 @@ def script_web_page(b, data, tag)
     b.input(:id => 'AddRenterBuy:nextDiscount').click
 
     begin
+        Watir::Wait.until(10) { b.div(:id => 'errordiv').exists? and b.div(:id => 'errordiv').text == 'Email address entered is invalid' }
+        $failed_emails << email
+        b.text_field(:id => "AddRenterBuy:Email").set $default_emails.sample
+        b.input(:id => 'AddRenterBuy:nextDiscount').click
+    rescue Watir::Wait::TimeoutError
+        puts "\tOoops seem email correct"
+    end
+
+    begin
         Watir::Wait.until { b.input(:id => 'homequote:buyBtnTopHome').exists? or  b.input(:id => 'homequote:buyBtnBtmHome').exists?}
     rescue Watir::Wait::TimeoutError
         puts "\tFail to find 'Continue' button on step 3 of quote page"
@@ -164,8 +173,14 @@ def script_web_page(b, data, tag)
         puts "\tFail to find 'Recalculated' button on step 3 of quote page"
     end
 
+    agent_name = ''
+    agent_address = ''
+    agent_phone_number = ''
     begin
-        Watir::Wait.until { b.b(:id => 'agentName').exists? and b.b(:id => 'agentName').visible? }
+        Watir::Wait.until(10) { b.b(:id => 'agentName').exists? and b.b(:id => 'agentName').visible? }
+        agent_name = b.b(:id => 'agentName').text
+        agent_address = b.div(:id => 'agentAddress').text
+        agent_phone_number = b.div(:id => 'agentPhoneNO').text.strip
     rescue Watir::Wait::TimeoutError
         puts "\tCan not find agent name"
     end
@@ -173,9 +188,6 @@ def script_web_page(b, data, tag)
     puts "\tRecalculated Price"
     price = b.p(:id => 'OabPriceTopHome').text
     annual_price = b.span(:id => 'homeQuoteAccordian:homePremiumValueSelected1').text
-    agent_name = b.b(:id => 'agentName').text
-    agent_address = b.div(:id => 'agentAddress').text
-    agent_phone_number = b.div(:id => 'agentPhoneNO').text.strip
     quote_number = b.small(:id => 'quoteNumberCss').text
 
     info = {:price => price, :annual_price => annual_price, :agent_name => agent_name,
