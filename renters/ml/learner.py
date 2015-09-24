@@ -52,6 +52,11 @@ class Learner(object):
     ms = seti_server.new_model_scorer(self.fs, self.model)
     y_true = []
     y_pred = []
+    if len(self.holdout_setis) == 0:
+      return {
+        'r2_score': 0,
+        'num_holdout': 0,
+      }
     for setie in self.holdout_setis:
       y = ms.get_learned_price(setie)
       actual_y = setie.label

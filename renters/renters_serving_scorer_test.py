@@ -3,7 +3,7 @@ import renters_serving_scorer as ss
 
 def testLogsToSeti():
   # First three lines are copied from tdg_v0.csv
-  price = ss.get_price({'dob': '11/11/1988', 'gender': 'f'})
+  price = ss.get_price({'dob': '11/11/1988', 'gender': 'f'}, for_test=True)
   print 'Price received: '
   assertGt(price, 10)
 

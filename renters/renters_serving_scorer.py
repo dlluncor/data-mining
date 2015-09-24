@@ -10,7 +10,7 @@ from ml import feature_selector
 def to_renter_form(form_info):
   return renter_form.RenterForm(form_info)
 
-def get_price(form_info):
+def get_price(form_info, for_test=False):
   # Setup the seti server.
   l_config = renter_constants.learned_config
   ss = seti_server.make_from_config(l_config.model_configs)
@@ -21,7 +21,7 @@ def get_price(form_info):
   print(form)
   #print 'Age: '
   #print(form.get_age())
-  fe = feature_extractor.FeatureExtractor()
+  fe = feature_extractor.FeatureExtractor(for_test)
   seti = fe.to_seti(form)
   price = ss.score(seti)
   return price
