@@ -149,7 +149,7 @@ def script_web_page(b, data, tag)
     b.select_list(:id => "homequote:homeCvgContainer:0:homeCoverages:3:liabilityMenu").select "$#{add_delimiter personal_liability}"
     b.select_list(:id => "homequote:homeCvgContainer:0:homeCoverages:4:liabilityMenu").select farmers_identity_protection == 'N' ? 'No Coverage' : 'Coverage'
     b.select_list(:id => "homequote:homeCvgContainer:0:deductTbl_deductibleDataTable:0:deductibleNTx").select_value deductible_converter(deductible)
-
+    sleep(5)
     if b.div(:css => 'div#premiumAllign > p.strikeThroughPremium').exists?
         # only recalculate when price changed
         b.input(:id => 'homequote:recalculateBtnBtmHome').click
