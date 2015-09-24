@@ -35,6 +35,7 @@ def check_machine_statues():
         {'id': 10, 'ip': '52.88.255.164'},
         {'id': 11, 'ip': '52.88.163.127'},
         {'id': 12, 'ip': '50.112.137.231'},
+        {'id': 13, 'ip': '52.27.163.93'},
     ]
 
     for machine in machines:
