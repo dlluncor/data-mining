@@ -13,6 +13,9 @@ def main():
     which = sys.argv[1]
     if which == '1':
       l_config = renter_constants.learned_config2
+    elif which == '2':
+      l_config = renter_constants.learned_config2
+      l_config.raw_filenames = ['data/from_haoran/clean_*.csv']
   setis = logs_to_seti.generate_seti(l_config.raw_filenames)
   print 'Generated: %d setis' % len(setis)
   if _DEBUG:
