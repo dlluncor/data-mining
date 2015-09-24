@@ -52,5 +52,8 @@ class RenterForm(object):
         except Exception as e:
           return 150.0  # 100 / 250
 
+    def get_property_losses_count(self):
+        return int(self.property_losses_count)
+
     def __str__(self):
         return str(self.__dict__) + " | " + str(self.label)

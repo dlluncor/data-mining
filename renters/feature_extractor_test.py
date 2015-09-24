@@ -8,13 +8,27 @@ def testFeatureExtract():
   fe = feature_extractor.FeatureExtractor()
   s0 = seti.create_seti(19.15, 
     bfs=[
-    ('insurance_type', 'renters'),
     ('gender', 'f'),
+
+    ('insurance_type', 'renters'),
+
+    ('has_fire_sprinkler_system', 'N'),
+    ('has_center_fire_burglar_alarm', 'N'),
+    ('has_local_fire_smoke_alarm', 'Y'),
+    ('has_home_security', 'N'),
+    ('is_non_smoking_household', 'Y'),
+    ('has_local_burglar_alarm', 'N'),
+    #
+    ('has_bite_dog', 'N'),
     ('farmers_identity_protection', 'Y'),
     ],
     cfs=[
     ('dob', 26.0), 
-    ('personal_property_value', 4000),
+
+    ('property_losses_count', 3),
+
+    ('personal_property_worth', 4000),
+    ('medical_payments', 2000),
     ('personal_liability', 100000),
     ('deductible', 150.0)
     ])
@@ -22,8 +36,19 @@ def testFeatureExtract():
     OrderedDict([
       ('dob', '2/3/1989'),
       ('gender', 'f'),
+      # Hazards.
+      ('has_fire_sprinkler_system', 'N'),
+      ('has_center_fire_burglar_alarm', 'N'),
+      ('has_local_fire_smoke_alarm', 'Y'),
+      ('has_home_security', 'N'),
+      ('is_non_smoking_household', 'Y'),
+      ('has_local_burglar_alarm', 'N'),
+
+      ('has_bite_dog', 'N'),
       #
-      ('personal_property_value', '4000'),
+      ('property_losses_count', 3),
+      ('personal_property_worth', '4000'),
+      ('medical_payments', '2000'),
       ('personal_liability', '100000'),
       ('farmers_identity_protection', 'Y'),
       ('deductible', '100 / 250'),

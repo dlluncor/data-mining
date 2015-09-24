@@ -24,7 +24,7 @@ def _to_renter_form(csv_line):
     # 4
     email, has_fire_sprinkler_system, has_center_fire_burglar_alarm, has_local_fire_smoke_alarm,
     has_home_security, is_non_smoking_household, has_local_burglar_alarm, has_unusual_hazards, 
-    has_bite_dog, is_running_bussiness, start_date, personal_property_value, 
+    has_bite_dog, is_running_bussiness, start_date, personal_property_worth, 
     loss_of_use, medical_payments, personal_liability, farmers_identity_protection, 
     deductible, policy_number, timestamp, policy_price, 
     agent_name, agent_address, elancer_name) = csv_line
@@ -43,19 +43,24 @@ def _to_renter_form(csv_line):
     'unit_count': unit_count,
     'unrelated_roommates_count': unrelated_roommates_count,
     'property_losses_count': property_losses_count,
-    'policy_price': policy_price,
     # systems.
+    'has_fire_sprinkler_system': has_fire_sprinkler_system,
+    'has_center_fire_burglar_alarm': has_center_fire_burglar_alarm,
+    'has_local_fire_smoke_alarm': has_local_fire_smoke_alarm,
     'has_home_security': has_home_security,
     'is_non_smoking_household': is_non_smoking_household,
     'has_local_burglar_alarm': has_local_burglar_alarm,
+
     'has_bite_dog': has_bite_dog,
     # Deductible.
-    'personal_property_value': personal_property_value,
+    'personal_property_worth': personal_property_worth,
     'loss_of_use': loss_of_use,
     'medical_payments': medical_payments,
     'personal_liability': personal_liability,
     'farmers_identity_protection': farmers_identity_protection,
-    'deductible': deductible
+    'deductible': deductible,
+
+    'policy_price': policy_price,
   }
   # Skipped: phone_number, email, has_unusual_hazards
   # is_running_business, start_date
