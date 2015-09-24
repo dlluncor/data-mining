@@ -150,12 +150,14 @@ def script_web_page(b, data, tag)
     b.select_list(:id => "homequote:homeCvgContainer:0:homeCoverages:4:liabilityMenu").select farmers_identity_protection == 'N' ? 'No Coverage' : 'Coverage'
     b.select_list(:id => "homequote:homeCvgContainer:0:deductTbl_deductibleDataTable:0:deductibleNTx").select_value deductible_converter(deductible)
 
-    b.input(:id => 'homequote:recalculateBtnBtmHome').click
-
-    begin
-        Watir::Wait.until { b.input(:id => 'homequote:buyBtnTopHome').exists? and b.input(:id => 'homequote:buyBtnTopHome').visible? }
-    rescue Watir::Wait::TimeoutError
-        puts "\tFail to find 'Recalculated' button on step 3 of quote page"
+    if b.div(:css => 'div#premiumAllign > p.strikeThroughPremium').exists?
+        # only recalculate when price changed
+        b.input(:id => 'homequote:recalculateBtnBtmHome').click
+        begin
+            Watir::Wait.until { b.input(:id => 'homequote:buyBtnTopHome').exists? and b.input(:id => 'homequote:buyBtnTopHome').visible? }
+        rescue Watir::Wait::TimeoutError
+            puts "\tFail to find 'Recalculated' button on step 3 of quote page"
+        end
     end
 
     begin
@@ -277,3 +279,4 @@ end
 #start_script('data/missed_special_0921212303.csv', 'prices_samples_missed_special_0921212303')
 #start_script('data/missed_no_0921212303.csv', 'missed_no_0921212303')
 #start_script('full_crosses_renters_0921212303_7.csv', 'full_0921212303_test', 2)
+start_script('data/missed_full_13.csv', 'missed_full_13')
