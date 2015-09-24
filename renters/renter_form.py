@@ -55,5 +55,15 @@ class RenterForm(object):
     def get_property_losses_count(self):
         return int(self.property_losses_count)
 
+    def get_unit_count(self):
+        try:
+          return int(self.unit_count)
+        except Exception as e:
+          if '2' in self.unit_count or '4' in self.unit_count:
+            return 2
+          elif '5' in self.unit_count:
+            return 5
+          return 0
+
     def __str__(self):
         return str(self.__dict__) + " | " + str(self.label)

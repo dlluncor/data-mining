@@ -27,6 +27,6 @@ def get_price(form_info, for_test=False):
   return price
 
 if __name__ == '__main__':
-  price = get_price({'dob': '11/11/1988', 'gender': 'f'})
+  price = get_price({'dob': '11/11/1988', 'has_bite_dog': 'F'})
   print 'Price received: '
   print(price)

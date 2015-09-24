@@ -8,9 +8,11 @@ def testFeatureExtract():
   fe = feature_extractor.FeatureExtractor()
   s0 = seti.create_seti(19.15, 
     bfs=[
-    ('gender', 'f'),
-
+    ('has_bite_dog', 'N'),
+    
     ('insurance_type', 'renters'),
+
+    ('has_auto_insurance_coverage', 'Y'),
 
     ('has_fire_sprinkler_system', 'N'),
     ('has_center_fire_burglar_alarm', 'N'),
@@ -19,12 +21,12 @@ def testFeatureExtract():
     ('is_non_smoking_household', 'Y'),
     ('has_local_burglar_alarm', 'N'),
     #
-    ('has_bite_dog', 'N'),
     ('farmers_identity_protection', 'Y'),
     ],
     cfs=[
     ('dob', 26.0), 
 
+    ('unit_count', 2),
     ('property_losses_count', 3),
 
     ('personal_property_worth', 4000),
@@ -35,7 +37,11 @@ def testFeatureExtract():
   rf = renter_form.RenterForm(
     OrderedDict([
       ('dob', '2/3/1989'),
-      ('gender', 'f'),
+
+      ('has_auto_insurance_coverage', 'Y'),
+      ('unit_count', '2 to 4'),
+      ('property_losses_count', 3),
+
       # Hazards.
       ('has_fire_sprinkler_system', 'N'),
       ('has_center_fire_burglar_alarm', 'N'),
@@ -46,7 +52,6 @@ def testFeatureExtract():
 
       ('has_bite_dog', 'N'),
       #
-      ('property_losses_count', 3),
       ('personal_property_worth', '4000'),
       ('medical_payments', '2000'),
       ('personal_liability', '100000'),

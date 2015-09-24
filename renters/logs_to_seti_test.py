@@ -7,8 +7,8 @@ def testLogsToSeti():
   csvs = ['testdata/logs_to_seti_csv0.csv']
   # s0. dob: 05/06/1989. gender:f
   # s1. dob: 05/06/1949. gender:m
-  s0 = seti.create_seti(19.15, bfs=[('gender', 'f')], cfs=[('dob', 26.0)])
-  s1 = seti.create_seti(22.51, bfs=[('gender', 'm')], cfs=[('dob', 66.0)])
+  s0 = seti.create_seti(19.15, bfs=[('has_bite_dog', 'N')], cfs=[('dob', 26.0)])
+  s1 = seti.create_seti(22.51, bfs=[('has_bite_dog', 'N')], cfs=[('dob', 66.0)])
 
   # Test model gets created and loaded.
   # Test that we can score one example.
