@@ -16,6 +16,9 @@ def main():
     elif which == '2':
       l_config = renter_constants.learned_config2
       l_config.raw_filenames = ['data/from_haoran/clean_*.csv']
+    elif which == '3':
+      l_config = renter_constants.learned_config2
+      l_config.raw_filenames = ['data/price_samples_full_0921212303.csv']
   setis = logs_to_seti.generate_seti(l_config.raw_filenames)
   print 'Generated: %d setis' % len(setis)
   if _DEBUG:
