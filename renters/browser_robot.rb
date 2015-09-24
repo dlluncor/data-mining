@@ -266,7 +266,7 @@ end
 #start_script('no_crosses_renters_0921164847_0.csv')
 #start_script('special_crosses_renters_0921212303_0.csv', 'special_0921212303')
 #start_script('no_crosses_renters_0921212303_0.csv', 'no_0921212303')
-#start_script('full_crosses_renters_0921212303_0.csv', 'full_0921212303_0')
+start_script('full_crosses_renters_0921212303_0.csv', 'full_0921212303_0', 394)
 #start_script('full_crosses_renters_0921212303_1.csv', 'full_0921212303_1')
 #start_script('full_crosses_renters_0921212303_2.csv', 'full_0921212303_2')
 #start_script('full_crosses_renters_0921212303_3.csv', 'full_0921212303_3')
