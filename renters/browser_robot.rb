@@ -151,7 +151,7 @@ def script_web_page(b, data, tag)
     b.select_list(:id => "homequote:homeCvgContainer:0:deductTbl_deductibleDataTable:0:deductibleNTx").select_value deductible_converter(deductible)
 
     begin
-        Watir::Wait.until(10) { b.p(:css => 'div#premiumAllign > p.strikeThroughPremium').exists? }
+        Watir::Wait.until(15) { b.p(:css => 'div#premiumAllign > p.strikeThroughPremium').exists? }
         puts "\tprice is changed, recalculate"
         b.input(:id => 'homequote:recalculateBtnBtmHome').click
     rescue Watir::Wait::TimeoutError
