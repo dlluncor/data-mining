@@ -52,16 +52,18 @@ IGNORE:
   # header1
   ('Property Type', (['RENTED HOUSE - SINGLE FAMILY'], 'fixed')),
 
-NOT DONE:
-d = OrderedDict([
-  # header0
-
-  ('Date of birth', (dobs, 'iterate')),
-
+REVISIT:
   ('Address', (addresses, 'fixed')),
   ('City', (cities, 'fixed')),
   ('State', (['CA'], 'fixed')),
   ('Zip code', (zip_codes, 'fixed')),
+
+  # Need to also extract just the location.
+
+NOT DONE:
+d = OrderedDict([
+  # header0
+  ('Date of birth', (dobs, 'iterate')),
 # Security systems.
 
 ])
@@ -86,9 +88,19 @@ class FeatureExtractor(object):
     if self.for_test:
       return s
 
+    # TODO(dlluncor): Use discretization configs.
+    age = rf.get_age()
+    age_group = 'old'
+    if age < 22:
+      age_group = 'young'
+    elif age < 43:
+      age_group = 'middle-age'
+    s.add_binary('age_group', age_group)
+
     # Binary.
 
     s.add_binary('insurance_type', 'renters')
+    s.add_binary('full_address', rf.get_full_address())
     s.add_binary('has_auto_insurance_coverage', rf.has_auto_insurance_coverage)
     # Systems.
     systems = ['has_fire_sprinkler_system',

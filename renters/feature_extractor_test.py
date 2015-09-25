@@ -9,9 +9,10 @@ def testFeatureExtract():
   s0 = seti.create_seti(19.15, 
     bfs=[
     ('has_bite_dog', 'N'),
-    
-    ('insurance_type', 'renters'),
+    ('age_group', 'middle-age'),
 
+    ('insurance_type', 'renters'),
+    ('full_address', '1599 Warburton Ave, Santa Clara, CA, 95050'),
     ('has_auto_insurance_coverage', 'Y'),
 
     ('has_fire_sprinkler_system', 'N'),
@@ -37,6 +38,11 @@ def testFeatureExtract():
   rf = renter_form.RenterForm(
     OrderedDict([
       ('dob', '2/3/1989'),
+
+      ('address', '1599 Warburton Ave'),
+      ('city', 'Santa Clara'),
+      ('state', 'CA'),
+      ('zip_code', '95050'),
 
       ('has_auto_insurance_coverage', 'Y'),
       ('unit_count', '2 to 4'),

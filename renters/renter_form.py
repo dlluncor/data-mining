@@ -65,5 +65,10 @@ class RenterForm(object):
             return 5
           return 0
 
+    def get_full_address(self):
+        parts = [self.address, self.city, self.state, self.zip_code]
+        return ', '.join(parts)
+
+
     def __str__(self):
         return str(self.__dict__) + " | " + str(self.label)
