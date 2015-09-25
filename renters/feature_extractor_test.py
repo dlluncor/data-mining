@@ -30,9 +30,9 @@ def testFeatureExtract():
     ('unit_count', 2),
     ('property_losses_count', 3),
 
-    ('personal_property_worth', 4000),
-    ('medical_payments', 2000),
-    ('personal_liability', 100000),
+    ('personal_property_worth', 4000.0),
+    ('medical_payments', 2000.0),
+    ('personal_liability', 100000.0),
     ('deductible', 150.0)
     ])
   rf = renter_form.RenterForm(
@@ -98,12 +98,12 @@ def assertFloatEquals(expected, got):
   v0 = '%.4f' % expected
   v1 = '%.4f' % got
   if v0 != v1:
-    errs.append('In %s, Expected: %s. Got: %s' % (caller_name, expected, got))
+    errs.append('In %s, Expected: %s. \nGot: %s' % (caller_name, expected, got))
 
 def assertEquals(expected, got):
   caller_name = sys._getframe().f_back.f_code.co_name
   if expected != got:
-    errs.append('In %s, Expected: %s. Got: %s' % (caller_name, expected, got))
+    errs.append('In %s, \nExpected: %s. \nGot: %s' % (caller_name, expected, got))
 
 def main():
   funs = dir(sys.modules[__name__])

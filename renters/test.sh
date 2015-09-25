@@ -6,3 +6,4 @@ set -x
 python feature_extractor_test.py
 python logs_to_seti_test.py
 python renters_serving_scorer_test.py
+python regression_test.py
