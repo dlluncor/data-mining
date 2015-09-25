@@ -52,6 +52,9 @@ def get_places(location='California', keyword='apartment'):
     #print(results.raw_response['next_page_token'])
     #print(json.dumps(result.raw_response, indent=4))
 
+def hello():
+    return 'Hello!'
+    
 def save(places, name="out2.csv"):
     if not places:
         return

@@ -8,6 +8,14 @@ from config import config
 from errors import ChargeException
 from helper import *
 
+#import sys
+#sys.path.append("..")
+
+import sys
+sys.path.append("..") # Adds higher directory to python modules path.
+
+from renters import place #renters import place #import hello
+
 # set the project root directory as the static folder, you can set others.
 app = Flask(__name__, static_url_path='')
 
@@ -42,6 +50,11 @@ def privacy_policy():
 @app.route('/about')
 def about():
     return util.render_common_template('about.html')
+
+@app.route('/price')
+def about():
+    return '%s' % (place.hello())
+    #return util.render_common_template('about.html')
 
 @app.route('/error', methods=['GET'])
 def error():
