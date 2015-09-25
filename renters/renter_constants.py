@@ -165,15 +165,29 @@ learned_config = model_cfg.LearnedConfig(
 model_configs2 = [
   model_cfg.ModelConfig(
     name='v2', learned_model_loc='tmp/renters-price-learn-v2.csv',
-    memorized_model_loc = 'tmp/renters-price-v2.csv', 
+    memorized_model_loc = 'tmp/renters-price-memorized-v2.csv', 
     cols_cfg=model_cfg.ColsCfg(
-      cols_for_learning=['deductible', 'personal_property_value', 'personal_liability'],
+      # maybe include: 'medical_payments', 
+      cols_for_learning=[
+      'age_group', 'property_losses_count', 
+      'unit_count',
+
+      #'is_non_smoking_household',
+
+      'personal_property_worth', 'deductible',
+      'personal_property_value', 'personal_liability',
+
+      #'has_bite_dog',
+      #'has_fire_sprinkler_system', 'has_center_fire_burglar_alarm', 'has_local_fire_smoke_alarm',
+      #'has_home_security', 'is_non_smoking_household', 'has_local_burglar_alarm', 
+      ],
       cols_for_memorizing=[
       'has_bite_dog', 'age_group', 'insurance_type', 'full_address', 'has_auto_insurance_coverage',
       'has_fire_sprinkler_system', 'has_center_fire_burglar_alarm', 'has_local_fire_smoke_alarm',
       'has_home_security', 'is_non_smoking_household', 'has_local_burglar_alarm', 
       'farmers_identity_protection', 'unit_count', 'property_losses_count',
-      'personal_property_worth', 'medical_payments', 'personal_liability', 'deductible'],
+      'personal_property_worth', 'medical_payments', 'personal_liability', 'deductible'
+      ],
     ),
     feature_map_loc = 'tmp/feature_map_v2.csv', feature_map2_loc = 'tmp/feature_map2_v2.pickle')
 ]

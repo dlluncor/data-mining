@@ -100,6 +100,8 @@ class FeatureExtractor(object):
     # Binary.
 
     s.add_binary('insurance_type', 'renters')
+    # TODO(dlluncor): Get the city location as a general feature.
+    # TODO(dlluncor): Dont use full_address for memorization.
     s.add_binary('full_address', rf.get_full_address())
     s.add_binary('has_auto_insurance_coverage', rf.has_auto_insurance_coverage)
     # Systems.
