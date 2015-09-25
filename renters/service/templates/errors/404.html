@@ -1,0 +1,13 @@
+{% extends "partials/base.html" %}
+{%block head %}
+    <link rel="stylesheet" href="assets/css/error.css">
+{% endblock %}
+{% block body %}
+  {{ super() }}
+  <div class="container">
+      <img class="bg" src="assets/images/under_construction.jpeg"></img>
+      <div class="message">
+          <h1>Oooops, we don't have plan for that page :(</h1>
+      </div>
+  </div>
+{% endblock %}

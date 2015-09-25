@@ -1,0 +1,200 @@
+body * {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+div.carousel-item {
+    height: 700px;
+}
+
+div.carousel-item.grey {
+    background: #405665;
+}
+
+div.carousel-item.green {
+    background: #7ace52;
+}
+
+div.carousel-item.yellow {
+    background: #eeb42b;
+}
+
+div.carousel-item div.carousel-container {
+    height: 100%;
+    width: 100%
+}
+
+div.carousel-item img.carousel-img {
+    width: 40vw;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+div.carousel-item div.carousel-description {
+    padding-top: 200px;
+    max-width: 55vw;
+    padding-left: 2rem
+}
+
+div.carousel-item p.title,p.summary {
+    font-family: Lato, Helvetica, 'Open Sans', sans-serif;
+    font-weight: 100;
+}
+
+div.carousel-item p.title {
+    font-size: 2rem;
+    color: black;
+}
+
+div.carousel-item p.summary {
+    font-size: 2.4rem;
+    color: white;
+}
+
+div.carousel-item.grey p.title {
+    color: #63B246;
+}
+
+div.carousel-img {
+    object-fit: cover;
+    height: 100%;
+}
+
+div.two-col-btn-group button.btn-secondary-outline {
+    color: white;
+    border-color: white;
+}
+
+div.marketing div.card {
+    border: none;
+}
+
+div.marketing div.card img.card-img-top {
+    display: block;
+    margin: auto;
+}
+
+footer {
+    color: #666666;
+    font-size: 0.8rem;
+}
+
+/*width=992*/
+@media (max-width: 62em) {
+    div.carousel-item {
+        height: 600px;
+    }
+    div.carousel-item div.carousel-description {
+        padding-top: 150px;
+    }
+    div.carousel-item p.title {
+        font-size: 1.5rem;
+        padding-top: 20px;
+    }
+
+    div.carousel-item p.summary {
+        font-size: 1.8rem;
+    }
+}
+
+/* width 768 */
+@media (max-width: 48em) {
+    div.carousel-item {
+        height: 500px;
+    }
+
+    div.carousel-item div.carousel-description {
+        padding-top: 120px;
+    }
+
+    div.carousel-item p.title {
+        font-size: 1.3rem;
+        padding-top: 20px;
+    }
+
+    div.carousel-item p.summary {
+        font-size: 1.5rem;
+    }
+
+    .btn-lg {
+        padding: .25rem .75rem;
+        font-size: .85rem;
+        line-height: 1.5;
+        border-radius: .2rem;
+    }
+}
+
+/* width 544 */
+@media (max-width: 34em) {
+    div.carousel-item {
+        height: 400px;
+    }
+
+    div.carousel-item div.carousel-description {
+        padding-top: 90px;
+    }
+    div.carousel-item p.title {
+        font-size: 1.0rem;
+        padding-top: 20px;
+    }
+
+    div.carousel-item p.summary {
+        font-size: 1.2rem;
+    }
+}
+
+/* For TypeForm*/
+body.typeform-default {
+  width: 920px;
+  margin: 0 auto;
+  padding: 60px;
+}
+body.typeform-default .typeform-widget {
+  width: 920px;
+}
+
+.typeform-default h1 {
+  font-size: 74px;
+  margin-bottom: 30px;
+}
+
+.typeform-widget {
+  position: relative;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 400px) {
+  .typeform-widget {
+    margin-bottom: 10px;
+    height: 300px;
+  }
+}
+@media screen and (min-width: 600px) {
+  .typeform-widget {
+    margin-bottom: 20px;
+    height: 300px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .typeform-widget {
+    margin-bottom: 20px;
+    height: 440px;
+  }
+}
+.typeform-default .typeform-widget {
+  margin-bottom: 20px;
+  height: 440px;
+}
+.typeform-default p {
+  font-size: 16px;
+}
+
+div.form-box {
+    width:100%;
+    height:440px;
+}

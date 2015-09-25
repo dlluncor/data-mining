@@ -1,0 +1,21 @@
+img.bg {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+div.message {
+    position: relative;
+    top: 20vh;
+    width: 80vw;
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+    z-index: 1;
+}

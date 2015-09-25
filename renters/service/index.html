@@ -1,0 +1,160 @@
+{% extends "partials/base.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/assets/css/feedback.css">
+{% endblock %}
+
+{% block body %}
+    {{ super() }}
+
+    <div class="typeform-widget" data-url="{{ info.form_url }}" data-text="Take the educaction survey">
+        <div class="typeform-wrapper form-box">
+            <iframe width="100%" height="100%" frameborder="0" src="{{ info.form_url }}"></iframe>
+        </div>
+    </div>
+    <div class="container m-b-md p-t">
+        <form class="m-b-md" id="subscribe-form" onsubmit="subscribe();return false;">
+            <div class="row">
+                <div class="col-lg-7 col-md-10 col-sm-12 center">
+                    <div class="input-group">
+                        <input type="email" name="email" class="form-control" placeholder="{{ info.placeholder_text }}" required>
+                        <span class="input-group-btn">
+                            <button id="subscribe-btn" class="btn btn-secondary" type="submit">Submit</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="alert alert-success" role="alert" id="notification" style="display:none;">
+        </div>
+    </div>
+    <div class="container m-b-lg marketing">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card">
+                    <img class="card-img-top" src="/assets/images/idea.png" data-src="holder.js/100px180/" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">How it Works</h4>
+                        <p class="card-text">We spent over 200+ hours reading through blogs, talking to insurance experts, and studying the most up-to-date insurance plans from Verizon, T-mobile, ATT, and AppleCare. Using our proprietary prediction engine, we can estimate how much we think you're likely to need phone insurance, and can recommend the cheapest tools to use in the case of an accident. We read the fine print for you so know what's covered and what's not covered.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <img class="card-img-top" src="/assets/images/click.png" data-src="holder.js/100px180/" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">Get answers in a few clicks</h4>
+                        <p class="card-text">By answering our short survey, you'll get a customized Yes/No answer with steps to help you take action.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <img class="card-img-top" src="/assets/images/save_money.png" data-src="holder.js/100px180/" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">Rewards</h4>
+                        <p class="card-text">We don't sell insurance or try to make you buy any. If we think it's worth it based on your profile, we suggest it. If we don't think it's worth it, we say stay away!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if info.has_example %}
+    <div class="container">
+        <h4 class="card-title">Free report example</h4>
+        <p class="card-text">
+            <pre>
+Hi David,
+
+Thanks for your time! We think you should buy phone insurance from SquareTrade.
+You’ll get peace of mind and we expect you’ll save $50 under all possible circumstances.
+Don’t fear the $600 cost of replacing your IPhone!
+Detailed analysis:
+
+Breaking your phone
+- Likelihood: 60%
+- Cost to repair: $120
+
+Someone stealing your phone
+- Likelihood: 20%
+- Cost to replace: $600
+
+Cost of plans
+- T-mobile: $20 per month with $150 deductible.
+- SquareTrade: $5 per month with $100 deductible.
+
+How much you’ll spend:
+- Every year we expect you’ll spend $170 per year.
+
+How much you expect to gain with each plan:
+- T-mobile: Lose $60
+- SquareTrade: Save $50
+
+Best of luck in your hunt for the best insurance!
+- InsuranceMate Team
+</pre>
+
+        </p>
+    </div>
+    {% endif %}
+    <script>
+        mixpanel.track('Saw landing page');
+        var landing_from_page = 'Landing from ' + document.location.pathname;
+        mixpanel.track(landing_from_page);
+        mixpanel.track('form_imp_{{ info.form_name }}');
+        mixpanel.track('placeholder_{{ info.placeholder_name }}');
+        {% if info.has_example %}
+        mixpanel.track('has_example');
+        {% endif %}
+    </script>
+    <script type="text/javascript">
+        function subscribe(e) {
+            $.post("/subscribe", $("#subscribe-form").serialize()).done(function(data) {
+                updateNotification(data.status, data.msg);
+                var email = $('#subscribe-form input[name="email"]').val();
+                data.email = email;
+                tracking(data);
+            });
+        }
+
+        function updateNotification(status, msg) {
+            var alert = $("#notification");
+            alert.removeClass()
+            if (status == 'success') {
+                alert.addClass("alert alert-success text-center");
+            } else if (status == 'warn') {
+                alert.addClass("alert alert-warning text-center");
+            } else {
+                alert.addClass("alert alert-danger text-center");
+            }
+            alert.text(msg);
+            alert.show();
+        }
+
+        function tracking(data) {
+            var email = data.email;
+            mixpanel.identify(email);
+            mixpanel.people.set({
+                '$email': email
+            });
+            if (data.status == 'success') {
+                mixpanel.track('subscribe success');
+                mixpanel.track('subscribe success with {{ info.placeholder_name }}');
+                {% if info.has_example %}
+                mixpanel.track('subscribe success with example');
+                {% endif %}
+            } else if (payment_info.status == 'warn') {
+                mixpanel.track('subscribe duplicate');
+                mixpanel.track('subscribe duplicate with {{ info.placeholder_name }}');
+                {% if info.has_example %}
+                mixpanel.track('subscribe duplicate with example');
+                {% endif %}
+            } else {
+                mixpanel.track('subscribe failed');
+            }
+        }
+    </script>
+    {% include 'partials/feedback.html' %}
+
+{% endblock %}
