@@ -8,6 +8,18 @@ def default_model_config():
   mc = ModelConfig('', '', '', '', '', '')
   return mc
 
+class ColsCfg(object):
+
+  def __init__(self, cols_for_learning, cols_for_memorizing):
+    self.cols_for_learning = cols_for_learning
+    self.cols_for_memorizing = cols_for_memorizing
+
+  def get_cols_for_memorizing(self):
+    return self.cols_for_memorizing
+
+  def get_cols_for_learning(self):
+    return self.cols_for_learning
+
 class ModelConfig(object):
 
   def __init__(self, name, learned_model_loc, memorized_model_loc, cols_cfg,
@@ -17,7 +29,7 @@ class ModelConfig(object):
     Args:
       name: name of the model.
       memorized_model_loc: location of the memorized model.
-      cols_cfg: Name of all the columns used in this model.
+      cols_cfg: Columns needed to build model.
       feature_map_loc: Location of the feature_map file for feature_selector.FeatureSelector,
         its where where the <feature_name, feature_index> is stored.
       feature_map2_loc: Location of feature_map file for feature_selector.FeatureSelect.

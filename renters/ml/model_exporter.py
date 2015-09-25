@@ -3,21 +3,37 @@
 """
 import seti, csv
 
+class Memorizer(object):
+  """The equivalent of the learned learner."""
+
+  def __init__(self, fs, model_config):
+    self.fs = fs
+    self.model_config = model_config
+
+  def create_model(self, setis):
+    l = []
+    for seti_input in setis:
+      feature_vector = seti.create_feature_vector(
+        self.fs,
+        self.model_config.cols_cfg.get_cols_for_memorizing(), seti_input)
+      seti_model_key = seti.standard_repr(feature_vector)
+      l.append((seti_model_key, seti_input.label))
+    return l
+
 class MemorizedModel(object):
   
   def __init__(self):
     pass
 
-  def write_features(self, tdg_blocks, filename):
+  def write_features(self, memorized_model, filename):
     """
     Args:
-      tdg_blocks: An array of training_data.TDGBlock to write for memorization.
+      memorized_model: The output of MemorizedModel.create_model.
     """
     with open(filename, 'wb') as fin:
       writer = csv.writer(fin)
-      for tdg_block in tdg_blocks:
-        seti_model_key = seti.standard_repr(tdg_block.feature_vector)
-        row = (seti_model_key, tdg_block.label)
+      for (seti_model_key, label) in memorized_model:
+        row = (seti_model_key, label)
         writer.writerow(row)
     print 'Wrote memorized features to: %s' % (filename)
 

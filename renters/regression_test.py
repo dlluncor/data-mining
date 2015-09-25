@@ -9,15 +9,29 @@ def testLearn():
   # when run back through the code.
   l_config = d['l_config']
   ss = seti_server.make_from_config(l_config.model_configs)
+  err = []
+  i = 0
   for seti in d['setis']:
     price = ss.score(seti)
-    assertFloatEquals(seti.label, price)
+    if not floatEquals(price, seti.label):
+      err.append(i)
+    i += 1
+  print 'Num setis: %d' % i
+  print 'Num mismatched setis: %d' % len(err)
+  print 'Rows: %s' % (str(err))
+
+
 
 # Test util template.
 import sys
 import inspect
 
 errs = []
+
+def floatEquals(expected, got):
+  v0 = '%.4f' % expected
+  v1 = '%.4f' % got
+  return v0 == v1
 
 def assertFloatEquals(expected, got):
   caller_name = sys._getframe().f_back.f_code.co_name

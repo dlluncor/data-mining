@@ -45,8 +45,8 @@ class _ModelScorer(object):
     mm = model_exporter.LearnedModel()
     return mm.read_model(filename)
 
-  def get_columns(self):
-    return self.model_config.cols_cfg
+  def get_columns_for_memorization(self):
+    return self.model_config.cols_cfg.get_cols_for_memorizing()
 
   def get_memorized_price(self, features):
     key = seti.standard_repr(features)
@@ -104,7 +104,7 @@ class SetiServer(object):
       model_name = self.model_map.keys()[0]
 
     model = self.model_map[model_name]
-    features = seti.create_feature_vector(model.fs, model.get_columns(), seti_input)
+    features = seti.create_feature_vector(model.fs, model.get_columns_for_memorization(), seti_input)
     memorized_price = model.get_memorized_price(features)
     if memorized_price is not None:
       return memorized_price

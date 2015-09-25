@@ -11,7 +11,8 @@ from collections import OrderedDict
 
 class FeatureSelect(object):
   """V2 FeatureSelector. Can be used to determine which features we
-  actually need to vectorize a SetiInput.
+  actually need to learn when vectorizing a SetiInput into a list
+  of columns for the learner to digest.
 
   """
   def __init__(self):
@@ -81,8 +82,7 @@ class FeatureSelect(object):
 class FeatureSelector():
   """This version of the feature selector counts indices of the features.
 
-   This will probably get deprecated in favor of FeatureSelect which can
-   actually produce a list of floats.
+   This is used for the memorized model.
   """
   def __init__(self):
     self.i = 0

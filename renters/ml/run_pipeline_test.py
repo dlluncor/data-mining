@@ -13,7 +13,9 @@ def testRun():
   setis = [s0, s1]
 
   model_config = model_cfg.ModelConfig(
-    'v0', 'tmp/learned_model.csv', 'tmp/memorized_model.csv', orig_cols,
+    'v0', 'tmp/learned_model.csv', 'tmp/memorized_model.csv', 
+    model_cfg.ColsCfg(
+      orig_cols, orig_cols),
     'tmp/feature_map_v0.csv', 'tmp/feature_map2_v0.csv')
   run_pipeline.run([model_config], setis)
   model = { 

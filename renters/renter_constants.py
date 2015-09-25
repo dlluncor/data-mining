@@ -124,17 +124,57 @@ from ml import model_cfg
 model_configs = [
   model_cfg.ModelConfig(
     name='v1', learned_model_loc='renters-price-learn-v1.csv',
-    memorized_model_loc = 'renters-price-v1.csv', cols_cfg=['gender', 'dob'],
+    memorized_model_loc = 'renters-price-v1.csv', cols_cfg=model_cfg.ColsCfg(
+      cols_for_learning=['gender', 'dob'],
+      cols_for_memorizing=['gender'],
+    ),
     feature_map_loc = 'feature_map_v0.csv', feature_map2_loc = 'feature_map2_v0.pickle')
 ]
 learned_config = model_cfg.LearnedConfig(
   raw_filenames = ['data/tdg_v0.csv'],
   model_configs=model_configs)
 
+"""
+    ('has_bite_dog', 'N'),
+    ('age_group', 'middle-age'),
+
+    ('insurance_type', 'renters'),
+    ('full_address', '1599 Warburton Ave, Santa Clara, CA, 95050'),
+    ('has_auto_insurance_coverage', 'Y'),
+
+    ('has_fire_sprinkler_system', 'N'),
+    ('has_center_fire_burglar_alarm', 'N'),
+    ('has_local_fire_smoke_alarm', 'Y'),
+    ('has_home_security', 'N'),
+    ('is_non_smoking_household', 'Y'),
+    ('has_local_burglar_alarm', 'N'),
+    #
+    ('farmers_identity_protection', 'Y'),
+    ],
+    cfs=[
+    ('dob', 26.0), 
+
+    ('unit_count', 2),
+    ('property_losses_count', 3),
+
+    ('personal_property_worth', 4000),
+    ('medical_payments', 2000),
+    ('personal_liability', 100000),
+    ('deductible', 150.0)
+"""
 model_configs2 = [
   model_cfg.ModelConfig(
     name='v2', learned_model_loc='tmp/renters-price-learn-v2.csv',
-    memorized_model_loc = 'tmp/renters-price-v2.csv', cols_cfg=['deductible', 'personal_property_value', 'personal_liability'],
+    memorized_model_loc = 'tmp/renters-price-v2.csv', 
+    cols_cfg=model_cfg.ColsCfg(
+      cols_for_learning=['deductible', 'personal_property_value', 'personal_liability'],
+      cols_for_memorizing=[
+      'has_bite_dog', 'age_group', 'insurance_type', 'full_address', 'has_auto_insurance_coverage',
+      'has_fire_sprinkler_system', 'has_center_fire_burglar_alarm', 'has_local_fire_smoke_alarm',
+      'has_home_security', 'is_non_smoking_household', 'has_local_burglar_alarm', 
+      'farmers_identity_protection', 'unit_count', 'property_losses_count',
+      'personal_property_worth', 'medical_payments', 'personal_liability', 'deductible'],
+    ),
     feature_map_loc = 'tmp/feature_map_v2.csv', feature_map2_loc = 'tmp/feature_map2_v2.pickle')
 ]
 learned_config2 = model_cfg.LearnedConfig(
