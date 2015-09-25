@@ -48,8 +48,13 @@ class _ModelScorer(object):
   def get_columns_for_memorization(self):
     return self.model_config.cols_cfg.get_cols_for_memorizing()
 
-  def get_memorized_price(self, features):
+  def get_memorized_price(self, seti_input):
+    features = seti.create_feature_vector(
+      self.fs, self.get_columns_for_memorization(), 
+      seti_input)
     key = seti.standard_repr(features)
+    #print 'Serving memorized key'
+    #print key
     if key in self.memorized_prices:
       return self.memorized_prices[key]
     return None
@@ -104,8 +109,7 @@ class SetiServer(object):
       model_name = self.model_map.keys()[0]
 
     model = self.model_map[model_name]
-    features = seti.create_feature_vector(model.fs, model.get_columns_for_memorization(), seti_input)
-    memorized_price = model.get_memorized_price(features)
+    memorized_price = model.get_memorized_price(seti_input)
     if memorized_price is not None:
       return memorized_price
     return model.get_learned_price(seti_input)

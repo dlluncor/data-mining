@@ -12,10 +12,13 @@ def testLearn():
   err = []
   i = 0
   for seti in d['setis']:
+    #print 'Row %d. Label: %.4ff' % (i, seti.label) 
     price = ss.score(seti)
-    if not floatEquals(price, seti.label):
-      err.append(i)
+    assertFloatEquals(price, seti.label)
+    #err.append(i)
     i += 1
+    #if i == 1000:
+    #  break
   print 'Num setis: %d' % i
   print 'Num mismatched setis: %d' % len(err)
   print 'Rows: %s' % (str(err))

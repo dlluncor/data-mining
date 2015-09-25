@@ -23,6 +23,7 @@ def main(argv):
       if which == 'regression_test':
         model_cfg.change_dirs('tmp/regression_test', l_config.model_configs)
   setis = logs_to_seti.generate_seti(l_config.raw_filenames)
+  #setis = setis[0:1000]
   print 'Generated: %d setis' % len(setis)
   if _DEBUG:
     f = open('tmp/cur_run_setis.csv', 'wb')

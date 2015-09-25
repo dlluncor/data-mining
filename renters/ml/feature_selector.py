@@ -114,7 +114,7 @@ class FeatureSelector():
     f = open(fname, 'r')
     reader = csv.reader(f)
     for k, v in reader:
-      self.feature_to_index[k] = v
+      self.feature_to_index[k] = int(v)
     f.close()
 
   def get_index(self, feature):

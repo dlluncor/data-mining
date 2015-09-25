@@ -118,9 +118,9 @@ class FeatureExtractor(object):
     s.add_continuous('unit_count', rf.get_unit_count())
     s.add_continuous('property_losses_count', rf.get_property_losses_count())
 
-    s.add_continuous('personal_property_worth', rf.personal_property_worth)
-    s.add_continuous('medical_payments', rf.medical_payments)
-    s.add_continuous('personal_liability', rf.personal_liability)
+    s.add_continuous('personal_property_worth', float(rf.personal_property_worth))
+    s.add_continuous('medical_payments', float(rf.medical_payments))
+    s.add_continuous('personal_liability', float(rf.personal_liability))
     s.add_continuous('deductible', rf.get_deductible())
     return s
 
