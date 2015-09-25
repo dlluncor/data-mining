@@ -59,8 +59,12 @@ def convert_files():
              'prices_samples_full_0921212303_10.csv', 'prices_samples_full_0921212303_11.csv',
              'prices_samples_full_0921212303_12.csv', 'prices_samples_full_0921212303_13.csv']
 
+    outpath = 'data/price_samples_full_0921212303__2.csv'
+    with open(outpath, 'w') as fout:
+        fout.write("Insurance Type,Zip code,First name,Last name,Date of birth,Gender,Address,City,State,Auto insurance coverage?,Property Type,# units,# unrelated roommates,# property losses in last 3 years,Phone number,Email address,Fire Sprinkler System?,Central Fire & Burglar Alarm?,Local Fire / Smoke Alarm?,Home Security?,Non Smoking Household?,Local Burglar Alarm?,Unusual hazards?,Dogs that bite?,Run a business from home?,Start date,Personal property worth,Loss of use,Medical payments,Personal liability,Farmers Identity Protection,Deductible,Policy number,Timestamp (seconds),Policy price,Name of agent,Address of agent,Elancer\n")
+
     for fname in files:
-        convert_and_save('data/%s' % fname, 'data/price_samples_full_0921212303.csv')
+        convert_and_save('data/%s' % fname, outpath)
 
 if __name__ == '__main__':
     #extract_emails_from_logs()
