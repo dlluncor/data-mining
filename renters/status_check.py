@@ -32,13 +32,13 @@ def check_machine_statues(show_err_count=False):
         {'id': 2,  'ip': '52.89.136.97' , 'missed': True},
         #{'id': 3,  'ip': '52.11.249.176', 'missed': True},
         #{'id': 4,  'ip': '52.89.169.220', 'missed': True},
-        {'id': 6,  'ip': '52.89.147.43' , 'missed': True},
+        #{'id': 6,  'ip': '52.89.147.43' , 'missed': True},
         {'id': 7,  'ip': '52.25.4.192'  , 'missed': True},
         {'id': 9,  'ip': '52.88.93.86'  , 'missed': True},
         #{'id': 10, 'ip': '52.88.255.164', 'missed': True},
         #{'id': 11, 'ip': '52.88.163.127', 'missed': True},
         #{'id': 12, 'ip': '50.112.137.231'},
-        {'id': 13, 'ip': '52.27.163.93', 'missed': True},
+        #{'id': 13, 'ip': '52.27.163.93', 'missed': True},
     ]
 
     for machine in machines:
