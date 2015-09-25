@@ -12,7 +12,7 @@ def to_renter_form(form_info):
 
 def get_price(form_info, for_test=False):
   # Setup the seti server.
-  l_config = renter_constants.learned_config
+  l_config = renter_constants.learned_config2
   ss = seti_server.make_from_config(l_config.model_configs)
 
   # Generate a price for the form.
@@ -25,8 +25,3 @@ def get_price(form_info, for_test=False):
   seti = fe.to_seti(form)
   price = ss.score(seti)
   return price
-
-if __name__ == '__main__':
-  price = get_price({'dob': '11/11/1988', 'has_bite_dog': 'F'})
-  print 'Price received: '
-  print(price)

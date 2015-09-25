@@ -19,7 +19,7 @@ def main(argv):
       l_config.raw_filenames = ['data/from_haoran/clean_*.csv']
     elif which == '3' or which =='regression_test':
       l_config = renter_constants.learned_config2
-      l_config.raw_filenames = ['data/price_samples_full_0921212303.csv']
+      l_config.raw_filenames = ['data/round1/prices_samples_full_0921212303_all.csv']
       if which == 'regression_test':
         model_cfg.change_dirs('tmp/regression_test', l_config.model_configs)
   setis = logs_to_seti.generate_seti(l_config.raw_filenames)
