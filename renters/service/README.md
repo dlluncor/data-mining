@@ -3,7 +3,7 @@ Set Up Python Env
 
 Set Up MongoDB
 1. Download mongo db from official web site
-2. mongod --dapath=data_store_folder_path
+2. mongod --dbpath=data_store_folder_path
 
 Run Service
 1. python app.py
