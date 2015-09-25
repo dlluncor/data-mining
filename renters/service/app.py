@@ -14,8 +14,6 @@ from helper import *
 import sys
 sys.path.append("..") # Adds higher directory to python modules path.
 
-from renters import place #renters import place #import hello
-
 # set the project root directory as the static folder, you can set others.
 app = Flask(__name__, static_url_path='')
 
@@ -51,9 +49,12 @@ def privacy_policy():
 def about():
     return util.render_common_template('about.html')
 
+from renters.price_engine import renters_serving_scorer
+
 @app.route('/price')
-def about():
-    return '%s' % (place.hello())
+def price():
+    price = renters_serving_scorer.get_price({})
+    return '%f' % (price)
     #return util.render_common_template('about.html')
 
 @app.route('/error', methods=['GET'])
