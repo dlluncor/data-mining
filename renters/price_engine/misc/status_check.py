@@ -25,22 +25,7 @@ class TextDecorator(object):
 def create_remote_cmd(ip, cmds):
     return "ssh -i /Users/haoran/.ssh/bonjoy-team.pem ubuntu@%s '%s'" % (ip, ';'.join(cmds))
 
-def check_machine_statues(show_err_count=False):
-    machines = [
-        #{'id': 0,  'ip': '52.89.130.208', 'missed': True},
-        {'id': 1,  'ip': '52.88.213.154', 'missed': True},
-        {'id': 2,  'ip': '52.89.136.97' , 'missed': True},
-        #{'id': 3,  'ip': '52.11.249.176', 'missed': True},
-        #{'id': 4,  'ip': '52.89.169.220', 'missed': True},
-        #{'id': 6,  'ip': '52.89.147.43' , 'missed': True},
-        {'id': 7,  'ip': '52.25.4.192'  , 'missed': True},
-        {'id': 9,  'ip': '52.88.93.86'  , 'missed': True},
-        #{'id': 10, 'ip': '52.88.255.164', 'missed': True},
-        #{'id': 11, 'ip': '52.88.163.127', 'missed': True},
-        #{'id': 12, 'ip': '50.112.137.231'},
-        #{'id': 13, 'ip': '52.27.163.93', 'missed': True},
-    ]
-
+def check_machine_statues(machines,show_err_count=False):
     for machine in machines:
         is_missed = machine.get('missed', False)
         machine_id = machine['id']
@@ -97,5 +82,38 @@ def check_machine_statues(show_err_count=False):
             except subprocess.CalledProcessError as e:
                 print e
 
+def update_codes(machines, name, passwd):
+    for machine in machines:
+        ip = machine['ip']
+        cmds = [
+            'rm -rf data-mining',
+            'git clone https://%s:%s@github.com/bonjoylabs/data-mining' % (name, passwd)
+        ]
+        remote_cmd = create_remote_cmd(ip, cmds)
+        try:
+            output = subprocess.check_output(remote_cmd, shell=True)
+        except subprocess.CalledProcessError as e:
+            print e
+        break
+machines = [
+    {'id': 0,  'ip': '52.88.233.117'},# 'missed': True},
+    {'id': 1,  'ip': '52.11.189.158'},# 'missed': True},
+    {'id': 2,  'ip': '52.88.226.131'},# 'missed': True},
+    {'id': 3,  'ip': '52.11.249.176'},# 'missed': True},
+    {'id': 4,  'ip': '52.89.19.195'} ,# 'missed': True},
+    {'id': 5,  'ip': '52.88.52.137'} ,# 'missed': True},
+    {'id': 6,  'ip': '52.24.245.42'} ,# 'missed': True},
+    {'id': 7,  'ip': '52.25.250.151'},# 'missed': True},
+    {'id': 8,  'ip': '52.88.193.187'},# 'missed': True},
+    {'id': 9,  'ip': '52.88.8.172'}  ,# 'missed': True},
+    {'id': 10, 'ip': '52.88.252.120'},# 'missed': True},
+    {'id': 11, 'ip': '52.89.3.92'}   ,# 'missed': True},
+    {'id': 12, 'ip': '52.88.149.7'}  ,#
+    {'id': 13, 'ip': '52.88.119.125'},# 'missed': True},
+    {'id': 14, 'ip': '52.88.152.120'},# 'missed': True},
+    {'id': 15, 'ip': '52.27.163.93'}, # 'missed': True},
+]
 if __name__ == '__main__':
-    check_machine_statues()
+    if sys.argv[1] == 'true':
+        update_codes(machines, sys.argv[2], sys.argv[3])
+    #check_machine_statues(machines)
