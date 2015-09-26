@@ -7,11 +7,8 @@ from flask import Flask, request, json, jsonify
 from config import config
 from errors import ChargeException
 from helper import *
+from models import RenterForm
 
-#import sys
-#sys.path.append("..")
-
-import sys
 sys.path.append("..") # Adds higher directory to python modules path.
 
 # set the project root directory as the static folder, you can set others.
@@ -55,6 +52,16 @@ from price_engine import renters_serving_scorer
 def price():
     price = renters_serving_scorer.get_price({})
     return '%f' % (price)
+    #return util.render_common_template('about.html')
+
+#first name, last name, address, phone number, dob
+@app.route('/buy', methods=['POST'])
+def buy():
+    data = request.get_json()
+    renter_form = data['render_form']
+    #payment = data['payment']
+    form = RenterForm(**renter_form)
+    form.save()
     #return util.render_common_template('about.html')
 
 @app.route('/error', methods=['GET'])
