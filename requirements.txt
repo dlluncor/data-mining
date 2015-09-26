@@ -1,4 +1,0 @@
-mongoengine==0.10.0
-pymongo==3.0.3
-twitter==1.17.1
-wheel==0.24.0
