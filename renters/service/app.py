@@ -49,7 +49,7 @@ def privacy_policy():
 def about():
     return util.render_common_template('about.html')
 
-from renters.price_engine import renters_serving_scorer
+from price_engine import renters_serving_scorer
 
 @app.route('/price')
 def price():
