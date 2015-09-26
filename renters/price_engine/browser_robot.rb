@@ -42,13 +42,13 @@ def script_web_page(b, data, tag)
     #email = default_emails.sample if failed_emails.contains email
 
     if $failed_emails.include? email
-        puts "\tchange invalid email[#{email}] to default one"
+        log_status("\tchange invalid email[#{email}] to default one", tag)
         email = $default_emails.sample
     end
 
     b.goto "http://farmers.com"
 
-    puts "\tGo to home page"
+    log_status("\tGo to home page", tag)
 
     b.select_list(:css => "div.quote-block select[name='Lob']").select insurance_type
     b.text_field(:css => "div.quote-block input[name='Zip_Code']").set zip_code
@@ -58,13 +58,13 @@ def script_web_page(b, data, tag)
         Watir::Wait.until { b.input(:id => 'preapp:donexttbuttonid').exists? and b.text_field(:id => "preapp:datepicker").value == 'MM/DD/YYYY' }
     rescue Watir::Wait::TimeoutError
         msg = "Fail to find 'Start my Quote' button on step 1 of quote page"
-        puts "\t#{msg}"
+        log_status("\t#{msg}", tag)
         errs << msg
     end
 
     sleep(2)
 
-    puts "\tReach STEP 1"
+    log_status("\tReach STEP 1", tag)
     b.execute_script("var el=document.getElementById('preapp:datepicker'); el.onblur=null;el.onchange=null;el.onclick=null;el.onfocus=null;el.onkeydown=null;el.onkeypress=null;el.onkeyup=null;return 1;")
     b.text_field(:id => "preapp:FirstName").set first_name
     b.text_field(:id => "preapp:LastName").set last_name
@@ -78,11 +78,11 @@ def script_web_page(b, data, tag)
         Watir::Wait.until { b.input(:id => 'AddRenterBuy:nextDiscount').exists? }
     rescue Watir::Wait::TimeoutError
         msg = "Fail to find 'Start my Quote' button on step 2 of quote page"
-        puts "\t#{msg}"
+        log_status("\t#{msg}", tag)
         errs << msg
     end
 
-    puts "\tReach STEP 2"
+    log_status("\tReach STEP 2", tag)
 
     b.select_list(:id => "AddRenterBuy:PropertyType").select property_type
     b.select_list(:id => "AddRenterBuy:NumberOfUnits").select unit_count == '1' ? "#{unit_count} Unit" : "#{unit_count.sub(' to ', '-')} Units"
@@ -136,16 +136,16 @@ def script_web_page(b, data, tag)
         b.input(:id => 'AddRenterBuy:nextDiscount').click
     rescue Watir::Wait::TimeoutError
         msg = 'valid email'
-        puts "\tOoops seem email correct"
+        log_status("\tOoops seem email correct", tag)
         errs << msg
     end
 
     begin
         Watir::Wait.until { b.input(:id => 'homequote:buyBtnTopHome').exists? or  b.input(:id => 'homequote:buyBtnBtmHome').exists?}
     rescue Watir::Wait::TimeoutError
-        puts "\tFail to find 'Continue' button on step 3 of quote page"
+        log_status("\tFail to find 'Continue' button on step 3 of quote page", tag)
         if b.div(:id => 'errordiv').visible?
-            puts "\temail[#{email}] is invalid, use default email"
+            log_status("\temail[#{email}] is invalid, use default email", tag)
             err_msg = b.div(:id => 'errordiv').text
             if err_msg == 'Email address entered is invalid'
                 $failed_emails << email
@@ -154,13 +154,13 @@ def script_web_page(b, data, tag)
                 begin
                     Watir::Wait.until { b.input(:id => 'homequote:buyBtnTopHome').exists? }
                 rescue Watir::Wait::TimeoutError
-                    puts "\tFail again"
+                    log_status("\tFail again", tag)
                 end
             end
         end
     end
 
-    puts "\tReach STEP 3"
+    log_status("\tReach STEP 3", tag)
     b.execute_script("var el=document.getElementById('homequote:homeCvgContainer:0:homeCoverages:0:cvgCode'); el.onblur=null;el.onchange=null;el.onclick=null;el.onfocus=null;el.onkeydown=null;el.onkeypress=null;el.onkeyup=null;return 1;")
     b.text_field(:id => "homequote:homeCvgContainer:0:homeCoverages:0:cvgCode").set personal_property_value
     b.select_list(:id => "homequote:homeCvgContainer:0:homeCoverages:2:liabilityMenu").select "$#{add_delimiter medical_payment}"
@@ -170,11 +170,11 @@ def script_web_page(b, data, tag)
 
     begin
         Watir::Wait.until { b.p(:css => 'div#premiumAllign > p.strikeThroughPremium').exists? }
-        puts "\tRecalculated Price"
+        log_status("\tRecalculated Price", tag)
         b.input(:id => 'homequote:recalculateBtnBtmHome').click
     rescue Watir::Wait::TimeoutError
         msg = "dont need to recalculate price"
-        puts "\t#{msg}"
+        log_status("\t#{msg}", tag)
         errs << msg
     end
 
@@ -182,7 +182,7 @@ def script_web_page(b, data, tag)
         Watir::Wait.until { b.input(:id => 'homequote:buyBtnTopHome').exists? and b.input(:id => 'homequote:buyBtnTopHome').visible? }
     rescue Watir::Wait::TimeoutError
         msg = "fail to find buy button"
-        puts "\tFail to find 'Recalculated' button on step 3 of quote page"
+        log_status("\tFail to find 'Recalculated' button on step 3 of quote page", tag)
         errs << msg
         raise msg
     end
@@ -197,7 +197,7 @@ def script_web_page(b, data, tag)
         agent_phone_number = b.div(:id => 'agentPhoneNO').text.strip
     rescue Watir::Wait::TimeoutError
         msg = "Can not find agent name"
-        puts "\t#{msg}"
+        log_status("\t#{msg}", tag)
         errs << msg
     end
 
@@ -230,6 +230,13 @@ def log_success(msg, tag)
     fout.close
 end
 
+def log_status(msg, tag)
+    puts msg
+    fout = File.open("data/status_#{tag}.log", 'a')
+    fout.puts(msg)
+    fout.close
+end
+
 def start_script(filename, tag, offset=0)
     data = CSV.read(filename)
     counter = 0
@@ -237,7 +244,7 @@ def start_script(filename, tag, offset=0)
     header += ['Policy Price', 'Annual Policy Price', 'Agent Name', 'Agent Address', 'Agent Phone Number', 'Quote Number']
     save_csv(header, tag) if offset == 0
 
-    puts "skip to offset #{offset}" if offset > 0
+    log_status("skip to offset #{offset}", tag) if offset > 0
     data.each do |row|
         start_time = Time.now
         counter += 1
@@ -247,7 +254,7 @@ def start_script(filename, tag, offset=0)
 
         msg = {:id => counter, :data => row, :start_time => start_time}
 
-        puts "[#{counter}] HITTING ... "
+        log_status("[#{counter}] HITTING ... ", tag)
         browser = Watir::Browser.new :chrome
         begin
             info,err_msg = script_web_page(browser, row, tag)
@@ -256,14 +263,14 @@ def start_script(filename, tag, offset=0)
             delta = end_time - start_time
             msg[:time] = delta
             msg[:error] = "#{err_msg} | #{e}"
-            puts "\t[#{counter}][#{delta}] MISSED: #{row}\n\t#{e}\n"
+            log_status("\t[#{counter}][#{delta}] MISSED: #{row}\n\t#{e}\n", tag)
 
             begin
                 name = "screenshots/#{counter}_#{tag}.png"
                 browser.screenshot.save name
                 msg[:screenshot] = name
             rescue Exception => e
-                puts "\tFail to save screenshot#{e}"
+                log_status("\tFail to save screenshot#{e}", tag)
             end
             msg[:status] = 'fail'
             log_error(msg, tag)
@@ -282,7 +289,7 @@ def start_script(filename, tag, offset=0)
         msg[:data] = row
         msg[:error] = err_msg
         log_success(msg, tag)
-        puts "\t[#{delta}][#{info[:price]}]DONE"
+        log_status("\t[#{delta}][#{info[:price]}]DONE", tag)
     end
 end
 
@@ -314,5 +321,4 @@ end
 #start_script('data/missed_no_0921212303.csv', 'missed_no_0921212303')
 #start_script('full_crosses_renters_0921212303_7.csv', 'full_0921212303_test', 2)
 #start_script('data/missed_full_13.csv', 'missed_full_13')
-p ARGV
 start_script(ARGV[0], ARGV[1], ARGV[2].to_i)

@@ -22,8 +22,24 @@ class TextDecorator(object):
     def warning(txt):
         return TextDecorator.WARNING + txt + TextDecorator.ENDC
 
+def upload_file(ip, local_path, remote_path):
+    cmd = "scp -i /Users/haoran/.ssh/bonjoy-team.pem %s ubuntu@%s:%s " % (local_path, ip, remote_path)
+    execute_cmd(cmd)
+
 def create_remote_cmd(ip, cmds):
-    return "ssh -i /Users/haoran/.ssh/bonjoy-team.pem ubuntu@%s '%s'" % (ip, ';'.join(cmds))
+    return "ssh -X -i /Users/haoran/.ssh/bonjoy-team.pem ubuntu@%s '%s'" % (ip, ';'.join(cmds))
+
+def execute_remote_cmds(ip, cmds):
+    cmd = create_remote_cmd(ip, cmds)
+    return execute_cmd(cmd)
+
+def execute_cmd(cmd):
+    try:
+        print(cmd)
+        output = subprocess.check_output(cmd, shell=True)
+        return output
+    except subprocess.CalledProcessError as e:
+        print e
 
 def check_machine_statues(machines,show_err_count=False):
     for machine in machines:
@@ -82,22 +98,48 @@ def check_machine_statues(machines,show_err_count=False):
             except subprocess.CalledProcessError as e:
                 print e
 
-def update_codes(machines, name, passwd):
+def init_remote_env(machines, name, passwd):
     for machine in machines:
         ip = machine['ip']
+        machine_id = machine['id']
+        print("[%s] init env" % machine_id)
+        upload_file(ip, '~/locale', '~/locale')
+        upload_file(ip, '~/Xwrapper.config', '~/Xwrapper.config')
         cmds = [
             'rm -rf data-mining',
-            'git clone https://%s:%s@github.com/bonjoylabs/data-mining' % (name, passwd)
+            'git clone https://%s:%s@github.com/bonjoylabs/data-mining' % (name, passwd),
+            'sudo cp /etc/default/locale /etc/default/locale.default',
+            'sudo cp ~/locale /etc/default/locale',
+            'sudo cp /etc/X11/Xwrapper.config /etc/X11/Xwrapper.config.default',
+            'sudo cp ~/Xwrapper.config /etc/X11/Xwrapper.config'
         ]
-        remote_cmd = create_remote_cmd(ip, cmds)
-        try:
-            output = subprocess.check_output(remote_cmd, shell=True)
-        except subprocess.CalledProcessError as e:
-            print e
+        execute_remote_cmds(ip, cmds)
         break
+
+def start_scripting(machines):
+    for machine in machines:
+        ip = machine['ip']
+        machine_id = machine['id']
+        print("[%s] start script" % machine_id)
+        print("Check if X server is running")
+        output = execute_remote_cmds(ip, ['pidof X'])
+        if output is None:
+            print("start X server")
+            output = execute_remote_cmds(ip, ['export DISPLAY=:0.0', 'nohup startx > /dev/null 2>&1 &'])
+        else:
+            print("X server is already running")
+        cmds = [
+            'cd ~/data-mining/renters/price_engine',
+            "nohup ruby browser_robot.rb 'data/origin_data_set/full_crosses_renters_0921212303_%s.csv' 'full_0921212303_3_%s' 0 >> data/out_full_3_%s.log > /dev/null 2>&1 &" % (machine_id, machine_id, machine_id)
+        ]
+        output = execute_remote_cmds(ip, cmds)
+        print(output)
+        break
+
 machines = [
-    {'id': 0,  'ip': '52.88.233.117'},# 'missed': True},
     {'id': 1,  'ip': '52.11.189.158'},# 'missed': True},
+    {'id': 0,  'ip': '52.88.233.117'},# 'missed': True},
+
     {'id': 2,  'ip': '52.88.226.131'},# 'missed': True},
     {'id': 3,  'ip': '52.11.249.176'},# 'missed': True},
     {'id': 4,  'ip': '52.89.19.195'} ,# 'missed': True},
@@ -115,5 +157,6 @@ machines = [
 ]
 if __name__ == '__main__':
     if sys.argv[1] == 'true':
-        update_codes(machines, sys.argv[2], sys.argv[3])
+        #init_remote_env(machines, sys.argv[2], sys.argv[3])
+        start_scripting(machines)
     #check_machine_statues(machines)
