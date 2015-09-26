@@ -1,4 +1,4 @@
-import subprocess, re, sys
+import subprocess, re, sys, time
 
 class TextDecorator(object):
     HEADER = '\033[95m'
@@ -41,7 +41,12 @@ def execute_cmd(cmd):
     except subprocess.CalledProcessError as e:
         print e
 
-def check_status(machine,show_err_count=False):
+def get_last_success_id_cmd(machine_id):
+    return [
+        r'echo -n `tail -n 1 data-mining/renters/price_engine/data/success_full_0921212303_3_%s.log | cut -c7-9 | tr -d "," | tr -d "\""`' % machine_id,
+    ]
+
+def check_status(machine):
     is_missed = machine.get('missed', False)
     machine_id = machine['id']
     ip = machine['ip']
@@ -52,7 +57,7 @@ def check_status(machine,show_err_count=False):
         'tail data-mining/renters/price_engine/data/status_full_0921212303_3_%s.log | grep HITTING' % machine_id,
 
         'printf "last-success: "',
-        r'echo -n `tail -n 1 data-mining/renters/price_engine/data/success_full_0921212303_3_%s.log | cut -c7-9 | tr -d "," | tr -d "\""`' % machine_id,
+        ] + get_last_success_id_cmd(machine_id) + [
         'printf " count: "',
         'wc -l data-mining/renters/price_engine/data/success_full_0921212303_3_%s.log | cut -d " " -f 1' % machine_id,
 
@@ -60,54 +65,24 @@ def check_status(machine,show_err_count=False):
         r'echo -n `tail -n 1 data-mining/renters/price_engine/data/error_full_0921212303_3_%s.log | cut -c7-9 | tr -d "," | tr -d "\""`' % machine_id,
         'printf " count: "',
         'wc -l data-mining/renters/price_engine/data/error_full_0921212303_3_%s.log | cut -d " " -f 1' % machine_id,
-
-        'wc -l data-mining/renters/price_engine/data/%s' % ('error_missed_full_3_%s.log' % machine_id if is_missed else 'error_full_0921212303_2_%s.log' % machine_id)
     ]
-    if not show_err_count:
-        cmd = create_remote_cmd(ip, cmds[:-1])
-        try:
-            output = subprocess.check_output(cmd, shell=True)
-            header = ">>>> [%s] %s" % (machine_id, ip)
-            if re.search('ruby browser_robot.rb', output):
-                print(TextDecorator.sucess(header))
-            else:
-                print(TextDecorator.fail(header))
 
-            print output
-        except subprocess.CalledProcessError as e:
-            print e
+    cmd = create_remote_cmd(ip, cmds)
+    try:
+        output = subprocess.check_output(cmd, shell=True)
+        header = ">>>> [%s] %s" % (machine_id, ip)
+        if re.search('ruby browser_robot.rb', output):
+            print(TextDecorator.sucess(header))
+        else:
+            print(TextDecorator.fail(header))
+            print("the script stopped. Trying to restart.")
+            resume_task(machine)
 
-    else:
-        process_cmd = create_remote_cmd(ip, [cmds[0]])
-        total_count_cmd = create_remote_cmd(ip, [cmds[1]])
-        err_count_cmd = create_remote_cmd(ip, [cmds[3]])
-        progress_cmd = create_remote_cmd(ip, [cmds[2]])
+        print output
+    except subprocess.CalledProcessError as e:
+        print e
 
-        try:
-            process_output = subprocess.check_output(process_cmd, shell=True)
-            header = ">>>> [%s] %s" % (machine_id, ip)
-            if re.search('ruby browser_robot.rb', process_output):
-                print(TextDecorator.sucess(header))
-            else:
-                print(TextDecorator.fail(header))
 
-            total_output = subprocess.check_output(total_count_cmd, shell=True)
-            m = re.search('^(\d+)', total_output)
-            if m:
-                sys.stdout.write("total: %s " % m.group(1))
-
-            err_output = subprocess.check_output(err_count_cmd, shell=True)
-            m = re.search('^(\d+)', err_output)
-            if m:
-                print(TextDecorator.warning("err: %s" % m.group(1)))
-            else:
-                print("")
-
-            progress_output = subprocess.check_output(progress_cmd, shell=True)
-            print(progress_output)
-
-        except subprocess.CalledProcessError as e:
-            print e
 
 def init_remote_env(machine, name, passwd):
     ip = machine['ip']
@@ -125,7 +100,7 @@ def init_remote_env(machine, name, passwd):
     ]
     execute_remote_cmds(ip, cmds)
 
-def start_scripting(machine):
+def start_scripting(machine, offset=0):
     ip = machine['ip']
     machine_id = machine['id']
     print("[%s] start script" % machine_id)
@@ -139,7 +114,7 @@ def start_scripting(machine):
     cmds = [
         'export DISPLAY=:0.0',
         'cd ~/data-mining/renters/price_engine',
-        "nohup ruby browser_robot.rb 'data/origin_data_set/full_crosses_renters_0921212303_%s.csv' 'full_0921212303_3_%s' 0 > /dev/null 2>&1 &" % (machine_id, machine_id),
+        "nohup ruby browser_robot.rb 'data/origin_data_set/full_crosses_renters_0921212303_%s.csv' 'full_0921212303_3_%s' %s > /dev/null 2>&1 &" % (machine_id, machine_id, offset),
     ]
     execute_remote_cmds(ip, cmds)
 
@@ -151,7 +126,16 @@ def restart_task(machine):
     pass
 
 def resume_task(machine):
-    pass
+    print("resume [%s]" % machine['id'])
+    offset = execute_remote_cmds(machine['ip'], get_last_success_id_cmd(machine['id']))
+    print("get last success id ", offset)
+
+    reboot_machine(machine)
+
+    print("waiting for 60s")
+    time.sleep(60)
+
+    start_scripting(machine, offset)
 
 machines = [
     {'id': 0,  'ip': '52.88.233.117'},# 'missed': True},
@@ -177,6 +161,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", "--id", help="id of the machine to operate. signle id or multiple ids delimit by comma.")
     parser.add_argument("-a", "--action", help="[init | check | resume | reboot | restart] Action need to be executed. Signle action or multiple actions delimit by comma.")
+    parser.add_argument("-l", "--loop", help="[forever | N] repeat the action for specific time")
     args = parser.parse_args()
     #if sys.argv[1] == 'true':
     #    init_remote_env(machines, sys.argv[2], sys.argv[3])
@@ -203,6 +188,15 @@ if __name__ == '__main__':
         target_machines = [machine for machine in machines if str(machine['id']) in ids]
 
     actions = args.action.split(',')
+
     for machine in target_machines:
         for name in actions:
             action_funcs[name](machine)
+
+    if args.action == 'check' and args.loop == 'forever':
+        print("Loop forever")
+        while True:
+            for machine in target_machines:
+                for name in actions:
+                    action_funcs[name](machine)
+            time.sleep(300)
