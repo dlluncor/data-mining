@@ -1,6 +1,7 @@
 import csv, json, sys
 
 def extract(src_path, dst_path):
+    sample_ids = []
     with open(dst_path, 'wb') as fout:
         writer = csv.writer(fout)
         # add header
@@ -9,6 +10,11 @@ def extract(src_path, dst_path):
         with open(src_path, 'rb') as fin:
             for line in fin:
                 record = json.loads(line)
+                sample_id = record['id']
+                if sample_id in sample_ids:
+                    continue
+                else:
+                    sample_ids.append(sample_id)
                 row = record['data']
                 writer.writerow(row)
 
