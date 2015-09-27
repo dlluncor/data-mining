@@ -23,11 +23,11 @@ class TextDecorator(object):
         return TextDecorator.WARNING + txt + TextDecorator.ENDC
 
 def upload_file(ip, local_path, remote_path):
-    cmd = "scp -i /Users/haoran/.ssh/bonjoy-team.pem %s ubuntu@%s:%s " % (local_path, ip, remote_path)
+    cmd = "scp -i ~/.ssh/bonjoy-team.pem %s ubuntu@%s:%s " % (local_path, ip, remote_path)
     execute_cmd(cmd)
 
 def create_remote_cmd(ip, cmds):
-    return "ssh -X -i /Users/haoran/.ssh/bonjoy-team.pem ubuntu@%s '%s'" % (ip, ';'.join(cmds))
+    return "ssh -X -i ~/.ssh/bonjoy-team.pem ubuntu@%s '%s'" % (ip, ';'.join(cmds))
 
 def execute_remote_cmds(ip, cmds):
     cmd = create_remote_cmd(ip, cmds)
