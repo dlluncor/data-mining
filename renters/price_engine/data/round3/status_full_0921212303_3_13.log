@@ -1,0 +1,4168 @@
+[1] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.377391424][$14.52]DONE
+[2] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Reach STEP 3
+	Recalculated Price
+	[60.007441705][$23.83]DONE
+[3] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Reach STEP 3
+	Recalculated Price
+	[51.70847735][$13.75]DONE
+[4] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.703374562][$29.95]DONE
+[5] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.420168459][$23.50]DONE
+[6] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[65.051459313][$20.25]DONE
+[7] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[7][33.068148194] MISSED: ["Renters", "95111", "Easton", "Craig", "06/06/1994", "f", "2600 Corde Terra Cir", "San Jose", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "1", "0", nil, "0", "(408) 732-9450", "william.palmer@gmail.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "20000", "Keep default", "2000", "500000", "N", "500"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[8] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.048874875][$21.85]DONE
+[9] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.517913022][$20.81]DONE
+[10] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[44.770010615][$19.57]DONE
+[11] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Reach STEP 3
+	Recalculated Price
+	[43.011489417][$14.73]DONE
+[12] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.848381588][$12.94]DONE
+[13] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.387327863][$21.51]DONE
+[14] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.246383997][$20.65]DONE
+[15] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.438117817][$19.50]DONE
+[16] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.231891621][$15.83]DONE
+[17] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Reach STEP 3
+	Recalculated Price
+	[59.045242536][$14.80]DONE
+[18] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	dont need to recalculate price
+	[75.775348517][$13.94]DONE
+[19] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.338725703][$12.91]DONE
+[20] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[75.612636458][$11.36]DONE
+[21] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.791561323][$12.07]DONE
+[22] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[69.924918491][$23.60]DONE
+[23] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.336424969][$22.74]DONE
+[24] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[54.340264746][$19.30]DONE
+[25] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.849614953][$22.27]DONE
+[26] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[64.382542867][$16.89]DONE
+[27] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.459319583][$16.02]DONE
+[28] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[57.208385245][$14.99]DONE
+[29] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.817840764][$16.56]DONE
+[30] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.217270405][$14.15]DONE
+[31] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.601104411][$46.78]DONE
+[32] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.935722735][$24.40]DONE
+[33] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[60.251268268][$25.69]DONE
+[34] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.92122001][$23.93]DONE
+[35] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.280131498][$18.55]DONE
+[36] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.643846274][$17.69]DONE
+[37] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[55.915870028][$16.66]DONE
+[38] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.231814407][$18.23]DONE
+[39] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[56.468837701][$14.48]DONE
+[40] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[45.839752853][$27.67]DONE
+[41] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.146854708][$26.58]DONE
+[42] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.385166456][$17.46]DONE
+[43] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.397330739][$16.08]DONE
+[44] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.276306585][$29.85]DONE
+[45] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[58.414508466][$14.19]DONE
+[46] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[57.138251673][$16.70]DONE
+[47] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.151796392][$11.61]DONE
+[48] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.357392142][$12.32]DONE
+[49] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[54.550370768][$23.85]DONE
+[50] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.215944007][$22.99]DONE
+[51] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[54.184260145][$24.27]DONE
+[52] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.082632197][$18.17]DONE
+[53] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[53][63.546213794] MISSED: ["Renters", "94086", "Scarlet", "Ramsey", "05/06/1994", "m", "355 E Evelyn Ave", "Sunnyvale", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "1", "0", nil, "0", "(415) 861-3333", "ana.webster@gmail.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "24000", "Keep default", "2000", "300000", "N", "750"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[54] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.005261435][$20.10]DONE
+[55] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.897681902][$18.79]DONE
+[56] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.984892987][$15.20]DONE
+[57] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.219136098][$13.06]DONE
+[58] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.796412957][$25.51]DONE
+[59] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.139605352][$24.65]DONE
+[60] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.987183808][$21.21]DONE
+[61] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.335228582][$24.18]DONE
+[62] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.548579382][$22.87]DONE
+[63] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.582614003][$17.94]DONE
+[64] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.134772459][$20.45]DONE
+[65] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.269416991][$16.87]DONE
+[66] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.235473961][$16.07]DONE
+[67] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.136537272][$22.71]DONE
+[68] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.459793692][$21.81]DONE
+[69] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.303361531][$18.17]DONE
+[70] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.679207601][$16.72]DONE
+[71] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[54.164719471][$19.95]DONE
+[72] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	dont need to recalculate price
+	[69.765244398][$14.72]DONE
+[73] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.777408584][$17.40]DONE
+[74] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.668150763][$11.99]DONE
+[75] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.839041452][$10.83]DONE
+[76] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[57.115524477][$24.80]DONE
+[77] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.800255138][$23.89]DONE
+[78] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.490954624][$20.25]DONE
+[79] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.216131939][$18.80]DONE
+[80] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.187185765][$17.71]DONE
+[81] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[57.785562418][$16.80]DONE
+[82] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.089238697][$15.71]DONE
+[83] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.903792166][$15.64]DONE
+[84] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.053414943][$12.08]DONE
+[85] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.615253945][$32.74]DONE
+[86] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.356635847][$25.56]DONE
+[87] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.527135424][$24.29]DONE
+[88] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.329960398][$20.47]DONE
+[89] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.918049932][$19.38]DONE
+[90] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.900480513][$22.54]DONE
+[91] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.277165404][$21.15]DONE
+[92] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.17680661][$15.74]DONE
+[93] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.170643455][$13.74]DONE
+[94] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.79711702][$22.96]DONE
+[95] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.966527415][$28.08]DONE
+[96] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.476804719][$18.42]DONE
+[97] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.760582346][$16.97]DONE
+[98] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.879589709][$15.88]DONE
+[99] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.930271985][$14.97]DONE
+[100] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.080630187][$13.88]DONE
+[101] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.283668887][$24.14]DONE
+[102] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.884126134][$10.83]DONE
+[103] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[54.614703007][$25.05]DONE
+[104] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[57.314433749][$24.14]DONE
+[105] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.9380919][$22.87]DONE
+[106] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[45.719093138][$19.05]DONE
+[107] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.259334561][$17.96]DONE
+[108] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[108][38.359375667] MISSED: ["Renters", "95112", "Greyson", "Doyle", "07/31/1993", "f", "1700 N 1st St", "San Jose", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "1", "0", nil, "0", "(415) 673-1232", "alexandra.guerrero@aol.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "28000", "Keep default", "2000", "300000", "N", "1000"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[109] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.840575622][$15.96]DONE
+[110] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.655310549][$15.89]DONE
+[111] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.020496803][$22.24]DONE
+[112] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.00652959][$26.71]DONE
+[113] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[113][32.371899869] MISSED: ["Renters", "95112", "Thomas", "Fischer", "03/08/1994", "f", "524 S 9th St", "San Jose", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "1", "0", nil, "0", "(408) 728-9514", "scarlett.richard@gmail.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "28000", "Keep default", "2000", "500000", "N", "100 / 250"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[114] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.719952869][$27.19]DONE
+[115] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[115][36.331888292] MISSED: ["Renters", "95014", "Conner", "Aguirre", "03/03/1993", "m", "5608 Stevens Creek Blvd", "Cupertino", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "1", "0", nil, "0", "(707) 544-1400", "savannah.silva@aol.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "28000", "Keep default", "2000", "500000", "N", "500"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[116] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.25706288][$21.66]DONE
+[117] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.463182129][$18.72]DONE
+[118] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[54.532674754][$17.63]DONE
+[119] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.920557678][$15.99]DONE
+[120] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.006328799][$13.99]DONE
+[121] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.921835552][$23.82]DONE
+[122] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.290541836][$22.87]DONE
+[123] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.770596735][$24.38]DONE
+[124] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.520976399][$19.84]DONE
+[125] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[54.022124871][$16.39]DONE
+[126] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	dont need to recalculate price
+	[72.551690964][$15.44]DONE
+[127] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[127][36.541645528] MISSED: ["Renters", "95030", "Keira", "James", "04/05/1994", "f", "347 Massol Ave", "Los Gatos", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "1", "0", nil, "0", "(650) 589-2909", "adrian.gilbert@outlook.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "32000", "Keep default", "1000", "100000", "N", "1500"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[128] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.485795767][$25.11]DONE
+[129] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.096448134][$13.41]DONE
+[130] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.428358585][$25.90]DONE
+[131] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.047357678][$31.34]DONE
+[132] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[86.422472448][$26.46]DONE
+[133] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.120496006][$19.62]DONE
+[134] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.603002587][$18.47]DONE
+[135] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.172949379][$17.52]DONE
+[136] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[59.562473462][$16.38]DONE
+[137] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.284462799][$14.66]DONE
+[138] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.123613465][$12.56]DONE
+[139] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.016744622][$27.57]DONE
+[140] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[45.659655943][$26.62]DONE
+[141] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.014972605][$22.81]DONE
+[142] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.974506196][$26.18]DONE
+[143] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.141362556][$24.71]DONE
+[144] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[45.432435138][$19.19]DONE
+[145] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.410058556][$19.93]DONE
+[146] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[69.949391242][$16.33]DONE
+[147] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[56.602788362][$14.23]DONE
+[148] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.781730902][$24.07]DONE
+[149] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.253629131][$29.50]DONE
+[150] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[61.665142411][$19.31]DONE
+[151] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.327924522][$15.82]DONE
+[152] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[68.304790464][$14.55]DONE
+[153] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.367597963][$13.60]DONE
+[154] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	dont need to recalculate price
+	[73.468049344][$16.39]DONE
+[155] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.859327225][$15.17]DONE
+[156] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[62.547352907][$10.83]DONE
+[157] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.427281725][$10.83]DONE
+[158] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[61.505306679][$24.46]DONE
+[159] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.890987694][$39.97]DONE
+[160] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[57.963871587][$17.90]DONE
+[161] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.567559737][$16.64]DONE
+[162] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.268024319][$29.24]DONE
+[163] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.925619926][$14.90]DONE
+[164] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.681441138][$13.95]DONE
+[165] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[59.295905445][$12.52]DONE
+[166] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.271699786][$10.83]DONE
+[167] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[60.844163469][$23.52]DONE
+[168] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[168][35.557593887] MISSED: ["Renters", "95113", "Elsa", "Logan", "02/04/1994", "m", "360 S Market St", "San Jose", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(866) 270-9902", "william.palmer@gmail.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "32000", "Keep default", "1000", "500000", "N", "100 / 250"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[169] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[55.928380401][$19.57]DONE
+[170] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.679755288][$22.36]DONE
+[171] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.335386512][$17.35]DONE
+[172] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.619714005][$16.56]DONE
+[173] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.889155923][$15.61]DONE
+[174] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[55.404818753][$14.19]DONE
+[175] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.673675668][$14.88]DONE
+[176] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[56.016961041][$25.54]DONE
+[177] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.031970487][$38.14]DONE
+[178] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[59.454843386][$16.07]DONE
+[179] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[179][37.697295146] MISSED: ["Renters", "95051", "Emmett", "Cervantes", "11/12/1994", "f", "1901 Halford Ave", "Santa Clara", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(650) 216-6886", "savannah.silva@aol.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "32000", "Keep default", "2000", "100000", "N", "500"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[180] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.224056955][$13.85]DONE
+[181] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.588877152][$16.64]DONE
+[182] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.664475644][$12.11]DONE
+[183] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[183][34.317773801] MISSED: ["Renters", "95111", "Adrian", "Jennings", "03/03/1993", "m", "2600 Corde Terra Cir", "San Jose", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(510) 865-2875", "adrian.gilbert@outlook.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "32000", "Keep default", "2000", "100000", "N", "2500"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[184] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.562111687][$11.38]DONE
+[185] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.364778661][$22.11]DONE
+[186] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[60.887923805][$21.32]DONE
+[187] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.783471166][$22.57]DONE
+[188] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.293821532][$20.95]DONE
+[189] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.621015435][$15.94]DONE
+[190] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[56.500392682][$15.15]DONE
+[191] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.68546344][$14.20]DONE
+[192] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[55.242672582][$12.77]DONE
+[193] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.373122581][$13.46]DONE
+[194] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.622339425][$26.38]DONE
+[195] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.447329727][$28.28]DONE
+[196] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.843520159][$19.82]DONE
+[197] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.066988789][$33.05]DONE
+[198] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.501811422][$31.15]DONE
+[199] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[199][34.081637634] MISSED: ["Renters", "95136", "Seth", "Freeman", "03/03/1993", "m", "4300 The Woods Dr", "San Jose", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(510) 223-2000", "ian.schwartz@aol.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "32000", "Keep default", "2000", "500000", "N", "1000"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[200] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.19844549][$27.68]DONE
+[201] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.462510662][$19.61]DONE
+[202] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.377030335][$18.98]DONE
+[203] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.221604323][$16.44]DONE
+[204] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.949173984][$18.70]DONE
+[205] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.447521811][$16.09]DONE
+[206] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.07044065][$14.03]DONE
+[207] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.012489908][$13.27]DONE
+[208] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.403140746][$12.13]DONE
+[209] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.53523484][$10.83]DONE
+[210] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.8415776][$16.11]DONE
+[211] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[211][35.808146817] MISSED: ["Renters", "95136", "Dillon", "Baker", "03/03/1993", "m", "4300 The Woods Dr", "San Jose", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(415) 359-1333", "eden.chen@outlook.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "16000", "Keep default", "2000", "100000", "N", "100 / 250"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[212] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.906951636][$25.63]DONE
+[213] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.931556794][$11.93]DONE
+[214] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.715058161][$11.16]DONE
+[215] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.63297191][$10.83]DONE
+[216] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.796360168][$10.83]DONE
+[217] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[59.911353937][$10.83]DONE
+[218] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.875841367][$10.83]DONE
+[219] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.230499047][$18.20]DONE
+[220] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.01187531][$32.79]DONE
+[221] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.329674058][$15.02]DONE
+[222] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.632417619][$14.01]DONE
+[223] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[223][36.137193875] MISSED: ["Renters", "95008", "Sebastian", "White", "11/18/1993", "m", "200 Hollis Ave", "Campbell", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(855) 365-1913", "ian.schwartz@aol.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "16000", "Keep default", "2000", "300000", "N", "750"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[224] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.692207949][$12.61]DONE
+[225] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.438874736][$11.85]DONE
+[226] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.217562567][$13.06]DONE
+[227] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[60.03993283][$11.27]DONE
+[228] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.071118658][$24.31]DONE
+[229] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[54.274793444][$19.23]DONE
+[230] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.023532959][$16.69]DONE
+[231] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.978661078][$18.95]DONE
+[232] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.662707278][$14.91]DONE
+[233] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[97.751171604][$14.28]DONE
+[234] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.012697384][$23.04]DONE
+[235] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.647895681][$14.72]DONE
+[236] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.34881328][$10.98]DONE
+[237] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[58.251269893][$21.54]DONE
+[238] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[65.023382595][$16.19]DONE
+[239] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.454367568][$13.49]DONE
+[240] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[64.723833493][$15.85]DONE
+[241] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[88.981946753][$11.60]DONE
+[242] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	dont need to recalculate price
+	[81.097347057][$10.93]DONE
+[243] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[72.556742607][$10.83]DONE
+[244] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[62.884441783][$10.83]DONE
+[245] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[245][34.053182043] MISSED: ["Renters", "95126", "Lucas", "Caldwell", "03/27/1994", "f", "1590 Southwest Expy", "San Jose", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(415) 956-8858", "ana.webster@gmail.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "20000", "Keep default", "1000", "100000", "N", "5000"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[246] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[246][97.483286075] MISSED: ["Renters", "95126", "Cole", "Daniel", "11/18/1993", "m", "950 Meridian Ave", "San Jose", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(408) 599-5321", "savannah.silva@aol.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "20000", "Keep default", "1000", "300000", "N", "100"]
+	Timeout::Error
+[247] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[86.571079221][$22.76]DONE
+[248] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[70.67474006][$15.57]DONE
+[249] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.88453761][$26.96]DONE
+[250] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[56.346644476][$13.68]DONE
+[251] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[56.483240764][$13.01]DONE
+[252] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[70.148812731][$12.20]DONE
+[253] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[253][40.065351439] MISSED: ["Renters", "95054", "Samuel", "Trujillo", "03/03/1993", "m", "4500 Carlyle Ct", "Santa Clara", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(415) 921-5733", "lilly.hayes@aol.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "20000", "Keep default", "1000", "300000", "N", "2500"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[254] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[254][38.677835139] MISSED: ["Renters", "94089", "Theodore", "Freeman", "04/05/1994", "f", "1235 Wildwood Ave", "Sunnyvale", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(925) 283-9912", "elias.cain@outlook.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "20000", "Keep default", "1000", "300000", "N", "5000"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[255] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[64.993585123][$25.29]DONE
+[256] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[256][38.028840247] MISSED: ["Renters", "94086", "Elizabeth", "Bowen", "07/31/1993", "f", "1035 Aster Ave", "Sunnyvale", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(650) 352-3601", "scarlett.richard@gmail.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "20000", "Keep default", "1000", "500000", "N", "100 / 250"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[257] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.836916054][$19.08]DONE
+[258] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[258][36.24271178] MISSED: ["Renters", "94085", "Fynn", "Patel", "03/08/1994", "m", "1257 Lakeside Dr", "Sunnyvale", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(408) 946-2955", "savannah.silva@aol.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "20000", "Keep default", "1000", "500000", "N", "500"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[259] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[81.073437162][$15.35]DONE
+[260] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.733119515][$14.68]DONE
+[261] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[64.375836758][$15.24]DONE
+[262] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.423932044][$12.65]DONE
+[263] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.186543543][$13.23]DONE
+[264] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.415534471][$17.11]DONE
+[265] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.275816323][$16.44]DONE
+[266] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[64.198821627][$13.74]DONE
+[267] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.330586697][$12.66]DONE
+[268] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[56.438456718][$11.85]DONE
+[269] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.15028788][$11.18]DONE
+[270] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[55.929847322][$10.83]DONE
+[271] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[59.41328154][$11.62]DONE
+[272] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[66.040934976][$10.83]DONE
+[273] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[55.813499658][$19.19]DONE
+[274] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[274][37.465021462] MISSED: ["Renters", "94043", "Alexander", "Vaughn", "07/31/1993", "f", "555 W Middlefield Rd", "Mountain View", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(866) 932-5588", "ian.schwartz@aol.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "20000", "Keep default", "2000", "300000", "N", "100 / 250"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[275] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.280430949][$15.82]DONE
+[276] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.566689264][$14.74]DONE
+[277] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[55.016088412][$15.51]DONE
+[278] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.543216443][$16.29]DONE
+[279] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[56.624650003][$15.25]DONE
+[280] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[280][36.609981583] MISSED: ["Renters", "95129", "Isabella", "Porter", "11/18/1993", "m", "355 Kiely Blvd", "San Jose", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(510) 793-2535", "adrian.gilbert@outlook.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "20000", "Keep default", "2000", "300000", "N", "2500"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[281] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.288553019][$10.83]DONE
+[282] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.554950438][$37.80]DONE
+[283] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.048497343][$20.19]DONE
+[284] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[55.613821004][$17.49]DONE
+[285] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.374811225][$28.88]DONE
+[286] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[59.698438867][$15.60]DONE
+[287] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.430672721][$14.93]DONE
+[288] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.030906009][$14.12]DONE
+[289] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.508058575][$14.12]DONE
+[290] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.731119222][$11.42]DONE
+[291] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[291][36.638772117] MISSED: ["Renters", "95035", "William", "Daniel", "06/06/1994", "m", "440 Dixon Landing Rd", "Milpitas", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(877) 516-8284", "adrian.gilbert@outlook.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "24000", "Keep default", "1000", "100000", "N", "100"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[292] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.644033403][$17.14]DONE
+[293] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.968548631][$18.21]DONE
+[294] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.335001849][$16.75]DONE
+[295] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.692561886][$13.92]DONE
+[296] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	dont need to recalculate price
+	[80.192192244][$14.75]DONE
+[297] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[63.092345594][$10.83]DONE
+[298] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[55.178953365][$10.83]DONE
+[299] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.968914285][$10.83]DONE
+[300] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[60.015663193][$19.94]DONE
+[301] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.64249907][$19.23]DONE
+[302] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[302][50.645180632] MISSED: ["Renters", "94040", "Daniel", "Ingram", "04/05/1994", "m", "1200 Dale Ave", "Mountain View", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(877) 516-8284", "elias.cain@outlook.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "24000", "Keep default", "1000", "300000", "N", "250"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[303] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.224930676][$18.84]DONE
+[304] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.463657736][$14.37]DONE
+[305] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.152410491][$13.65]DONE
+[306] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.077715727][$12.80]DONE
+[307] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[57.827032267][$11.51]DONE
+[308] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[54.544437602][$10.83]DONE
+[309] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[57.11163852][$21.61]DONE
+[310] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.710992273][$20.89]DONE
+[311] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[55.258463094][$21.96]DONE
+[312] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.626624108][$16.89]DONE
+[313] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[71.370072907][$19.41]DONE
+[314] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.74524939][$15.32]DONE
+[315] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.219156891][$17.41]DONE
+[316] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[54.754518264][$13.18]DONE
+[317] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.598959119][$19.46]DONE
+[318] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.996865579][$18.11]DONE
+[319] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.072321286][$17.39]DONE
+[320] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[63.394750105][$28.82]DONE
+[321] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.75981638][$13.39]DONE
+[322] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.556074453][$12.53]DONE
+[323] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.116257518][$11.82]DONE
+[324] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[57.987271625][$10.96]DONE
+[325] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.207161974][$10.93]DONE
+[326] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.436094415][$10.83]DONE
+[327] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[66.343412629][$22.57]DONE
+[328] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.967024033][$24.18]DONE
+[329] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.944008128][$18.52]DONE
+[330] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.329134909][$19.09]DONE
+[331] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[60.028230611][$14.62]DONE
+[332] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.392171961][$17.08]DONE
+[333] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[55.785932762][$15.99]DONE
+[334] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.847440781][$11.76]DONE
+[335] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[64.089472502][$10.83]DONE
+[336] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.194009367][$26.76]DONE
+[337] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.467848649][$23.42]DONE
+[338] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.34066336][$22.21]DONE
+[339] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.472061951][$18.89]DONE
+[340] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.815841393][$19.66]DONE
+[341] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.0430171][$15.57]DONE
+[342] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[342][36.130237429] MISSED: ["Renters", "94086", "Nora", "Castro", "05/06/1994", "f", "1035 Aster Ave", "Sunnyvale", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "5+", "0", nil, "0", "(408) 737-2900", "adrian.gilbert@outlook.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "24000", "Keep default", "2000", "500000", "N", "1500"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[343] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[55.521775755][$14.68]DONE
+[344] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[55.205423421][$14.01]DONE
+[345] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.474803476][$18.85]DONE
+[346] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.55193466][$36.05]DONE
+[347] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[62.907393561][$15.08]DONE
+[348] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.330180533][$13.88]DONE
+[349] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.120114801][$12.97]DONE
+[350] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	dont need to recalculate price
+	[75.717115324][$15.59]DONE
+[351] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.337835431][$11.31]DONE
+[352] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.927431231][$10.83]DONE
+[353] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.265343654][$10.83]DONE
+[354] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.288794369][$20.94]DONE
+[355] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.980285189][$20.18]DONE
+[356] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.256654075][$17.17]DONE
+[357] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.46580295][$15.96]DONE
+[358] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[61.417876814][$27.92]DONE
+[359] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[72.655038049][$14.30]DONE
+[360] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[67.899352494][$16.52]DONE
+[361] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.969097946][$13.33]DONE
+[362] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.878667364][$10.83]DONE
+[363] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.752709153][$22.60]DONE
+[364] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.773338072][$21.85]DONE
+[365] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.661383309][$18.83]DONE
+[366] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.377498926][$21.46]DONE
+[367] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[80.657714969][$16.72]DONE
+[368] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.444950375][$15.97]DONE
+[369] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.136311606][$26.28]DONE
+[370] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.784865554][$13.71]DONE
+[371] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.094368546][$14.34]DONE
+[372] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.626535084][$19.10]DONE
+[373] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.554059271][$23.35]DONE
+[374] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.686588337][$17.30]DONE
+[375] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.389070256][$14.13]DONE
+[376] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.48571622][$13.22]DONE
+[377] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.593171394][$12.47]DONE
+[378] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.378337898][$22.78]DONE
+[379] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.70382957][$12.96]DONE
+[380] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.245197391][$10.83]DONE
+[381] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.094371993][$21.19]DONE
+[382] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.688108164][$25.43]DONE
+[383] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.424069497][$17.42]DONE
+[384] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.322366755][$16.21]DONE
+[385] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[57.924740436][$16.99]DONE
+[386] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.996192484][$14.55]DONE
+[387] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.15952665][$13.65]DONE
+[388] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.85913261][$12.29]DONE
+[389] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.579419188][$10.83]DONE
+[390] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[54.80383221][$22.85]DONE
+[391] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.628046651][$27.10]DONE
+[392] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.080861731][$19.08]DONE
+[393] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.574974386][$17.88]DONE
+[394] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.491484245][$20.56]DONE
+[395] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.767869888][$19.59]DONE
+[396] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.023673176][$15.31]DONE
+[397] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.459511348][$16.71]DONE
+[398] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.460392211][$12.30]DONE
+[399] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[45.74496925][$19.77]DONE
+[400] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.397653683][$21.48]DONE
+[401] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.383688962][$16.39]DONE
+[402] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.799888928][$28.97]DONE
+[403] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.478902088][$25.61]DONE
+[404] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.367577637][$20.93]DONE
+[405] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[405][34.567181324] MISSED: ["Renters", "95054", "Felix", "Townsend", "04/05/1941", "f", "550 Moreland Way", "Santa Clara", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "1", "0", nil, "0", "(408) 294-5333", "eden.chen@outlook.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "50000", "Keep default", "2000", "100000", "N", "500"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[406] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.959749414][$25.41]DONE
+[407] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[63.983224645][$17.93]DONE
+[408] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.006851604][$20.00]DONE
+[409] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.00905487][$17.63]DONE
+[410] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.216390997][$11.88]DONE
+[411] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.867916907][$35.97]DONE
+[412] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[60.087307669][$28.52]DONE
+[413] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.175052093][$23.47]DONE
+[414] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.96770982][$29.24]DONE
+[415] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.687837448][$20.11]DONE
+[416] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.979632857][$20.94]DONE
+[417] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.49569353][$19.56]DONE
+[418] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.366086048][$15.98]DONE
+[419] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.260240898][$14.97]DONE
+[420] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.854786425][$29.85]DONE
+[421] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[59.31899845][$35.59]DONE
+[422] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.242498936][$25.82]DONE
+[423] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.065674934][$25.13]DONE
+[424] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[59.868695459][$21.78]DONE
+[425] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.749547761][$21.12]DONE
+[426] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.104321255][$21.23]DONE
+[427] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.14084895][$19.16]DONE
+[428] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.758975855][$18.48]DONE
+[429] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[55.219952435][$39.70]DONE
+[430] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[52.410250871][$29.87]DONE
+[431] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.42484394][$31.76]DONE
+[432] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.244030923][$22.90]DONE
+[433] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.067216849][$19.27]DONE
+[434] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	dont need to recalculate price
+	[73.567697728][$20.16]DONE
+[435] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.067277786][$19.05]DONE
+[436] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.083935009][$20.96]DONE
+[437] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.310992999][$17.47]DONE
+[438] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.758738766][$37.36]DONE
+[439] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.678000053][$28.97]DONE
+[440] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.416825148][$24.49]DONE
+[441] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.097382066][$24.99]DONE
+[442] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.824618766][$21.78]DONE
+[443] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.601301382][$22.25]DONE
+[444] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[55.614761352][$18.89]DONE
+[445] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.441010363][$18.51]DONE
+[446] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.460030153][$14.41]DONE
+[447] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.211932593][$34.87]DONE
+[448] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.514081161][$33.62]DONE
+[449] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.642147018][$26.15]DONE
+[450] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.427226242][$24.36]DONE
+[451] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.87472149][$24.09]DONE
+[452] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.876692378][$25.46]DONE
+[453] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.587628303][$26.38]DONE
+[454] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.082435967][$20.18]DONE
+[455] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.815871272][$17.44]DONE
+[456] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.055669011][$28.25]DONE
+[457] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[67.005271044][$28.63]DONE
+[458] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.241984828][$25.65]DONE
+[459] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.048717653][$29.47]DONE
+[460] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.039295419][$38.73]DONE
+[461] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.517267725][$18.40]DONE
+[462] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[46.871812991][$17.99]DONE
+[463] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.192677576][$16.68]DONE
+[464] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[45.142890618][$13.94]DONE
+[465] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.760272183][$42.04]DONE
+[466] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.22627811][$40.45]DONE
+[467] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.312472942][$24.74]DONE
+[468] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[47.822267324][$25.24]DONE
+[469] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.066406939][$23.74]DONE
+[470] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.614613318][$22.90]DONE
+[471] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[60.204467752][$19.51]DONE
+[472] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.575336682][$17.12]DONE
+[473] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	[473][37.837720064] MISSED: ["Renters", "95136", "Julia", "Todd", "03/08/1940", "m", "3601 Copperfield Dr", "San Jose", "CA", "N", "RENTED HOUSE - SINGLE FAMILY", "1", "0", nil, "0", "(888) 586-1355", "savannah.silva@aol.com", "N", "N", "N", "N", "Y", "N", "NONE", "N", "N", "Keep default.", "60000", "Keep default", "2000", "300000", "N", "5000"]
+	unable to locate element, using {:id=>"errordiv", :tag_name=>"div"}
+[474] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.778368101][$35.74]DONE
+[475] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.935728911][$33.87]DONE
+[476] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[54.752287599][$28.89]DONE
+[477] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.332331993][$25.07]DONE
+[478] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[57.33622928][$25.41]DONE
+[479] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.634135934][$22.15]DONE
+[480] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.679579253][$22.67]DONE
+[481] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.369763308][$18.79]DONE
+[482] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.573431056][$20.07]DONE
+[483] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[53.699397217][$34.91]DONE
+[484] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.785796114][$28.88]DONE
+[485] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[62.740242239][$30.78]DONE
+[486] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.947925007][$24.60]DONE
+[487] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.924675063][$46.06]DONE
+[488] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	dont need to recalculate price
+	[72.100558708][$19.93]DONE
+[489] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[61.82921297][$20.06]DONE
+[490] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[49.227474448][$22.57]DONE
+[491] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.521761118][$13.53]DONE
+[492] HITTING ... 
+	change invalid email[alexandra.guerrero@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.447328536][$37.00]DONE
+[493] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.940775275][$43.12]DONE
+[494] HITTING ... 
+	change invalid email[ian.schwartz@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.05689163][$27.49]DONE
+[495] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[54.132276928][$24.72]DONE
+[496] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[65.016492611][$22.78]DONE
+[497] HITTING ... 
+	change invalid email[adrian.gilbert@outlook.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[50.6964273][$29.79]DONE
+[498] HITTING ... 
+	change invalid email[lilly.hayes@aol.com] to default one
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[76.860011483][$22.14]DONE
+[499] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[48.978106303][$19.73]DONE
+[500] HITTING ... 
+	Go to home page
+	Reach STEP 1
+	Reach STEP 2
+	Ooops seem email correct
+	Reach STEP 3
+	Recalculated Price
+	[51.048452798][$16.79]DONE
+skip to offset 500
+skip to offset 500
+skip to offset 500
