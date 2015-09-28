@@ -5,6 +5,8 @@ DEFAULT_GA_TOKEN = 'UA-66635208-3'
 DEFAULT_MONGODB_URI = "mongodb://127.0.0.1"
 
 class Config:
+    DEBUG, PROD, TEST = False, False, False
+
     mongodb_uri = DEFAULT_MONGODB_URI
     social = {
         'fb': 'https://www.facebook.com/kainoadevice',
@@ -35,7 +37,8 @@ class TestingConfig(Config):
 
 class ProductionConfig(Config):
     PROD = True
-    mongodb_uri = os.environ.get('MONGOLAB_URI')
+
+    mongodb_uri = os.environ.get('MONGOLAB_URI') or DEFAULT_MONGODB_URI
 
     apis = {
         'mixpanel_token': os.environ.get('MIXPANEL_TOKEN') or DEFAULT_MIXPANEL_TOKEN,

@@ -78,4 +78,10 @@ def handle_exception(error):
 
 
 if __name__ == '__main__':
-     app.run(debug=True, host='0.0.0.0', port=8080)
+    if config.DEBUG:
+        app.run(debug=True, host='0.0.0.0', port=8080)
+    elif config.PROD:
+        from gevent.wsgi import WSGIServer
+
+        http_server = WSGIServer(('', 8080), app)
+        http_server.serve_forever()
