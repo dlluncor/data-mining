@@ -56,6 +56,10 @@ from price_engine import renters_serving_scorer
 
 @app.route('/price')
 def price():
+    """
+      When the user wants to know what is the estimated price of
+      their insurance policy.
+    """
     price = renters_serving_scorer.get_price({})
     return '%f' % (price)
     #return util.render_common_template('about.html')
@@ -63,6 +67,23 @@ def price():
 #first name, last name, address, phone number, dob
 @app.route('/buy', methods=['POST'])
 def buy():
+    """
+      When the user has completed the flow and is completing their
+      insurance purchase.
+
+      Example input:
+      form = {
+       'insurance_type': 'Renters',
+       'first_name': 'Christian',
+       'last_name': 'Bale',
+       'dob': '01/30/1974',
+       'gender': 'm',
+       'address': '3328 Bay Road',
+       'city': 'Rewood City',
+       'state': 'CA',
+       'zip_code': '94063',
+      }
+    """
     data = request.get_json()
     app.logger.error(data)
     renter_form = data['renter_form']
