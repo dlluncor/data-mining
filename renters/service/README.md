@@ -26,6 +26,7 @@ Notice: you have to start mongo db before you start service.
 2. Set Up Python Dev Env with the following commands
     ```
     sudo apt-get install -y git
+    sudo apt-get install python-dev
     sudo apt-get install python-pip
     sudo pip install flask
     sudo pip install mongoengine
@@ -53,9 +54,10 @@ Notice: you have to start mongo db before you start service.
 
     ```
     sudo mkdir -p /u/app
+    sudo chmod -R 777 /u/app
     sudo git clone https://github.com/bonjoylabs/data-mining.git
     ```
 5. Start Server
     ```
-    nohup APP_ENV=PROD python app.py > run.log 2 > &1 &
+    sudo APP_ENV=PROD nohup python app.py >> run.log 2>&1 &
     ```
