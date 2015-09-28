@@ -1,17 +1,29 @@
-Set Up Python Env
+# Develop Env on Mac
+
+## Setup Python ENV
 1. pip install -r requirements.txt
 
-Set Up MongoDB
+## Set Up MongoDB
 1. Download mongo db from official web site
-2. mongod --dbpath=data_store_folder_path
+2. `mongod --dbpath=data_store_folder_path`
 
-Run Service
-1. python app.py
+
+## Run Service
+
+### Run service under debug mode
+```
+python app.py
+```
+
+### Run service under prod mode
+```
+sudo APP_ENV=PROD python app.py
+```
 
 Notice: you have to start mongo db before you start service.
 
 ---------------
-# Set Up Prod Instance on AWS
+# Set Up Prod Instance on AWS (Ubuntu 14.04)
 
 ## Create EC2 Instance
 1. Open the 80 port in the Security Groups
@@ -60,4 +72,33 @@ Notice: you have to start mongo db before you start service.
 5. Start Server
     ```
     sudo APP_ENV=PROD nohup python app.py >> run.log 2>&1 &
+    ```
+
+6. Config Upstart to make service start when machine start by create a new files /etc/init/renters.conf with below content:
+
+    ```
+    description "Flask Application for Renters Insurance Portal"
+
+    start on runlevel [2345]
+    stop on runlevel [!2345]
+
+    respawn
+
+    chdir /u/app/data-mining/renters/service
+    exec sudo APP_ENV=PROD python app.py
+    ```
+
+    manually start the service:
+    ```
+    sudo start renters
+    ```
+
+    manually start the service:
+    ```
+    sudo stop renters
+    ```
+
+    check logs
+    ```
+    tail -f /var/log/upstart/renters.log
     ```
