@@ -30,6 +30,10 @@ ALREADY_SUBSCRIBED_MSG = "Thanks, you have already placed your deposit with this
 def home_page():
     return util.render_common_template('index.html')
 
+@app.route('/test')
+def test_page():
+    return util.render_common_template('test.html')
+
 @app.route('/assets/<path:path>')
 def send_js(path):
     return send_from_directory('assets', path)
@@ -58,10 +62,13 @@ def price():
 @app.route('/buy', methods=['POST'])
 def buy():
     data = request.get_json()
-    renter_form = data['render_form']
+    print(data)
+    renter_form = data['renter_form']
+    print(renter_form)
     #payment = data['payment']
     form = RenterForm(**renter_form)
     form.save()
+    return jsonify(status='done')
     #return util.render_common_template('about.html')
 
 @app.route('/error', methods=['GET'])
