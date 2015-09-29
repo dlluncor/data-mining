@@ -1,20 +1,7 @@
 {% extends "partials/base.html" %}
-{%block head %}
-    <link rel="stylesheet" href="assets/css/error.css">
-{% endblock %}
 {% block body %}
   {{ super() }}
   <div class="container">
-      <img class="bg" src="assets/images/river.jpeg"></img>
-      <div class="message">
-          <h1>Sorry, we have an error!</h1>
-          <!--
-          <div>
-          	<p>
-            {{ err_msg }}
-            </p>
-          </div>
-          -->
-      </div>
+    <h1 style="text-align: center; height: 30rem;">Oooops, we have an error :(</h1>
   </div>
 {% endblock %}
