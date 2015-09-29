@@ -1,4 +1,4 @@
-import subprocess, re, sys, time
+import subprocess, os, re, sys, time
 
 class TextDecorator(object):
     HEADER = '\033[95m'
@@ -39,6 +39,7 @@ def execute_cmd(cmd):
         output = subprocess.check_output(cmd, shell=True)
         return output
     except subprocess.CalledProcessError as e:
+        print("Oooops error!")
         print e
 
 def reboot_machine(machine):
@@ -53,10 +54,10 @@ def deploy(machine, name, passwd):
     ip = machine['ip']
     if name is None or passwd is None:
         print("Please provide name and password. quit.")
-        print("Usage: NAME=xxx;PASSWD=xxx;python delpoy -i all -a deploy")
+        print("Usage: NAME=xxx PASSWD=xxx python delpoy -i all -a deploy")
         return
     cmds = [
-        'cd data-mining',
+        'cd /u/app/data-mining',
         'git pull --rebase https://%s:%s@github.com/bonjoylabs/data-mining master' % (name, passwd),
         'sudo restart renters'
     ]
@@ -66,11 +67,12 @@ def fresh_deploy(machine, name, passwd):
     ip = machine['ip']
     if name is None or passwd is None:
         print("Please provide name and password. quit.")
-        print("Usage: NAME=xxx;PASSWD=xxx;python fresh_deploy -i all -a deploy")
+        print("Usage: NAME=xxx PASSWD=xxx python fresh_deploy -i all -a deploy")
         return
 
     cmds = [
-        'rm -rf data-mining',
+        'rm -rf /u/app/data-mining',
+        'cd /u/app/,
         'git clone https://%s:%s@github.com/bonjoylabs/data-mining' % (name, passwd),
         'sudo restart renters'
     ]
@@ -114,11 +116,12 @@ if __name__ == '__main__':
     else:
         ids = args.id.split(',')
         target_machines = [machine for machine in machines if str(machine['id']) in ids]
-
+    print(args.action)
     for machine in target_machines:
         if args.action == 'deploy' or args.action == 'fresh_deploy':
-            name = sys.get_env('NAME', None)
-            passwd = sys.get_env('PASSWD', None)
-            action_funcs[action](machine, name, passwd)
+            name = os.environ.get('NAME')
+            passwd = os.environ.get('PASSWD')
+            print(name, passwd)
+            action_funcs[args.action](machine, name, passwd)
         else:
-            action_funcs[action](machine)
+            action_funcs[args.action](machine)
