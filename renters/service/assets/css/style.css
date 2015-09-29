@@ -1616,9 +1616,8 @@ section * {
 }
 .header-10-sub .background {
   background-image: url("/assets/images/img-1.jpg");
-  opacity: 85;
   filter: alpha(opacity=8500);
-  opacity: 0.85;
+  opacity: 0.4;
   filter: alpha(opacity=85);
 }
 .header-10 {
