@@ -1674,3 +1674,18 @@ section * {
   background-color: #1B1F23;
   color: #7F8C8D;
 }
+
+.background.use-cover {
+    opacity: 1;
+}
+
+.background .black-cover {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.6;
+}
+
+.content-23 .background .black-cover {
+    opacity: 0.2;
+}
