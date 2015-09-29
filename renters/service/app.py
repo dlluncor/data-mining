@@ -38,8 +38,8 @@ def send_js(path):
     return send_from_directory('assets', path)
 
 @app.route('/terms')
-def tos():
-    return util.render_common_template('tos.html')
+def terms():
+    return util.render_common_template('terms.html')
 
 @app.route('/privacy_policy')
 def privacy_policy():
