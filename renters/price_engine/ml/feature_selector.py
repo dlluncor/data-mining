@@ -119,5 +119,5 @@ class FeatureSelector():
 
   def get_index(self, feature):
     if feature not in self.feature_to_index:
-      raise Exception('Unrecognized feature not in SETI data: %s' % (feature))
-    return self.feature_to_index[feature]
+      return None, 'Unrecognized feature not in SETI data: %s' % (feature)
+    return self.feature_to_index[feature], None

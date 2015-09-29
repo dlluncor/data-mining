@@ -33,13 +33,17 @@ def create_feature_vector(fs, keep_cols, seti):
     if col_name not in keep_cols:
       continue
     # Keep this binary feature as a feature vector.
-    feature_index = fs.get_index(bf)
+    feature_index, err = fs.get_index(bf)
+    if feature_index is None:
+      feature_index = -1
     features.append((feature_index, 1.0))
 
   for cf in seti.cfs:
     if cf.name not in keep_cols:
       continue
-    feature_index = fs.get_index(cf.name)
+    feature_index, err = fs.get_index(cf.name)
+    if feature_index is None:
+      feature_index = -1
     features.append((feature_index, cf.value))
   return features
 

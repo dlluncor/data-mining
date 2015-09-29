@@ -9,6 +9,30 @@ Things to consider.
   - Categorical features with many possibilities.
 """
 
+## For memorized model.
+
+def testFeatureSelectorMissingColumn():
+  orig_cols = ['gender', 'height']
+
+  s0 = seti.create_seti(1.0, bfs=[], cfs=[('height', 6.0)])
+  s1 = seti.create_seti(0.0, bfs=[('gender', 'f')], cfs=[])
+  s2 = seti.create_seti(0.0, bfs=[('gender', 'm')], cfs=[])
+  setis = [s0, s1, s2]
+  fs = feature_selector.FeatureSelector()
+  fs.build_feature_map(setis)
+
+  features = ['height', 'gender:m', 'gender:f', 'gender:metro']
+  indices = [0, 2, 1, None]
+  for i in xrange(len(features)):
+    index, err = fs.get_index(features[i])
+    assertEquals(indices[i], index)
+    if index is None:
+      assert err != ''
+    else:
+      assert err == None
+
+## For learned model.
+
 def testFVSimple():
   orig_cols = ['gender', 'height']
 

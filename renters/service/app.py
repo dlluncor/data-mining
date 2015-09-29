@@ -1,8 +1,11 @@
 import datetime, logging, sys
 from flask import Flask, render_template, json, jsonify, request, send_from_directory
 import util
+import traceback
+import os
 
 from logging import StreamHandler
+from logging import Formatter
 from flask import Flask, request, json, jsonify
 from config import config
 from errors import ChargeException
@@ -16,6 +19,18 @@ app = Flask(__name__, static_url_path='')
 
 log_handler = StreamHandler(sys.stdout)
 app.logger.addHandler(log_handler)
+log_handler.setFormatter(Formatter(
+    '%(asctime)s %(levelname)s: %(message)s '
+    '[in %(pathname)s:%(lineno)d]'
+))
+app.logger.setLevel(logging.INFO)
+
+log_handler2 = StreamHandler(sys.stderr)
+log_handler2.setFormatter(Formatter(
+    '%(asctime)s %(levelname)s: %(message)s '
+    '[in %(pathname)s:%(lineno)d]'
+))
+app.logger.addHandler(log_handler2)
 
 # payment messages
 
@@ -53,15 +68,26 @@ def about():
     return util.render_common_template('about.html')
 
 from price_engine import renters_serving_scorer
+from price_engine import renter_constants
+from price_engine.ml import model_cfg
 
-@app.route('/price')
+@app.route('/price', methods=['POST'])
 def price():
     """
       When the user wants to know what is the estimated price of
       their insurance policy.
     """
-    price = renters_serving_scorer.get_price({})
-    return '%f' % (price)
+    try:
+      l_config = renter_constants.learned_config2
+      # Change directories so that we can properly access the files.
+      # Right now they are set up to be relative to the engine
+      model_cfg.change_dirs('../price_engine/tmp', l_config.model_configs)
+      price = renters_serving_scorer.get_price(l_config, {})
+      return '%f' % (price)
+    except Exception as e:
+      line = traceback.format_exc()
+      return line
+
     #return util.render_common_template('about.html')
 
 #first name, last name, address, phone number, dob
@@ -81,17 +107,20 @@ def buy():
        'address': '3328 Bay Road',
        'city': 'Rewood City',
        'state': 'CA',
-       'zip_code': '94063',
+       'zip_code': '94063'
       }
     """
-    data = request.get_json()
-    app.logger.error(data)
-    renter_form = data['renter_form']
+    try:
+      data = request.get_json()
+      renter_form = data['renter_form']
+      print renter_form
     #payment = data['payment']
-    form = RenterForm(**renter_form)
-    form.save()
-    return jsonify(status='done')
-    #return util.render_common_template('about.html')
+    #form = RenterForm(**renter_form)
+    #form.save()
+      return 'success'
+    except Exception as e:
+      line = traceback.format_exc()
+      return line
 
 @app.route('/error', methods=['GET'])
 def error():
