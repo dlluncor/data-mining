@@ -1625,6 +1625,7 @@ section * {
   filter: alpha(opacity=8500);
   opacity: 0.4;
   filter: alpha(opacity=85);
+  background-position: bottom left, bottom right;
 }
 .header-10 {
   background-color: #1b1f23;
