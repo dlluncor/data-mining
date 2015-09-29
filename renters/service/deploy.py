@@ -72,7 +72,7 @@ def fresh_deploy(machine, name, passwd):
 
     cmds = [
         'rm -rf /u/app/data-mining',
-        'cd /u/app/,
+        'cd /u/app/',
         'git clone https://%s:%s@github.com/bonjoylabs/data-mining' % (name, passwd),
         'sudo restart renters'
     ]
