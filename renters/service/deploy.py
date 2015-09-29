@@ -116,7 +116,7 @@ if __name__ == '__main__':
     else:
         ids = args.id.split(',')
         target_machines = [machine for machine in machines if str(machine['id']) in ids]
-    print(args.action)
+
     for machine in target_machines:
         if args.action == 'deploy' or args.action == 'fresh_deploy':
             name = os.environ.get('NAME')
