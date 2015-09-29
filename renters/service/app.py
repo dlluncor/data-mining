@@ -15,7 +15,6 @@ sys.path.append("..") # Adds higher directory to python modules path.
 app = Flask(__name__, static_url_path='')
 
 log_handler = StreamHandler(sys.stdout)
-app.logger.setLevel(logging.INFO)
 app.logger.addHandler(log_handler)
 
 # payment messages
@@ -62,9 +61,8 @@ def price():
 @app.route('/buy', methods=['POST'])
 def buy():
     data = request.get_json()
-    print(data)
+    app.logger.error(data)
     renter_form = data['renter_form']
-    print(renter_form)
     #payment = data['payment']
     form = RenterForm(**renter_form)
     form.save()
@@ -86,8 +84,10 @@ def handle_exception(error):
 
 if __name__ == '__main__':
     if config.DEBUG:
+        app.logger.setLevel(logging.DEBUG)
         app.run(debug=True, host='0.0.0.0', port=8080)
     elif config.PROD:
+        app.logger.setLevel(logging.ERROR)
         from gevent.wsgi import WSGIServer
 
         http_server = WSGIServer(('', 80), app)
