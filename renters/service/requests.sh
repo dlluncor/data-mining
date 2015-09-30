@@ -36,6 +36,13 @@ curl -H "Content-Type: application/json" -X POST -d  '
        "state": "CA",
        "zip_code": "94063",
        "purchase_category": "medium"
+    },
+    "payment_form": {
+      "billing_address": "766 Vaquero",
+      "exp_year": "15",
+      "exp_month": "06",
+      "cvc": "323",
+      "card_number": "232343534323"
     }
 }' \
 $BASE_URL/buy

@@ -23,9 +23,10 @@ ctrl.getRenterForm = function() {
 ctrl.getPaymentForm = function() {
   // Need to encrypt this on client side.
   var d = {
-    "credit_card": $('#pform-credit-card').val(),
-    "cvv": $('#pform-cvv').val(),
-    "expiration_date": $('#pform-expiration').val(),
+    "card_number": $('#pform-cardnumber').val(),
+    "cvc": $('#pform-cvc').val(),
+    "exp_month": $('#pform-exp-month').val(),
+    "exp_year": $('#pform-exp-year').val(),
     "billing_address": $('#pform-billing-address').val(),
   };
   return d;
@@ -43,7 +44,12 @@ ctrl.showEstimate = function() {
     type: "POST"
   }).done(function(data) {
      window.console.log(data);
-     $( this ).addClass( "done" );
+     var price = parseFloat(data);
+     var roundedPrice = Math.round(price * 100) / 100;
+     $('#estimated-value').text('$' + roundedPrice);
+     // Save price to local storage.
+     localStorage['estimated-value'] = roundedPrice;
+     //$( this ).addClass( "done" );
   })
     .fail(function() {
      alert( "error" );
@@ -66,7 +72,7 @@ ctrl.pay = function() {
     type: "POST"
   }).done(function(data) {
      window.console.log(data);
-     window.location = '/done';
+     window.location = '/payment_complete';
   })
     .fail(function() {
      alert( "error" );

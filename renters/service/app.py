@@ -55,6 +55,10 @@ def test_page():
 def quote_page():
     return util.render_common_template('quote.html')
 
+@app.route('/payment_complete')
+def payment_complete_page():
+    return util.render_common_template('payment_complete.html')
+
 @app.route('/terms')
 def terms():
     return util.render_common_template('terms.html')
@@ -168,11 +172,19 @@ def buy():
       renter_form_dict.update(defaults)
       # Log whatever price we have calculated here.
       renter_form_dict['policy_price'] = '$%f' % (price)
-      print renter_form_dict
-      #payment = data['payment']
       #form = RenterForm(**renter_form_dict)
       #form.save()
+      # TODO(dlluncor): Save token associated with user payment.
+
+      print renter_form_dict
+      # Payment information
+      payment_form = data['payment_form']
+      # Store payment information, get token and save it into renter_form
+      # dict.
+      print 'Saving payment form'
+      print payment_form
       return 'success'
+
     except Exception as e:
       line = traceback.format_exc()
       return line

@@ -1,0 +1,34 @@
+{% extends "partials/base.html" %}
+
+{% block body %}
+{{ super() }}
+
+<div class="page-wrapper">
+    <section id="names" class="content-8 v-center first">
+        <div>
+            <div class="container">
+                <h3>Thank you for your purchase!</h3>
+                <p>
+                    <!--Enter your First and Last Name.<br>-->
+                   Please check your email for a confirmation of your quote.
+                   We will give you a call shortly to follow-up and explain any questions you might have.
+                </p>
+                <p>
+                    Your estimated checkout price is: $<label id="estimated-price"></label>
+                </p>
+            </div>
+        </div>
+    </section>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="/assets/js/modernizr.custom.js"></script>
+<script src="/assets/js/jquery.parallax.min.js"></script>
+<script src="/assets/js/startup-kit.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#estimated-price').text('' + localStorage['estimated-value']);
+  });
+</script>
+{% endblock %}
