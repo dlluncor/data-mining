@@ -1689,3 +1689,7 @@ section * {
 .content-23 .background .black-cover {
     opacity: 0.2;
 }
+
+section.content-8 {
+    padding-top: 100px;
+}
