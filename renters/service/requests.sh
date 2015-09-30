@@ -16,7 +16,8 @@ curl -H "Content-Type: application/json" -X POST -d  '
        "address": "3328 Bay Road",
        "city": "Rewood City",
        "state": "CA",
-       "zip_code": "94063"
+       "zip_code": "94063",
+       "purchase_category": "cheap"
     }
 }' \
 $BASE_URL/price
@@ -35,7 +36,8 @@ curl -H "Content-Type: application/json" -X POST -d  '
        "address": "3328 Bay Road",
        "city": "Rewood City",
        "state": "CA",
-       "zip_code": "94063"
+       "zip_code": "94063",
+       "purchase_category": "medium"
     }
 }' \
 $BASE_URL/buy

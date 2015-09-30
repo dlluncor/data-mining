@@ -50,6 +50,8 @@ class RenterForm(object):
         try:
           return float(self.deductible)
         except Exception as e:
+          if not hasattr(self, deductible) or self.deductible is None or self.deductible == '':
+            raise Exception('Did not set the deductible')
           return 150.0  # 100 / 250
 
     def get_property_losses_count(self):

@@ -71,6 +71,36 @@ from price_engine import renters_serving_scorer
 from price_engine import renter_constants
 from price_engine.ml import model_cfg
 
+def ExpandDefaults(purchase_category):
+  d = {
+    'has_bite_dog': 'N',
+    'has_auto_insurance_coverage': 'N',
+    'has_fire_sprinkler_system': 'Y',
+    'has_center_fire_burglar_alarm': 'Y',
+    'has_local_fire_smoke_alarm': 'Y',
+    'has_home_security': 'Y',
+    'is_non_smoking_household': 'Y',
+    'has_local_burglar_alarm': 'Y',
+    'farmers_identity_protection': 'N',
+    'unit_count': '5+',
+    'property_losses_count': '0',
+    'medical_payments': '1000',
+    'personal_liability': '100000' # REALLLY?
+  }
+  cat = purchase_category
+  if cat == 'cheap':
+    d['personal_property_worth'] = '5000'
+    d['deductible'] = '500'
+  elif cat == 'medium':
+    d['personal_property_worth'] = '15000'
+    d['deductible'] = '1000'
+  elif cat == 'deluxe':
+    d['personal_property_worth'] = '35000'
+    d['deductible'] = '500'
+  else:
+    raise Exception('Unrecognized purchase category: %s' % cat)
+  return d
+
 @app.route('/price', methods=['POST'])
 def price():
     """
@@ -82,7 +112,11 @@ def price():
       # Change directories so that we can properly access the files.
       # Right now they are set up to be relative to the engine
       model_cfg.change_dirs('../price_engine/tmp', l_config.model_configs)
-      price = renters_serving_scorer.get_price(l_config, {})
+      data = request.get_json()
+      renter_form_dict = data['renter_form']
+      defaults = ExpandDefaults(renter_form_dict['purchase_category'])
+      renter_form_dict.update(defaults)
+      price = renters_serving_scorer.get_price(l_config, renter_form_dict)
       return '%f' % (price)
     except Exception as e:
       line = traceback.format_exc()
