@@ -1,4 +1,8 @@
-{% extends "partials/base.html" %} {% block body %} {{ super() }}
+{% extends "partials/base.html" %}
+
+{% block body %}
+{{ super() }}
+
 <div class="page-wrapper">
     <section class="header-10-sub v-center bg-midnight-blue">
         <div class="background use-cover">
@@ -158,14 +162,7 @@
         </div>
     </section>
 
-    <!-- content-11  -->
-    <section class="content-11">
-        <div class="container">
-            <span>One Perfect Coverage</span>
-            <br>
-            <a class="btn btn-large btn-danger" href="#">TRY IT NOW</a>
-        </div>
-    </section>
+    {% include 'partials/btm_try_it_now.html' %}
 </div>
 
 <!-- Placed at the end of the document so the pages load faster -->
