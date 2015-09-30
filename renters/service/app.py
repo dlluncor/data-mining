@@ -126,6 +126,8 @@ def price():
     """
     try:
       data = request.get_json()
+      print '/price'
+      print data
       price = get_price_of_user_form(data)
       return '%f' % (price)
     except Exception as e:
@@ -156,6 +158,8 @@ def buy():
     """
     try:
       data = request.get_json()
+      print '/buy'
+      print data
       price = get_price_of_user_form(data)
 
       # Expand defaults so we know what we are assuming.

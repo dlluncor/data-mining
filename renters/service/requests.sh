@@ -8,11 +8,10 @@ BASE_URL=http://localhost:8080
 curl -H "Content-Type: application/json" -X POST -d  '
 {
     "renter_form": {
-       "insurance_type": "Renters",
+       "insurance_type": "renters",
        "first_name": "Christian",
        "last_name": "Bale",
        "dob": "01/30/1974",
-       "gender": "m",
        "address": "3328 Bay Road",
        "city": "Rewood City",
        "state": "CA",
@@ -28,11 +27,10 @@ printf '\n-----------------------------------\n'
 curl -H "Content-Type: application/json" -X POST -d  '
 {
     "renter_form": {
-       "insurance_type": "Renters",
+       "insurance_type": "renters",
        "first_name": "Christian",
        "last_name": "Bale",
        "dob": "01/30/1974",
-       "gender": "m",
        "address": "3328 Bay Road",
        "city": "Rewood City",
        "state": "CA",

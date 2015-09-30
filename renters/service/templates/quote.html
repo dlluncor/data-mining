@@ -7,18 +7,18 @@
     <section id="names" class="content-8 v-center first">
         <div>
             <div class="container">
-                <h3>Start your Quote</h3>
+                <h3>Please start your quote below</h3>
                 <p>
-                    Enter your First and Last Name.
-                    <br> We will send you confirmation by email.
+                    <!--Enter your First and Last Name.<br>-->
+                   In two minutes you'll be done and have an email confirmation!
                 </p>
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
                         <form>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="First Name">
-                                <input class="form-control" type="text" placeholder="Last Name">
-                                <input class="form-control" type="text" placeholder="Email Address">
+                                <!--<input class="form-control" type="text" placeholder="First Name">
+                                <input class="form-control" type="text" placeholder="Last Name">-->
+                                <input class="form-control" type="text" placeholder="Email Address" id="form-email-address">
                             </div>
 
                             <div class="form-group">
@@ -35,17 +35,18 @@
     <section id="address" class="content-8 v-center" style="display: none;">
         <div>
             <div class="container">
-                <h3>Enter your Rental Address</h3>
+                <h3>Step 2: Rental Address</h3>
                 <p>
-                    Phone and Birth Date will be used if a claim is filed.
+                    Almost there!<!--Phone and Birth Date will be used if a claim is filed.-->
                 </p>
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
                         <form>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Address">
-                                <input class="form-control" type="text" placeholder="Phone Number">
-                                <input class="form-control" type="text" placeholder="Birth Date">
+                                <input class="form-control" type="text" placeholder="Address" id="form-address">
+                                <input class="form-control" type="text" placeholder="City" id="form-city">
+                                <input class="form-control" type="text" placeholder="State" id="form-state">
+                                <input class="form-control" type="text" placeholder="Zip Code" id="form-zip-code">
                             </div>
 
                             <div class="form-group">
@@ -63,30 +64,34 @@
     <section id="policy" class="content-8 v-center" style="display: none;">
         <div>
             <div class="container">
-                <h3>Choose Your Policy</h3>
+                <h3>Step 3: Contact information</h3>
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
                         <form>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="First Name">
-                                <input class="form-control" type="text" placeholder="Last Name">
-                                <input class="form-control" type="text" placeholder="Address">
-                                <input class="form-control" type="text" placeholder="Email Address">
-                                <input class="form-control" type="text" placeholder="Phone Number">
-                                <input class="form-control" type="text" placeholder="Birth Date">
+                                <input class="form-control" type="text" placeholder="First Name" id="form-first-name">
+                                <input class="form-control" type="text" placeholder="Last Name" id="form-last-name">
+                                <input class="form-control" type="text" placeholder="Birth Date (MM/DD/YYYY)" id="form-dob">
+                                <input class="form-control" type="text" placeholder="Phone Number" id="form-phone-number">
+                                <label>Choose your bundle type</label>
+                                <select class="form-control" id="form-purchase-category">
+                                  <option value="cheap">Cheapest</option>
+                                  <option value="medium">Medium</option>
+                                  <option value="deluxe">Deluxe</option>
+                                </select>
                             </div>
 
                             <div class="form-group">
-                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" href="#creditcard" onclick="showNext('#creditcard');">Continue</a>
+                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" href="#creditcard" 
+                                onclick="ctrl.showEstimate(); showNext('#creditcard');">Continue</a>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <a class="control-btn fui-arrow-down" href="#creditcard" onclick="showNext('#creditcard');"> </a>
+            <a class="control-btn fui-arrow-down" href="#creditcard" onclick="ctrl.showEstimate(); showNext('#creditcard');"> </a>
         </div>
     </section>
-
 
     <section id="creditcard" class="content-8 v-center" style="display: none;">
         <div>
@@ -96,14 +101,19 @@
                     <div class="col-sm-6 col-sm-offset-3">
                         <form>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Credit Card">
-                                <input class="form-control" type="text" placeholder="Date">
-                                <input class="form-control" type="text" placeholder="Address">
-                                <input class="form-control" type="text" placeholder="Billing Address">
+                                <input class="form-control" type="text" placeholder="Credit card number" id="pform-credit-card">
+                                <input class="form-control" type="text" placeholder="CVV (3 digit)" id="pform-cvv">
+                                <input class="form-control" type="text" placeholder="Expiration Date (MM/YY)" id="pform-expiration">
+                                <br>
+                                <input class="form-control" type="text" placeholder="Billing Address (if different than current address)" id="pform-billing-address">
+                            </div>
+
+                            <div>
+                                <label>Estimated checkout price:</label><label id="estimated-value"></label>
                             </div>
 
                             <div class="form-group">
-                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info">Pay</a>
+                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" onclick="ctrl.pay();">Pay</a>
                             </div>
                         </form>
                     </div>
@@ -113,7 +123,6 @@
         </div>
     </section>
 
-    {% include 'partials/btm_try_it_now.html' %}
 </div>
 
 <script>
@@ -129,4 +138,5 @@ function showNext(id) {
 <script src="/assets/js/startup-kit.js"></script>
 <script src="/assets/js/jquery.backgroundvideo.min.js"></script>
 <script src="/assets/js/script.js"></script>
+<script src="/assets/js/fill_quote.js"></script>
 {% endblock %}
