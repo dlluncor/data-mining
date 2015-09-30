@@ -74,7 +74,7 @@ Notice: you have to start mongo db before you start service.
     sudo APP_ENV=PROD nohup python app.py >> run.log 2>&1 &
     ```
 
-6. Config Upstart to make service start when machine start by create a new files /etc/init/renters.conf with below content:
+6. Config Upstart to make service start when machine start by create a new files /etc/init/payment-service.conf with below content:
 
     ```
     description "Flask Application for Renters Insurance Portal"
@@ -84,7 +84,7 @@ Notice: you have to start mongo db before you start service.
 
     respawn
 
-    chdir /u/app/data-mining/renters/service
+    chdir /u/app/data-mining/renters/payment_service
     exec sudo APP_ENV=PROD python app.py
     ```
 
@@ -100,5 +100,5 @@ Notice: you have to start mongo db before you start service.
 
     check logs
     ```
-    tail -f /var/log/upstart/renters.log
+    tail -f /var/log/upstart/payment-service.log
     ```
