@@ -20,6 +20,22 @@ ctrl.getRenterForm = function() {
   return form;
 }
 
+ctrl.encrypt = function(text) {
+  var pem = "-----BEGIN PUBLIC KEY-----" +
+            "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwb7gVFbFCHd3vrPMUlBs" +
+            "4WzNDc14Lw73KGjhxWix6K9TDJWtVBVPkyD5aEku1EN+tEKW8OwLMZSW6O5q3XBE" +
+            "ycItJEWS2gBJ2GYsvXIWkVMgELz2oUm/obOjoTGbKE/51n9q1xXtNpZ2gCug2JH6" +
+            "0lH0KmNToFpjSJ8yzcUuC5XfbMQLryRlE0soeucMMYJ7Yrwq5Up+EXVh24rgs9Ak" +
+            "/iNzcFVJtOHLXxXheR4TftPZP6kyz7NowY3YHPBBOiXe0nQKbNhWUXR1vmNNLzvz" +
+            "jE3F9Cmv8I+iNTpNbHrqcUbXkx/bDfcIsWqaVVdZBeq2mEP1BrXTsIHQAu6IAhFj" +
+            "3wIDAQAB" +
+            "-----END PUBLIC KEY-----";
+  var publicKey = forge.pki.publicKeyFromPem(pem);
+  var encrypted = publicKey.encrypt(text, 'RSA-OAEP');
+  var msg = forge.util.encode64(encrypted);
+  return msg;
+};
+
 ctrl.getPaymentForm = function() {
   // Need to encrypt this on client side.
   var d = {
@@ -29,7 +45,12 @@ ctrl.getPaymentForm = function() {
     "exp_year": $('#pform-exp-year').val(),
     "billing_address": $('#pform-billing-address').val(),
   };
-  return d;
+  // Encrypt the whole payment form.
+  var encrypted_d = ctrl.encrypt(JSON.stringify(d));
+  var encrypted = {
+    "encrypted_payment_form" : encrypted_d 
+  };
+  return encrypted;
 };
 
 // showEstimate gets the price of the estimated rental policy.
