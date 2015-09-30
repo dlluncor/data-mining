@@ -101,6 +101,21 @@ def ExpandDefaults(purchase_category):
     raise Exception('Unrecognized purchase category: %s' % cat)
   return d
 
+
+def get_price_of_form(renter_form_dict):
+  # Fill out the entire renter form.
+  defaults = ExpandDefaults(renter_form_dict['purchase_category'])
+  renter_form_dict.update(defaults)
+
+  # Create config to pass into renter serving scorer.
+  l_config = renter_constants.learned_config2
+  # Change directories so that we can properly access the files.
+  # Right now they are set up to be relative to the engine
+  model_cfg.change_dirs('../price_engine/tmp', l_config.model_configs)
+
+  price = renters_serving_scorer.get_price(l_config, renter_form_dict)
+  return price
+
 @app.route('/price', methods=['POST'])
 def price():
     """
@@ -108,15 +123,9 @@ def price():
       their insurance policy.
     """
     try:
-      l_config = renter_constants.learned_config2
-      # Change directories so that we can properly access the files.
-      # Right now they are set up to be relative to the engine
-      model_cfg.change_dirs('../price_engine/tmp', l_config.model_configs)
       data = request.get_json()
       renter_form_dict = data['renter_form']
-      defaults = ExpandDefaults(renter_form_dict['purchase_category'])
-      renter_form_dict.update(defaults)
-      price = renters_serving_scorer.get_price(l_config, renter_form_dict)
+      price = get_price_of_form(renter_form_dict)
       return '%f' % (price)
     except Exception as e:
       line = traceback.format_exc()
@@ -146,11 +155,18 @@ def buy():
     """
     try:
       data = request.get_json()
-      renter_form = data['renter_form']
-      print renter_form
-    #payment = data['payment']
-    #form = RenterForm(**renter_form)
-    #form.save()
+      renter_form_dict = data['renter_form']
+      price = get_price_of_form(renter_form_dict)
+
+      # Expand defaults so we know what we are assuming.
+      defaults = ExpandDefaults(renter_form_dict['purchase_category'])
+      renter_form_dict.update(defaults)
+      # Log whatever price we have calculated here.
+      renter_form_dict['policy_price'] = '$%f' % (price)
+      print renter_form_dict
+      #payment = data['payment']
+      #form = RenterForm(**renter_form_dict)
+      #form.save()
       return 'success'
     except Exception as e:
       line = traceback.format_exc()
