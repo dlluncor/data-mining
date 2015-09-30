@@ -181,8 +181,8 @@ def buy():
       payment_form = data['payment_form']
       # Store payment information, get token and save it into renter_form
       # dict.
-      print 'Saving payment form'
-      print payment_form
+      print 'Save encrypted part of payment form to Payment Server'
+      print payment_form['encrypted_payment_form']
       return 'success'
 
     except Exception as e:
