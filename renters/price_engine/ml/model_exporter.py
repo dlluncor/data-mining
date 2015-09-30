@@ -59,6 +59,8 @@ class LearnedModel(object):
 
   def read_model(self, filename):
     m = {}
+    print 'read_model learned'
+    print filename
     with open(filename, 'rb') as fin:
         reader = csv.reader(fin)
         for key, weight in reader:

@@ -68,6 +68,10 @@ class LearnedConfig(object):
       s += 'Model config: %s\n' % (str(mc))
     return s
 
+  def delete_learned_model(self):
+    for cfg in self.model_configs:
+      cfg.learned_model_loc = ''
+
 def change_dirs(new_dir, model_configs):
   locs = ['learned_model_loc', 'memorized_model_loc', 'feature_map_loc', 'feature_map2_loc']
   for model_config in model_configs:

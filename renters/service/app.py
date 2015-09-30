@@ -102,16 +102,18 @@ def ExpandDefaults(purchase_category):
   return d
 
 
-def get_price_of_form(renter_form_dict):
+def get_price_of_user_form(data, l_config=None):
+  renter_form_dict = data['renter_form']
   # Fill out the entire renter form.
   defaults = ExpandDefaults(renter_form_dict['purchase_category'])
   renter_form_dict.update(defaults)
 
   # Create config to pass into renter serving scorer.
-  l_config = renter_constants.learned_config2
   # Change directories so that we can properly access the files.
   # Right now they are set up to be relative to the engine
-  model_cfg.change_dirs('../price_engine/tmp', l_config.model_configs)
+  if l_config is None:
+    l_config = renter_constants.learned_config2
+    model_cfg.change_dirs('../price_engine/tmp', l_config.model_configs)
 
   price = renters_serving_scorer.get_price(l_config, renter_form_dict)
   return price
@@ -124,8 +126,7 @@ def price():
     """
     try:
       data = request.get_json()
-      renter_form_dict = data['renter_form']
-      price = get_price_of_form(renter_form_dict)
+      price = get_price_of_user_form(data)
       return '%f' % (price)
     except Exception as e:
       line = traceback.format_exc()
@@ -155,10 +156,10 @@ def buy():
     """
     try:
       data = request.get_json()
-      renter_form_dict = data['renter_form']
-      price = get_price_of_form(renter_form_dict)
+      price = get_price_of_user_form(data)
 
       # Expand defaults so we know what we are assuming.
+      renter_form_dict = data['renter_form']
       defaults = ExpandDefaults(renter_form_dict['purchase_category'])
       renter_form_dict.update(defaults)
       # Log whatever price we have calculated here.
