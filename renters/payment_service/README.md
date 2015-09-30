@@ -61,7 +61,71 @@ Notice: you have to start mongo db before you start service.
     sudo apt-get install -y mongodb-org
     ```
 
-4. Download Application Codes
+4. Update locale to run mongo locally
+Change content of /etc/default/locale:
+```
+LANG="en_US.UTF-8"
+LANGUAGE="en_US:en"
+LC_ALL="en_US.UTF-8"
+```
+
+5. Secure MongoDB
+After install mongodb, need to enable access control and create specific user to access credit card information.
+```
+mkdir -p /private/var
+cd /private/var
+sudo openssl rand -base64 741 > mongodb-keyfile
+sudo chmod 600 mongo-private-key.pem
+sudo chown mongodb:mongodb mongo-private-key.pem
+```
+
+Edit /etc/mongo.conf. Enable/add below line:
+```
+keyFile=/private/var/mongo_private_key.pem
+```
+
+Restart mongodb
+
+Create Users
+Create admin user
+```
+$ mongo
+> use admin
+db.createUser(
+    {
+      user: "admin",
+      pwd: "xxxx",
+      roles: [ "root" ]
+    }
+)
+```
+Create new user for credit card db
+```
+$ mongo 127.0.0.1/admin -u admin -p
+> use credit_cards
+> db.createUser(
+    {
+      user: "ccwriter",
+      pwd: "xxxx",
+      roles: [
+         { role: "readWrite", db: "credit_cards" }
+      ]
+    }
+)
+```
+
+Access Database:
+```
+mongo 127.0.0.1/credit_cards -u ccwriter -p
+```
+Default passwd is zhen passwd need to change later
+Ref:
+1. http://docs.mongodb.org/manual/tutorial/generate-key-file/
+2. http://docs.mongodb.org/manual/tutorial/enable-authentication/
+3. http://docs.mongodb.org/manual/tutorial/manage-users-and-roles/
+4. http://docs.mongodb.org/manual/reference/connection-string/
+
+5. Download Application Codes
     The application locates at /u/app on the server.
 
     ```
@@ -69,12 +133,12 @@ Notice: you have to start mongo db before you start service.
     sudo chmod -R 777 /u/app
     sudo git clone https://github.com/bonjoylabs/data-mining.git
     ```
-5. Start Server
+6. Start Server
     ```
     sudo APP_ENV=PROD nohup python app.py >> run.log 2>&1 &
     ```
 
-6. Config Upstart to make service start when machine start by create a new files /etc/init/payment-service.conf with below content:
+7. Config Upstart to make service start when machine start by create a new files /etc/init/payment-service.conf with below content:
 
     ```
     description "Flask Application for Renters Insurance Portal"
@@ -85,7 +149,7 @@ Notice: you have to start mongo db before you start service.
     respawn
 
     chdir /u/app/data-mining/renters/payment_service
-    exec sudo APP_ENV=PROD python app.py
+    exec sudo APP_ENV=PROD MONGODB_URI=mongodb://ccwriter:[password]@127.0.0.1:27017/credit_cards python app.py >> /var/log/payment-service.log
     ```
 
     manually start the service:

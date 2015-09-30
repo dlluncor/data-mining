@@ -15,7 +15,7 @@ class TestingConfig(Config):
 class ProductionConfig(Config):
     PROD = True
 
-    mongodb_uri = os.environ.get('MONGOLAB_URI') or DEFAULT_MONGODB_URI
+    mongodb_uri = os.environ.get('MONGODB_URI') or DEFAULT_MONGODB_URI
 
 envs = {
     'TEST': TestingConfig,
