@@ -35,11 +35,15 @@ def home_page():
 
 @app.route('/quote')
 def quote_page():
-    secure_qoute = "https://rentsafe.co/quote"
-    if request.headers.get('X-Forwarded-Proto', 'http') == 'https':
-        return util.render_common_template('quote.html', public_key=config.public_key)
+    # The Amazon Elastic Load Balancer (ELB) supports a HTTP header called X-FORWARDED-PROTO.
+    # All the HTTPS requests going through the ELB will have the value of X-FORWARDED-PROTO equal to 'HTTPS'.
+    if request.headers.get('X-Forwarded-Proto') == 'http':
+        secure_qoute = "https://rentsafe.co/quote"
+        return redirect(secure_qoute, code=302)
 
-    return redirect(secure_qoute, code=302)
+    return util.render_common_template('quote.html', public_key=config.public_key)
+
+
 
 @app.route('/payment_complete')
 def payment_complete_page():
