@@ -1,3 +1,5 @@
+private_key = None
+
 def encrypt(message, public_key_path='public_key.pem'):
     from Crypto.Cipher import PKCS1_OAEP
     from Crypto.PublicKey import RSA
@@ -5,7 +7,6 @@ def encrypt(message, public_key_path='public_key.pem'):
     with open(public_key_path, 'r') as fin:
         pub_key = RSA.importKey(fin.read())
         cipher = PKCS1_OAEP.new(pub_key)
-        print(repr(message))
         ciphertext = cipher.encrypt(message)
         return ciphertext
 
@@ -29,14 +30,20 @@ def decrypt(message, private_key_path='private_key.pem'):
     1. Usages: https://www.dlitz.net/software/pycrypto/api/current/Crypto.Cipher.PKCS1_OAEP-module.html
     2. Create Keys: https://www.pidder.de/pidcrypt/?page=demo_rsa-encryption
     """
+    global private_key
+
     from Crypto.Cipher import PKCS1_OAEP
     from Crypto.PublicKey import RSA
 
-    with open(private_key_path, 'r') as fin:
-        pvt_key = RSA.importKey(fin.read())
-        cipher = PKCS1_OAEP.new(pvt_key)
-        message = cipher.decrypt(message)
-        return message
+    # cached private key to impove performance
+    if not private_key:
+        with open(private_key_path, 'r') as fin:
+            private_key = fin.read()
+
+    pvt_key = RSA.importKey(private_key)
+    cipher = PKCS1_OAEP.new(pvt_key)
+    message = cipher.decrypt(message)
+    return message
 
 if __name__=='__main__':
     # The encrypt card information is encoded to base64 string by client side, should decode before decrypt
