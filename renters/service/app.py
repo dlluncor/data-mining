@@ -33,7 +33,7 @@ def send_js(path):
 def home_page():
     return util.render_common_template('index.html')
 
-@app.route('/quote')
+@app.route('/quote', methods=['GET', 'POST'])
 def quote_page():
     # The Amazon Elastic Load Balancer (ELB) supports a HTTP header called X-FORWARDED-PROTO.
     # All the HTTPS requests going through the ELB will have the value of X-FORWARDED-PROTO equal to 'HTTPS'.
@@ -42,8 +42,6 @@ def quote_page():
         return redirect(secure_qoute, code=302)
 
     return util.render_common_template('quote.html', public_key=config.public_key)
-
-
 
 @app.route('/payment_complete')
 def payment_complete_page():
