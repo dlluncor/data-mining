@@ -4,20 +4,18 @@
 {{ super() }}
 
 <div class="page-wrapper">
+    <!--
     <section id="names" class="content-8 v-center first">
         <div>
             <div class="container">
                 <h3>Please start your quote below</h3>
                 <p>
-                    <!--Enter your First and Last Name.<br>-->
                    In two minutes you'll be done and have an email confirmation!
                 </p>
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
                         <form>
                             <div class="form-group">
-                                <!--<input class="form-control" type="text" placeholder="First Name">
-                                <input class="form-control" type="text" placeholder="Last Name">-->
                                 <input class="form-control" type="email" placeholder="Email Address" id="form-email-address">
                             </div>
 
@@ -30,15 +28,12 @@
             </div>
             <a class="control-btn fui-arrow-down" href="#address" onclick="showNext('#address');"> </a>
         </div>
-    </section>
+    </section>-->
 
-    <section id="address" class="content-8 v-center" style="display: none;">
+    <section id="address" class="content-8 v-center">
         <div>
             <div class="container">
-                <h3>Step 2: Rental Address</h3>
-                <p>
-                    Almost there!<!--Phone and Birth Date will be used if a claim is filed.-->
-                </p>
+                <h3>What address do you rent from?</h3>
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
                         <form>
@@ -56,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <a class="control-btn fui-arrow-down" href="#policy" onclick="showNext('#policy');"> </a>
+            <!--<a class="control-btn fui-arrow-down" href="#policy" onclick="showNext('#policy');"> </a>-->
         </div>
     </section>
 
@@ -64,91 +59,91 @@
     <section id="policy" class="content-8 v-center" style="display: none;">
         <div>
             <div class="container">
-                <h3>Step 3: Contact information</h3>
+                <h3>How can we contact you?</h3>
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
                         <form>
                             <div class="form-group">
                                 <input  class="form-control" type="text" name="fname"placeholder="First Name" id="form-first-name">
                                 <input class="form-control" type="text" name="lname" autocomplete="family-name" placeholder="Last Name" id="form-last-name">
-                                <input class="form-control" type="text" placeholder="Birth Date (MM/DD/YYYY)" id="form-dob">
+                                <input class="form-control" type="email" placeholder="Email Address" id="form-email-address">
+                                <!--<input class="form-control" type="text" placeholder="Birth Date (MM/DD/YYYY)" id="form-dob">-->
                                 <input class="form-control" type="text" name="phone" autocomplete="tel" placeholder="Phone Number" id="form-phone-number">
-                                <label>Choose your bundle type</label>
+                                <!--<label>Choose your bundle type</label>
                                 <select class="form-control" id="form-purchase-category">
                                   <option value="cheap">Cheapest</option>
                                   <option value="medium">Medium</option>
                                   <option value="deluxe">Deluxe</option>
-                                </select>
+                                </select>-->
                             </div>
 
                             <div class="form-group">
-                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" href="#creditcard"
-                                onclick="ctrl.showEstimate(); showNext('#creditcard');">Continue</a>
+                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" href="#price-comparison" 
+                                onclick="ctrl.showPriceComparison(); showNext('#price-comparison');">Continue</a>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <a class="control-btn fui-arrow-down" href="#creditcard" onclick="ctrl.showEstimate(); showNext('#creditcard');"> </a>
+            <!--<a class="control-btn fui-arrow-down" href="#price-comparison" onclick="ctrl.showEstimate(); showNext('#price-comparison');"> </a>-->
         </div>
     </section>
 
-            <!-- price-1 -->
-            <section class="price-1">
-                <div class="container">
-                    <h3>Take a look to our Coverage</h3>
-                    <p class="lead">
-                        Simply select the quote best for you
-                    </p>
-                    <div class="row plans">
-                        <div class="col-sm-4">
-                            <div class="plan">
-                            <br>
-                                <div class="title">Starter</div>
-                                <div class="price">$178/year</div>
-                                <div class="description">
-                                  	<b>$100,000</b> Personal Liability<br>
-                                    <b>$4,000</b> Personal Property<br>
-                                    <b>$1,000</b> Medical Payment<br>
-                                    <b>$500</b> Deductible
-                                </div>
-                                <a class="btn disabled" href="#">Select</a>
-                            </div>
+    <!-- price-1 -->
+    <section class="price-1" id="price-comparison" class="content-8 v-center" style="display: none;">
+        <div class="container">
+            <h3>Take a look to our Coverage</h3>
+            <p class="lead">
+                Simply select the quote best for you
+            </p>
+            <div class="row plans">
+                <div class="col-sm-4">
+                    <div class="plan">
+                    <br>
+                        <div class="title">Starter</div>
+                        <div class="price" id="starter-price">$178/year</div>
+                        <div class="description">
+                          	<b>$100,000</b> Personal Liability<br>
+                            <b>$4,000</b> Personal Property<br>
+                            <b>$1,000</b> Medical Payment<br>
+                            <b>$500</b> Deductible
                         </div>
-                        <div class="col-sm-4">
-                            <div class="plan">
-                            	<br>
-                                <div class="title">Split w/ 2 Roommates</div>
-                                <div class="price">$189/yr</div>
-                                <div class="description">
-                                  	<b>$100,000</b> Personal Liability<br>
-                                    <b>$30,000</b> Personal Property<br>
-                                    <b>$1,000</b> Medical Payments<br>
-                                    <b>$1000</b> Deductible
-                                </div>
-                                <a class="btn btn-primary" href="#">Select</a>
-                            </div>
-                            <div class="ribbon">BEST VALUE</div>
-                        </div>
-
-                        <div class="col-sm-4">
-                            <div class="plan">
-                            <br>
-                                <div class="title">Deluxe</div>
-                                <div class="price">$274/year</div>
-                                <div class="description">
-                                  	<b>$300,000</b> Personal Liability<br>
-                                    <b>$60,000</b> Personal Property<br>
-                                    <b>$1,000</b> Medical Payments<br>
-                                    <b>$1000</b> Deductible
-                                </div>
-                                <a class="btn btn-primary" href="#">Select</a>
-
-                            </div>
-                        </div>
+                        <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate(); showNext('#creditcard');">Select</a>
                     </div>
                 </div>
-            </section>
+                <div class="col-sm-4">                     
+                    <div class="plan">
+                    	<br>
+                        <div class="title">Split w/ 2 Roommates</div>
+                        <div class="price" id="medium-price">$189/yr</div>
+                        <div class="description">
+                          	<b>$100,000</b> Personal Liability<br>
+                            <b>$30,000</b> Personal Property<br>
+                            <b>$1,000</b> Medical Payments<br>
+                            <b>$1000</b> Deductible
+                        </div>
+                        <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate(); showNext('#creditcard');">Select</a>
+                    </div>
+            		<div class="ribbon">BEST VALUE</div>       
+                </div>
+                <div class="col-sm-4">
+                    <div class="plan">
+                    <br>
+                        <div class="title">Deluxe</div>
+                        <div class="price" id="deluxe-price">$274/year</div>
+                        <div class="description">
+                          	<b>$300,000</b> Personal Liability<br>
+                            <b>$60,000</b> Personal Property<br>
+                            <b>$1,000</b> Medical Payments<br>
+                            <b>$1000</b> Deductible
+                        </div>
+                        <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate(); showNext('#creditcard');">Select</a>
+                  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <section id="creditcard" class="content-8 v-center" style="display: none;">
@@ -178,7 +173,6 @@
                     </div>
                 </div>
             </div>
-            <a class="control-btn fui-arrow-down" href="#"> </a>
         </div>
     </section>
 

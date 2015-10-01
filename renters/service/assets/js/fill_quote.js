@@ -44,9 +44,36 @@ ctrl.getPaymentForm = function() {
   return encrypted;
 };
 
-// showEstimate gets the price of the estimated rental policy.
-ctrl.showEstimate = function() {
-  window.console.log('ctrl.showEsitmate');
+ctrl.showPriceComparison = function() {
+  // Need to send down 3 price comparisons.
+  window.console.log('showing final estimate');
+  var form = ctrl.getRenterForm();
+  $.ajax({
+    url: "/three_prices",
+    context: document.body,
+    data: JSON.stringify(form),
+    contentType : 'application/json',
+    type: "POST"
+  }).done(function(data) {
+     // Update the 3 prices 
+     window.console.log('showPriceComparison response')
+     window.console.log(data);
+     // window.console.log(data);
+     // var price = parseFloat(data);
+     // var roundedPrice = Math.round(price * 100) / 100;
+     // $('#estimated-value').text('$' + roundedPrice);
+     // // Save price to local storage.
+     // localStorage['estimated-value'] = roundedPrice;
+     // //$( this ).addClass( "done" );
+  })
+    .fail(function() {
+     alert( "error" );
+  })
+  ;
+}
+
+ctrl.showFinalEstimate = function() {
+  window.console.log('ctrl.showEstimate');
   var form = ctrl.getRenterForm();
   $.ajax({
     url: "/price",

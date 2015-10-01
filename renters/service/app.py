@@ -1,4 +1,4 @@
-import datetime, logging, os, sys, traceback
+import datetime, logging, os, sys, traceback, copy
 import requests, util
 from flask import Flask, render_template, json, jsonify, request, redirect, send_from_directory
 from logging import StreamHandler, Formatter
@@ -67,6 +67,7 @@ from price_engine.ml import model_cfg
 
 def ExpandDefaults(purchase_category):
   d = {
+    'dob': '01/01/1984',
     'has_bite_dog': 'N',
     'has_auto_insurance_coverage': 'N',
     'has_fire_sprinkler_system': 'Y',
@@ -112,6 +113,26 @@ def get_price_of_user_form(data, l_config=None):
 
   price = renters_serving_scorer.get_price(l_config, renter_form_dict)
   return price
+
+@app.route('/three_prices', methods=['POST'])
+def three_prices():
+    """
+      When the user wants to know three options.
+    """
+    try:
+      categories = ['cheap', 'medium', 'deluxe']
+      data = request.get_json()
+      d = {}
+      for cat in categories:
+        # Generate three prices.
+        cat_data = copy.deepcopy(data)
+        cat_data['renter_form']['purchase_category'] = cat
+        price = get_price_of_user_form(cat_data)
+        d[cat] = '%f' % (price)
+      return jsonify(prices=d)
+    except Exception as e:
+      line = traceback.format_exc()
+      return line
 
 @app.route('/price', methods=['POST'])
 def price():
