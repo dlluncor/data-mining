@@ -21,17 +21,7 @@ ctrl.getRenterForm = function() {
 }
 
 ctrl.encrypt = function(text) {
-  var pem = "-----BEGIN PUBLIC KEY-----" +
-            "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwb7gVFbFCHd3vrPMUlBs" +
-            "4WzNDc14Lw73KGjhxWix6K9TDJWtVBVPkyD5aEku1EN+tEKW8OwLMZSW6O5q3XBE" +
-            "ycItJEWS2gBJ2GYsvXIWkVMgELz2oUm/obOjoTGbKE/51n9q1xXtNpZ2gCug2JH6" +
-            "0lH0KmNToFpjSJ8yzcUuC5XfbMQLryRlE0soeucMMYJ7Yrwq5Up+EXVh24rgs9Ak" +
-            "/iNzcFVJtOHLXxXheR4TftPZP6kyz7NowY3YHPBBOiXe0nQKbNhWUXR1vmNNLzvz" +
-            "jE3F9Cmv8I+iNTpNbHrqcUbXkx/bDfcIsWqaVVdZBeq2mEP1BrXTsIHQAu6IAhFj" +
-            "3wIDAQAB" +
-            "-----END PUBLIC KEY-----";
-  //var pem = crypto.public_key;
-  var publicKey = forge.pki.publicKeyFromPem(pem);
+  var publicKey = forge.pki.publicKeyFromPem(window.publicKey);
   var encrypted = publicKey.encrypt(text, 'RSA-OAEP');
   var msg = forge.util.encode64(encrypted);
   return msg;
@@ -49,7 +39,7 @@ ctrl.getPaymentForm = function() {
   // Encrypt the whole payment form.
   var encrypted_d = ctrl.encrypt(JSON.stringify(d));
   var encrypted = {
-    "encrypted_payment_form" : encrypted_d 
+    "encrypted_payment_form" : encrypted_d
   };
   return encrypted;
 };

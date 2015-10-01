@@ -1,8 +1,8 @@
 import os
 
 DEFAULT_MONGODB_URI = "mongodb://127.0.0.1"
-DEFAULT_PRIVATE_KEY_PATH = "test_private_key.pem"
-DEFAULT_PUBLIC_KEY_PATH = "test_public_key.pem"
+DEFAULT_PRIVATE_KEY_PATH = "keys/test_private_key.pem"
+DEFAULT_PUBLIC_KEY_PATH = "keys/test_public_key.pem"
 
 class Config:
     DEBUG, PROD, TEST = False, False, False

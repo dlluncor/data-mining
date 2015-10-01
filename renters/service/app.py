@@ -35,7 +35,8 @@ def home_page():
 
 @app.route('/quote')
 def quote_page():
-    return util.render_common_template('quote.html')
+    print(config.public_key)
+    return util.render_common_template('quote.html', public_key=config.public_key)
 
 @app.route('/payment_complete')
 def payment_complete_page():

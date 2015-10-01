@@ -4,14 +4,19 @@ DEFAULT_MIXPANEL_TOKEN = 'c1642a350ca7177a2bd888a1db8e7cf4'
 DEFAULT_GA_TOKEN = 'UA-66635208-3'
 DEFAULT_MONGODB_URI = "mongodb://127.0.0.1"
 DEFAULT_PAYMENT_ENDPOINT = "http://127.0.0.1:8888/credit_cards"
-DEFAULT_PAYMENT_KEY_ENDPOINT = "http://127.0.0.1:8888/get_public_key"
+DEFAULT_PUBLIC_KEY_PATH = "../payment_service/keys/test_public_key.pem"
+
+def get_key(key_path):
+    with open(key_path, 'r') as fin:
+        key = fin.read()
+        return key.replace("\n", '')
 
 class Config:
     DEBUG, PROD, TEST = False, False, False
 
     mongodb_uri = DEFAULT_MONGODB_URI
     payment_endpoint = DEFAULT_PAYMENT_ENDPOINT
-    payment_crypto_key_endpoint = DEFAULT_PAYMENT_KEY_ENDPOINT
+    public_key = get_key(DEFAULT_PUBLIC_KEY_PATH)
 
     social = {
         'fb': 'https://www.facebook.com/kainoadevice',
@@ -29,6 +34,8 @@ class Config:
         'ga_token': DEFAULT_GA_TOKEN,
     }
 
+
+
 class DevelopmentConfig(Config):
     DEBUG = True
 
@@ -40,7 +47,7 @@ class ProductionConfig(Config):
 
     mongodb_uri = os.environ.get('MONGOLAB_URI') or DEFAULT_MONGODB_URI
     payment_endpoint = "http://172.31.26.118/credit_cards"
-    payment_crypto_key_endpoint = "http://172.31.26.118/get_public_key"
+    public_key = get_key(os.environ.get('PUBLIC_KEY_PATH') or DEFAULT_PUBLIC_KEY_PATH)
 
     apis = {
         'mixpanel_token': os.environ.get('MIXPANEL_TOKEN') or DEFAULT_MIXPANEL_TOKEN,
