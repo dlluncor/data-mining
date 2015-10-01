@@ -150,6 +150,7 @@ def buy():
       # Store payment information, get token and save it into renter_form_dict.
       token = None
       headers = {'content-type': 'application/json'}
+      print(">>>>>>>>")
       try:
           r = requests.post(config.payment_endpoint, data=json.dumps(payment_form), headers=headers)
           result = r.json()
@@ -171,8 +172,11 @@ def buy():
       renter_form_dict['policy_price'] = '$%f' % (price)
 
       print renter_form_dict
+      print(">>>>>>>>")
       # Payment information
       renter_form = RenterForm(**renter_form_dict)
+      print(renter_form)
+      print(token)
       renter_form.token = token
       renter_form.save()
       return jsonify(status='success')
