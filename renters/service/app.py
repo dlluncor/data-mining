@@ -35,10 +35,7 @@ def home_page():
 
 @app.route('/quote')
 def quote_page():
-    r = requests.get(config.payment_crypto_key_endpoint)
-    crypto_public_key = r.text
-    crypto_public_key = crypto_public_key.replace('\n', '$$$$$')
-    return util.render_common_template('quote.html', crypto_public_key=crypto_public_key)
+    return util.render_common_template('quote.html')
 
 @app.route('/payment_complete')
 def payment_complete_page():
