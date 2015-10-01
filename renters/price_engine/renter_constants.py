@@ -164,8 +164,8 @@ learned_config = model_cfg.LearnedConfig(
 """
 model_configs2 = [
   model_cfg.ModelConfig(
-    name='v2', learned_model_loc='tmp/renters-price-learn-v2.csv',
-    memorized_model_loc = 'tmp/renters-price-memorized-v2.csv', 
+    name='v2', learned_model_loc='models/renters-price-learn-v2.csv',
+    memorized_model_loc = 'models/renters-price-memorized-v2.csv', 
     cols_cfg=model_cfg.ColsCfg(
       # maybe include: 'medical_payments', 
       cols_for_learning=[
@@ -189,7 +189,7 @@ model_configs2 = [
       'personal_property_worth', 'medical_payments', 'personal_liability', 'deductible'
       ],
     ),
-    feature_map_loc = 'tmp/feature_map_v2.csv', feature_map2_loc = 'tmp/feature_map2_v2.pickle')
+    feature_map_loc = 'models/feature_map_v2.csv', feature_map2_loc = 'models/feature_map2_v2.pickle')
 ]
 learned_config2 = model_cfg.LearnedConfig(
   raw_filenames = ['data/elance_v2/*.csv'],

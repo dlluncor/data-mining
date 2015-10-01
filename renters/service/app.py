@@ -102,7 +102,7 @@ def get_price_of_user_form(data, l_config=None):
   # Right now they are set up to be relative to the engine
   if l_config is None:
     l_config = renter_constants.learned_config2
-    model_cfg.change_dirs('../price_engine/tmp', l_config.model_configs)
+    model_cfg.change_dirs('../price_engine/models', l_config.model_configs)
 
   price = renters_serving_scorer.get_price(l_config, renter_form_dict)
   return price
