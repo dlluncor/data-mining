@@ -40,8 +40,7 @@ class ProductionConfig(Config):
 
     mongodb_uri = os.environ.get('MONGOLAB_URI') or DEFAULT_MONGODB_URI
     payment_endpoint = "http://172.31.26.118/credit_cards"
-    payment_endpoint = "http://172.31.26.118/credit_cards"
-    payment_crypto_key_endpoint = "http://127.0.0.1/get_public_key"
+    payment_crypto_key_endpoint = "http://172.31.26.118/get_public_key"
 
     apis = {
         'mixpanel_token': os.environ.get('MIXPANEL_TOKEN') or DEFAULT_MIXPANEL_TOKEN,
