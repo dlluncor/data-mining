@@ -3,39 +3,10 @@ from mongoengine import *
 from mongoengine.queryset import DoesNotExist
 from config import config
 
-connect("mate", host=config.mongodb_uri)
+connect("renter_forms", host=config.mongodb_uri)
 
 class RenterForm(DynamicDocument):
-    payment_info = ReferenceField('PaymentInfo')
-
-class PaymentInfo(Document):
-    renter_form = ReferenceField(RenterForm, reverse_delete_rule=CASCADE)
-    card_number = StringField(min_length=12, max_length=20, required=True)
-    card_expiration_date = StringField(min_length=5, max_length=5, required=True)
-    card_cvv = StringField(min_length=4, max_length=4, required=True)
-    status = StringField(max_length=128)
-
-    created_at = DateTimeField(default=datetime.datetime.now)
-    updated_at = DateTimeField(default=datetime.datetime.now)
-
-    @staticmethod
-    def luhn_validate(card_number):
-        """
-        Validate the credit card number
-
-        Params:
-            card_number: String[length=12-19]
-
-        Ref:
-            1. https://en.wikipedia.org/wiki/Bank_card_number
-            2. http://rosettacode.org/wiki/Luhn_test_of_credit_card_numbers#JavaScript
-        """
-        # TODO skip validation of China UnionPay and Diners Club enRoute
-        if re.match(r'^(62|2014|2149)', card_number):
-            return True
-
-        r = [int(ch) for ch in card_number][::-1]
-        return (sum(r[0::2]) + sum(sum(divmod(d*2,10)) for d in r[1::2])) % 10 == 0
+    pass
 
 """
 # INsurance Types

@@ -3,11 +3,14 @@ import os
 DEFAULT_MIXPANEL_TOKEN = 'c1642a350ca7177a2bd888a1db8e7cf4'
 DEFAULT_GA_TOKEN = 'UA-66635208-3'
 DEFAULT_MONGODB_URI = "mongodb://127.0.0.1"
+DEFAULT_PAYMENT_ENDPOINT = "http://127.0.0.1:8888/credit_cards"
 
 class Config:
     DEBUG, PROD, TEST = False, False, False
 
     mongodb_uri = DEFAULT_MONGODB_URI
+    payment_endpoint = DEFAULT_PAYMENT_ENDPOINT
+
     social = {
         'fb': 'https://www.facebook.com/kainoadevice',
         'linkedin': 'https://angel.co/kainoa',
@@ -39,6 +42,7 @@ class ProductionConfig(Config):
     PROD = True
 
     mongodb_uri = os.environ.get('MONGOLAB_URI') or DEFAULT_MONGODB_URI
+    payment_endpoint = "http://127.0.0.1/credit_cards"
 
     apis = {
         'mixpanel_token': os.environ.get('MIXPANEL_TOKEN') or DEFAULT_MIXPANEL_TOKEN,

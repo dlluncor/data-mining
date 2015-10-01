@@ -1,16 +1,10 @@
-import datetime, logging, sys
+import datetime, logging, os, sys, traceback
+import requests, util
 from flask import Flask, render_template, json, jsonify, request, send_from_directory
-import util
-import traceback
-import os
-
-from logging import StreamHandler
-from logging import Formatter
-from flask import Flask, request, json, jsonify
+from logging import StreamHandler, Formatter
 from config import config
-from errors import ChargeException
-from helper import *
 from models import RenterForm
+from helper import *
 
 sys.path.append("..") # Adds higher directory to python modules path.
 
@@ -23,20 +17,12 @@ log_handler.setFormatter(Formatter(
     '%(asctime)s %(levelname)s: %(message)s '
     '[in %(pathname)s:%(lineno)d]'
 ))
-app.logger.setLevel(logging.INFO)
-
-log_handler2 = StreamHandler(sys.stderr)
-log_handler2.setFormatter(Formatter(
+log_err_handler = StreamHandler(sys.stderr)
+log_err_handler.setFormatter(Formatter(
     '%(asctime)s %(levelname)s: %(message)s '
     '[in %(pathname)s:%(lineno)d]'
 ))
-app.logger.addHandler(log_handler2)
-
-# payment messages
-
-SUCCESS_MSG = 'Thanks for the subsription. We will let you know when we launch!'
-MISS_EMAIL_MSG = 'Sorry, email is required for subscription.'
-ALREADY_SUBSCRIBED_MSG = "Thanks, you have already placed your deposit with this email."
+app.logger.addHandler(log_err_handler)
 
 # Displaying templates.
 @app.route('/assets/<path:path>')
@@ -46,10 +32,6 @@ def send_js(path):
 @app.route('/')
 def home_page():
     return util.render_common_template('index.html')
-
-@app.route('/test')
-def test_page():
-    return util.render_common_template('test.html')
 
 @app.route('/quote')
 def quote_page():
@@ -130,8 +112,6 @@ def price():
     """
     try:
       data = request.get_json()
-      print '/price'
-      print data
       price = get_price_of_user_form(data)
       return '%f' % (price)
     except Exception as e:
@@ -162,8 +142,22 @@ def buy():
     """
     try:
       data = request.get_json()
-      print '/buy'
-      print data
+      payment_form = data['payment_form']
+
+      # Store payment information, get token and save it into renter_form_dict.
+      token = None
+      headers = {'content-type': 'application/json'}
+      try:
+          r = requests.post(config.payment_endpoint, data=json.dumps(payment_form), headers=headers)
+          result = r.json()
+          if result['status'] == 'success':
+              token = result['token']
+          else:
+              return jsonify(status='fail', message="Invalid Credit Card Information")
+      except Exception as e:
+          print(">>>> Fail to connect to payment service. %s" % e)
+
+      print(token)
       price = get_price_of_user_form(data)
 
       # Expand defaults so we know what we are assuming.
@@ -178,14 +172,13 @@ def buy():
 
       print renter_form_dict
       # Payment information
-      payment_form = data['payment_form']
-      # Store payment information, get token and save it into renter_form
-      # dict.
-      print 'Save encrypted part of payment form to Payment Server'
-      print payment_form['encrypted_payment_form']
-      return 'success'
+      renter_form = RenterForm(**renter_form_dict)
+      renter_form.token = token
+      renter_form.save()
+      return jsonify(status='success')
 
     except Exception as e:
+      print(e)
       line = traceback.format_exc()
       return line
 
