@@ -194,12 +194,15 @@ def buy():
       defaults = ExpandDefaults(renter_form_dict['purchase_category'])
       renter_form_dict.update(defaults)
       # Log whatever price we have calculated here.
-      renter_form_dict['policy_price'] = '$%f' % (price)
+      renter_form_dict['policy_price'] = '$%.2f' % (price)
 
       # Payment information
       renter_form = RenterForm(**renter_form_dict)
       renter_form.token = token
       renter_form.save()
+
+      util.send_email(renter_form.email_address, 'Thank You for Trusting! Confirmation for Your Purchase!',
+                      'email/confirmation.html', 'email/confirmation.txt', **renter_form_dict)
       return jsonify(status='success')
 
     except Exception as e:
@@ -218,6 +221,7 @@ def handle_exception(error):
 
 
 if __name__ == '__main__':
+    logging.basicConfig()
     if config.DEBUG:
         app.logger.setLevel(logging.DEBUG)
         app.run(debug=True, host='0.0.0.0', port=8080)

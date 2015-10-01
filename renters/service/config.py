@@ -18,6 +18,10 @@ class Config:
     payment_endpoint = DEFAULT_PAYMENT_ENDPOINT
     public_key = get_key(DEFAULT_PUBLIC_KEY_PATH)
 
+    sendgrid_username = 'app40814311@heroku.com'
+    sendgrid_password = 'dczhilw36273'
+    enable_send_email = True
+
     social = {
         'fb': 'https://www.facebook.com/kainoadevice',
         'linkedin': 'https://angel.co/kainoa',
