@@ -166,3 +166,8 @@ Ref:
     ```
     tail -f /var/log/upstart/payment-service.log
     ```
+
+
+TODO:
+1. create keys for debug and prod
+2. for mongodb and ssh service on payment server, listener to customized port

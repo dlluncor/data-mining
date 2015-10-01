@@ -1,4 +1,4 @@
-import datetime, logging, sys
+import base64, datetime, json, logging, sys, util
 from flask import Flask, json, jsonify, request
 from logging import StreamHandler
 from logging import Formatter
@@ -26,10 +26,13 @@ app.logger.addHandler(log_err_handler)
 
 @app.route('/credit_cards', methods=['POST'])
 def credit_cards():
-    number = request.form['number']
-    expiration_date = request.form['expiration_date']
-    cvv = request.form['cvv']
-    card = CreditCard(number=number, expiration_date=expiration_date, cvv=cvv)
+    data = request.get_json()
+    card_info = data['encrypted_payment_form']
+
+    if not card_info:
+        return jsonify(status='fail',message='Empty Payment Information')
+
+    card = CreditCard(card_info=card_info)
     try:
         card.save()
     except ValidationError as e:
