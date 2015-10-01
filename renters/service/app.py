@@ -35,7 +35,10 @@ def home_page():
 
 @app.route('/quote')
 def quote_page():
-    return util.render_common_template('quote.html')
+    r = requests.get(config.payment_crypto_key_endpoint)
+    crypto_public_key = r.text
+    crypto_public_key = crypto_public_key.replace('\n', '$$$$$')
+    return util.render_common_template('quote.html', crypto_public_key=crypto_public_key)
 
 @app.route('/payment_complete')
 def payment_complete_page():
@@ -166,9 +169,6 @@ def buy():
       renter_form_dict.update(defaults)
       # Log whatever price we have calculated here.
       renter_form_dict['policy_price'] = '$%f' % (price)
-      #form = RenterForm(**renter_form_dict)
-      #form.save()
-      # TODO(dlluncor): Save token associated with user payment.
 
       print renter_form_dict
       # Payment information

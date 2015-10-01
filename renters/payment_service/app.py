@@ -42,6 +42,14 @@ def credit_cards():
         return jsonify(status='fail',message=str(e))
     return jsonify(status='success', token=card.token)
 
+@app.route('/get_public_key', methods=['GET'])
+def get_public_key():
+    f = open(config.public_key_path, 'r')
+    content = f.read()
+    f.close()
+    return content
+
+
 if __name__ == '__main__':
     if config.DEBUG:
         app.logger.setLevel(logging.DEBUG)

@@ -30,6 +30,7 @@ ctrl.encrypt = function(text) {
             "jE3F9Cmv8I+iNTpNbHrqcUbXkx/bDfcIsWqaVVdZBeq2mEP1BrXTsIHQAu6IAhFj" +
             "3wIDAQAB" +
             "-----END PUBLIC KEY-----";
+  //var pem = crypto.public_key;
   var publicKey = forge.pki.publicKeyFromPem(pem);
   var encrypted = publicKey.encrypt(text, 'RSA-OAEP');
   var msg = forge.util.encode64(encrypted);
