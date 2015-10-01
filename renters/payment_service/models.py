@@ -14,6 +14,10 @@ class CreditCard(Document):
     created_at = DateTimeField(default=datetime.datetime.now)
     updated_at = DateTimeField(default=datetime.datetime.now)
 
+    meta = {
+        'ordering': ['-created_at']
+    }
+
     @classmethod
     def pre_save(cls, sender, document, **kwargs):
         if not document.card_info:

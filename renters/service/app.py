@@ -148,7 +148,7 @@ def buy():
       # Store payment information, get token and save it into renter_form_dict.
       token = None
       headers = {'content-type': 'application/json'}
-      print(">>>>>>>>")
+
       try:
           r = requests.post(config.payment_endpoint, data=json.dumps(payment_form), headers=headers)
           result = r.json()
@@ -157,11 +157,9 @@ def buy():
           else:
               return jsonify(status='fail', message="Invalid Credit Card Information")
       except Exception as e:
-          print(">>>> Fail to connect to payment service. %s" % e)
+          print("Fail to connect to payment service. %s" % e)
 
-      print(token)
       price = get_price_of_user_form(data)
-
       # Expand defaults so we know what we are assuming.
       renter_form_dict = data['renter_form']
       defaults = ExpandDefaults(renter_form_dict['purchase_category'])
@@ -169,12 +167,8 @@ def buy():
       # Log whatever price we have calculated here.
       renter_form_dict['policy_price'] = '$%f' % (price)
 
-      print renter_form_dict
-      print(">>>>>>>>")
       # Payment information
       renter_form = RenterForm(**renter_form_dict)
-      print(renter_form)
-      print(token)
       renter_form.token = token
       renter_form.save()
       return jsonify(status='success')
@@ -182,7 +176,7 @@ def buy():
     except Exception as e:
       print(e)
       line = traceback.format_exc()
-      return line
+      return jsonify(status='fail', message=line)
 
 @app.route('/error', methods=['GET'])
 def error():

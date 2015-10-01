@@ -6,7 +6,12 @@ from config import config
 connect("renter_forms", host=config.mongodb_uri)
 
 class RenterForm(DynamicDocument):
-    pass
+    created_at = DateTimeField(default=datetime.datetime.now)
+    updated_at = DateTimeField(default=datetime.datetime.now)
+
+    meta = {
+        'ordering': ['-created_at']
+    }
 
 """
 # INsurance Types
