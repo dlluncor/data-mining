@@ -27,9 +27,11 @@ app.logger.addHandler(log_err_handler)
 @app.route('/credit_cards', methods=['POST'])
 def credit_cards():
     data = request.get_json()
-    card_info = data['encrypted_payment_form']
+
+    card_info = data.get('encrypted_payment_form', None)
 
     if not card_info:
+        print("Empty Payment Information or Invalid Data Format")
         return jsonify(status='fail',message='Empty Payment Information')
 
     card = CreditCard(card_info=card_info)
