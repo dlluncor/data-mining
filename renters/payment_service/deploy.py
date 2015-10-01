@@ -121,7 +121,6 @@ if __name__ == '__main__':
         if args.action == 'deploy' or args.action == 'fresh_deploy':
             name = os.environ.get('NAME')
             passwd = os.environ.get('PASSWD')
-            print(name, passwd)
             action_funcs[args.action](machine, name, passwd)
         else:
             action_funcs[args.action](machine)

@@ -35,8 +35,11 @@ def home_page():
 
 @app.route('/quote')
 def quote_page():
-    print(config.public_key)
-    return util.render_common_template('quote.html', public_key=config.public_key)
+    secure_qoute = "https://rentsafe.co/quote"
+    if request.headers.get('X-Forwarded-Proto', 'http') == 'https':
+        return util.render_common_template('quote.html', public_key=config.public_key)
+
+    return redirect(secure_qoute, code=302)
 
 @app.route('/payment_complete')
 def payment_complete_page():
@@ -186,9 +189,9 @@ def error():
 def page_not_found(e):
     return util.render_common_template('errors/404.html'), 404
 
-#@app.errorhandler(Exception)
-#def handle_exception(error):
-#    return util.render_common_template('errors/500.html', err_msg=repr(error))
+@app.errorhandler(Exception)
+def handle_exception(error):
+    return util.render_common_template('errors/500.html', err_msg=repr(error))
 
 
 if __name__ == '__main__':
