@@ -88,6 +88,7 @@ def ExpandDefaults(purchase_category):
     d['personal_property_worth'] = '35000'
     d['deductible'] = '500'
   else:
+    app.logger.error('Unrecognized purchase category: %s' % cat)
     raise Exception('Unrecognized purchase category: %s' % cat)
   return d
 
@@ -160,7 +161,7 @@ def buy():
           else:
               return jsonify(status='fail', message="Invalid Credit Card Information")
       except Exception as e:
-          print("Fail to connect to payment service. %s" % e)
+          app.logger.error("Fail to connect to payment service. %s" % e)
 
       price = get_price_of_user_form(data)
       # Expand defaults so we know what we are assuming.
@@ -187,6 +188,7 @@ def page_not_found(e):
 
 @app.errorhandler(Exception)
 def handle_exception(error):
+    app.logger.error(str(error))
     return util.render_common_template('errors/500.html', err_msg=repr(error))
 
 
