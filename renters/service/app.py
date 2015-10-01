@@ -1,6 +1,6 @@
 import datetime, logging, os, sys, traceback
 import requests, util
-from flask import Flask, render_template, json, jsonify, request, send_from_directory
+from flask import Flask, render_template, json, jsonify, request, redirect, send_from_directory
 from logging import StreamHandler, Formatter
 from config import config
 from models import RenterForm
@@ -180,10 +180,6 @@ def buy():
       print(e)
       line = traceback.format_exc()
       return jsonify(status='fail', message=line)
-
-@app.route('/error', methods=['GET'])
-def error():
-    raise Exception('shit', status_code=500)
 
 @app.errorhandler(404)
 def page_not_found(e):
