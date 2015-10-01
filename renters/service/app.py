@@ -203,5 +203,5 @@ if __name__ == '__main__':
         app.logger.setLevel(logging.ERROR)
         from gevent.wsgi import WSGIServer
 
-        http_server = WSGIServer(('', 80), app)
+        http_server = WSGIServer(('', 8080), app)
         http_server.serve_forever()
