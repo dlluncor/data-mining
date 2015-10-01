@@ -1,4 +1,6 @@
-var ctrl = {};
+var ctrl = {
+  prices: {},
+};
 
 ctrl.getRenterForm = function() {
   var d = {
@@ -44,6 +46,7 @@ ctrl.getPaymentForm = function() {
   return encrypted;
 };
 
+
 ctrl.showPriceComparison = function() {
   // Need to send down 3 price comparisons.
   window.console.log('showing final estimate');
@@ -56,8 +59,18 @@ ctrl.showPriceComparison = function() {
     type: "POST"
   }).done(function(data) {
      // Update the 3 prices 
-     window.console.log('showPriceComparison response')
+     window.console.log('showPriceComparison response');
      window.console.log(data);
+     ctrl.prices = data['prices'];
+     // starter-price medium-price deluxe-price
+     var starter = Math.round(data['prices']['cheap']);
+     $('#starter-price').html('$' + starter + ' / month');
+
+     var medium = Math.round(data['prices']['medium'] / 2.0);
+     $('#medium-price').html('$' + medium + ' / month per person!');
+
+     var deluxe = Math.round(data['prices']['deluxe']);
+     $('#deluxe-price').html('$' + deluxe + ' / month');
      // window.console.log(data);
      // var price = parseFloat(data);
      // var roundedPrice = Math.round(price * 100) / 100;
@@ -72,28 +85,13 @@ ctrl.showPriceComparison = function() {
   ;
 }
 
-ctrl.showFinalEstimate = function() {
-  window.console.log('ctrl.showEstimate');
-  var form = ctrl.getRenterForm();
-  $.ajax({
-    url: "/price",
-    context: document.body,
-    data: JSON.stringify(form),
-    contentType : 'application/json',
-    type: "POST"
-  }).done(function(data) {
-     window.console.log(data);
-     var price = parseFloat(data);
-     var roundedPrice = Math.round(price * 100) / 100;
-     $('#estimated-value').text('$' + roundedPrice);
-     // Save price to local storage.
-     localStorage['estimated-value'] = roundedPrice;
-     //$( this ).addClass( "done" );
-  })
-    .fail(function() {
-     alert( "error" );
-  })
-  ;
+ctrl.showFinalEstimate = function(value_chosen) {
+   window.console.log('showFinalEstimate');
+   var price = ctrl.prices[value_chosen];
+   var roundedPrice = Math.round(price * 100) / 100;
+   $('#estimated-value').text('$' + roundedPrice);
+   // Save price to local storage.
+   localStorage['estimated-value'] = roundedPrice;
 }
 
 // pay actually pays for the cost of the insurance.
