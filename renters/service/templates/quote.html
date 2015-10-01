@@ -94,8 +94,9 @@
     <!-- price-1 -->
     <section class="price-1" id="price-comparison" class="content-8 v-center" style="display: none;">
         <div class="container">
-            <h3>Take a look to our Coverage</h3>
-            <p class="lead">
+            <a class="control-btn fui-arrow-up" href="#policy" onclick="showNext('#policy');"> </a>
+            <h3 style="text-align:center;">Take a look to our Coverage</h3>
+            <p class="lead" style="text-align:center;">
                 Simply select the quote best for you
             </p>
             <div class="row plans">
@@ -107,7 +108,7 @@
                         <div class="description">
                           	<b>$100,000</b> Personal Liability<br>
                             <b>$4,000</b> Personal Property<br>
-                            <b>$1,000</b> Medical Payment<br>
+                            <b>$1,000</b> Loss of Use<br>
                             <b>$500</b> Deductible
                         </div>
                         <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate('cheap'); showNext('#creditcard');">Select</a>
@@ -116,12 +117,12 @@
                 <div class="col-sm-4">                     
                     <div class="plan">
                     	<br>
-                        <div class="title">Split w/ 2 Roommates</div>
+                        <div class="title">Split w/ Roommates</div>
                         <div class="price" id="medium-price">$189/yr</div>
                         <div class="description">
                           	<b>$100,000</b> Personal Liability<br>
                             <b>$30,000</b> Personal Property<br>
-                            <b>$1,000</b> Medical Payments<br>
+                            <b>$6,000</b> Loss of Use<br>
                             <b>$1000</b> Deductible
                         </div>
                         <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate('medium'); showNext('#creditcard');">Select</a>
@@ -136,7 +137,7 @@
                         <div class="description">
                           	<b>$300,000</b> Personal Liability<br>
                             <b>$60,000</b> Personal Property<br>
-                            <b>$1,000</b> Medical Payments<br>
+                            <b>$12,000</b> Loss of Use<br>
                             <b>$1000</b> Deductible
                         </div>
                         <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate('deluxe'); showNext('#creditcard');">Select</a>
@@ -169,11 +170,13 @@
                             </div>
                             <div class="additional-links">
                                 By paying you agree to <a href="/terms">Terms of Use</a> and <a href="/privacy_policy">Privacy Policy</a>
-                                You will be billed monthly and can cancel any time.
+                                <div>
+                                We will <b>not</b> charge your account until you have talked to one of our trusted representatives.
+                               </div>
                             </div>
 
                             <div class="form-group" style="padding-top:10px;">
-                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" onclick="ctrl.pay();">Pay</a>
+                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" onclick="ctrl.pay();">Complete insurance signup</a>
                             </div>
                         </form>
                     </div>

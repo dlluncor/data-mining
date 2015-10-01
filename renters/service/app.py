@@ -78,18 +78,19 @@ def ExpandDefaults(purchase_category):
     'unit_count': '5+',
     'property_losses_count': '0',
     'medical_payments': '1000',
-    'personal_liability': '100000' # REALLLY?
+    'personal_liability': '100000'
   }
   cat = purchase_category
   if cat == 'cheap':
-    d['personal_property_worth'] = '5000'
+    d['personal_property_worth'] = '4000'
     d['deductible'] = '500'
   elif cat == 'medium':
-    d['personal_property_worth'] = '15000'
+    d['personal_property_worth'] = '30000'
     d['deductible'] = '1000'
   elif cat == 'deluxe':
-    d['personal_property_worth'] = '35000'
-    d['deductible'] = '500'
+    d['personal_property_worth'] = '60000'
+    d['personal_liability'] = '300000'
+    d['deductible'] = '1000'
   else:
     app.logger.error('Unrecognized purchase category: %s' % cat)
     raise Exception('Unrecognized purchase category: %s' % cat)

@@ -66,8 +66,8 @@ ctrl.showPriceComparison = function() {
      var starter = Math.round(data['prices']['cheap']);
      $('#starter-price').html('$' + starter + ' / month');
 
-     var medium = Math.round(data['prices']['medium'] / 2.0);
-     $('#medium-price').html('$' + medium + ' / month per person!');
+     var medium = Math.round(data['prices']['medium']);
+     $('#medium-price').html('$' + medium + ' / month');
 
      var deluxe = Math.round(data['prices']['deluxe']);
      $('#deluxe-price').html('$' + deluxe + ' / month');
