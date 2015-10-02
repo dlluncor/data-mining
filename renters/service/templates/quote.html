@@ -1,7 +1,4 @@
-{% extends "partials/base.html" %}
-
-{% block body %}
-{{ super() }}
+{% extends "partials/base.html" %} {% block body %} {{ super() }}
 
 <div class="page-wrapper">
     <!--
@@ -59,14 +56,14 @@
 
     <section id="policy" class="content-8 v-center" style="display: none;">
         <div>
-        	<a class="control-btn fui-arrow-up" href="#address" onclick="showNext('#address');"> </a>
+            <a class="control-btn fui-arrow-up" href="#address" onclick="showNext('#address');"> </a>
             <div class="container">
                 <h3>How can we contact you?</h3>
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
                         <form>
                             <div class="form-group">
-                                <input  class="form-control" type="text" name="fname"placeholder="First Name" id="form-first-name">
+                                <input class="form-control" type="text" name="fname" placeholder="First Name" id="form-first-name">
                                 <input class="form-control" type="text" name="lname" autocomplete="family-name" placeholder="Last Name" id="form-last-name">
                                 <input class="form-control" type="email" placeholder="Email Address" id="form-email-address">
                                 <!--<input class="form-control" type="text" placeholder="Birth Date (MM/DD/YYYY)" id="form-dob">-->
@@ -80,8 +77,7 @@
                             </div>
 
                             <div class="form-group">
-                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" href="#price-comparison"
-                                onclick="ctrl.showPriceComparison(); showNext('#price-comparison');">Continue</a>
+                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" href="#price-comparison" onclick="ctrl.showPriceComparison(); showNext('#price-comparison');">Continue</a>
                             </div>
                         </form>
                     </div>
@@ -92,60 +88,71 @@
     </section>
 
     <!-- price-1 -->
-    <section class="price-1" id="price-comparison" class="content-8 v-center" style="display: none;">
-        <div class="container">
+    <section id="price-comparison" class="content-8 v-center price-1" style="display: none;">
+        <div>
             <a class="control-btn fui-arrow-up" href="#policy" onclick="showNext('#policy');"> </a>
-            <h3 style="text-align:center;">Take a look to our Coverage</h3>
-            <p class="lead" style="text-align:center;">
-                Simply select the quote best for you
-            </p>
-            <div class="row plans">
-                <div class="col-sm-4">
-                    <div class="plan">
-                    <br>
-                        <div class="title">Starter</div>
-                        <div class="price" id="starter-price">$178/year</div>
-                        <div class="description">
-                          	<b>$100,000</b> Personal Liability<br>
-                            <b>$4,000</b> Personal Property<br>
-                            <b>$1,000</b> Loss of Use<br>
-                            <b>$500</b> Deductible
+            <div class="container">
+                <h3 style="text-align:center;">Take a look to our Coverage</h3>
+                <p class="lead" style="text-align:center;">
+                    Simply select the quote best for you
+                </p>
+                <div class="row plans">
+                    <div class="col-sm-4">
+                        <div class="plan">
+                            <br>
+                            <div class="title">Starter</div>
+                            <div class="price" id="starter-price">$178/year</div>
+                            <div class="description">
+                                <b>$100,000</b> Personal Liability
+                                <br>
+                                <b>$4,000</b> Personal Property
+                                <br>
+                                <b>$1,000</b> Loss of Use
+                                <br>
+                                <b>$500</b> Deductible
+                            </div>
+                            <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate('cheap'); showNext('#creditcard');">Select</a>
                         </div>
-                        <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate('cheap'); showNext('#creditcard');">Select</a>
                     </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="plan">
-                    	<br>
-                        <div class="title">Split w/ Roommates</div>
-                        <div class="price" id="medium-price">$189/yr</div>
-                        <div class="description">
-                          	<b>$100,000</b> Personal Liability<br>
-                            <b>$30,000</b> Personal Property<br>
-                            <b>$6,000</b> Loss of Use<br>
-                            <b>$1000</b> Deductible
+                    <div class="col-sm-4">
+                        <div class="plan">
+                            <br>
+                            <div class="title">Split w/ Roommates</div>
+                            <div class="price" id="medium-price">$189/yr</div>
+                            <div class="description">
+                                <b>$100,000</b> Personal Liability
+                                <br>
+                                <b>$30,000</b> Personal Property
+                                <br>
+                                <b>$6,000</b> Loss of Use
+                                <br>
+                                <b>$1000</b> Deductible
+                            </div>
+                            <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate('medium'); showNext('#creditcard');">Select</a>
                         </div>
-                        <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate('medium'); showNext('#creditcard');">Select</a>
+                        <div class="ribbon">BEST VALUE</div>
                     </div>
-            		<div class="ribbon">BEST VALUE</div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="plan">
-                    <br>
-                        <div class="title">Deluxe</div>
-                        <div class="price" id="deluxe-price">$274/year</div>
-                        <div class="description">
-                          	<b>$300,000</b> Personal Liability<br>
-                            <b>$60,000</b> Personal Property<br>
-                            <b>$12,000</b> Loss of Use<br>
-                            <b>$1000</b> Deductible
-                        </div>
-                        <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate('deluxe'); showNext('#creditcard');">Select</a>
+                    <div class="col-sm-4">
+                        <div class="plan">
+                            <br>
+                            <div class="title">Deluxe</div>
+                            <div class="price" id="deluxe-price">$274/year</div>
+                            <div class="description">
+                                <b>$300,000</b> Personal Liability
+                                <br>
+                                <b>$60,000</b> Personal Property
+                                <br>
+                                <b>$12,000</b> Loss of Use
+                                <br>
+                                <b>$1000</b> Deductible
+                            </div>
+                            <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate('deluxe'); showNext('#creditcard');">Select</a>
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            </dvi>
     </section>
 
 
@@ -166,13 +173,14 @@
                             </div>
 
                             <div>
-                                <label style="padding-right:5px;">Estimated checkout price: </label><label id="estimated-value"></label>
+                                <label style="padding-right:5px;">Estimated checkout price: </label>
+                                <label id="estimated-value"></label>
                             </div>
                             <div class="additional-links">
                                 By paying you agree to <a href="/terms">Terms of Use</a> and <a href="/privacy_policy">Privacy Policy</a>
                                 <div>
-                                We will <b>not</b> charge your account until you have talked to one of our trusted representatives.
-                               </div>
+                                    We will <b>not</b> charge your account until you have talked to one of our trusted representatives.
+                                </div>
                             </div>
 
                             <div class="form-group" style="padding-top:10px;">
@@ -185,23 +193,23 @@
         </div>
     </section>
 
-</div>
+    </div>
 
-<script>
-function showNext(id) {
-    $(id).show();
-}
+    <script>
+        function showNext(id) {
+            $(id).show();
+        }
 
-window.publicKey = "{{ public_key }}"
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="/assets/js/modernizr.custom.js"></script>
-<script src="/assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-<script src="/assets/js/jquery.parallax.min.js"></script>
-<script src="/assets/js/startup-kit.js"></script>
-<script src="/assets/js/jquery.backgroundvideo.min.js"></script>
-<!--<script src="/assets/js/script.js"></script>-->
-<script src="/assets/js/libraries/forge.min.js"></script>
-<script src="/assets/js/fill_quote.js"></script>
-{% endblock %}
+        window.publicKey = "{{ public_key }}"
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/assets/js/modernizr.custom.js"></script>
+    <script src="/assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+    <script src="/assets/js/jquery.parallax.min.js"></script>
+    <script src="/assets/js/startup-kit.js"></script>
+    <script src="/assets/js/jquery.backgroundvideo.min.js"></script>
+    <!--<script src="/assets/js/script.js"></script>-->
+    <script src="/assets/js/libraries/forge.min.js"></script>
+    <script src="/assets/js/fill_quote.js"></script>
+    {% endblock %}
