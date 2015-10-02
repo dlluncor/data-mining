@@ -41,7 +41,7 @@
                                 <input class="form-control" type="text" placeholder="Address" id="form-address">
                                 <input class="form-control" type="text" placeholder="City" id="form-city">
                                 <input class="form-control" type="text" placeholder="State" id="form-state">
-                                <input class="form-control" type="text" placeholder="Zip Code" id="form-zip-code">
+                                <input class="form-control" type="text" placeholder="Zip Code" id="form-zip-code" value="{{ zip_code }}">
                             </div>
 
                             <div class="form-group">
@@ -80,7 +80,7 @@
                             </div>
 
                             <div class="form-group">
-                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" href="#price-comparison" 
+                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" href="#price-comparison"
                                 onclick="ctrl.showPriceComparison(); showNext('#price-comparison');">Continue</a>
                             </div>
                         </form>
@@ -114,7 +114,7 @@
                         <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate('cheap'); showNext('#creditcard');">Select</a>
                     </div>
                 </div>
-                <div class="col-sm-4">                     
+                <div class="col-sm-4">
                     <div class="plan">
                     	<br>
                         <div class="title">Split w/ Roommates</div>
@@ -127,7 +127,7 @@
                         </div>
                         <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate('medium'); showNext('#creditcard');">Select</a>
                     </div>
-            		<div class="ribbon">BEST VALUE</div>       
+            		<div class="ribbon">BEST VALUE</div>
                 </div>
                 <div class="col-sm-4">
                     <div class="plan">
@@ -141,7 +141,7 @@
                             <b>$1000</b> Deductible
                         </div>
                         <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate('deluxe'); showNext('#creditcard');">Select</a>
-                  
+
                     </div>
                 </div>
             </div>
