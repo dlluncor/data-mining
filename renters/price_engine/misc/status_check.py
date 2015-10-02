@@ -42,35 +42,35 @@ def execute_cmd(cmd):
         print e
 
 def get_last_success_id_cmd(machine, use_origin=False):
-    cmd = r'FILE_PATH=data-mining/renters/price_engine/data/success_%s.log; test -e $FILE_PATH && echo -n `tail -n 1 $FILE_PATH | cut -c7-9 | tr -d "," | tr -d "\""`' % get_tag(machine)
+    cmd = r'FILE_PATH=data-mining/renters/price_engine/data/new_data_set/success_%s.log; test -e $FILE_PATH && echo -n `tail -n 1 $FILE_PATH | cut -c7-9 | tr -d "," | tr -d "\""`' % get_tag(machine)
     if machine.get('handle_missed', False) and not use_origin:
-        cmd = r'FILE_PATH=data-mining/renters/price_engine/data/success_%s.log; test -e $FILE_PATH && echo -n `tail -n 1 $FILE_PATH | cut -c7-9 | tr -d "," | tr -d "\""`' % get_tag(machine)
+        cmd = r'FILE_PATH=data-mining/renters/price_engine/data/new_data_set/success_%s.log; test -e $FILE_PATH && echo -n `tail -n 1 $FILE_PATH | cut -c7-9 | tr -d "," | tr -d "\""`' % get_tag(machine)
 
     return [cmd]
 
 def get_last_error_id_cmd(machine, use_origin=False):
-    cmd = r'FILE_PATH=data-mining/renters/price_engine/data/error_%s.log; test -e $FILE_PATH && echo -n `tail -n 1 $FILE_PATH | cut -c7-9 | tr -d "," | tr -d "\""`' % get_tag(machine)
+    cmd = r'FILE_PATH=data-mining/renters/price_engine/data/new_data_set/error_%s.log; test -e $FILE_PATH && echo -n `tail -n 1 $FILE_PATH | cut -c7-9 | tr -d "," | tr -d "\""`' % get_tag(machine)
     if machine.get('handle_missed', False) and not use_origin:
-        cmd = r'FILE_PATH=data-mining/renters/price_engine/data/error_%s.log; test -e $FILE_PATH && echo -n `tail -n 1 $FILE_PATH | cut -c7-9 | tr -d "," | tr -d "\""`' % get_tag(machine)
+        cmd = r'FILE_PATH=data-mining/renters/price_engine/data/new_data_set/error_%s.log; test -e $FILE_PATH && echo -n `tail -n 1 $FILE_PATH | cut -c7-9 | tr -d "," | tr -d "\""`' % get_tag(machine)
 
     return [cmd]
 
 def get_total_count_cmd(machine, use_origin=False):
-    cmd = r'wc -l data-mining/renters/price_engine/data/origin_data_set/full_crosses_renters_0921212303_%s.csv | cut -d " " -f 1' % machine['id']
+    cmd = r'wc -l data-mining/renters/price_engine/data/new_data_set/full_crosses_renters_%s.csv | cut -d " " -f 1' % machine['id']
     if machine.get('handle_missed', False) and not use_origin:
-        cmd = r'wc -l data-mining/renters/price_engine/data/missed_full_%s.csv | cut -d " " -f 1' % machine['id']
+        cmd = r'wc -l data-mining/renters/price_engine/data/new_data_set/missed_full_%s.csv | cut -d " " -f 1' % machine['id']
 
     return [cmd]
 
 def get_data_path(machine):
     if machine.get('handle_missed', False):
         return 'data/missed_full_%s.csv' % machine['id']
-    return 'data/origin_data_set/full_crosses_renters_0921212303_%s.csv' % machine['id']
+    return 'data/new_data_set/full_crosses_renters_%s.csv' % machine['id']
 
 def get_tag(machine):
     if machine.get('handle_missed', False):
-        return 'missed_full_3_%s' % machine['id']
-    return 'full_0921212303_3_%s' % machine['id']
+        return 'missed_full_%s' % machine['id']
+    return 'full_%s' % machine['id']
 
 def generate_missed_data_set(machine):
     print("generating missed data set")
@@ -79,7 +79,7 @@ def generate_missed_data_set(machine):
     upload_file(ip, '~/extract_samples_from_error_file.py', '~/data-mining/renters/price_engine/misc/extract_samples_from_error_file.py')
     execute_remote_cmds(ip, [
         'cd data-mining/renters/price_engine',
-        'python misc/extract_samples_from_error_file.py %s %s' % ('data/error_full_0921212303_3_%s.log' % machine_id, 'data/missed_full_%s.csv' % machine_id)
+        'python misc/extract_samples_from_error_file.py %s %s' % ('data/error_full_%s.log' % machine_id, 'data/missed_full_%s.csv' % machine_id)
     ])
 
 def check_status(machine):
@@ -164,10 +164,10 @@ def restart_task(machine):
 
 def resume_task(machine):
     print("resume [%s]" % machine['id'])
-    update_machine_status([machine])
+    #update_machine_status([machine])
 
     if machine.get('finished', False):
-        print("[] is fnished. Do not need to resume")
+        print("[%d] is fnished. Do not need to resume" % machine['id'])
         return
 
     reboot_machine(machine)
@@ -182,8 +182,8 @@ def resume_task(machine):
     offset = execute_remote_cmds(machine['ip'], get_last_success_id_cmd(machine)) or 0
     print("get last success id ", offset)
 
-    if machine.get('handle_missed', False):
-        generate_missed_data_set(machine)
+    #if machine.get('handle_missed', False):
+    #    generate_missed_data_set(machine)
 
     start_scripting(machine, offset)
 
@@ -224,22 +224,11 @@ def is_machine_finish_missed_data(machine):
     return False
 
 machines = [
-    {'id': 0,  'ip': '52.88.233.117'},
-    {'id': 1,  'ip': '52.11.189.158'},
-    {'id': 2,  'ip': '52.88.226.131'},
-    {'id': 3,  'ip': '52.27.101.36'} ,
-    {'id': 4,  'ip': '52.89.19.195'} ,
-    {'id': 5,  'ip': '52.88.52.137'} ,
-    {'id': 6,  'ip': '52.24.245.42'} ,
-    {'id': 7,  'ip': '52.25.250.151'},
-    {'id': 8,  'ip': '52.88.193.187'},
-    {'id': 9,  'ip': '52.88.8.172'}  ,
-    {'id': 10, 'ip': '52.88.252.120'},
-    {'id': 11, 'ip': '52.89.3.92'}   ,
-    {'id': 12, 'ip': '52.88.149.7'}  ,
-    #{'id': 13, 'ip': '52.88.119.125'},
-    {'id': 14, 'ip': '52.24.188.108'},
-    #{'id': 15, 'ip': '52.88.4.226'}  ,
+    {'id': 0,  'ip': '54.148.44.40'},
+    {'id': 1,  'ip': '52.26.4.236'},
+    {'id': 2,  'ip': '52.26.49.136'},
+    {'id': 3,  'ip': '52.88.205.83'} ,
+    {'id': 4,  'ip': '52.89.202.119'} ,
 ]
 
 
@@ -273,12 +262,19 @@ if __name__ == '__main__':
         ids = args.id.split(',')
         target_machines = [machine for machine in machines if str(machine['id']) in ids]
 
-    update_machine_status(target_machines)
+    #update_machine_status(target_machines)
     actions = args.action.split(',')
 
-    for machine in target_machines:
-        for name in actions:
-            action_funcs[name](machine)
+    for name in actions:
+        if name == 'init':
+            import getpass
+            username = raw_input("Please input Github account.\nUsername:")
+            password = getpass.getpass()
+        for machine in target_machines:
+            if name == 'init':
+                action_funcs[name](machine, username, password)
+            else:
+                action_funcs[name](machine)
 
     if args.action == 'check' and args.loop == 'forever':
         print("Loop forever")
