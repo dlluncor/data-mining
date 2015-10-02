@@ -253,6 +253,7 @@ if __name__ == '__main__':
         'resume': resume_task,
         'reboot': reboot_machine,
         'restart': restart_task,
+        'start': start_scripting,
         'test': is_machine_finish_origin_data
     }
 
