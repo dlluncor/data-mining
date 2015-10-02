@@ -1,9 +1,8 @@
 Hi {{ first_name }},
 
-Thank you very much for signing up for renter insurance! We cant wait
+Thank you very much for signing up for renter insurance! We can't wait
 to help you stay on track to get the most protection for your personal
 items and rental property.
-
 
 Plan summary:
     Name: {{ first_name }} {{ last_name }}
@@ -14,5 +13,8 @@ Plan summary:
     Zip Code: {{ zip_code }}
 
     Bundle Type: {{ purchase_category }}
-    Price: ${{ policy_price }} / month
+    Price: {{ policy_price }} / month
     Deductible: {{ deductible }}
+
+Cheers,
+Team RentSafe

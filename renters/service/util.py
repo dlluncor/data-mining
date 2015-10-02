@@ -18,7 +18,7 @@ def send_email(receiver, subject, html_template, txt_template, **kwargs):
     message.add_to(receiver)
     message.set_from('haoran@rentsafe.co')
     message.set_subject(subject)
-    #message.set_html(render_template(html_template, **kwargs))
+    message.set_html(render_template(html_template, **kwargs))
     message.set_text(render_template(txt_template, **kwargs))
 
     try:

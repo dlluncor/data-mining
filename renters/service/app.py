@@ -60,6 +60,21 @@ def privacy_policy():
 def about():
     return util.render_common_template('about.html')
 
+# Practice handlers
+@app.route('/email_template', methods=['GET'])
+def email_template():
+    form = {'last_name': u'Lee', 'is_non_smoking_household': 'Y', 'property_losses_count': '0',
+            'personal_property_worth': '60000', 'medical_payments': '1000', 'has_home_security': 'Y',
+            'email_address': u'david@bonjoylabs.com', 'has_local_fire_smoke_alarm': 'Y', 'first_name': u'David',
+            'personal_liability': '300000', 'has_bite_dog': 'N', 'label': -1, 'state': u'California',
+            'unit_count': '5+', 'zip_code': u'94063', 'phone_number': u'', 'insurance_type': u'renters',
+            'city': u'Rewood City', 'has_center_fire_burglar_alarm': 'Y', 'has_fire_sprinkler_system': 'Y',
+            'has_local_burglar_alarm': 'Y', 'address': u'3328 Bay Road', 'farmers_identity_protection': 'N',
+            'dob': '01/01/1984', 'has_auto_insurance_coverage': 'N', 'deductible': '1000',
+            'purchase_category': 'deluxe', 'policy_price': '$%.2f' % (13.4567)}
+    #return util.render_common_template('email/confirmation.txt', first_name="David")
+    return util.render_common_template('email/full_page.html', page="email/confirmation.html", **form)
+
 from price_engine import renters_serving_scorer
 from price_engine import renter_constants
 from price_engine.ml import model_cfg
