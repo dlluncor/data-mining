@@ -94,7 +94,7 @@ class SetiServer(object):
       raise Exception('Duplicate model being loaded called: %s' % (model_config.name))
     self.model_map[model_config.name] = m_scorer
 
-  def score(self, seti_input, model_name=None):
+  def score(self, seti_input, use_memorized_only=False, model_name=None):
     """Score the model based on the SETI data."""
     if len(self.model_map) == 0:
       raise Exception('Forgot to load any models!')
@@ -112,4 +112,10 @@ class SetiServer(object):
     memorized_price = model.get_memorized_price(seti_input)
     if memorized_price is not None:
       return memorized_price
+    if use_memorized_only:
+      # We cant use the learned model because we dont want to use it right
+      # now.
+      print 'Seti input not memorized:'
+      print seti_input
+      return None
     return model.get_learned_price(seti_input)

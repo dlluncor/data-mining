@@ -38,6 +38,9 @@ class Config:
         'ga_token': DEFAULT_GA_TOKEN,
     }
 
+    # Whether to use the memorized model only when showing prices to the
+    # user.
+    use_memorized_only = True
 
 
 class DevelopmentConfig(Config):

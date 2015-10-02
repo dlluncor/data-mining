@@ -113,7 +113,7 @@ def ExpandDefaults(purchase_category):
   return d
 
 
-def get_price_of_user_form(data, l_config=None):
+def get_price_of_user_form(data, use_memorized_only, l_config=None):
   renter_form_dict = data['renter_form']
   # Fill out the entire renter form.
   defaults = ExpandDefaults(renter_form_dict['purchase_category'])
@@ -126,8 +126,22 @@ def get_price_of_user_form(data, l_config=None):
     l_config = renter_constants.learned_config2
     model_cfg.change_dirs('../price_engine/models', l_config.model_configs)
 
-  price = renters_serving_scorer.get_price(l_config, renter_form_dict)
+  price = renters_serving_scorer.get_price(l_config, renter_form_dict, use_memorized_only)
   return price
+
+def get_three_prices(data, use_memorized_only):
+  """
+    Get three prices returns the price engine for each of the three prices.
+  """
+  categories = ['cheap', 'medium', 'deluxe']
+  d = {}
+  for cat in categories:
+    # Generate three prices.
+    cat_data = copy.deepcopy(data)
+    cat_data['renter_form']['purchase_category'] = cat
+    price = get_price_of_user_form(cat_data, use_memorized_only)
+    d[cat] = '%f' % (price)
+  return d
 
 @app.route('/three_prices', methods=['POST'])
 def three_prices():
@@ -135,15 +149,7 @@ def three_prices():
       When the user wants to know three options.
     """
     try:
-      categories = ['cheap', 'medium', 'deluxe']
-      data = request.get_json()
-      d = {}
-      for cat in categories:
-        # Generate three prices.
-        cat_data = copy.deepcopy(data)
-        cat_data['renter_form']['purchase_category'] = cat
-        price = get_price_of_user_form(cat_data)
-        d[cat] = '%f' % (price)
+      d = get_three_prices(request.get_json(), config.use_memorized_only)
       return jsonify(prices=d)
     except Exception as e:
       line = traceback.format_exc()
@@ -157,7 +163,7 @@ def price():
     """
     try:
       data = request.get_json()
-      price = get_price_of_user_form(data)
+      price = get_price_of_user_form(data, use_memorized_only=config.use_memorized_only)
       return '%f' % (price)
     except Exception as e:
       line = traceback.format_exc()
@@ -205,14 +211,14 @@ def buy():
       except Exception as e:
           app.logger.error("Fail to connect to payment service. %s" % e)
 
-      price = get_price_of_user_form(data)
+      memorized_price = get_price_of_user_form(data, use_memorized=False)
       app.logger.info("Get price of the form")
       # Expand defaults so we know what we are assuming.
       renter_form_dict = data['renter_form']
       defaults = ExpandDefaults(renter_form_dict['purchase_category'])
       renter_form_dict.update(defaults)
       # Log whatever price we have calculated here.
-      renter_form_dict['policy_price'] = '$%.2f' % (price)
+      renter_form_dict['policy_price'] = '$%.2f' % (memorized_price)
 
       # Payment information
       renter_form = RenterForm(**renter_form_dict)

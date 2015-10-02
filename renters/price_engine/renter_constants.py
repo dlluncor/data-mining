@@ -182,7 +182,7 @@ model_configs2 = [
       #'has_home_security', 'is_non_smoking_household', 'has_local_burglar_alarm', 
       ],
       cols_for_memorizing=[
-      'has_bite_dog', 'age_group', 'insurance_type', 'full_address', 'has_auto_insurance_coverage',
+      'has_bite_dog', 'age_group', 'insurance_type', 'has_auto_insurance_coverage',
       'has_fire_sprinkler_system', 'has_center_fire_burglar_alarm', 'has_local_fire_smoke_alarm',
       'has_home_security', 'is_non_smoking_household', 'has_local_burglar_alarm', 
       'farmers_identity_protection', 'unit_count', 'property_losses_count',

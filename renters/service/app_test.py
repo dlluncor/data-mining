@@ -5,7 +5,7 @@ from price_engine.ml import model_cfg
 from price_engine import renter_constants
 
 def testGetPriceOfForm():
-  d = {
+  data = {
     "renter_form": {
        "insurance_type": "Renters",
        "first_name": "Christian",
@@ -21,13 +21,32 @@ def testGetPriceOfForm():
   }
   categories = ['cheap', 'medium', 'deluxe']
   for i in xrange(len(categories)):
-    d['renter_form']['purchase_category'] = categories[i]
+    data['renter_form']['purchase_category'] = categories[i]
     # Question 0: Do the prices increase?
-    print app.get_price_of_user_form(d)
+    print app.get_price_of_user_form(data, use_memorized_only=False)
     # Question 1: Do we have all the data scraped memorized except
     # for dob and address?
     l_config = copy.deepcopy(renter_constants.learned_config2)
     l_config.delete_learned_model()
+
+# Test that we score all memorized version of the prices.
+def testGetMemorizedPrices():
+  data = {
+    "renter_form": {
+       "insurance_type": "Renters",
+       "first_name": "Christian",
+       "last_name": "Bale",
+       "dob": "01/30/1974",
+       "gender": "m",
+       "address": "3328 Bay Road",
+       "city": "Rewood City",
+       "state": "CA",
+       "zip_code": "94063",
+       "purchase_category": "cheap"
+    }
+  }
+  d = app.get_three_prices(data, use_memorized_only=True)
+  assertEquals(len(d.keys()), 3)
 
 # Test util template.
 import sys

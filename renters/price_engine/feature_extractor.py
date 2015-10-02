@@ -80,7 +80,7 @@ class FeatureExtractor(object):
     """
     # Do all logic to produce a SETI example here.
     s = seti.SETIExample()
-    s.add_continuous('dob', rf.get_age())
+    #s.add_continuous('dob', rf.get_age())
     s.add_binary('has_bite_dog', rf.has_bite_dog)
 
     s.weight = 1
@@ -102,7 +102,7 @@ class FeatureExtractor(object):
     s.add_binary('insurance_type', 'renters')
     # TODO(dlluncor): Get the city location as a general feature.
     # TODO(dlluncor): Dont use full_address for memorization.
-    s.add_binary('full_address', rf.get_full_address())
+    #s.add_binary('full_address', rf.get_full_address())
     s.add_binary('has_auto_insurance_coverage', rf.has_auto_insurance_coverage)
     # Systems.
     systems = ['has_fire_sprinkler_system',
