@@ -93,6 +93,8 @@ def check_status(machine):
     cmds = [
         'ps aux | grep [r]uby',
         'free | head -n 2',
+
+        'printf "total: "'
     ] + get_total_count_cmd(machine) + [
         'tail data-mining/renters/price_engine/data/status_%s.log | grep HITTING' % get_tag(machine),
 

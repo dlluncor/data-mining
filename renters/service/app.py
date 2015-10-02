@@ -197,13 +197,16 @@ def buy():
           r = requests.post(config.payment_endpoint, data=json.dumps(payment_form), headers=headers)
           result = r.json()
           if result['status'] == 'success':
+              app.logger.info("Success to store credit card info.")
               token = result['token']
           else:
+              app.logger.error("Fail to store credicard. {message}".format(**result) )
               return jsonify(status='fail', message="Invalid Credit Card Information")
       except Exception as e:
           app.logger.error("Fail to connect to payment service. %s" % e)
 
       price = get_price_of_user_form(data)
+      app.logger.info("Get price of the form")
       # Expand defaults so we know what we are assuming.
       renter_form_dict = data['renter_form']
       defaults = ExpandDefaults(renter_form_dict['purchase_category'])
@@ -215,7 +218,7 @@ def buy():
       renter_form = RenterForm(**renter_form_dict)
       renter_form.token = token
       renter_form.save()
-
+      app.logger.info("Save the form to database")
       util.send_email(renter_form.email_address, 'Thank You for Trusting! Confirmation for Your Purchase!',
                       'email/confirmation.html', 'email/confirmation.txt', **renter_form_dict)
       return jsonify(status='success')
