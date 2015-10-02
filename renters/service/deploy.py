@@ -99,8 +99,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.action is None:
-        print("Sorry fail to execute. Please give the action to operate")
-        sys.exit(parser.print_help())
+        args.action = 'deploy'
 
     action_funcs = {
         'deploy': deploy,
