@@ -66,6 +66,22 @@ def convert_files():
     for fname in files:
         convert_and_save('data/%s' % fname, outpath)
 
+def extract_samples_from_succ_or_err_files(files, outpath):
+    samples= []
+    with open(outpath, 'wb') as fout:
+        writer = csv.writer(fout)
+        writer.writerow(['Insurance Type', 'Zip code', 'First name', 'Last name', 'Date of birth', 'Gender', 'Address', 'City', 'State', 'Auto insurance coverage?', 'Property Type', '# units', '# unrelated roommates', 'roommate names', '# property losses in last 3 years', 'Phone number', 'Email address', 'Fire Sprinkler System?', 'Central Fire & Burglar Alarm?', 'Local Fire / Smoke Alarm?', 'Home Security?', 'Non Smoking Household?', 'Local Burglar Alarm?', 'Unusual hazards?', 'Dogs that bite?', 'Run a business from home?', 'Start date', 'Personal property worth', 'Loss of use', 'Medical payments', 'Personal liability', 'Farmers Identity Protection', 'Deductible', 'Policy Price', 'Annual Policy Price', 'Agent Name', 'Agent Address', 'Agent Phone Number', 'Quote Number'])
+        for f in files:
+            with open(f, 'r') as fin:
+                for line in fin:
+                    data = json.loads(line)
+                    row = data['data']
+                    writer.writerow(row)
+
 if __name__ == '__main__':
     #extract_emails_from_logs()
-    convert_files()
+    #convert_files()
+    #files = ['data/newr1/success_full_0.log', 'data/newr1/success_full_1.log', 'data/newr1/success_full_2.log','data/newr1/success_full_3.log', 'data/newr1/success_full_4.log']
+    #files = ['data/newr1/error_full_0.log', 'data/newr1/error_full_1.log', 'data/newr1/error_full_2.log','data/newr1/error_full_3.log', 'data/newr1/error_full_4.log']
+    files = ['data/error_failed.log']
+    extract_samples_from_succ_or_err_files(files, 'data/newr1/error_failed.csv')
