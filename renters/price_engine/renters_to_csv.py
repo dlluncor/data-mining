@@ -1,5 +1,6 @@
 import sys, getopt
 import renter_constants
+import renter_constants_short
 from ratings import ratings_to_csv
 
 def main(argv):
@@ -20,7 +21,7 @@ def main(argv):
     print("GENERATE MULTIPLE FILES")
 
   w = ratings_to_csv.RequestWriter(
-    renter_constants, use_multiple_files=use_multiple_files, use_fake_prices=use_fake_prices)
+    renter_constants_short, use_multiple_files=use_multiple_files, use_fake_prices=use_fake_prices)
   w.write()
 
 if __name__ == '__main__':
