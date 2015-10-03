@@ -46,6 +46,9 @@ ctrl.getPaymentForm = function() {
   return encrypted;
 };
 
+ctrl.round = function(num) {
+  return num.toFixed(2);
+}
 
 ctrl.showPriceComparison = function() {
   // Need to send down 3 price comparisons.
@@ -63,13 +66,13 @@ ctrl.showPriceComparison = function() {
      window.console.log(data);
      ctrl.prices = data['prices'];
      // starter-price medium-price deluxe-price
-     var starter = Math.round(data['prices']['cheap']);
+     var starter = ctrl.round(parseFloat(data['prices']['cheap']));
      $('#starter-price').html('$' + starter + ' / month');
 
-     var medium = Math.round(data['prices']['medium']);
+     var medium = ctrl.round(parseFloat(data['prices']['medium']));
      $('#medium-price').html('$' + medium + ' / month');
 
-     var deluxe = Math.round(data['prices']['deluxe']);
+     var deluxe = ctrl.round(parseFloat(data['prices']['deluxe']));
      $('#deluxe-price').html('$' + deluxe + ' / month');
      // window.console.log(data);
      // var price = parseFloat(data);
