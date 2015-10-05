@@ -1,6 +1,27 @@
-import subprocess, re, sys, time
+import json, logging, os.path, re, subprocess, sys, time
+from collections import OrderedDict
+
+logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
+
+machines = [
+    {'id': 0,  'ip': '52.88.94.166'},
+    {'id': 1,  'ip': '52.27.211.54'}  ,
+    #{'id': 2,  'ip': '52.26.49.136'} ,
+    #{'id': 3,  'ip': '52.88.205.83'} ,
+    #{'id': 4,  'ip': '52.89.202.119'},
+]
+
+dataset = {
+    'local_path': 'data/new_data_set',
+    'remote_path': '~/data-mining/renters/price_engine/data/new_data_set',
+    'filename': 'no_crosses_renters_all.csv',
+    'tag': 'no_crosses',
+}
 
 class TextDecorator(object):
+    """
+    Display text in different colors on Terminal
+    """
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'
@@ -22,6 +43,26 @@ class TextDecorator(object):
     def warn(txt):
         return TextDecorator.WARNING + txt + TextDecorator.ENDC
 
+def split_dataset(machines):
+    path = dataset['local_path']
+    filename = dataset['filename']
+    dataset_file_path = "%s/%s" % (path, filename)
+    if not os.path.exists(dataset_file_path):
+        logging.error(TextDecorator.fail("Fail to find dataset file: %s" % dataset_file_path))
+        return
+
+    with open(dataset_file_path, 'r') as reader:
+        lines = reader.readlines()
+
+        samples = [json.dumps(OrderedDict([('id', idx), ('data', item.strip())])) for idx, item in enumerate(lines)]
+        # Drop the header
+        samples = samples[1:]
+        for machine in machines:
+            items = samples[int(machine['id'])::len(machines)]
+            with open("%s/%s" % (path, get_filename(machine)), 'w') as writer:
+                for item in items:
+                    writer.write(item + "\n")
+
 def upload_file(ip, local_path, remote_path):
     cmd = "scp -i ~/.ssh/bonjoy-team.pem %s ubuntu@%s:%s " % (local_path, ip, remote_path)
     execute_cmd(cmd)
@@ -41,36 +82,28 @@ def execute_cmd(cmd):
     except subprocess.CalledProcessError as e:
         print e
 
-def get_last_success_id_cmd(machine, use_origin=False):
-    cmd = r'FILE_PATH=data-mining/renters/price_engine/data/new_data_set/success_%s.log; test -e $FILE_PATH && echo -n `tail -n 1 $FILE_PATH | cut -c7-9 | tr -d "," | tr -d "\""`' % get_tag(machine)
-    if machine.get('handle_missed', False) and not use_origin:
-        cmd = r'FILE_PATH=data-mining/renters/price_engine/data/new_data_set/success_%s.log; test -e $FILE_PATH && echo -n `tail -n 1 $FILE_PATH | cut -c7-9 | tr -d "," | tr -d "\""`' % get_tag(machine)
+def get_last_id_cmd(machine, state):
+    tag = get_tag(machine)
+    file_path = "{path}/{state}_{tag}_{id}.dat".format(path=config['data_set_path'], state=state, tag=tag, id=machine['id']),
+    cmd = r'FILE_PATH={path}; test -e $FILE_PATH && echo -n `tail -n 1 $FILE_PATH | cut -c7-9 | tr -d "," | tr -d "\""`'.format(path=file_path)
 
     return [cmd]
 
-def get_last_error_id_cmd(machine, use_origin=False):
-    cmd = r'FILE_PATH=data-mining/renters/price_engine/data/new_data_set/error_%s.log; test -e $FILE_PATH && echo -n `tail -n 1 $FILE_PATH | cut -c7-9 | tr -d "," | tr -d "\""`' % get_tag(machine)
-    if machine.get('handle_missed', False) and not use_origin:
-        cmd = r'FILE_PATH=data-mining/renters/price_engine/data/new_data_set/error_%s.log; test -e $FILE_PATH && echo -n `tail -n 1 $FILE_PATH | cut -c7-9 | tr -d "," | tr -d "\""`' % get_tag(machine)
+def get_dataset_file_name(machine):
+    tag = get_tag(machine)
+    return "{file_prefix}_{tag}_{id}.csv".format(file_prefix=config['dataset_file_prefix'], tag=get_tag(machine), id=machine['id'])
 
+def get_total_count_cmd(machine, tag):
+    cmd = r'wc -l {file_path} | cut -d " " -f 1'.format(file_path=get_data_set_file_path(machine))
     return [cmd]
-
-def get_total_count_cmd(machine, use_origin=False):
-    cmd = r'wc -l data-mining/renters/price_engine/data/new_data_set/full_crosses_renters_%s.csv | cut -d " " -f 1' % machine['id']
-    if machine.get('handle_missed', False) and not use_origin:
-        cmd = r'wc -l data-mining/renters/price_engine/data/new_data_set/missed_full_%s.csv | cut -d " " -f 1' % machine['id']
-
-    return [cmd]
-
-def get_data_path(machine):
-    if machine.get('handle_missed', False):
-        return 'data/missed_full_%s.csv' % machine['id']
-    return 'data/new_data_set/full_crosses_renters_%s.csv' % machine['id']
 
 def get_tag(machine):
-    if machine.get('handle_missed', False):
-        return 'missed_full_%s' % machine['id']
-    return 'full_%s' % machine['id']
+    return machine.get('tag', None) or dataset['tag']
+
+def get_filename(machine):
+    tag = get_tag(machine)
+    machine_id = machine['id']
+    return "%s_%s.json" % (tag, machine_id)
 
 def generate_missed_data_set(machine):
     print("generating missed data set")
@@ -123,27 +156,35 @@ def check_status(machine):
     except subprocess.CalledProcessError as e:
         print e
 
-def init_remote_env(machine, name, passwd):
+def init_remote_machine(machine, name, passwd):
     ip = machine['ip']
     machine_id = machine['id']
-    print("[%s] init env" % machine_id)
-    upload_file(ip, '~/locale', '~/locale')
-    upload_file(ip, '~/Xwrapper.config', '~/Xwrapper.config')
+    tag = get_tag(machine)
+
+    data_filename = get_filename(machine)
+    logging.info("[%s] init env" % machine_id)
+    upload_file(ip, 'misc/locale', '~/locale')
+    upload_file(ip, 'misc/Xwrapper.config', '~/Xwrapper.config')
+
     cmds = [
         'rm -rf data-mining',
         'git clone https://%s:%s@github.com/bonjoylabs/data-mining' % (name, passwd),
         'sudo cp /etc/default/locale /etc/default/locale.default',
         'sudo cp ~/locale /etc/default/locale',
         'sudo cp /etc/X11/Xwrapper.config /etc/X11/Xwrapper.config.default',
-        'sudo cp ~/Xwrapper.config /etc/X11/Xwrapper.config'
+        'sudo cp ~/Xwrapper.config /etc/X11/Xwrapper.config',
     ]
     execute_remote_cmds(ip, cmds)
+    # Upload data file
+    upload_file(ip, '%s/%s' % (dataset['local_path'], data_filename), '%s/%s' % (dataset['remote_path'], data_filename))
+    reboot_machine(machine)
+    print("Rebooting [{id}] ... ".format(**machine))
 
 def start_scripting(machine, offset=0):
     ip = machine['ip']
     machine_id = machine['id']
-    print("[%s] start script" % machine_id)
-    print("Check if X server is running")
+    logging.info("[%s] start script" % machine_id)
+    logging.info("Check if X server is running")
     output = execute_remote_cmds(ip, ['pidof X'])
     if output is None:
         print("start X server")
@@ -153,7 +194,7 @@ def start_scripting(machine, offset=0):
     cmds = [
         'export DISPLAY=:0.0',
         'cd ~/data-mining/renters/price_engine',
-        "nohup ruby browser_robot.rb '%s' '%s' %s > /dev/null 2>&1 &" % (get_data_path(machine), get_tag(machine), offset),
+        "nohup ruby browser_robot.rb '%s' '%s' '%s' '%s' %s > /dev/null 2>&1 &" % (dataset['remote_path'], get_filename(machine), get_tag(machine), 'json', offset),
     ]
     execute_remote_cmds(ip, cmds)
 
@@ -189,22 +230,11 @@ def resume_task(machine):
 
     start_scripting(machine, offset)
 
-def update_machine_status(machines):
-    print("update machine status ...")
-    for machine in machines:
-        if not machine.get('finished', False) and is_machine_finish_origin_data(machine):
-            machine['handle_missed'] = True
-
-        if not machine.get('finished', False) and is_machine_finish_missed_data(machine):
-            machine['finished'] = True
-
-def is_machine_finish_origin_data(machine):
+def is_dataset_finished(machine, tag):
     ip = machine['ip']
     machine_id = machine['id']
 
-    total_count = execute_remote_cmds(ip, get_total_count_cmd(machine, True)) or '0'
-    success_id = execute_remote_cmds(ip, get_last_success_id_cmd(machine, True)) or '0'
-    error_id = execute_remote_cmds(ip, get_last_error_id_cmd(machine, True)) or '0'
+    output = execute_remote_cmds()
 
     if int(success_id.strip()) + 1 == int(total_count.strip()) or int(error_id.strip()) + 1 == int(total_count.strip()):
         return True
@@ -225,14 +255,9 @@ def is_machine_finish_missed_data(machine):
         return True
     return False
 
-machines = [
-    {'id': 0,  'ip': '54.148.44.40'},
-    {'id': 1,  'ip': '52.26.4.236'},
-    {'id': 2,  'ip': '52.26.49.136'},
-    {'id': 3,  'ip': '52.88.205.83'} ,
-    {'id': 4,  'ip': '52.89.202.119'} ,
-]
-
+def test(machine):
+    output = execute_remote_cmds(machine['ip'], ['ls /tmp/'])
+    print(output)
 
 if __name__ == '__main__':
     import argparse
@@ -250,13 +275,13 @@ if __name__ == '__main__':
         sys.exit("Sorry fail to execute. Please give the actions to operate")
 
     action_funcs = {
-        'init': init_remote_env,
+        'init': init_remote_machine,
         'check': check_status,
         'resume': resume_task,
         'reboot': reboot_machine,
         'restart': restart_task,
         'start': start_scripting,
-        'test': is_machine_finish_origin_data
+        'test': test
     }
 
     if args.id == 'all':
@@ -271,6 +296,8 @@ if __name__ == '__main__':
     for name in actions:
         if name == 'init':
             import getpass
+            logging.info("Split data set into %s files" % len(machines))
+            split_dataset(machines)
             username = raw_input("Please input Github account.\nUsername:")
             password = getpass.getpass()
         for machine in target_machines:

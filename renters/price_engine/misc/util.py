@@ -83,5 +83,6 @@ if __name__ == '__main__':
     #convert_files()
     #files = ['data/newr1/success_full_0.log', 'data/newr1/success_full_1.log', 'data/newr1/success_full_2.log','data/newr1/success_full_3.log', 'data/newr1/success_full_4.log']
     #files = ['data/newr1/error_full_0.log', 'data/newr1/error_full_1.log', 'data/newr1/error_full_2.log','data/newr1/error_full_3.log', 'data/newr1/error_full_4.log']
-    files = ['data/error_failed.log']
-    extract_samples_from_succ_or_err_files(files, 'data/newr1/error_failed.csv')
+    #files = ['data/error_failed.log']
+    #extract_samples_from_succ_or_err_files(files, 'data/newr1/error_failed.csv')
+    
