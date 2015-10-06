@@ -247,8 +247,7 @@ def start_script(dataset_path, filename, tag, file_ext='csv', offset=0)
     else file_ext = 'json'
         # read json lines from file
         content = File.read("#{dataset_path}/#{filename}")
-        rows = content.split("\n").map { |x| JSON.parse(x) }
-        data = rows.map { |r| r['data'].split(',') }
+        data = content.split("\n").map { |x| JSON.parse(x) }
     end
     counter = 0
 
@@ -259,8 +258,14 @@ def start_script(dataset_path, filename, tag, file_ext='csv', offset=0)
         if offset > 0 and counter <= offset
             next
         end
+        idx = counter
 
-        msg = {:id => counter, :data => row, :start_time => start_time}
+        if file_ext == 'json'
+            idx = row['id']
+            row = row['data'].split(',')
+        end
+
+        msg = {:id => idx, :data => row, :start_time => start_time}
 
         log_status("[#{counter}] HITTING ... ", tag, dataset_path)
         browser = Watir::Browser.new :chrome
