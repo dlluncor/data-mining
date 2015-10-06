@@ -262,7 +262,7 @@ def start_script(dataset_path, filename, tag, file_ext='csv', offset=0)
 
         if file_ext == 'json'
             idx = row['id']
-            row = row['data'].split(',')
+            row = row['data']
         end
 
         msg = {:id => idx, :data => row, :start_time => start_time}

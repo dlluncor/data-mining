@@ -4,8 +4,8 @@ from collections import OrderedDict
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
 machines = [
-    {'id': 0,  'ip': '52.88.94.166'},
-    {'id': 1,  'ip': '52.27.211.54'}  ,
+    {'id': 0,  'ip': '52.88.94.166', 'filename': 'error_no_crosses.json', 'tag': 'missed'},
+    {'id': 1,  'ip': '52.27.211.54', 'filename': 'error_no_crosses.json', 'tag': 'missed'}  ,
     #{'id': 2,  'ip': '52.26.49.136'} ,
     #{'id': 3,  'ip': '52.88.205.83'} ,
     #{'id': 4,  'ip': '52.89.202.119'},
@@ -54,7 +54,7 @@ def split_dataset(machines):
     with open(dataset_file_path, 'r') as reader:
         lines = reader.readlines()
 
-        samples = [json.dumps(OrderedDict([('id', idx), ('data', item.strip())])) for idx, item in enumerate(lines)]
+        samples = [json.dumps(OrderedDict([('id', idx), ('data', item.strip().split(','))])) for idx, item in enumerate(lines)]
         # Drop the header
         samples = samples[1:]
         for machine in machines:
@@ -102,6 +102,9 @@ def get_tag(machine):
     return machine.get('tag', None) or dataset['tag']
 
 def get_data_filename(machine):
+    if machine.get('filename', None):
+        return machine['filename']
+
     tag = get_tag(machine)
     return "%s_%s.json" % (tag, machine['id'])
 
@@ -115,18 +118,19 @@ def check_status(machine):
 
         'printf "total: "'
     ] + get_total_count_cmd(machine) + [
-        'tail {filepath} | grep HITTING'.format(filepath=get_remote_result_filepath('status', machine, 'log')),
+        'FILE_PATH={filepath}; test -e $FILE_PATH && tail $FILE_PATH  | grep HITTING'.format(filepath=get_remote_result_filepath('status', machine, 'log')),
 
         'printf "last-success: "',
     ] + get_last_id_cmd(machine, 'success') + [
         'printf " count: "',
-        'wc -l {filepath} | cut -d " " -f 1'.format(filepath=get_remote_result_filepath('status', machine)),
+        'FILE_PATH={filepath}; test -e $FILE_PATH && wc -l $FILE_PATH | cut -d " " -f 1'.format(filepath=get_remote_result_filepath('status', machine)),
 
         'printf "last-error: "',
     ] + get_last_id_cmd(machine, 'error') + [
         'printf " count: "',
-        'wc -l {filepath} | cut -d " " -f 1'.format(filepath=get_remote_result_filepath('error', machine)),
+        'FILE_PATH={filepath}; test -e $FILE_PATH && wc -l $FILE_PATH | cut -d " " -f 1'.format(filepath=get_remote_result_filepath('error', machine)),
 
+        'printf "\nFiles under /tmp:\n"',
         'ls /tmp'
     ]
     cmd = create_remote_cmd(ip, cmds)
@@ -139,10 +143,12 @@ def check_status(machine):
         elif re.search('end.%s' % get_tag(machine), output):
             logging.info(TextDecorator.warn(header) + " FINISHED")
         elif re.search('start.%s' % get_tag(machine), output):
-            print(TextDecorator.fail(header))
-            print("the script stopped. Trying to restart.")
+            logging.info(TextDecorator.fail(header))
+            logging.info("the script stopped. Trying to restart.")
             resume_task(machine)
-
+        else:
+            logging.info(TextDecorator.fail(header))
+            logging.info(TextDecorator.warn("The task seems not STARTED. Please start it before check"))
         print output
     except subprocess.CalledProcessError as e:
         print e
@@ -208,11 +214,6 @@ def resume_task(machine):
     reboot_machine(machine)
     print("rebooting ... waiting for 60s")
     time.sleep(60)
-
-    if machine.get('handle_missed', False):
-        print(">> Handle Missed Data Set")
-    else:
-        print(">> Handle Original Data Set")
 
     offset = execute_remote_cmds(machine['ip'], get_last_id_cmd(machine, 'success')) or 0
     print("get last success id ", offset)
