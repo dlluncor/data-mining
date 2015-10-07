@@ -1,8 +1,7 @@
 
 var rts = {};
 
-rts.priceTemplateStr =  '<div class="col-sm-4"> ' +
-                     '   <div class="plan"> ' +
+rts.priceTemplateStr = '   <div class="plan"> ' +
                      '       <br> ' +
                      '       <div class="title"><%=title%></div> ' +
                      '       <div class="price" id="<%=price_div_id%>">$178/year</div> ' +
@@ -16,8 +15,7 @@ rts.priceTemplateStr =  '<div class="col-sm-4"> ' +
                      '          <b><%=deductible%></b> Deductible' +
                      '       </div>' +
                      '       <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate(\'cheap\'); showNext(\'#creditcard\');">Select</a>' +
-                     '   </div>' +
-                     ' </div>';
+                     '   </div>';
 
 rts.priceTemplate = _.template(rts.priceTemplateStr);
 
@@ -48,7 +46,7 @@ rts.priceCardHtml = function(option) {
       "price_div_id": "deluxe-price",
     }
   };
-  var dataVal = d[option]; 
+  var dataVal = d[option];
   return rts.priceTemplate(dataVal);
 };
 
