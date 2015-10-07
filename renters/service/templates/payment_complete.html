@@ -37,6 +37,7 @@
     // TODO(dlluncor): Fix all the templates correctly.
     $('#estimated-price').text('' + localStorage['estimated-value']);
     $('#plan-card').html(rts.priceCardHtml(localStorage['plan-bought']));
+    $('#plan-card a.btn').hide();
   });
 </script>
 {% endblock %}
