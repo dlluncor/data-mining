@@ -4,8 +4,8 @@ from collections import OrderedDict
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
 machines = [
-    {'id': 0,  'ip': '52.88.94.166', 'filename': 'error_no_crosses.json', 'tag': 'missed'},
-    {'id': 1,  'ip': '52.27.211.54', 'filename': 'error_no_crosses.json', 'tag': 'missed'}  ,
+    {'id': 0,  'ip': '52.88.94.166'},# 'filename': 'error_no_crosses.json', 'tag': 'missed'},
+    {'id': 1,  'ip': '52.27.211.54'},# 'filename': 'error_no_crosses.json', 'tag': 'missed'}  ,
     #{'id': 2,  'ip': '52.26.49.136'} ,
     #{'id': 3,  'ip': '52.88.205.83'} ,
     #{'id': 4,  'ip': '52.89.202.119'},
@@ -120,23 +120,22 @@ def check_status(machine):
     ] + get_total_count_cmd(machine) + [
         'FILE_PATH={filepath}; test -e $FILE_PATH && tail $FILE_PATH  | grep HITTING'.format(filepath=get_remote_result_filepath('status', machine, 'log')),
 
-        'printf "last-success: "',
+        'printf "last-success-id: "',
     ] + get_last_id_cmd(machine, 'success') + [
         'printf " count: "',
-        'FILE_PATH={filepath}; test -e $FILE_PATH && wc -l $FILE_PATH | cut -d " " -f 1'.format(filepath=get_remote_result_filepath('status', machine)),
+        'FILE_PATH={filepath}; test -e $FILE_PATH && wc -l $FILE_PATH | cut -d " " -f 1'.format(filepath=get_remote_result_filepath('success', machine)),
 
-        'printf "last-error: "',
+        'printf "last-error-id: "',
     ] + get_last_id_cmd(machine, 'error') + [
         'printf " count: "',
         'FILE_PATH={filepath}; test -e $FILE_PATH && wc -l $FILE_PATH | cut -d " " -f 1'.format(filepath=get_remote_result_filepath('error', machine)),
 
         'printf "\nFiles under /tmp:\n"',
-        'ls /tmp'
+        'ls %s' % dataset['remote_path']
     ]
     cmd = create_remote_cmd(ip, cmds)
     try:
         output = subprocess.check_output(cmd, shell=True)
-        print(output)
         header = ">>>> [%s] %s" % (machine_id, ip)
         if re.search('ruby browser_robot.rb', output):
             logging.info(TextDecorator.sucess(header))
@@ -223,34 +222,31 @@ def resume_task(machine):
 
     start_scripting(machine, offset)
 
-def get_remote_result_filename(filetype, machine, ext='json'):
-    tag = get_tag(machine)
-    return '%s_%s.%s' % (filetype, tag, ext)
+def get_remote_result_filepath(filetype, machine, ext='json', tag=None):
+    tag = tag or get_tag(machine)
+    filename = '%s_%s.%s' % (filetype, tag, ext)
+    return "{path}/{filename}".format(path=dataset['remote_path'], filename=filename)
 
-def get_remote_result_filepath(filetype, machine, ext='json'):
-    return "{path}/{filename}".format(path=dataset['remote_path'], filename=get_remote_result_filename(filetype, machine, ext))
-
-def get_local_result_filename(filetype, machine, ext='json'):
-    tag = get_tag(machine)
-    return '%s_%s_%s.%s' % (filetype, tag, machine['id'], ext)
-
-def get_local_result_filepath(filetype, machine, ext='json'):
-    return "{path}/{filename}".format(path=dataset['local_path'], filename=get_local_result_filename(filetype, machine, ext))
+def get_local_result_filepath(filetype, machine, ext='json', tag=None):
+    tag = tag or get_tag(machine)
+    filename = '%s_%s_%s.%s' % (filetype, tag, machine['id'], ext)
+    return "{path}/{filename}".format(path=dataset['local_path'], filename=filename)
 
 def pull_data_files(machine, tags):
     ip = machine['ip']
     remote_path = dataset['remote_path']
     local_path = dataset['local_path']
+    print(tags)
     for tag in tags:
         files = [{
-            'remote_filepath': get_remote_result_filepath('success', machine),
-            'local_filepath': get_local_result_filepath('success', machine),
+            'remote_filepath': get_remote_result_filepath('success', machine, 'json', tag),
+            'local_filepath': get_local_result_filepath('success', machine, 'json', tag),
         }, {
-            'remote_filepath': get_remote_result_filepath('error', machine),
-            'local_filepath': get_local_result_filepath('error', machine),
+            'remote_filepath': get_remote_result_filepath('error', machine, 'json', tag),
+            'local_filepath': get_local_result_filepath('error', machine, 'json', tag),
         },{
-            'remote_filepath': get_remote_result_filepath('status', machine, 'log'),
-            'local_filepath': get_local_result_filepath('status', machine, 'log'),
+            'remote_filepath': get_remote_result_filepath('status', machine, 'log', tag),
+            'local_filepath': get_local_result_filepath('status', machine, 'log', tag),
         }]
         for f in files:
             download_file(ip, f['local_filepath'], f['remote_filepath'])

@@ -238,7 +238,7 @@ def log_status(msg, tag, path)
 end
 
 def start_script(dataset_path, filename, tag, file_ext='csv', offset=0)
-    `touch /tmp/start.#{tag}`
+    `touch #{dataset_path}/start.#{tag}`
     if file_ext == 'csv'
         data = CSV.read("#{dataset_path}/#{filename}")
         header = data.shift
@@ -304,8 +304,8 @@ def start_script(dataset_path, filename, tag, file_ext='csv', offset=0)
         log_success(msg, tag, dataset_path)
         log_status("\t[#{delta}][#{info[:price]}]DONE", tag, dataset_path)
     end
-    `rm /tmp/start.#{tag}`
-    `touch /tmp/end.#{tag}`
+    `rm #{dataset_path}/start.#{tag}`
+    `touch #{dataset_path}/end.#{tag}`
 end
 
 
