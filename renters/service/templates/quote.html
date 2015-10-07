@@ -1,31 +1,6 @@
 {% extends "partials/base.html" %} {% block body %} {{ super() }}
 
 <div class="page-wrapper">
-    <!--
-    <section id="names" class="content-8 v-center first">
-        <div>
-            <div class="container">
-                <h3>Please start your quote below</h3>
-                <p>
-                   In two minutes you'll be done and have an email confirmation!
-                </p>
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                        <form>
-                            <div class="form-group">
-                                <input class="form-control" type="email" placeholder="Email Address" id="form-email-address">
-                            </div>
-
-                            <div class="form-group">
-                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" href="#address" onclick="showNext('#address');">Continue</a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <a class="control-btn fui-arrow-down" href="#address" onclick="showNext('#address');"> </a>
-        </div>
-    </section>-->
 
     <section id="address" class="content-8 v-center">
         <div>
@@ -97,58 +72,11 @@
                     Simply select the quote best for you
                 </p>
                 <div class="row plans">
-                    <div class="col-sm-4">
-                        <div class="plan">
-                            <br>
-                            <div class="title">Starter</div>
-                            <div class="price" id="starter-price">$178/year</div>
-                            <div class="description">
-                                <b>$100,000</b> Personal Liability
-                                <br>
-                                <b>$4,000</b> Personal Property
-                                <br>
-                                <b>$1,000</b> Loss of Use
-                                <br>
-                                <b>$500</b> Deductible
-                            </div>
-                            <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate('cheap'); showNext('#creditcard');">Select</a>
-                        </div>
+                    <div id="cheap-plan-container">
                     </div>
-                    <div class="col-sm-4">
-                        <div class="plan">
-                            <br>
-                            <div class="title">Split w/ Roommates</div>
-                            <div class="price" id="medium-price">$189/yr</div>
-                            <div class="description">
-                                <b>$100,000</b> Personal Liability
-                                <br>
-                                <b>$30,000</b> Personal Property
-                                <br>
-                                <b>$6,000</b> Loss of Use
-                                <br>
-                                <b>$1000</b> Deductible
-                            </div>
-                            <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate('medium'); showNext('#creditcard');">Select</a>
-                        </div>
-                        <div class="ribbon">BEST VALUE</div>
+                    <div id="medium-plan-container">
                     </div>
-                    <div class="col-sm-4">
-                        <div class="plan">
-                            <br>
-                            <div class="title">Deluxe</div>
-                            <div class="price" id="deluxe-price">$274/year</div>
-                            <div class="description">
-                                <b>$300,000</b> Personal Liability
-                                <br>
-                                <b>$60,000</b> Personal Property
-                                <br>
-                                <b>$12,000</b> Loss of Use
-                                <br>
-                                <b>$1000</b> Deductible
-                            </div>
-                            <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate('deluxe'); showNext('#creditcard');">Select</a>
-
-                        </div>
+                    <div id="deluxe-plan-container">
                     </div>
                 </div>
             </div>
@@ -195,15 +123,23 @@
     </section>
 
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="/assets/js/fill_quote.js"></script>
+    <script src="/assets/js/price_details.js"></script>
     <script>
         function showNext(id) {
             $(id).show();
         }
 
-        window.publicKey = "{{ public_key }}"
+        window.publicKey = "{{ public_key }}";
+
+        $(document).ready(function() {
+          $('#cheap-plan-container').html(rts.priceCardHtml("cheap"));
+          $('#medium-plan-container').html(rts.priceCardHtml("medium"));
+          $('#deluxe-plan-container').html(rts.priceCardHtml("deluxe"));
+        });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="/assets/js/modernizr.custom.js"></script>
     <script src="/assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
@@ -212,5 +148,4 @@
     <script src="/assets/js/jquery.backgroundvideo.min.js"></script>
     <!--<script src="/assets/js/script.js"></script>-->
     <script src="/assets/js/libraries/forge.min.js"></script>
-    <script src="/assets/js/fill_quote.js"></script>
     {% endblock %}

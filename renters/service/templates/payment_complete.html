@@ -13,6 +13,9 @@
                    Please check your email for a confirmation of your quote.
                    We will give you a call shortly to follow-up and explain any questions you might have.
                 </p>
+                <h2>Your plan</h2>
+                <div id="plan-card">
+                </div>
                 <p>
                     Your estimated checkout price is: $<label id="estimated-price"></label>
                 </p>
@@ -22,13 +25,18 @@
 
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="/assets/js/price_details.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="/assets/js/modernizr.custom.js"></script>
 <script src="/assets/js/jquery.parallax.min.js"></script>
 <script src="/assets/js/startup-kit.js"></script>
 <script>
   $(document).ready(function() {
+    // TODO(dlluncor): Fix all the templates correctly.
     $('#estimated-price').text('' + localStorage['estimated-value']);
+    $('#plan-card').html(rts.priceCardHtml(localStorage['plan-bought']));
   });
 </script>
 {% endblock %}

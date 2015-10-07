@@ -163,7 +163,7 @@ def price():
     """
     try:
       data = request.get_json()
-      price = get_price_of_user_form(data, use_memorized_only=config.use_memorized_only)
+      price = get_price_of_user_form(data, config.use_memorized_only)
       return '%f' % (price)
     except Exception as e:
       line = traceback.format_exc()
@@ -211,7 +211,7 @@ def buy():
       except Exception as e:
           app.logger.error("Fail to connect to payment service. %s" % e)
 
-      memorized_price = get_price_of_user_form(data, use_memorized=False)
+      memorized_price = get_price_of_user_form(data, use_memorized_only=True)
       app.logger.info("Get price of the form")
       # Expand defaults so we know what we are assuming.
       renter_form_dict = data['renter_form']
@@ -219,6 +219,8 @@ def buy():
       renter_form_dict.update(defaults)
       # Log whatever price we have calculated here.
       renter_form_dict['policy_price'] = '$%.2f' % (memorized_price)
+      learned_price = get_price_of_user_form(data, use_memorized_only=False)
+      renter_form_dict['learned_policy_price'] = '$%.2f' % (learned_price)
 
       # Payment information
       renter_form = RenterForm(**renter_form_dict)

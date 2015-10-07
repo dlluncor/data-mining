@@ -95,6 +95,7 @@ ctrl.showFinalEstimate = function(value_chosen) {
    $('#estimated-value').text('$' + roundedPrice);
    // Save price to local storage.
    localStorage['estimated-value'] = roundedPrice;
+   localStorage['plan-bought'] = value_chosen;
 }
 
 // pay actually pays for the cost of the insurance.
