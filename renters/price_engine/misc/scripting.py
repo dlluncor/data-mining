@@ -1,4 +1,4 @@
-import json, logging, os.path, re, subprocess, sys, time
+import csv, datetime, json, logging, os.path, re, subprocess, sys, time
 from collections import OrderedDict
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
@@ -251,6 +251,44 @@ def pull_data_files(machine, tags):
         for f in files:
             download_file(ip, f['local_filepath'], f['remote_filepath'])
 
+def merge_result_files(machines, tags):
+    samples= []
+    for tag in tags:
+        for machine in machines:
+            for state in ['success']:
+                filepath = get_local_result_filepath(state, machine, tag=tag)
+                if os.path.exists(filepath):
+                    with open(filepath) as reader:
+                        for line in reader:
+                            sample = json.loads(line)
+                            samples.append(sample)
+
+    with open("%s/final_result.csv" % dataset['local_path'], 'wb') as fout:
+        writer = csv.writer(fout)
+        writer.writerow(['Insurance Type', 'Zip code', 'First name', 'Last name', 'Date of birth', 'Gender', 'Address', 'City', 'State', 'Auto insurance coverage?', 'Property Type', '# units', '# unrelated roommates', '# property losses in last 3 years', 'Phone number', 'Email address', 'Fire Sprinkler System?', 'Central Fire & Burglar Alarm?', 'Local Fire / Smoke Alarm?', 'Home Security?', 'Non Smoking Household?', 'Local Burglar Alarm?', 'Unusual hazards?', 'Dogs that bite?', 'Run a business from home?', 'Start date', 'Personal property worth', 'Loss of use', 'Medical payments', 'Personal liability', 'Farmers Identity Protection', 'Deductible', 'Policy number', 'Timestamp (seconds)', 'Policy price', 'Name of agent', 'Address of agent', 'Elancer Name'])
+        timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        for sample in sorted(samples, key=lambda x: int(x['id'])):
+            row = sample['data']
+            (insurance_type, zip_code, first_name, last_name, dob,
+            gender, address, city, state, has_auto_insurance_coverage,
+            property_type, unit_count, unrelated_roommates_count, roommate_names, property_losses_count, phone_number,
+            email, has_fire_sprinkler_system, has_center_fire_burglar_alarm, has_local_fire_smoke_alarm,
+            has_home_security, is_non_smoking_household, has_local_burglar_alarm, has_unusual_hazards,
+            has_bite_dog, is_running_bussiness, start_date, personal_property_value,
+            loss_of_use, medical_payment, personal_liability, farmers_identity_protection,
+            deductible, policy_price, annual_policy_price, agent_name, agent_address, agent_phone_number,
+            policy_number) = row
+            writer.writerow([insurance_type, zip_code, first_name, last_name, dob,
+                            gender, address, city, state, has_auto_insurance_coverage,
+                            property_type, unit_count, unrelated_roommates_count, property_losses_count, phone_number,
+                            email, has_fire_sprinkler_system, has_center_fire_burglar_alarm, has_local_fire_smoke_alarm,
+                            has_home_security, is_non_smoking_household, has_local_burglar_alarm, has_unusual_hazards,
+                            has_bite_dog, is_running_bussiness, start_date, personal_property_value,
+                            loss_of_use, medical_payment, personal_liability, farmers_identity_protection,
+                            deductible, policy_number, timestamp, policy_price,
+                            agent_name, agent_address, 'haoran'])
+
+
 def test(machine):
     output = execute_remote_cmds(machine['ip'], ['ls /tmp/'])
     print(output)
@@ -278,7 +316,7 @@ if __name__ == '__main__':
         'reboot': reboot_machine,
         'restart': restart_task,
         'start': start_scripting,
-        'test': test
+        'merge': merge_result_files
     }
 
     if args.id == 'all':
@@ -298,12 +336,16 @@ if __name__ == '__main__':
             username = raw_input("Please input Github account.\nUsername:")
             password = getpass.getpass()
 
-        if args.action == 'pull':
+        if args.action == 'pull' or args.action == 'merge':
             if args.tags is None:
                 logging.error("Please specify the tags of the file you want to download")
                 sys.exit("FAIL")
 
             tags = args.tags.split(',')
+
+        if name == 'merge':
+            merge_result_files(target_machines, tags)
+            sys.exit()
 
         for machine in target_machines:
             if name == 'init':
