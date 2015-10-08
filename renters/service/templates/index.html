@@ -25,7 +25,7 @@
                                 <input class="form-control" name="zip_code" type="text" placeholder="Zip Code">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-block btn-info">Start Quote</button>
+                                <button id="top-quote-btn" type="submit" class="btn btn-block btn-info">Start Quote</button>
                             </div>
                         </form>
                     </div>
@@ -101,7 +101,7 @@
                                 <input class="form-control" name="zip_code" type="text" placeholder="Zip Code">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-large btn-clear">Start Quote</button>
+                                <button  id="mid-quote-btn" type="submit" class="btn btn-large btn-clear">Start Quote</button>
                             </div>
                         </form>
 
@@ -144,7 +144,7 @@
                                 <input class="form-control" name="zip_code" type="text" placeholder="Zip Code">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-large btn-clear">Start Quote</button>
+                                <button  id="btm-quote-btn" type="submit" class="btn btn-large btn-clear">Start Quote</button>
                             </div>
                         </form>
                     </div>
@@ -165,4 +165,19 @@
 <script src="/assets/js/startup-kit.js"></script>
 <script src="/assets/js/jquery.backgroundvideo.min.js"></script>
 <script src="/assets/js/script.js"></script>
+<script src="/assets/js/libraries/jquery.scrolldepth.js"></script>
+<script type="text/javascript">
+  $(function() {  $.scrollDepth({labelPrefix:"HOME:"}); });
+</script>
+<script type="text/javascript">
+    $("#top-quote-btn").click(function() {
+        mixpanel.track("click HOME:btm-quote-btn");
+    })
+    $("#mid-quote-btn").click(function() {
+        mixpanel.track("click HOME:btm-quote-btn");
+    })
+    $("#btm-quote-btn").click(function() {
+        mixpanel.track("click HOME:btm-quote-btn");
+    })
+</script>
 {% endblock %}
