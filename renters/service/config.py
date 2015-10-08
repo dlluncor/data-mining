@@ -58,7 +58,7 @@ class ProductionConfig(Config):
 
     apis = {
         'mixpanel_token': os.environ.get('MIXPANEL_TOKEN') or DEFAULT_MIXPANEL_TOKEN,
-        'ga_token': os.environ.get('DEFAULT_GA_TOKEN') or DEFAULT_GA_TOKEN,
+        'ga_token': os.environ.get('GA_TOKEN') or DEFAULT_GA_TOKEN,
     }
 
 envs = {
