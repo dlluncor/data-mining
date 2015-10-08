@@ -80,7 +80,7 @@
                     </div>
                 </div>
             </div>
-            </dvi>
+        </div>
     </section>
 
 
@@ -155,5 +155,15 @@
       $(function() {  $.scrollDepth({labelPrefix:"QUOTE:"}); });
     </script>
     <script type="text/javascript">
+        $("#address a.btn").click(function() {
+            mixpanel.track("click QUOTE:#address:Continue");
+        })
+
+        $("#policy a.btn").click(function() {
+            mixpanel.track("click QUOTE:#policy:Continue");
+        })
+        $("#creditcard a.btn").click(function() {
+            mixpanel.track("click QUOTE:#creditcard:Complete");
+        })
     </script>
     {% endblock %}

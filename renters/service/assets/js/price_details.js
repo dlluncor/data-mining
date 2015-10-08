@@ -14,7 +14,7 @@ rts.priceTemplateStr = '   <div class="plan"> ' +
                      '           <br>' +
                      '          <b><%=deductible%></b> Deductible' +
                      '       </div>' +
-                     '       <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate(\'cheap\'); showNext(\'#creditcard\');">Select</a>' +
+                     '       <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate(\'cheap\'); showNext(\'#creditcard\');mixpanel.track(\'click QUOTE:#<%=price_div_id%>:Select\');">Select</a>' +
                      '   </div>';
 
 rts.priceTemplate = _.template(rts.priceTemplateStr);
