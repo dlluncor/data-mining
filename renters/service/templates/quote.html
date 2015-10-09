@@ -17,7 +17,7 @@
                             </div>
 
                             <div class="form-group">
-                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" href="#policy" onclick="showNext('#policy');">Continue</a>
+                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" href="#price-comparison" onclick="ctrl.showPriceComparison(); showNext('#price-comparison');">Continue</a>
                             </div>
                         </form>
                     </div>
@@ -28,44 +28,10 @@
         </div>
     </section>
 
-
-    <section id="policy" class="content-8 v-center" style="display: none;">
-        <div>
-            <a class="control-btn fui-arrow-up" href="#address" onclick="showNext('#address');"> </a>
-            <div class="container">
-                <h3>How can we contact you?</h3>
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                        <form>
-                            <div class="form-group">
-                                <input class="form-control" type="text" name="fname" placeholder="First Name" id="form-first-name">
-                                <input class="form-control" type="text" name="lname" autocomplete="family-name" placeholder="Last Name" id="form-last-name">
-                                <input class="form-control" type="email" placeholder="Email Address" id="form-email-address">
-                                <!--<input class="form-control" type="text" placeholder="Birth Date (MM/DD/YYYY)" id="form-dob">-->
-                                <input class="form-control" type="text" name="phone" autocomplete="tel" placeholder="Phone Number" id="form-phone-number">
-                                <!--<label>Choose your bundle type</label>
-                                <select class="form-control" id="form-purchase-category">
-                                  <option value="cheap">Cheapest</option>
-                                  <option value="medium">Medium</option>
-                                  <option value="deluxe">Deluxe</option>
-                                </select>-->
-                            </div>
-
-                            <div class="form-group">
-                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" href="#price-comparison" onclick="ctrl.showPriceComparison(); showNext('#price-comparison');">Continue</a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <!--<a class="control-btn fui-arrow-down" href="#price-comparison" onclick="ctrl.showEstimate(); showNext('#price-comparison');"> </a>-->
-        </div>
-    </section>
-
     <!-- price-1 -->
     <section id="price-comparison" class="content-8 v-center price-1" style="display: none;">
         <div>
-            <a class="control-btn fui-arrow-up" href="#policy" onclick="showNext('#policy');"> </a>
+            <a class="control-btn fui-arrow-up" href="#address" onclick="showNext('#address');"> </a>
             <div class="container">
                 <h3 style="text-align:center;">Take a look to our Coverage</h3>
                 <p class="lead" style="text-align:center;">
@@ -84,6 +50,34 @@
     </section>
 
 
+    <section id="contact-details" class="content-8 v-center" style="display: none;">
+        <div>
+            <a class="control-btn fui-arrow-up" href="#price-comparison" onclick="showNext('#price-comparison');"> </a>
+            <div class="container">
+                <h3>How can we contact you?</h3>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <form>
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="fname" placeholder="First Name" id="form-first-name">
+                                <input class="form-control" type="text" name="lname" autocomplete="family-name" placeholder="Last Name" id="form-last-name">
+                                <input class="form-control" type="email" placeholder="Email Address" id="form-email-address">
+                                <input class="form-control" type="text" name="phone" autocomplete="tel" placeholder="Phone Number" id="form-phone-number">
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group" style="padding-top:10px;">
+                                    <a class="btn btn-large btn-clear" class="btn btn-block btn-info" onclick="ctrl.pay();">Complete signup</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--<a class="control-btn fui-arrow-down" href="#price-comparison" onclick="ctrl.showEstimate(); showNext('#price-comparison');"> </a>-->
+        </div>
+    </section>
+
+<!--
     <section id="creditcard" class="content-8 v-center" style="display: none;">
         <div>
             <a class="control-btn fui-arrow-up" href="#price-comparison" onclick="showNext('#price-comparison');"> </a>
@@ -119,9 +113,10 @@
                         </form>
                     </div>
                 </div>
-            </div> <!-- container -->
+            </div>
         </div>
     </section>
+-->
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

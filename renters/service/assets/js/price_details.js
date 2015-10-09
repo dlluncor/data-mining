@@ -14,14 +14,14 @@ rts.priceTemplateStr = '   <div class="plan"> ' +
                      '           <br>' +
                      '          <b><%=deductible%></b> Deductible' +
                      '       </div>' +
-                     '       <a class="btn btn-primary" href="#creditcard" onclick="ctrl.showFinalEstimate(\'cheap\'); showNext(\'#creditcard\');mixpanel.track(\'click QUOTE:#<%=price_div_id%>:Select\');">Select</a>' +
+                     '       <a class="btn btn-primary" href="#contact-details" onclick="ctrl.showFinalEstimate(\'<%=key%>\'); showNext(\'#contact-details\');mixpanel.track(\'click QUOTE:#<%=price_div_id%>:Select\');">Select</a>' +
                      '   </div>';
 
 rts.priceTemplate = _.template(rts.priceTemplateStr);
 
-rts.priceCardHtml = function(option) {
-  var d = {
+rts.d = {
     "cheap": {
+      "key": "cheap",
       "title": "Starter",
       "personal_liability": "$100,000",
       "personal_property": "$4,000",
@@ -30,6 +30,7 @@ rts.priceCardHtml = function(option) {
       "price_div_id": "starter-price",
     },
     "medium": {
+      "key": "medium",
       "title": "Split w/ Roommates",
       "personal_liability": "$100,000",
       "personal_property": "$30,000",
@@ -38,6 +39,7 @@ rts.priceCardHtml = function(option) {
       "price_div_id": "medium-price",
     },
     "deluxe": {
+      "key": "deluxe",
       "title": "Deluxe",
       "personal_liability": "$300,000",
       "personal_property": "$60,000",
@@ -45,16 +47,14 @@ rts.priceCardHtml = function(option) {
       "deductible": "$1000",
       "price_div_id": "deluxe-price",
     }
-  };
-  var dataVal = d[option];
+};
+
+rts.priceCardHtml = function(option) {
+  var dataVal = rts.d[option];
   return rts.priceTemplate(dataVal);
 };
 
-// option == cheap, medium, deluxe
-rts.toFullName = function(option) {
-  d = {
-    "cheap": "Starter",
-    "medium": "Split w/ Roommates",
-    "deluxe": "Deluxe",
-  };
+rts.divId = function(option) {
+  var dataVal = rts.d[option];
+  return dataVal['price_div_id'];
 };

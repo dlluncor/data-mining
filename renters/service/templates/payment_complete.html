@@ -39,9 +39,6 @@ window._fbq.push(['track', '6034168879840', {'value':'0.00','currency':'USD'}]);
                 <h2>Your plan</h2>
                 <div class="col-sm-offset-4 col-sm-4" id="plan-card">
                 </div>
-                <p style="clear: both;">
-                    Your estimated checkout price is: $<label id="estimated-price"></label>
-                </p>
             </div>
         </div>
     </section>
@@ -57,9 +54,12 @@ window._fbq.push(['track', '6034168879840', {'value':'0.00','currency':'USD'}]);
 <script src="/assets/js/startup-kit.js"></script>
 <script>
   $(document).ready(function() {
-    // TODO(dlluncor): Fix all the templates correctly.
-    $('#estimated-price').text('' + localStorage['estimated-value']);
-    $('#plan-card').html(rts.priceCardHtml(localStorage['plan-bought']));
+    var price = localStorage['estimated-value'];
+    //$('#estimated-price').text('' + price);
+    var planBought = localStorage['plan-bought'];
+    $('#plan-card').html(rts.priceCardHtml(planBought));
+    var priceDivId = rts.divId(planBought);
+    $('#' + priceDivId).html('$' + price + ' / month');
     $('#plan-card a.btn').hide();
   });
 </script>
