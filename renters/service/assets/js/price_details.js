@@ -14,7 +14,7 @@ rts.priceTemplateStr = '   <div class="plan"> ' +
                      '           <br>' +
                      '          <b><%=deductible%></b> Deductible' +
                      '       </div>' +
-                     '       <a class="btn btn-primary" href="#contact-details" onclick="ctrl.showFinalEstimate(\'<%=key%>\'); showNext(\'#contact-details\');mixpanel.track(\'click QUOTE:#<%=price_div_id%>:Select\');">Select</a>' +
+                     '       <a class="btn btn-primary" href="#contact-details" onclick="ctrl.showFinalEstimate(\'<%=key%>\'); showNext(\'#contact-details\');mixpanel.track(\'click QUOTE:#<%=price_div_id%>:Select\');window.purchase_category=\'<%= key %>\'">Select</a>' +
                      '   </div>';
 
 rts.priceTemplate = _.template(rts.priceTemplateStr);

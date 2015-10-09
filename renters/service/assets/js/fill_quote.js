@@ -5,7 +5,7 @@ var ctrl = {
 ctrl.getRenterForm = function() {
   var d = {
     "insurance_type": "renters",
-    "purchase_category": $('#form-purchase-category').val(),
+    "purchase_category": window.purchase_category,
     "dob": $('#form-dob').val(),
     "first_name": $('#form-first-name').val(),
     "last_name": $('#form-last-name').val(),
@@ -61,7 +61,7 @@ ctrl.showPriceComparison = function() {
     contentType : 'application/json',
     type: "POST"
   }).done(function(data) {
-     // Update the 3 prices 
+     // Update the 3 prices
      window.console.log('showPriceComparison response');
      window.console.log(data);
      ctrl.prices = data['prices'];
@@ -102,8 +102,20 @@ ctrl.showFinalEstimate = function(value_chosen) {
 ctrl.pay = function() {
   window.console.log('ctrl.pay');
   var form = ctrl.getRenterForm();
-  var payment = ctrl.getPaymentForm();
-  form['payment_form'] = payment;
+  //var payment = ctrl.getPaymentForm();
+  //form['payment_form'] = payment;
+
+  var id = mixpanel.get_distinct_id()
+  mixpanel.identify(id)
+  mixpanel.people.set({
+    "$first_name": form.renter_form.first_name,
+    "$last_name": form.renter_form.last_name,
+    "$email": form.renter_form.email_address,
+  });
+
+  mixpanel.track("Register", {
+    "email": form.renter_form.email_address
+  });
   // Gather all the form values into a dictionary to send to the backend.
   $.ajax({
     url: "/buy",

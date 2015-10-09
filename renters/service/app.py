@@ -125,7 +125,6 @@ def get_price_of_user_form(data, use_memorized_only, l_config=None):
   if l_config is None:
     l_config = renter_constants.learned_config2
     model_cfg.change_dirs('../price_engine/models', l_config.model_configs)
-
   price = renters_serving_scorer.get_price(l_config, renter_form_dict, use_memorized_only)
   return price
 
@@ -193,23 +192,23 @@ def buy():
     """
     try:
       data = request.get_json()
-      payment_form = data['payment_form']
-
-      # Store payment information, get token and save it into renter_form_dict.
       token = None
-      headers = {'content-type': 'application/json'}
+      if data.get('payment_form', None):
+          payment_form = data['payment_form']
+          # Store payment information, get token and save it into renter_form_dict.
+          headers = {'content-type': 'application/json'}
 
-      try:
-          r = requests.post(config.payment_endpoint, data=json.dumps(payment_form), headers=headers)
-          result = r.json()
-          if result['status'] == 'success':
-              app.logger.info("Success to store credit card info.")
-              token = result['token']
-          else:
-              app.logger.error("Fail to store credicard. {message}".format(**result) )
-              return jsonify(status='fail', message="Invalid Credit Card Information")
-      except Exception as e:
-          app.logger.error("Fail to connect to payment service. %s" % e)
+          try:
+              r = requests.post(config.payment_endpoint, data=json.dumps(payment_form), headers=headers)
+              result = r.json()
+              if result['status'] == 'success':
+                  app.logger.info("Success to store credit card info.")
+                  token = result['token']
+              else:
+                  app.logger.error("Fail to store credicard. {message}".format(**result) )
+                  return jsonify(status='fail', message="Invalid Credit Card Information")
+          except Exception as e:
+              app.logger.error("Fail to connect to payment service. %s" % e)
 
       memorized_price = get_price_of_user_form(data, use_memorized_only=True)
       app.logger.info("Get price of the form")
