@@ -22,6 +22,7 @@ ctrl.getRenterForm = function() {
   return form;
 }
 
+/*
 ctrl.encrypt = function(text) {
   var publicKey = forge.pki.publicKeyFromPem(window.publicKey);
   var encrypted = publicKey.encrypt(text, 'RSA-OAEP');
@@ -45,7 +46,7 @@ ctrl.getPaymentForm = function() {
   };
   return encrypted;
 };
-
+*/
 ctrl.round = function(num) {
   return num.toFixed(2);
 }
