@@ -1,4 +1,11 @@
-{% extends "partials/base.html" %} {% block body %} {{ super() }}
+{% extends "partials/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/quote.min.css">
+    {{ super() }}
+{% endblock %}
+
+{% block body %} {{ super() }}
 
 <div class="page-wrapper">
     <section id="address" class="content-8 v-center">

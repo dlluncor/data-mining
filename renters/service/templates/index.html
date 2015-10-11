@@ -1,4 +1,8 @@
 {% extends "partials/base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/home.min.css">
+    {{ super() }}
+{% endblock %}
 
 {% block body %}
 {{ super() }}
