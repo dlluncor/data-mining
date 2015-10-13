@@ -4,8 +4,8 @@ from collections import OrderedDict
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
 machines = [
-    {'id': 0,  'ip': '52.88.94.166'},# 'filename': 'error_no_crosses.json', 'tag': 'missed'},
-    {'id': 1,  'ip': '52.27.211.54'},# 'filename': 'error_no_crosses.json', 'tag': 'missed'}  ,
+    {'id': 0,  'ip': '54.186.155.71'},# 'filename': 'error_no_crosses.json', 'tag': 'missed'},
+    {'id': 1,  'ip': '52.88.54.115'},# 'filename': 'error_no_crosses.json', 'tag': 'missed'}  ,
     #{'id': 2,  'ip': '52.26.49.136'} ,
     #{'id': 3,  'ip': '52.88.205.83'} ,
     #{'id': 4,  'ip': '52.89.202.119'},
@@ -130,7 +130,7 @@ def check_status(machine):
         'printf " count: "',
         'FILE_PATH={filepath}; test -e $FILE_PATH && wc -l $FILE_PATH | cut -d " " -f 1'.format(filepath=get_remote_result_filepath('error', machine)),
 
-        'printf "\nFiles under /tmp:\n"',
+        'printf "\nFiles under %s:\n"' % dataset['remote_path'],
         'ls %s' % dataset['remote_path']
     ]
     cmd = create_remote_cmd(ip, cmds)
