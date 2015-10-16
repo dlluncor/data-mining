@@ -37,12 +37,21 @@ def home_page():
 def quote_page():
     # The Amazon Elastic Load Balancer (ELB) supports a HTTP header called X-FORWARDED-PROTO.
     # All the HTTPS requests going through the ELB will have the value of X-FORWARDED-PROTO equal to 'HTTPS'.
-    zip_code = request.form.get('zip_code')
     if request.headers.get('X-Forwarded-Proto') == 'http':
         secure_qoute = "https://rentsafe.co/quote"
         return redirect(secure_qoute, code=302)
 
-    return util.render_common_template('quote.html', public_key=config.public_key, zip_code=zip_code)
+    # Log what the user had regarding their email and first name.
+    # (Do it by sending an email to us).
+    first_name = request.form.get('first_name')
+    email = request.form.get('email')
+    founders = ['cl@rentsafe.co', 'dl@rentsafe.co', 'gc@rentsafe.co']
+    util.send_simple_email(
+      founders, 
+      subject='{name} just entered Get a quote on rentsafe.co'.format(name=first_name), 
+      body='Go follow up with {email}!'.format(email=email),
+      from_person='dl@rentsafe.co')
+    return util.render_common_template('quote.html', public_key=config.public_key)
 
 @app.route('/payment_complete')
 def payment_complete_page():

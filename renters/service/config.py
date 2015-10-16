@@ -44,9 +44,11 @@ class Config:
 
 
 class DevelopmentConfig(Config):
+    enable_send_email = False
     DEBUG = True
 
 class TestingConfig(Config):
+    enable_send_email = False
     TEST = True
 
 class ProductionConfig(Config):
