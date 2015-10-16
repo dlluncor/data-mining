@@ -65,6 +65,7 @@ def script_web_page(b, data, tag, path)
     sleep(2)
 
     log_status("\tReach STEP 1", tag, path)
+    # Sometime HTML elements detect the user input so they can respond. We need to shut those off.
     b.execute_script("var el=document.getElementById('preapp:datepicker'); el.onblur=null;el.onchange=null;el.onclick=null;el.onfocus=null;el.onkeydown=null;el.onkeypress=null;el.onkeyup=null;return 1;")
     b.text_field(:id => "preapp:FirstName").set first_name
     b.text_field(:id => "preapp:LastName").set last_name

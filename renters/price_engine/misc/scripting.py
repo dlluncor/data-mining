@@ -11,6 +11,9 @@ machines = [
     #{'id': 4,  'ip': '52.89.202.119'},
 ]
 
+# Price relative to the price_engine path.
+# relative_path_for_local_file = local_path + filename
+# absolute_path_for_remote_file = remote_path + filename
 dataset = {
     'local_path': 'data/new_data_set',
     'remote_path': '~/data-mining/renters/price_engine/data/new_data_set',
