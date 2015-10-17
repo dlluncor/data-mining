@@ -19,14 +19,14 @@
                     <div class="col-sm-6 col-sm-offset-3">
                         <form>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Address" id="form-address">
-                                <input class="form-control" type="text" placeholder="City" id="form-city">
-                                <input class="form-control" type="text" placeholder="State" id="form-state">
-                                <input class="form-control" type="text" placeholder="Zip Code" id="form-zip-code">
+                                <input class="form-control" type="text" placeholder="Address" id="form-address" required>
+                                <input class="form-control" type="text" placeholder="City" id="form-city" required>
+                                <input class="form-control" type="text" placeholder="State" id="form-state" required>
+                                <input class="form-control" type="text" placeholder="Zip Code" id="form-zip-code" required>
                             </div>
 
                             <div class="form-group">
-                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" href="#price-comparison" onclick="ctrl.showPriceComparison(); showNext('#price-comparison');">Continue</a>
+                                <a class="btn btn-large btn-clear" class="btn btn-block btn-info" href="#price-comparison" onclick="ctrl.showPriceComparison(); showNext('#price-comparison');" value="Continue">Continue</a>
                             </div>
                         </form>
                     </div>

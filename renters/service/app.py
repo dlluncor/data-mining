@@ -235,7 +235,7 @@ def buy():
       renter_form.token = token
       renter_form.save()
       app.logger.info("Save the form to database")
-      util.send_email(renter_form.email_address, 'Thank You for Trusting! Confirmation for Your Purchase!',
+      util.send_email([renter_form.email_address], 'Thank You for Trusting! Confirmation for Your Purchase!',
                       'email/confirmation.html', 'email/confirmation.txt', **renter_form_dict)
       return jsonify(status='success')
 
